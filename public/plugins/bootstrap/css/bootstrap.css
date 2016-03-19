@@ -5,12 +5,12 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  font-family: sans-serif;        btn-success
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-body {
-  margin: 0;
+body { 
+  margin: 0;   
 }
 article,
 aside,
@@ -1083,10 +1083,10 @@ html {
 }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: #E8ECF4;
 }
 input,
 button,
@@ -3899,10 +3899,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   vertical-align: middle;
 }
 .input-group-addon {
-  padding: 6px 12px;
-  font-size: 14px;
+  /*padding: 6px 12px;*/
+  /*font-size: 14px;*/
   font-weight: normal;
-  line-height: 1;
+  /*line-height: 1;*/
   color: #555;
   text-align: center;
   background-color: #eee;
@@ -4363,7 +4363,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
+    padding-top: 25px;
     padding-bottom: 15px;
   }
 }
@@ -4498,6 +4498,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
+  -webkit-box-shadow: 9px 9px 29px -5px rgba(114,132,219,0.62);
+-moz-box-shadow: 9px 9px 29px -5px rgba(114,132,219,0.62);
+box-shadow: 7px 7px 29px -5px rgba(114,132,219,0.62);
+border-radius: 15px;
+
 }
 .navbar-default .navbar-brand {
   color: #777;
@@ -4516,7 +4521,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #333;
-  background-color: transparent;
+  background-color: white;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -5466,6 +5471,11 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  -webkit-box-shadow: 9px 9px 29px -5px rgba(114,132,219,0.62);
+-moz-box-shadow: 9px 9px 29px -5px rgba(114,132,219,0.62);
+box-shadow: 4px 4px 29px -5px rgba(114,132,219,0.62);
+border-radius: 15px;
+
 }
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit;

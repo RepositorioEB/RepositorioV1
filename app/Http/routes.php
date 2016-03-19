@@ -15,6 +15,9 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 });*/
+
+
+
 Route::group(['middleware' => 'web'], function () {
 
 // -----Vista principal
@@ -91,12 +94,42 @@ Route::group(['middleware' => 'web'], function () {
       });
 
       Route::group(['prefix' => 'member', 'middleware' => ['auth','MemberMw']],function(){
-        Route::get('/', ['as' => 'member.index', function () {
-          return view('home');
-        }]);
-        
+          Route::get('/', ['as' => 'member.index', function () 
+          {
+            return view('home');
+          }]);
+          
+          //Routes chat
+          Route::resource('users_chats', 'User_ChatController');
+          Route::get('contactos',function()
+          {
+            $users = DB::table('users')->paginate(30);
+            return view('member.users_chats.consulta')->with('users', $users);
+          });
+          Route::get('llamando',function()
+          {
+            $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
+            $users = DB::table('users')->paginate(30);
+            return view('member.users_chats.conversation')->with('users', $users)->with('users_chats', $users_chats);
+          });
+          //End routes chat
+          
+          //Routes Foro
+          Route::resource('foros', 'ForumController');
+          Route::resource('foros_usuarios', 'Forum_UserController');
+
+          Route::get('foros-lista',function()
+          {
+            $forums = DB::table('forums')->paginate(30);
+            $users = DB::table('users')->paginate(30);
+            return view('member.forums_users.list')->with('forums', $forums)->with("users",$users);
+          });
+          //End routes chat
       });
 });
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -172,5 +205,18 @@ Route::group(['middleware' =>['web'], 'prefix'=> 'admin'], function(){
     'uses' => 'TypeController@destroy',
     'as' => 'admin.types.destroy'
     ]);
+
+        //route chat
+  Route::resource('users_chats', 'User_ChatController');
+  Route::get('contactos',function(){
+        $users = DB::table('users')->paginate(30);
+        return view('admin.users_chats.consulta')->with('users', $users);
+    });
+  Route::get('llamando',function(){
+        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
+        $users = DB::table('users')->paginate(30);
+        return view('admin.users_chats.conversation')->with('users', $users)->with('users_chats', $users_chats);
+    });
+
 });
 */
