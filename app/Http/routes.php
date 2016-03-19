@@ -20,7 +20,7 @@ Route::group(['middleware' => 'web'], function () {
 
 Route::group(['middleware' => 'web'], function () {
 
-// -----Vista principal
+      // -----Vista principal
       Route::get('/', function () {
         if(Auth::check()){
           return Redirect::to('member');
@@ -28,15 +28,16 @@ Route::group(['middleware' => 'web'], function () {
         return view('welcome');
       });
 
-// -----Autenticación
+      // -----Autenticación
       Route::auth();
-
+      
+      // --------------> Routes Admin <------------ 
       Route::group(['prefix' => 'admin', 'middleware' => ['auth','AdminMw']],function(){
         // --------------> Home <------------ 
         Route::get('/', ['as' => 'admin.index', function () {
           return view('welcome');
         }]);
-
+        // --------------> CRUD Perfiles <------------ 
         Route::resource('profiles', 'ProfileController');
         Route::get('profiles/{id}/destroy', [
           'uses' => 'ProfileController@destroy',
@@ -93,6 +94,7 @@ Route::group(['middleware' => 'web'], function () {
 
       });
 
+      // --------------> Routes Member <------------ 
       Route::group(['prefix' => 'member', 'middleware' => ['auth','MemberMw']],function(){
           Route::get('/', ['as' => 'member.index', function () 
           {
@@ -126,6 +128,7 @@ Route::group(['middleware' => 'web'], function () {
           });
           //End routes chat
       });
+
 });
 
 
