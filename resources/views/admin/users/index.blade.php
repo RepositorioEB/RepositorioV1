@@ -47,9 +47,9 @@
 					</td>
 					<td>{{ $user->profile->name }}</td>
 					<td>
-						<a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-						<a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
-						<a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a>
+						<a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
+						<a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true">Eliminar</span></a>
+						<a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-info" title="Consultar"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Consultar</span></a>
 					</td>
 				</tr>
 			@endforeach

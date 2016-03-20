@@ -20,9 +20,9 @@
 	<center>
 	{!! Form::open(['route' => 'chat.users_chats.index','method'=>'GET','target'=>'_blank'])!!}
 		<div class="input-group">
-		{!! Form::label('seleccion', 'Seleccione el contacto: &nbsp;')!!}				
-		{!! Form::select('nombredestino',$array)!!}
-		<br><br>		
+		{!! Form::label('seleccion', 'Seleccione el contacto: &nbsp;',['class'=>'form-control'])!!}				
+		{!! Form::select('nombredestino',$array,null,['title'=>'Seleccionar Usuario','class'=>'form-control'])!!}
+		<br><br><br><br>		
 		<center>
 		{!! Form::submit('Chatear',['class'=>'btn btn-primary'])!!}
 		</center>

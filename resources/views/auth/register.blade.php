@@ -10,7 +10,7 @@
                             <label class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <input type="text" title="Nombre" class="form-control" name="name" value="{{ old('name') }}">
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -24,7 +24,7 @@
                             <label class="col-md-4 control-label">Nombre de usuario</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="username" value="{{ old('username') }}">
+                                <input type="text" title="Nombre de usuario" class="form-control" name="username" value="{{ old('username') }}">
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">
@@ -38,7 +38,7 @@
                             <label class="col-md-4 control-label">Correo electrónico</label>
 
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input type="email" title="Correo electronico" class="form-control" name="email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -52,7 +52,7 @@
                             <label class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
+                                <input type="password" title="Contraseña" class="form-control" name="password">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -66,7 +66,7 @@
                             <label class="col-md-4 control-label">Confirmar contraseña</label>
 
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
+                                <input type="password" title="Confirmar contraseña" class="form-control" name="password_confirmation">
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
@@ -80,7 +80,7 @@
                             <label class="col-md-4 control-label">Genero</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="gender">
+                                <select title="Seleccionar genero" class="form-control" name="gender">
                                   <option value="man">Hombre</option>
                                   <option value="woman">Mujer</option>
                                 </select>
@@ -94,10 +94,10 @@
                         </div>  
 
                         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Fechad de nacimiento</label>
+                            <label class="col-md-4 control-label">Fecha de nacimiento</label>
 
                             <div class="col-md-6">
-                                <input type="date" class="form-control" name="date" value="{{ old('date') }}" >
+                                <input type="date" title="Fecha de nacimiento" class="form-control" name="date" value="{{ old('date') }}" >
 
                                 @if ($errors->has('date'))
                                     <span class="help-block">
@@ -111,7 +111,7 @@
                             <label class="col-md-4 control-label">Discapacidad</label>
 
                             <div class="col-md-6">
-                                {!! Form::select('profile_id', \App\Profile::orderBy('name', 'ASC')->lists('name', 'id'), null, ['class' => 'form-control','required']) !!}
+                                {!! Form::select( 'profile_id', \App\Profile::orderBy('name', 'ASC')->lists('name', 'id'), null, ['title' =>'Seleccionar discapacidad','class' => 'form-control','required']) !!}
 
                                 @if ($errors->has('profile_id'))
                                     <span class="help-block">
@@ -137,7 +137,7 @@
     
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" title="Boton registro" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i>Registro
                                 </button>
                             </div>

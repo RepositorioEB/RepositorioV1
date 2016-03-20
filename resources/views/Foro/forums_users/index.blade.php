@@ -3,12 +3,12 @@
 @section('title', 'Foro' )
 
 @section('content')
-    <label>Nombre del foro: </label> {{$foros->name}}
+    <label><h4>Nombre del foro: &nbsp;</h4></label> {{$foros->name}}
     <br>     
     <br><br>
     {!! Form::open(['route' => ['foro.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>$_GET['user_id']],'method' => 'POST']) !!}
         <div class="form-group">
-            <input type="text" name="message" size="40">
+            <input type="text" placeholder="Opinion" title="Campo de mensaje" name="message" size="40">
              {!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}
         </div>
     {!! Form::close() !!}
@@ -30,3 +30,4 @@
         {!! $foros_usuarios->appends(array('forum_id' => $_GET['forum_id'],'user_id' => $_GET['user_id']))->links()!!}
     </div>
 @endsection
+
