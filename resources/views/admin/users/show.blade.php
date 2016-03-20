@@ -5,7 +5,7 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<a href="{{ route('admin.users.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
+	<a href="{{ route('admin.users.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>

@@ -8,7 +8,7 @@
 	<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
 	{!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 		<div class="input-group">
-			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar usuario', 'aria-describedby' => 'search']) !!}
+			{!! Form::text('name', null, ['title'=>'Buscar usuario','class' => 'form-control', 'placeholder' => 'Buscar usuario', 'aria-describedby' => 'search']) !!}
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 		</div>
 	{!! Form::close() !!}
@@ -33,16 +33,16 @@
 					<td>{{ $user->email }}</td>
 					<td>
 						@if ($user->state)
-							<span class="label label-danger">{{ 'Activo' }}</span>
+							<h4><span class="label label-danger">{{ 'Activo' }}</span></h4>
 						@else
-							<span class="label label-primary">{{ 'Solicitud' }}</span>
+							<h4><span class="label label-primary">{{ 'Solicitud' }}</span></h4>
 						@endif
 					</td>
 					<td>
 						@if ($user->role == "admin")
-							<span class="label label-danger">{{ $user->role }}</span>
+							<h4><span class="label label-danger">{{ $user->role }}</span></h4>
 						@else
-							<span class="label label-primary">{{ $user->role }}</span>
+							<h4><span class="label label-primary">{{ $user->role }}</span></h4>
 						@endif
 					</td>
 					<td>{{ $user->profile->name }}</td>

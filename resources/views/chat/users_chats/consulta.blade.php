@@ -42,7 +42,7 @@
 				<tr>
 					<td>{{ $user->username }}</td>
 					<td>
-						<a href="{{ route('chat.users_chats.index', ['nombredestino' => $user->username]) }}" target="_blank" class="btn btn-default btn-lg active"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a>
+						<a href="{{ route('chat.users_chats.index', ['nombredestino' => $user->username]) }}" target="_blank" class="btn btn-default btn-lg active"><span class="glyphicon glyphicon-phone" aria-hidden="true">Seleccionar</span></a>
 					</td>
 				</tr>
 				@endif

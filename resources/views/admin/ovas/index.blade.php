@@ -5,7 +5,7 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ovaa</a>
+	<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 	{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 		<div class="input-group">
 			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
@@ -17,7 +17,7 @@
 		<thead>
 			<th>Id</th>
 			<th>Nombre</th>
-			<th>Punctuacion</th>
+			<th>Puntuacion</th>
 			<th>Tipo</th>
 			<th>Categoria</th>
 			<th>Accion</th>

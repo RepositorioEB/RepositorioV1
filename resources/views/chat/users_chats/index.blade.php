@@ -23,7 +23,7 @@
     </div>
     {!! Form::open(['route' => ['chat.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}
     
-    <input type="text" name="mensaje" size="40">
+    <input type="text" placeholder="Mensaje" name="mensaje" size="40">
 
         <div class="form-group">
             {!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}

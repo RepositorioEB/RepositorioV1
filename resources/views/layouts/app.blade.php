@@ -53,7 +53,7 @@
             <div class="section-admin">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="panel-title">@yield('title')<h5 class="navbar-form pull-right"><script language="JavaScript" type="text/javascript" >document.write(TODAY);</script></h5></div>
+                        <div class="panel-title"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> @yield('title')<h5 class="navbar-form pull-right"><script language="JavaScript" type="text/javascript" >document.write(TODAY);</script></h5></div>
                     </div>
                     <div class="row">
                         <div class="col-md-9">

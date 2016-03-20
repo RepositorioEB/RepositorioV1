@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;        btn-success
+  font-family: sans-serif;       btn
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -4498,7 +4498,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
-  -webkit-box-shadow: 9px 9px 29px -5px rgba(114,132,219,0.62);
+-webkit-box-shadow: 9px 9px 29px -5px rgba(114,132,219,0.62);
 -moz-box-shadow: 9px 9px 29px -5px rgba(114,132,219,0.62);
 box-shadow: 7px 7px 29px -5px rgba(114,132,219,0.62);
 border-radius: 15px;

@@ -9,7 +9,6 @@
             </button>
         </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
-      
         <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                  <li><a href="{{ url('/') }}" title="Inicio">Inicio</a></li>
@@ -18,6 +17,7 @@
                     <li><a href="{{ url('/login') }}" title="Ingresar">Ingresar</a></li>
                     <li><a href="{{ url('/register') }}" title="Registrarse">Registrarse</a></li>
                 @else
+                    <!--
                     @if (Auth::user()->role === 'admin')
                         <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
                         <li><a href="{{ route('admin.profiles.index') }}">Perfiles</a></li>
@@ -30,8 +30,8 @@
                         <li><a href="{{ route('admin.problems.index') }}">Problema</a></li>
                     @else
 
-                    @endif
-                    <li><a href="{{ route('admin.users.index') }}" title="Usuarios">Usuarios</a>
+                    @endif-->
+                    <li><a href="{{ route('admin.users.index') }}" >Usuarios<span class="caret"></span></a>
                         <ul>
                             <li><a href="" title="Submenu1">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -46,7 +46,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.profiles.index') }}" title="Perfiles">Perfiles</a>
+                    <li><a href="{{ route('admin.profiles.index') }}" >Perfiles<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -61,7 +61,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.ovas.index') }}" title="Objetos">Objetos</a>
+                    <li><a href="{{ route('admin.ovas.index') }}" >Objetos<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -76,7 +76,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.forums.index') }}" title="Foros">Foros</a>
+                    <li><a href="{{ route('admin.forums.index') }}" >Foros<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -91,7 +91,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.helps.index') }}" title="Ayuda">Ayuda</a>
+                    <li><a href="{{ route('admin.helps.index') }}" >Ayuda<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -106,7 +106,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.categories.index') }}" title="Categoria">Categoria</a>
+                    <li><a href="{{ route('admin.categories.index') }}" >Categoria<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -121,7 +121,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.types.index') }}" title="Tipo">Tipo</a>
+                    <li><a href="{{ route('admin.types.index') }}" >Tipo<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -136,7 +136,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.downloads.index') }}" title="Descargas">Descargas</a>
+                    <li><a href="{{ route('admin.downloads.index') }}" >Descargas<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -151,7 +151,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('admin.problems.index') }}" title="Problema">Problema</a>
+                    <li><a href="{{ route('admin.problems.index') }}" >Problema<span class="caret"></span></a>
                         <ul>
                             <li><a href="">Submenu1</a></li>
                             <li><a href="">Submenu2</a></li>
@@ -179,10 +179,10 @@
             </ul>
 
       <ul class="nav navbar-nav navbar-left">
-        <img alt="Universidad Distrital"  class="admin-logo-nav" src="{{ asset('images/logos.png') }}" width=120 height=120></img>
+        <img alt="Universidad Distrital"  class="admin-logo-nav" src="{{ asset('images/logos.png') }}" width=100 height=100></img>
       </ul>
       <ul class="nav navbar-nav navbar-left">
-        <div> <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROVAA </h1></div>
+        <div> <h3>ROVAA</h3></div>
       </ul>
         </div>
     </div>
