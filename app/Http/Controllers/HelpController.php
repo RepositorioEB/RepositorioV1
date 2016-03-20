@@ -51,7 +51,7 @@ class HelpController extends Controller
     public function store(HelpRequest $request)
     {
         $helps = new Help($request->all());
-        $helps->user_id = \Auth::user();
+        $helps->user_id = \Auth::user()->id;
         $helps->save();
         Flash::success("Se ha registrado la ayuda " .$helps->name. " con exito!");
         return redirect()->route('admin.helps.index');

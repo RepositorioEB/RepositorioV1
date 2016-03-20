@@ -12,7 +12,7 @@ class User_ChatController extends Controller
     public function index(Request $request)
     {   	
         $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
-    	return view('member.users_chats.index')->with('users_chats', $users_chats);
+    	return view('chat.users_chats.index')->with('users_chats', $users_chats);
     }
     public function create()
     {
@@ -22,7 +22,7 @@ class User_ChatController extends Controller
     {
             $users_chats = new User_chat($request->all());
             $users_chats->save();
-            return redirect()->route('member.users_chats.index',['nombredestino'=>$request->namedestino]);
+            return redirect()->route('chat.users_chats.index',['nombredestino'=>$request->namedestino]);
     }
 
     public function show($id)

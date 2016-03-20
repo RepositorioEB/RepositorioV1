@@ -6,7 +6,7 @@
     <label>Nombre del foro: </label> {{$foros->name}}
     <br>     
     <br><br>
-    {!! Form::open(['route' => ['member.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>$_GET['user_id']],'method' => 'POST']) !!}
+    {!! Form::open(['route' => ['foro.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>$_GET['user_id']],'method' => 'POST']) !!}
         <div class="form-group">
             <input type="text" name="message" size="40">
              {!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}

@@ -24,7 +24,7 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'min:5|max:30|required',
+            'name' => 'min:4|max:30|required',
             'last_name' => 'max:30',
             'username' => 'min:4|max:10|required|unique:users',
             'email' => 'min:7|max:30|required|unique:users',

@@ -15,6 +15,7 @@
 			<th>Genero</th>
 			<th>F.Nacimiento</th>
 			<th>Estudios</th>
+			<th>Pais</th>
 		</thead>
 		<tbody>
 				<tr>
@@ -25,6 +26,7 @@
 					<td>{{ $user->gender }}</td>
 					<td>{{ $user->date }}</td>
 					<td>{{ $user->studies }}</td>
+					<td>{{ $user->country }}</td>
 				</tr>
 		</tbody>	
 	</table>

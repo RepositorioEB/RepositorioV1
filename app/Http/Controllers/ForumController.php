@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Forum;
 
+use Laracasts\Flash\Flash;
+
 class ForumController extends Controller
 {
     /**
@@ -43,7 +45,8 @@ class ForumController extends Controller
     public function store(Request $request)
     {
         $forums = new Forum($request->all());
-        $forums->user_id = \Auth::user();
+
+        $forums->user_id = \Auth::user()->id;
         $forums->save();
         Flash::success("Se ha creado el foro " .$forums->name. " con exito!");
         return redirect()->route('admin.forums.index');

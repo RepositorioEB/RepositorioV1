@@ -13,15 +13,14 @@ class AddUsersChats extends Migration
     public function up()
     {
         Schema::create('users_chats', function (Blueprint $table) {
-            $table->string('nameorigen');
-            $table->string('namedestino');
+            $table->increments('id');
+            $table->string('nameorigen')->unsigned()->nullable();
+            $table->string('namedestino')->unsigned()->nullable();
             $table->string('mensaje');
-            $table->rememberToken();
-            $table->timestamps();
-
             $table->foreign('nameorigen')->references('username')->on('users');
             $table->foreign('namedestino')->references('username')->on('users');
-            
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

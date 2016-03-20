@@ -43,6 +43,10 @@
 	{!! Form::select('state', [ false => 'Solicitud', true => 'Activo'], null, ['class' => 'form-control select-state','required']) !!}
 </div>
 <div class="form-group">
+	{!! Form::label('country','Pais') !!}
+	{!! Form::select('country', [ false => 'Solicitud', true => 'Activo'], null, ['class' => 'form-control','required']) !!}
+</div>
+<div class="form-group">
 	{!! Form::label('role','Tipo de nivel') !!}
 	{!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['class' => 'form-control select-role','required']) !!}
 </div>

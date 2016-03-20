@@ -14,6 +14,8 @@ use App\Category;
 
 use App\User;
 
+use Laracasts\Flash\Flash;
+
 class OvaController extends Controller
 {
     /**
@@ -55,7 +57,7 @@ class OvaController extends Controller
         $ova = new Ova($request->all());
         $ova->type_id = $request->type_id;
         $ova->category_id = $request->category_id;
-        $ova->user_id = \Auth::user();
+        $ova->user_id = \Auth::user()->id;
         $ova->save();
         Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
         return redirect()->route('admin.ovas.index');

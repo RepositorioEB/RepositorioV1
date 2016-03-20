@@ -51,7 +51,7 @@ class ProblemController extends Controller
     public function store(ProblemRequest $request)
     {
         $problems = new Problem($request->all());
-        $problems->user_id = \Auth::user();
+        $problems->user_id = \Auth::user()->id;
         $problems->save();
         Flash::success("Se ha registrado el problema " .$problems->id. " con exito!");
         return redirect()->route('admin.problems.index');

@@ -21,10 +21,10 @@ class AddForumsTable extends Migration
             $table->timestamps();
         });
         Schema::create('forum_user', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('forum_id')->unsigned()->nullable();
             $table->string('message');
-            $table->primary(array('user_id', 'forum_id'));
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('forum_id')->references('id')->on('forums')->onDelete('cascade');
             $table->timestamps();

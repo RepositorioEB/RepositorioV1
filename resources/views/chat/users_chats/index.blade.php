@@ -21,7 +21,7 @@
         </noscript>
                                        
     </div>
-    {!! Form::open(['route' => ['member.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}
+    {!! Form::open(['route' => ['chat.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}
     
     <input type="text" name="mensaje" size="40">
 
@@ -49,7 +49,7 @@
             var loadOldMessages = function (){
                 $.ajax({
                     type: "GET",
-                    url: "/member/llamando?nombredestino={{$_GET['nombredestino']}}"
+                    url: "/chat/llamando?nombredestino={{$_GET['nombredestino']}}"
                 }).done(function(info){
                     $("#conversation").html(info);
                     $("#conversation p:first-child").css({"background-color":"lightgreen",

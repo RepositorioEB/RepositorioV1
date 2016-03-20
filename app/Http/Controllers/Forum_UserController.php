@@ -18,7 +18,7 @@ class Forum_UserController extends Controller
     	$foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(10);
     	$foros = DB::table('forums')->where('id', $request->forum_id)->first();
         $users = user::orderBy('created_at','ASC')->paginate(10);
-        return view('member.forums_users.index')->with('foros_usuarios', $foros_usuarios)->with("foros",$foros)->with("users",$users);
+        return view('foro.forums_users.index')->with('foros_usuarios', $foros_usuarios)->with("foros",$foros)->with("users",$users);
     }
 
     public function create()
@@ -32,7 +32,7 @@ class Forum_UserController extends Controller
             $foros_usuarios->save();
             $foros_usuarios = forum_user::orderBy('created_at','ASC')->paginate(10);           
             $users = DB::table('users');
-            return redirect()->route('member.foros_usuarios.index',['forum_id'=>$request->forum_id,'user_id'=>$request->user_id])->with('foros_usuarios', $foros_usuarios)->with('users',$users);  
+            return redirect()->route('foro.foros_usuarios.index',['forum_id'=>$request->forum_id,'user_id'=>$request->user_id])->with('foros_usuarios', $foros_usuarios)->with('users',$users);  
     }
 
     public function show($id)

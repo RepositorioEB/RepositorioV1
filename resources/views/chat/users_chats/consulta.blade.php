@@ -18,7 +18,7 @@
 	
 	<br><br><br><br>
 	<center>
-	{!! Form::open(['route' => 'member.users_chats.index','method'=>'GET','target'=>'_blank'])!!}
+	{!! Form::open(['route' => 'chat.users_chats.index','method'=>'GET','target'=>'_blank'])!!}
 		<div class="input-group">
 		{!! Form::label('seleccion', 'Seleccione el contacto: &nbsp;')!!}				
 		{!! Form::select('nombredestino',$array)!!}
@@ -42,7 +42,7 @@
 				<tr>
 					<td>{{ $user->username }}</td>
 					<td>
-						<a href="{{ route('member.users_chats.index', ['nombredestino' => $user->username]) }}" target="_blank" class="btn btn-default btn-lg active"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a>
+						<a href="{{ route('chat.users_chats.index', ['nombredestino' => $user->username]) }}" target="_blank" class="btn btn-default btn-lg active"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a>
 					</td>
 				</tr>
 				@endif

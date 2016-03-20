@@ -90,8 +90,8 @@
                                     </ul>
                                     <br>
                                     <center>
-                                        <a href="../member/contactos" title="Chatear" class="btn btn-success" tabindex="1" accesskey="s">¡Chat!</a>
-                                        <a href="../member/foros-lista" title="Foros" class="btn btn-success" tabindex="1" accesskey="s">¡Foros!</a>
+                                        <a href="../chat/contactos" title="Chatear" class="btn btn-success" tabindex="1" accesskey="s">¡Chat!</a>
+                                        <a href="../foro/foros-lista" title="Foros" class="btn btn-success" tabindex="1" accesskey="s">¡Foros!</a>
                                     </center>
                                 </div>
                             </div>

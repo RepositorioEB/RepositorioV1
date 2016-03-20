@@ -51,8 +51,8 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        if ($request->file('image')) {
-            $file = $request->file('image');
+        if ($request->file('photo')) {
+            $file = $request->file('photo');
             $name = 'roa_'.time().'.'. $file->getClientOriginalExtension();
             $path = public_path().'/images/users/';
             $file->move($path, $name);
