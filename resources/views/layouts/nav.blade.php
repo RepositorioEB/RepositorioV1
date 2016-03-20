@@ -19,153 +19,145 @@
                     <li><a href="{{ url('/register') }}" title="Registrarse">Registrarse</a></li>
                 @else
                     @if (Auth::user()->role === 'admin')
-                        <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
-                        <li><a href="{{ route('admin.profiles.index') }}">Perfiles</a></li>
-                        <li><a href="{{ route('admin.ovas.index') }}">Objetos</a></li>
-                        <li><a href="{{ route('admin.forums.index') }}">Foros</a></li>
-                        <li><a href="{{ route('admin.helps.index') }}">Ayuda</a></li>
-                        <li><a href="{{ route('admin.categories.index') }}">Categoria</a></li>
-                        <li><a href="{{ route('admin.types.index') }}">Tipo</a></li>
-                        <li><a href="{{ route('admin.downloads.index') }}">Descargas</a></li>
-                        <li><a href="{{ route('admin.problems.index') }}">Problema</a></li>
+                        <li><a href="{{ route('admin.users.index') }}" title="Usuarios">Usuarios</a>
+                            <ul>
+                                <li><a href="" title="Submenu1">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.profiles.index') }}" title="Perfiles">Perfiles</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.ovas.index') }}" title="Objetos">Objetos</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.forums.index') }}" title="Foros">Foros</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.helps.index') }}" title="Ayuda">Ayuda</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.categories.index') }}" title="Categoria">Categoria</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.types.index') }}" title="Tipo">Tipo</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.downloads.index') }}" title="Descargas">Descargas</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.problems.index') }}" title="Problema">Problema</a>
+                            <ul>
+                                <li><a href="">Submenu1</a></li>
+                                <li><a href="">Submenu2</a></li>
+                                <li><a href="">Submenu3</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
                     @else
 
                     @endif
-                    <li><a href="{{ route('admin.users.index') }}" title="Usuarios">Usuarios</a>
-                        <ul>
-                            <li><a href="" title="Submenu1">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.profiles.index') }}" title="Perfiles">Perfiles</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.ovas.index') }}" title="Objetos">Objetos</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.forums.index') }}" title="Foros">Foros</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.helps.index') }}" title="Ayuda">Ayuda</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.categories.index') }}" title="Categoria">Categoria</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.types.index') }}" title="Tipo">Tipo</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.downloads.index') }}" title="Descargas">Descargas</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('admin.problems.index') }}" title="Problema">Problema</a>
-                        <ul>
-                            <li><a href="">Submenu1</a></li>
-                            <li><a href="">Submenu2</a></li>
-                            <li><a href="">Submenu3</a></li>
-                            <li><a href="">Submenu4</a>
-                                <ul>
-                                    <li><a href="">Submenu1</a></li>
-                                    <li><a href="">Submenu2</a></li>
-                                    <li><a href="">Submenu3</a></li>
-                                    <li><a href="">Submenu4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="Nombre de usuario">
                             {{ Auth::user()->name }} <span class="caret"></span>
