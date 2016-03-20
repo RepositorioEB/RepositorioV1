@@ -11,6 +11,8 @@
     <title>@yield('title', 'Inicio')</title>
     <!-- Fin Modificado (ed) -->
 
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
@@ -20,7 +22,7 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- Inicio Modificado (ed) -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/trumbowyg/ui/trumbowyg.css') }}">
     <!-- Fin Modificado (ed) -->
@@ -45,7 +47,7 @@
     <header>
         @include('layouts.nav')
     </header>
-    <br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
     <div class="container">
         <section class="main row">
             <div class="section-admin">
@@ -69,21 +71,21 @@
                                 <div class="panel-body">
                                     {!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
                                     <div class="input-group">
-                                        {!! Form::text('busqueda', null, ['class' => 'form-control', 'placeholder' => 'Buscar', 'aria-describedby' => 'search']) !!}
-                                        <span class="input-group-addon" id="search"><button title="Boton buscar" onclick=""><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
+                                        <span class="input-group-addon" id="search"><input type="Buscar" title="Busqueda" onclick="" placeholder="Buscar"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                                     </div>
                                     {!! Form::close() !!}
                                     <br><br><br>
                                     <ul>
                                         <li><h4><div class="label label-info">
-                                            Archivos recientes</div></h4></li>
-                                        <ul>
-                                            <li><a href="">Archivo1</a></li>
-                                            <li><a href="">Archivo2</a></li>
-                                            <li><a href="">Archivo3</a></li>
-                                            <li><a href="">Archivo4</a></li>
-                                            <li><a href="">Archivo5</a></li>
-                                        </ul>
+                                            Archivos recientes</div></h4>
+                                            <ul>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo1</a></li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo2</a></li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo3</a></li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo4</a></li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo5</a></li>
+                                            </ul>
+                                        </li>
                                         <li><h4><div class="label label-info">Noticias</div></h4></li>
 
                                         <li><h4><div class="label label-info">Acerca de</div></h4></li>
@@ -114,5 +116,10 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
     <!-- Fin Modificado (ed) -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h6 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h6>
+        </div>
+    </div>
 </body>
 </html>

@@ -18,8 +18,8 @@
 					<td>{{ $category->id }}</td>
 					<td>{{ $category->name }}</td>
 					<td>
-						<a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-						<a href="{{ route('admin.categories.destroy', $category->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+						<a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-wrench" aria-hidden="true" >Editar</span></a>
+						<a href="{{ route('admin.categories.destroy', $category->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>
 					</td>
 				</tr>
 			@endforeach

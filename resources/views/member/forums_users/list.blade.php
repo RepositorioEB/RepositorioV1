@@ -24,7 +24,7 @@
 						@endif			
 					@endforeach		
 					<td>
-	                    <a href="{{ route('member.foros_usuarios.index',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+	                    <a href="{{ route('member.foros_usuarios.index',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning"><span class="glyphicon glyphicon-ok" aria-hidden="true" title="Seleccionar">Seleccionar</span></a>
     				</td>
 				</tr>
 			@endforeach
