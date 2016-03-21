@@ -138,7 +138,11 @@ Route::group(['middleware' => 'web'], function () {
               return view('home');
             }]);
             
-            
+            Route::resource('profiles', 'ProfileController');
+            Route::get('profiles', [
+              'as' => 'member.profiles.lists', 
+              'uses' => 'ProfileController@lists'
+            ]);
         });
 
       });

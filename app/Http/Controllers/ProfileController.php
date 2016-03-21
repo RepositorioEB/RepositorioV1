@@ -64,4 +64,10 @@ class ProfileController extends Controller
         Flash::error('El perfil ' .$profiles->name. ' ha sido borrado con exito!');
         return redirect()->route('admin.profiles.index');
     }
+
+    public function lists()
+    {
+        $profiles = Profile::orderBy('id','ASC')->paginate(5);
+        return view('member.profiles.lists')->with('profiles',$profiles);
+    }
 }

@@ -34,7 +34,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.profiles.index') }}" title="Perfiles">Perfiles</a>
+                        <li><a href="{{ route('admin.profiles.index') }}" title="Perfiles">Discapacidad</a>
                             <ul>
                                 <li><a href="">Submenu1</a></li>
                                 <li><a href="">Submenu2</a></li>
@@ -49,7 +49,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.ovas.index') }}" title="Objetos">Objetos</a>
+                        <li><a href="{{ route('admin.ovas.index') }}" title="Ova">Ova</a>
                             <ul>
                                 <li><a href="">Submenu1</a></li>
                                 <li><a href="">Submenu2</a></li>
@@ -155,7 +155,27 @@
                             </ul>
                         </li>    
                     @else
-
+                        <li><a href="{{ route('member.profiles.lists') }}" title="Perfiles">Discapacidad</a>
+                            <ul>
+                                <li><a href="{{ route('member.profiles.lists') }}" title="PerfilesLista">Listar</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" title="Ova">Ova</a>
+                            <ul>
+                                <li><a href="" title="OvaLista">Listar</a></li>
+                                <li><a href="OvaTipo">Tipos</a></li>
+                                <li><a href="OvaCategoria">Categoria</a></li>
+                                <li><a href="">Submenu4</a>
+                                    <ul>
+                                        <li><a href="">Submenu1</a></li>
+                                        <li><a href="">Submenu2</a></li>
+                                        <li><a href="">Submenu3</a></li>
+                                        <li><a href="">Submenu4</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="OvaCrear">Subir</a></li>
+                            </ul>
+                        </li>
                     @endif
                     
                     <li class="dropdown">
