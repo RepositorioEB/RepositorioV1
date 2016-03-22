@@ -16,5 +16,8 @@ class Type extends Model
     {
         return $this->hasMany('App\Ova');
     }
-
+    
+    public function scopeSearchType($query, $name){
+        return $query->where('name','LIKE',"%$name%");
+    }
 }

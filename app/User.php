@@ -19,6 +19,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Forum');
     }
+    public function evaluations()
+    {
+        return $this->hasMany('App\OvaEvaluation');
+    }
 
     public function downloads()
     {

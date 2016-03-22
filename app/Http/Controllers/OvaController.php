@@ -3,17 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
-use App\Ova;
-
 use App\Type;
-
 use App\Category;
-
 use App\User;
-
+use App\Ova_Evaluation;
+use App\Ova;
 use Laracasts\Flash\Flash;
 
 class OvaController extends Controller
@@ -30,7 +25,16 @@ class OvaController extends Controller
             $ovas->type;
             $ovas->category;
             $ovas->user;
-        });       
+            $ovas_evaluations = Ova_Evaluation::where('ova_id',$ovas->id)->orderBy('ova_id','ASC')->paginate(10);
+            $sum = 0;
+            $cont =0;
+            foreach($ovas_evaluations as $ova_evaluation){
+                $cont = $cont +1;
+                $sum = $sum + $ova_evaluation->punctuation;
+            }
+            $res =$sum / $cont; 
+            $ovas->punctuation =$res;
+        });               
         return view('admin.ovas.index')->with('ovas', $ovas);
     }
 

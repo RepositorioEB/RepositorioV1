@@ -16,7 +16,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 });*/
 
-
 Route::group(['middleware' => 'web'], function () {
 
       // -----Vista principal
@@ -65,6 +64,10 @@ Route::group(['middleware' => 'web'], function () {
           });
           //End routes foro
         
+        });
+        Route::group(['prefix' => 'ovas'],function(){
+          Route::resource('ova', 'OvaEvaluationController');
+          Route::resource('ovamember', 'OvaMemberController');       
         });
 
         // --------------> Routes Admin <------------ 
