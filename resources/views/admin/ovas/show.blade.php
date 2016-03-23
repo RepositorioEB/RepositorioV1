@@ -18,7 +18,7 @@
 		<tbody>
 				<tr>
 					<td>{{ $ova->name }}</td>
-					<td>{{ $ova->lenguaje }}</td>
+					<td>{{ $ova->language }}</td>
 					<td>{{ $ova->description }}</td>
 					<td>{{ $ova->archive }}</td>
 					<td>{{ $ova->user->name }}

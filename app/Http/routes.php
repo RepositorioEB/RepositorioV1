@@ -66,11 +66,26 @@ Route::group(['middleware' => 'web'], function () {
         
         });
         Route::group(['prefix' => 'ovas'],function(){
+        
           Route::resource('ova', 'OvaEvaluationController');
           Route::resource('ovamember', 'OvaMemberController');       
+          Route::get('storage/{archivo}', function ($archivo) {
+            $public_path = public_path();
+            $url = $public_path.'storage/'.$archivo;
+            //verificamos si el archivo existe y lo retornamos
+            if (Storage::exists($archivo))
+            {
+               return response()->download($url);
+            }
+            //si no se encuentra lanzamos un error 404.
+            abort(404);
         });
 
-        // --------------> Routes Admin <------------ 
+        });
+        
+
+
+          // --------------> Routes Admin <------------ 
         Route::group(['prefix' => 'admin', 'middleware' => ['AdminMw']],function(){
         // --------------> Home <------------ 
           Route::get('/', ['as' => 'admin.index', function () {

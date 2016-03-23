@@ -12,7 +12,8 @@
 </div>
 <div class="form-group">
 		{!! Form::label('archive','Archivo') !!}
-		{!! Form::file('archive')!!}
+		{!! Form::text('archive', null, ['class' => 'form-control','readonly'=>'readonly']) !!}
+		<input type="file" class="form-control" name="archive2" >	
 </div>
 <div class="form-group">
 	{!! Form::label('type_id','Tipo') !!}

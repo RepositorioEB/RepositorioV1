@@ -7,6 +7,11 @@
 	@include('admin.template.partials.errors')
 	<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 	{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+		<select class="form-control" id="sel1" name="select">
+    		<option>Nombre</option>
+    		<option>Tipo</option>
+    		<option>Categoria</option>
+  		</select>
 		<div class="input-group">
 			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
@@ -39,7 +44,11 @@
 		</tbody>	
 	</table>
 	<div class="text-center">
-		{!! $ovas->render() !!}
+		@if(isset($_GET['select']))
+			{!! $ovas->appends(array('select' => $_GET['select'],'name' => $_GET['name']))->links()!!}
+		@else
+			{!! $ovas->render() !!}
+		@endif
 	</div>
 	
 @endsection
