@@ -3,27 +3,27 @@
 @section('title', 'Foro' )
 
 @section('content')
-    <label><h4>Nombre del foro: &nbsp;</h4></label> {{$foros->name}}
+    <center><h3><label class="label label-info">NOMBRE DEL FORO: </label>&nbsp; {{$foros->name}}</h3></center> 
     <br>     
     <br><br>
+    <h3>Ingrese su comentario: </h3>
     {!! Form::open(['route' => ['foro.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>$_GET['user_id']],'method' => 'POST']) !!}
         <div class="form-group">
-            <input type="text" placeholder="Opinion" title="Campo de mensaje" name="message" size="40">
-             {!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}
+            <input type="text" class="form-control" placeholder="Opinion" title="Campo de mensaje" name="message" size="40">
+             <br>
+             <center>{!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}</center>
         </div>
     {!! Form::close() !!}
     
-    <div id="conversation" style="height:800px; border: 1px solid #CCCCCC; padding: 12px;  border-radius: 5px; overflow-x: hidden;">
-        <?php 
-        foreach ($foros_usuarios as $foro_usuario) {
-            if ($foro_usuario->forum_id == $_GET['forum_id']) {
-                print ("\n");
-                print (" <p>  ".$foro_usuario->user->name.": ");
-                print ("   ".$foro_usuario->message."</p>");
-                print ("\n");    
-            }
-         }          
-        ?> 
+    <div id="conversation" style="background: gray;height:800px; border: 1px solid #CCCCCC; padding: 12px;  border-radius: 13px; overflow-x: hidden;">
+        @foreach ($foros_usuarios as $foro_usuario)
+            @if ($foro_usuario->forum_id == $_GET['forum_id'])
+                <div style="background: #4f4f4f; border: 1px solid #CCCCCC; padding: 12px; overflow-x: hidden; border-radius: 79px 28px 64px 29px; -moz-border-radius: 79px 28px 64px 29px;-webkit-border-radius: 79px 28px 64px 29px; border: 0px solid #000000;">
+                    <p> <h4><img alt="Foto" src="{{ asset('images/logos.png') }}" width=50 height=50 title="Foto">&nbsp;<label class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->name}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </label>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label label-primary">{{$foro_usuario->created_at}}</label></h4></p>   
+                </div>
+                <br>
+            @endif
+        @endforeach          
                                        
     </div>
     <div class="text-center">

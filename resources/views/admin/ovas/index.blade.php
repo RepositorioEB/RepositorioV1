@@ -28,7 +28,7 @@
 					<tr>
 						<td>{{ $ova->id }}</td>
 						<td>{{ $ova->name }}</td>
-						<td>{{ $ova->punctuation }}</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $ova->punctuation}}</td>
 						<td>{{ $ova->type->name }}</td>
 						<td>{{ $ova->category->name }}</td>
 						<td>

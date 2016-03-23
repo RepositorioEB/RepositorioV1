@@ -98,8 +98,9 @@
                                     </ul>
                                     <br>
                                     <center>
-                                        <a href="../chat/contactos" title="Chatear" class="btn btn-success" tabindex="1" accesskey="s">¡Chat!</a>
-                                        <a href="../foro/foros-lista" title="Foros" class="btn btn-success" tabindex="1" accesskey="s">¡Foros!</a>
+                                        <a href="../chat/contactos" title="Chatear" class="btn btn-success" tabindex="1" accesskey="1">¡Chat!</a>
+                                        <a href="../foro/foros-lista" title="Foros" class="btn btn-success" tabindex="1" accesskey="2">¡Foros!</a>
+                                        <a href="../ovas/ova" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
                                     </center>
                                 </div>
                             </div>
