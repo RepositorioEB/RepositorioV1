@@ -66,6 +66,21 @@ Route::group(['middleware' => 'web'], function () {
           //End routes foro
         
         });
+        Route::group(['prefix' => 'cuenta'],function(){
+        
+          //Routes Foro
+          Route::resource('user', 'AccountController');
+          Route::get('user/{id}/password',[
+            'uses' => 'AccountController@password',
+            'as'   => 'cuenta.user.password'
+            ]);
+          Route::put('configuracion',
+          ['as' => 'cuenta.user.update',
+          'uses' => 'AccountController@update'
+          ]);
+          //End routes foro
+        
+        });
 
         // --------------> Routes Admin <------------ 
         Route::group(['prefix' => 'admin', 'middleware' => ['AdminMw']],function(){
@@ -143,14 +158,10 @@ Route::group(['middleware' => 'web'], function () {
               'as' => 'member.profiles.lists', 
               'uses' => 'ProfileController@lists'
             ]);
+
         });
 
       });
-
-      
-      
-
-      
 
 });
 

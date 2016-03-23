@@ -60,6 +60,9 @@ class UserController extends Controller
         $user = new User($request->all());
         $user->profile_id = $request->profile_id;
         $user->password = bcrypt($request->password);
+        if ($user->photo == null) {
+            $user->photo = 'userdefect.png';
+        }
         $user->save();
         Flash::success("Se ha registrado el usuario " .$user->name. " con exito!");
         return redirect()->route('admin.users.index');
@@ -115,6 +118,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        $s = $user->photo;
+        if ($s != 'userdefect.png') {
+            if ($s != null) {
+                $path = public_path().'/images/users/';
+                \File::delete($path.$s);
+            }
+        }
         $user->delete();
         Flash::error('El usuario ' .$user->name. ' ha sido borrado con exito!');
         return redirect()->route('admin.users.index');

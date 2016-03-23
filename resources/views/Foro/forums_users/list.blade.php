@@ -4,7 +4,7 @@
 
 @section('content')
 	@include('admin.template.partials.errors')
-	<table class="table table-striped">
+	<table class="table table-striped ">
 		<thead>
 			<th>Id</th>
 			<th>Nombre</th>
@@ -24,7 +24,7 @@
 						@endif			
 					@endforeach		
 					<td>
-	                    <a href="{{ route('foro.foros_usuarios.index',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+	                    <a href="{{ route('foro.foros_usuarios.index',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
     				</td>
 				</tr>
 			@endforeach

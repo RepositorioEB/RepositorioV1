@@ -24,7 +24,7 @@
     <!-- Inicio Modificado (ed) -->
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/trumbowyg/ui/trumbowyg.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Fin Modificado (ed) -->
 
     <style>
@@ -53,7 +53,9 @@
             <div class="section-admin">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="panel-title">@yield('title')
+                        <div class="panel-title">
+                            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                            @yield('title')
                             <h5 class="navbar-form pull-right">
                                 <script language="JavaScript" type="text/javascript" >document.write(TODAY);</script>
                             </h5>
@@ -74,9 +76,9 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     {!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="search"><input type="Buscar" title="Busqueda" onclick="" placeholder="Buscar"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-                                    </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="search"><input type="Buscar" title="Busqueda" onclick="" placeholder="Buscar"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                                        </div>
                                     {!! Form::close() !!}
                                     <br><br><br>
                                     <ul>
@@ -119,6 +121,7 @@
     <script src="{{ asset('plugins/jquery/js/jquery-2.2.1.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">

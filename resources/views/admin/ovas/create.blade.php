@@ -5,7 +5,7 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	{!! Form::open(['route' => 'admin.ovas.store','method' => 'POST', 'files' => true]]) !!}
+	{!! Form::open(['route' => 'admin.ovas.store','method' => 'POST', 'files' => true]) !!}
 		@include('admin.template.partials.fieldsova')
 		<div class="form-group">
 			{!! Form::submit('Crear',['class' => 'btn btn-primary']) !!}
