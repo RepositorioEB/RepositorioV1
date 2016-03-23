@@ -6,6 +6,7 @@
 
 	@include('admin.template.partials.errors')
 	<a href="{{ route('admin.ovas.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
+<<<<<<< HEAD
 	<table class="table table-striped">
 		<thead>
 			<th>Id</th>
@@ -26,5 +27,29 @@
 				</tr>
 		</tbody>	
 	</table>
+=======
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Lenguaje</th>
+				<th>Descripcion</th>
+				<th>Archive</th>
+				<th>Creador</th>
+			</thead>
+			<tbody>
+					<tr>
+						<td>{{ $ova->name }}</td>
+						<td>{{ $ova->lenguaje }}</td>
+						<td>{{ $ova->description }}</td>
+						<td>{{ $ova->archive }}</td>
+						<td>{{ $ova->user->name }}
+						</td>
+					</tr>
+			</tbody>	
+		</table>
+	</div>
+>>>>>>> origin/master
 	
 @endsection

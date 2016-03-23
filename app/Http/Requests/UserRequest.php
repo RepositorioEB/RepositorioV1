@@ -33,6 +33,7 @@ class UserRequest extends Request
             'date' => 'required',
             'state' => 'required',
             'role' => 'required',
+            'photo' => 'image',
             'profile_id' => 'required'
         ];
     }

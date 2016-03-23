@@ -65,9 +65,25 @@ Route::group(['middleware' => 'web'], function () {
           //End routes foro
         
         });
+        Route::group(['prefix' => 'cuenta'],function(){
+        
+          //Routes Foro
+          Route::resource('user', 'AccountController');
+          Route::get('user/{id}/password',[
+            'uses' => 'AccountController@password',
+            'as'   => 'cuenta.user.password'
+            ]);
+          Route::put('configuracion',
+          ['as' => 'cuenta.user.update',
+          'uses' => 'AccountController@update'
+          ]);
+          //End routes foro
+        });
+
         Route::group(['prefix' => 'ovas'],function(){
         
           Route::resource('ova', 'OvaEvaluationController');
+<<<<<<< HEAD
           Route::resource('ovamember', 'OvaMemberController');       
           Route::get('storage/{archivo}', function ($archivo) {
             $public_path = public_path();
@@ -81,6 +97,9 @@ Route::group(['middleware' => 'web'], function () {
             abort(404);
         });
 
+=======
+          Route::resource('ovamember', 'OvaMemberController');
+>>>>>>> origin/master
         });
         
 
@@ -156,15 +175,15 @@ Route::group(['middleware' => 'web'], function () {
               return view('home');
             }]);
             
-            
+            Route::resource('profiles', 'ProfileController');
+            Route::get('profiles', [
+              'as' => 'member.profiles.lists', 
+              'uses' => 'ProfileController@lists'
+            ]);
+
         });
 
       });
-
-      
-      
-
-      
 
 });
 

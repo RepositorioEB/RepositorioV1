@@ -23,7 +23,7 @@ class Ova extends Model implements SluggableInterface
 
     protected $table = "ovas";
 
-    protected $fillable = ['name','language','description','archive','punctuation','type_id','category_id'];
+    protected $fillable = ['name','language','description','archive','punctuation','type_id','category_id','user_id'];
             
     public function type()
     {

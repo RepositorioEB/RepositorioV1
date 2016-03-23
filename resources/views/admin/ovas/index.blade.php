@@ -18,31 +18,33 @@
 		</div>
 	{!! Form::close() !!}
 	<br />
-	<table class="table table-striped">
-		<thead>
-			<th>Id</th>
-			<th>Nombre</th>
-			<th>Puntuacion</th>
-			<th>Tipo</th>
-			<th>Categoria</th>
-			<th>Accion</th>
-		</thead>
-		<tbody>
-			@foreach($ovas as $ova)
-				<tr>
-					<td>{{ $ova->id }}</td>
-					<td>{{ $ova->name }}</td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $ova->punctuation}}</td>
-					<td>{{ $ova->type->name }}</td>
-					<td>{{ $ova->category->name }}</td>
-					<td>
-						<a href="{{ route('admin.ovas.edit', $ova->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-						<a href="{{ route('admin.ovas.destroy', $ova->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-					</td>
-				</tr>
-			@endforeach
-		</tbody>	
-	</table>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Puntuacion</th>
+				<th>Tipo</th>
+				<th>Categoria</th>
+				<th>Accion</th>
+			</thead>
+			<tbody>
+				@foreach($ovas as $ova)
+					<tr>
+						<td>{{ $ova->id }}</td>
+						<td>{{ $ova->name }}</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $ova->punctuation}}</td>
+						<td>{{ $ova->type->name }}</td>
+						<td>{{ $ova->category->name }}</td>
+						<td>
+							<a href="{{ route('admin.ovas.edit', $ova->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+							<a href="{{ route('admin.ovas.destroy', $ova->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+						</td>
+					</tr>
+				@endforeach
+			</tbody>	
+		</table>
+	</div>
 	<div class="text-center">
 		@if(isset($_GET['select']))
 			{!! $ovas->appends(array('select' => $_GET['select'],'name' => $_GET['name']))->links()!!}
