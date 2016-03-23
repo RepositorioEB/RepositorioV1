@@ -172,6 +172,8 @@ class OvaController extends Controller
     public function destroy($id)
     {
         $ova = Ova::find($id);
+        $nombre = $ova->archive;
+        \Storage::delete($nombre);
         $ova->delete();
         Flash::error('El ova ' .$ova->id. ' ha sido borrado con exito!');
         return redirect()->route('admin.ovas.index');

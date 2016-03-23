@@ -83,7 +83,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::group(['prefix' => 'ovas'],function(){
         
           Route::resource('ova', 'OvaEvaluationController');
-<<<<<<< HEAD
+//<<<<<<< HEAD
           Route::resource('ovamember', 'OvaMemberController');       
           Route::get('storage/{archivo}', function ($archivo) {
             $public_path = public_path();
@@ -96,12 +96,12 @@ Route::group(['middleware' => 'web'], function () {
             //si no se encuentra lanzamos un error 404.
             abort(404);
         });
-
+/*
 =======
           Route::resource('ovamember', 'OvaMemberController');
 >>>>>>> origin/master
-        });
-        
+  */      });
+       
 
 
           // --------------> Routes Admin <------------ 
