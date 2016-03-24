@@ -29,7 +29,7 @@
 		<h3>{!! Form::label('language','Lenguaje: ',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('language', null, ['class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('language',$ova->language , ['class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>
 		</h3>
 	</div>
@@ -85,8 +85,11 @@
 	<div class="form-group pull-right">
 		{!! Form::submit('Evaluar',['class' => 'btn btn-primary']) !!}
 	</div>
-	{!! Form::close() !!}
-	<div class="form-group pull-left">
-		{!! Form::submit('Descargar',['class' => 'btn btn-primary']) !!}
-	</div>
+	{!! Form::close() !!}	
+	<?php
+		$text=asset('storage/')."/".$ova->archive;
+	
+	?>
+	<a href="{{$text}}">{!! Form::submit('Descargar',['class' => 'btn btn-primary']) !!}</a>
+	
 @endsection

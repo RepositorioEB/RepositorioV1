@@ -1,0 +1,41 @@
+[10/02/2016 19:35:27] Juan Carlos Guevara B: 1. Modelado del negocio
+[10/02/2016 19:35:44] Juan Carlos Guevara B: 1.1. Proceso ayuda
+[10/02/2016 19:35:54] Juan Carlos Guevara B: 1.1.1. Modelo de procesos
+[10/02/2016 19:36:05] Juan Carlos Guevara B: 1.1.2. Modelo de dominio
+[10/02/2016 19:36:21] Juan Carlos Guevara B: 1.1.3. Glosario de terminos
+[10/02/2016 19:36:35] Juan Carlos Guevara B: 1.2. Proceso....
+[10/02/2016 19:37:58] Juan Carlos Guevara B: 1.x. Modelo de dominio integrado
+[10/02/2016 19:38:12] Juan Carlos Guevara B: 1.z. Glosario de terminios integrado
+[10/02/2016 19:38:46] Juan Carlos Guevara B: 2. Requerimientos
+[10/02/2016 19:38:59] Juan Carlos Guevara B: 2.1. Proceso ayuda
+[10/02/2016 19:39:16] Juan Carlos Guevara B: 2.1.1. Definición de actores
+[10/02/2016 19:39:34] Juan Carlos Guevara B: 2.1.2. Lista preliminar de casos de uso
+[10/02/2016 19:39:48] Juan Carlos Guevara B: 2.1.3. Depuración de casos de uso
+[10/02/2016 19:39:57] Juan Carlos Guevara B: 2.1.4. Modelo de casos de uso
+[10/02/2016 19:40:09] Juan Carlos Guevara B: 2.1.5. Documentación de casos de uso
+[10/02/2016 19:40:27] Juan Carlos Guevara B: 2.2. Proceso ....
+[10/02/2016 19:40:49] Juan Carlos Guevara B: 2.x. Modelo de caso de uso (integrado)
+[10/02/2016 19:41:02] Juan Carlos Guevara B: 2.z. Documentación de caso de uso
+[10/02/2016 19:41:17] Juan Carlos Guevara B: 3. Análisis
+[10/02/2016 19:41:25] Juan Carlos Guevara B: 3.1. Proceso ayuda
+[10/02/2016 19:42:18] Juan Carlos Guevara B: 3.1.1. Diagramas de secuencia
+[10/02/2016 19:42:28] Juan Carlos Guevara B: 3.1.2. Diagramas de colaboración
+[10/02/2016 19:42:41] Juan Carlos Guevara B: 3.1.3. Diagramas de actividad
+[10/02/2016 19:42:55] Juan Carlos Guevara B: 3.1.4. Digramas de estado
+[10/02/2016 19:43:09] Juan Carlos Guevara B: 3.1.5. Modelo de analisis
+[10/02/2016 19:43:20] Juan Carlos Guevara B: 3.2. Proceso......
+[10/02/2016 19:43:42] Juan Carlos Guevara B: 3.x Modelo de analisis integrado
+[10/02/2016 19:45:05] Juan Carlos Guevara B: 4. Diseño
+[10/02/2016 19:45:25] Juan Carlos Guevara B: 4.1. Lista inicial de clases
+[10/02/2016 19:45:31] Juan Carlos Guevara B: 4.2. Relaciones entre clases
+[10/02/2016 19:45:43] Juan Carlos Guevara B: 4.3. Modelo de interfaz
+[10/02/2016 19:46:04] Juan Carlos Guevara B: 4.4. Modelo lógico (métodos)
+[10/02/2016 19:46:34] Juan Carlos Guevara B: 4.5. Modelo físico (clases fisicas con atributos)
+[10/02/2016 19:46:47] Juan Carlos Guevara B: 4.6. Modelo objeto relacional
+[10/02/2016 19:46:56] Juan Carlos Guevara B: 4.7. Diccionario de datos
+[10/02/2016 19:47:10] Juan Carlos Guevara B: 5. Implementación
+[10/02/2016 19:47:28] Juan Carlos Guevara B: 5.1. Modelo de despliegue
+[10/02/2016 19:47:44] Juan Carlos Guevara B: 5.2. Diagrama de componentes
+[10/02/2016 19:47:56] Juan Carlos Guevara B: 6. Pruebas
+[10/02/2016 19:48:10] Juan Carlos Guevara B: 6.1. Prurbas de sistema
+[10/02/2016 19:48:21] Juan Carlos Guevara B: 6.2. Pruebas de integración

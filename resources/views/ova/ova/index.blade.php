@@ -5,7 +5,7 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<a href="{{ route('ovas.ova.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
+	<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
 	<center><label><h2>DATOS COMPLETOS DE CADA OVA</h2></label></center>
 	
 	@foreach($ovas as $ova)

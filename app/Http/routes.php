@@ -73,16 +73,23 @@ Route::group(['middleware' => 'web'], function () {
           ]);
           //End routes foro
         });
-
+        
         Route::group(['prefix' => 'ovas'],function(){
+        
           Route::resource('ova', 'OvaEvaluationController');
           Route::resource('ovamember', 'OvaMemberController');
           Route::resource('type', 'OvaTypeController');
           Route::resource('category', 'OvaCategoryController');
           Route::get('ovas', 'OvaController@ovas');
-        });
+          Route::get('menu', function () {
+            return view('ova.menu');
+          });
+          Route::resource('ovamember', 'OvaMemberController');       
+      });
+       
 
-        // --------------> Routes Admin <------------ 
+
+          // --------------> Routes Admin <------------ 
         Route::group(['prefix' => 'admin', 'middleware' => ['AdminMw']],function(){
         // --------------> Home <------------ 
           Route::get('/', ['as' => 'admin.index', function () {

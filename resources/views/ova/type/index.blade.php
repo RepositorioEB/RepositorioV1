@@ -6,8 +6,9 @@
 	
 	@include('admin.template.partials.errors')
 		<br />
-		<label class="label label-info">Tipo</label>
+		<h3>Busqueda por: <label class="label label-info">Tipo</label></h3>
 		<br />
+		<center>
 		@foreach($types as $type)
 			<br />
 				{!! Form::open(['route' =>['ovas.type.show', $type->id] , 'method' => 'GET']) !!}
@@ -15,4 +16,5 @@
 				{!! Form::close() !!}
 			<br />
 		@endforeach
+		</center>
 @endsection

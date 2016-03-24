@@ -154,7 +154,7 @@
                             </ul>
                         </li>
                     @else
-                        <li><a href="#" >Objetos<span class="caret"></span></a>
+                        <li><a href="{{ route('ovas.ova.index') }}" >Objetos<span class="caret"></span></a>
                             <ul>
                                 <li><a href="">Submenu1</a></li>
                                 <li><a href="">Submenu2</a></li>
@@ -169,7 +169,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="#" >Foros<span class="caret"></span></a>
+                        <li><a href="../foro/foros-lista" >Foros<span class="caret"></span></a>
                             <ul>
                                 <li><a href="">Submenu1</a></li>
                                 <li><a href="">Submenu2</a></li>

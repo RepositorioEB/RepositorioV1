@@ -3,6 +3,7 @@
 @section('title', 'Lista de ovas')
 
 @section('content')
+	
 	@include('admin.template.partials.errors')
 	<a href="{{ route('ovas.ovamember.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 	{!! Form::open(['route' => 'ovas.ova.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}

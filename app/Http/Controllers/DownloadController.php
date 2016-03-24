@@ -107,6 +107,8 @@ class DownloadController extends Controller
     public function destroy($id)
     {
         $download = Download::find($id);
+        $nombre = $ova->archive;
+ +        \Storage::delete($nombre);
         $download->delete();
         Flash::error('La descarga ' .$download->id. ' ha sido borrado con exito!');
         return redirect()->route('admin.downloads.index');
