@@ -10,9 +10,9 @@ use App\Http\Requests;
 class User_ChatController extends Controller
 {
     public function index(Request $request)
-    {   	
-        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
-    	return view('chat.users_chats.index')->with('users_chats', $users_chats);
+    {   
+        $users = DB::table('users')->paginate(30);
+        return view('chat.users_chats.index')->with('users', $users);
     }
     public function create()
     {
@@ -20,9 +20,9 @@ class User_ChatController extends Controller
     }
     public function store(Request $request)
     {
-            $users_chats = new User_chat($request->all());
-            $users_chats->save();
-            return redirect()->route('chat.users_chats.index',['nombredestino'=>$request->namedestino]);
+        $users_chats = new User_chat($request->all());
+        $users_chats->save();
+        return redirect()->route('chat.users_chats.conversationchat',['nombredestino'=>$request->namedestino]);
     }
 
     public function show($id)
@@ -40,6 +40,19 @@ class User_ChatController extends Controller
 
     public function destroy($id)
     {
+    }
+
+    public function conversation()
+    {
+        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
+        $users = DB::table('users')->paginate(30);
+        return view('chat.users_chats.conversation')->with('users', $users)->with('users_chats', $users_chats);
+    }
+
+    public function conversationchat()
+    {
+        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
+        return view('chat.users_chats.conversationchat')->with('users_chats', $users_chats);    
     }
 
 }

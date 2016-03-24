@@ -9,6 +9,7 @@
 		@include('admin.template.partials.fieldshelp')
 		<div class="form-group">
 			{!! Form::submit('Editar',['class' => 'btn btn-primary']) !!}
+			<a href="{{ route('admin.helps.index') }}" class="btn btn btn-primary" title="Cancelar" name="Cancelar">Cancelar</a>
 		</div>
 	{!! Form::close() !!}
 	

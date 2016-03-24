@@ -5,8 +5,8 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<a href="{{ route('admin.downloads.create') }}" class="btn btn-info">Registrar nueva descarga</a><br />
 	<div class="table-responsive">
+		<a href="{{ route('admin.downloads.create') }}" class="btn btn-info">Registrar nueva descarga</a>
 		<table class="table table-striped">
 			<thead>
 				<th>Id</th>

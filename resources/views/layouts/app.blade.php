@@ -51,58 +51,56 @@
     <div class="container">
         <section class="main row">
             <div class="section-admin">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-                            @yield('title')
-                            <h5 class="navbar-form pull-right">
-                                <script language="JavaScript" type="text/javascript" >document.write(TODAY);</script>
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="panel-body">
-                                <div class="col-xs-12 col-sm-14 col-md-14 col-lg-14">
-                                    <div class="panel-body">
-                                        @include('flash::message')
-                                        @yield('content')
-                                    </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title">
+                                    <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                                    @yield('title')
+                                    <h5 class="navbar-form pull-right">
+                                        <script language="JavaScript" type="text/javascript" >document.write(TODAY);</script>
+                                    </h5>
                                 </div>
                             </div>
+                            <div class="panel-body">
+                                @include('flash::message')
+                                @yield('content')
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    {!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-                                        <div class="input-group">
-                                            <span class="input-group-addon" id="search"><input type="Buscar" title="Busqueda" onclick="" placeholder="Buscar"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-                                        </div>
-                                    {!! Form::close() !!}
-                                    <br><br><br>
-                                    <ul>
-                                        <li><h4><div class="label label-info">
-                                            Archivos recientes</div></h4>
-                                            <ul>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo1</a></li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo2</a></li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo3</a></li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo4</a></li>
-                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo5</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><h4><div class="label label-info">Noticias</div></h4></li>
-
-                                        <li><h4><div class="label label-info">Acerca de</div></h4></li>
-                                    </ul>
-                                    <br>
-                                    <center>
-                                        <a href="../chat/contactos" title="Chatear" class="btn btn-success" tabindex="1" accesskey="1">¡Chat!</a>
-                                        <a href="../foro/foros-lista" title="Foros" class="btn btn-success" tabindex="1" accesskey="2">¡Foros!</a>
-                                        <a href="../ovas/ova" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
-                                    </center>
-                                </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                {!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="search">
+                                            <input type="Buscar" title="Busqueda" onclick="" placeholder="Buscar" /> 
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+                                {!! Form::close() !!}
+                                <br><br><br>
+                                <ul>
+                                    <li><h4><div class="label label-info">
+                                        Archivos recientes</div></h4>
+                                        <ul>
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo1</a></li>
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo2</a></li>
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo3</a></li>
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo4</a></li>
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><h4><div class="label label-info">Noticias</div></h4></li>
+                                    <li><h4><div class="label label-info">Acerca de</div></h4></li>
+                                </ul>
+                                <br>
+                                <center>
+                                    <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="1">¡Chat!</a>
+                                    <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success" tabindex="1" accesskey="2">¡Foros!</a>
+                                    <a href="../ovas/ova" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
+                                </center>
                             </div>
                         </div>
                     </div>
