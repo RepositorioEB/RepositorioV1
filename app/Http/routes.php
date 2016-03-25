@@ -35,17 +35,15 @@ Route::group(['middleware' => 'web'], function () {
         
           //Routes chat
           Route::resource('users_chats', 'User_ChatController');
-          Route::get('contactos',function()
-          {
-            $users = DB::table('users')->paginate(30);
-            return view('chat.users_chats.consulta')->with('users', $users);
-          });
-          Route::get('llamando',function()
-          {
-            $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
-            $users = DB::table('users')->paginate(30);
-            return view('chat.users_chats.conversation')->with('users', $users)->with('users_chats', $users_chats);
-          });
+          Route::get('llamando', [
+            'as' => 'chat.users_chats.conversation', 
+            'uses' => 'User_ChatController@conversation'
+          ]);
+
+          Route::get('mensajes', [
+            'as' => 'chat.users_chats.conversationchat', 
+            'uses' => 'User_ChatController@conversationchat'
+          ]);
         
           //End routes chat
         });
@@ -53,15 +51,11 @@ Route::group(['middleware' => 'web'], function () {
         Route::group(['prefix' => 'foro'],function(){
         
           //Routes Foro
-          Route::resource('foros', 'ForumController');
           Route::resource('foros_usuarios', 'Forum_UserController');
-
-          Route::get('foros-lista',function()
-          {
-            $forums = DB::table('forums')->paginate(30);
-            $users = DB::table('users')->paginate(30);
-            return view('foro.forums_users.list')->with('forums', $forums)->with("users",$users);
-          });
+          Route::get('foro/comentar', [
+            'as' => 'foro.foros_usuarios.message', 
+            'uses' => 'Forum_UserController@message'
+            ]);
           //End routes foro
         
         });
@@ -121,7 +115,7 @@ Route::group(['middleware' => 'web'], function () {
           Route::get('forums/{id}/destroy', [
             'uses' => 'ForumController@destroy',
             'as' => 'admin.forums.destroy'
-            ]); 
+            ]);
 
           Route::resource('helps', 'HelpController');
           Route::get('helps/{id}/destroy', [
@@ -161,6 +155,8 @@ Route::group(['middleware' => 'web'], function () {
               'as' => 'member.profiles.lists', 
               'uses' => 'ProfileController@lists'
             ]);
+
+            Route::resource('forums', 'ForumController');
 
         });
 

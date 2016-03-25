@@ -5,8 +5,8 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<a href="{{ route('admin.types.create') }}" class="btn btn-info">Registrar nuevo tipo</a><br />
 	<div class="table-responsive">
+		<a href="{{ route('admin.types.create') }}" class="btn btn-info">Registrar nuevo tipo</a>
 		<table class="table table-striped">
 			<thead>
 				<th>Id</th>

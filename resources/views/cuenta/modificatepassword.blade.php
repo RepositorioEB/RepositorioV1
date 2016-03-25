@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="form-signin">
-		<div class="col-md-3">
+		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 	        <div class="panel panel-default">
 	            <div class="panel-heading">Tu perfil</div>
 	            <div class="panel-body">
@@ -31,7 +31,7 @@
 	            </div>
 	        </div>
 	    </div>
-	    <div class="col-md-9">
+	    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 	        <div class="panel panel-default">
 	            <div class="panel-heading">Tus datos</div>
 	            <div class="panel-body">

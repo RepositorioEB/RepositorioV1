@@ -5,15 +5,16 @@
 @section('content')
 	
 	@include('admin.template.partials.errors')
-	<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
-	{!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-		<div class="input-group">
-			{!! Form::text('name', null, ['title'=>'Buscar usuario','class' => 'form-control', 'placeholder' => 'Buscar usuario', 'aria-describedby' => 'search']) !!}
-			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-		</div>
-	{!! Form::close() !!}
-	<br />
 	<div class="table-responsive">
+		<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
+		{!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+			<div class="input-group">
+				{!! Form::text('name', null, ['title'=>'Buscar usuario','class' => 'form-control', 'placeholder' => 'Buscar usuario', 'aria-describedby' => 'search']) !!}
+				<span class="input-group-addon" id="search">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				</span>
+			</div>
+		{!! Form::close() !!}
 		<table class="table table-striped">
 			<thead>
 				<th>Id</th>

@@ -33,7 +33,11 @@ class ForumController extends Controller
      */
     public function create()
     {
-        return view('admin.forums.create');
+        if (\Auth::user()->role == 'admin') {
+            return view('admin.forums.create');
+        }else{
+            return view('member.forums.create');
+        }
     }
 
     /**
@@ -44,12 +48,28 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        $forums = new Forum($request->all());
-
-        $forums->user_id = \Auth::user()->id;
-        $forums->save();
-        Flash::success("Se ha creado el foro " .$forums->name. " con exito!");
-        return redirect()->route('admin.forums.index');
+        if (\Auth::user()->role == 'admin') {
+            //if ($request->section == 'admin') {
+                $forums = new Forum($request->all());
+                $forums->user_id = \Auth::user()->id;
+                $forums->save();
+                Flash::success("Se ha creado el foro " .$forums->name. " con exito!");
+                return redirect()->route('admin.forums.index');
+                /*
+            }else{
+                $forums = new Forum($request->all());
+                $forums->user_id = \Auth::user()->id;
+                $forums->save();
+                Flash::success("Se ha creado el foro " .$forums->name. " con exito!");
+                return redirect()->route('foro.foros_usuarios.index');    
+            }*/
+        }else{
+            $forums = new Forum($request->all());
+            $forums->user_id = \Auth::user()->id;
+            $forums->save();
+            Flash::success("Se ha creado el foro " .$forums->name. " con exito!");
+            return redirect()->route('foro.foros_usuarios.index');
+        }   
     }
 
     /**

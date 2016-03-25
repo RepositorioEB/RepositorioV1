@@ -5,8 +5,8 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<a href="{{ route('admin.categories.create') }}" class="btn btn-info">Registrar nueva categoria</a><br />
 	<div class="table-responsive">
+		<a href="{{ route('admin.categories.create') }}" class="btn btn-info">Registrar nueva categoria</a>
 		<table class="table table-striped">
 			<thead>
 				<th>Id</th>
