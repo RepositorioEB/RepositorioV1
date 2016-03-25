@@ -20,9 +20,9 @@ class OvaCategoryController extends Controller
         return view('ova.category.index')->with('categories', $categories);
     }
 
-    public function show($id)
+    public function show(Request $request,$id)
     {
-    	$ovas = Ova::orderBy('id', 'ASC')->where('category_id',$id)->get();
+        $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->where('category_id',$id)->paginate(10);
         return view('ova.category.show')->with('ovas', $ovas);
     }
 }

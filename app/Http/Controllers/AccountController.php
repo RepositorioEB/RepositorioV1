@@ -13,6 +13,9 @@ use App\Profile;
 use App\Ova;
 
 use Hash;
+use DB;
+use App\Type;
+use App\Category;
 
 use Laracasts\Flash\Flash;
 
@@ -23,12 +26,59 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = User::find(\Auth::user()->id);
         $user->profile;
         $profiles = Profile::orderBy('name', 'ASC')->lists('name', 'id');
         $ovas = Ova::orderBy('id','ASC')->paginate(10);
+        if($request->name){
+            if(($request->select)=='Nombre'){
+                $ovas = Ova::Search($request->name)->orderBy('id','ASC')->first();
+                if($ovas){
+                    $ovas = Ova::Search($request->name)->orderBy('id','ASC')->paginate(20);
+                }else{
+                    $ovas = Ova::orderBy('id','ASC')->paginate(20);
+                }
+            }else{
+                if(($request->select)=='Tipo'){
+                    $type = Type::SearchType($request->name)->orderBy('id','ASC')->first();
+                    if($type){
+                        $ovas = Ova::where('type_id', $type->id)->orderBy('id','ASC')->paginate(20);
+                    }else{
+                        $ovas = Ova::orderBy('id','ASC')->paginate(20);
+                    }
+                }else{
+                    $category = Category::SearchCategory($request->name)->orderBy('id','ASC')->first();
+                    if($category){
+                        $ovas = Ova::where('category_id', $category->id)->orderBy('id','ASC')->paginate(20);
+                    }else{
+                        $ovas = Ova::orderBy('id','ASC')->paginate(20);
+                    }
+                }
+
+            }
+        }else{
+             $ovas = Ova::Search($request->nameOva)->orderBy('id','ASC')->paginate(20);
+        }
+                     
+        foreach($ovas as $ova){
+            $ovas_evaluations = DB::table('ovas_evaluations')->where('ova_id',$ova->id)->get();
+            //Ova_Evaluation::orderBy('ova_id','ASC')->paginate(10);
+            $sum = 0;
+            $cont =0;
+            $res = 0;
+            foreach($ovas_evaluations as $ova_evaluation){
+                $cont = $cont +1;
+                $sum = $sum + $ova_evaluation->punctuation;
+            }
+            if($cont==0){
+                $cont=1;
+            }
+            $res =$sum / $cont; 
+            $ova->punctuation =$res;
+        }
+
         $ovas->each(function($ovas){
             $ovas->type;
             $ovas->category;

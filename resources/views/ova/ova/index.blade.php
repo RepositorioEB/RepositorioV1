@@ -7,42 +7,20 @@
 	@include('admin.template.partials.errors')
 	<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
 	<center><label><h2>DATOS COMPLETOS DE CADA OVA</h2></label></center>
-	
+	{!! Form::open([ 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+		<h3><label>Buscar OVA: </label></h3>			
+		<div class="input-group">
+			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+		</div>
+	{!! Form::close() !!}
+	<br><br><br><br><br>
 	@foreach($ovas as $ova)
-	<center>-----------------------------------------</center>
+	<br>
 	{!! Form::open( ['route' => ['ovas.ova.store'],'method' => 'POST', 'files' => true]) !!}
-	<div class="form-group">
-		<h3>{!! Form::label('id','Identificación: ',["class"=>"label label-primary"]) !!}
-			<br><br>
-			<center>
-				{!! Form::text('id', $ova->id, ['class' => 'form-control','readonly'=>'readonly']) !!}
-			</center>	
-		</h3>
-	</div>
-	<div class="form-group">
-		<h3>{!! Form::label('name','Nombre: ',["class"=>"label label-primary"]) !!}
-			<br><br>
-			<center>
-				{!! Form::text('name', $ova->name, ['class' => 'form-control','readonly'=>'readonly']) !!}
-			</center>	
-		</h3>
-	</div>
-	<div class="form-group">
-		<h3>{!! Form::label('language','Lenguaje: ',["class"=>"label label-primary"]) !!}
-			<br><br>
-			<center>
-				{!! Form::text('language',$ova->language , ['class' => 'form-control','readonly'=>'readonly']) !!}
-			</center>
-		</h3>
-	</div>
-	<div class="form-group">
-		<h3>{!! Form::label('description','Descripción',["class"=>"label label-primary"]) !!}
-			<br><br>
-			<center>
-				{!! Form::textarea('description', $ova->description, ['class' => 'form-control','readonly'=>'readonly']) !!}
-			</center>
-		</h3>
-	</div>
+		@include('ova.fieldsova')
+	{!! Form::close() !!}	
+	{!! Form::open( ['route' => ['ovas.downloads.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
 	<div class="form-group">
 		<h3>{!! Form::label('archive','Archivo',["class"=>"label label-primary"]) !!}
 			<br><br>
@@ -51,39 +29,17 @@
 			</center>	
 		</h3>
 	</div>
-	<div class="form-group">
-		<h3>{!! Form::label('type','Tipo',["class"=>"label label-primary"]) !!}
-			<br><br>
-			<center>
-				{!! Form::text('type', $ova->type->name, ['class' => 'form-control','readonly'=>'readonly']) !!}
-			</center>	
-		</h3>
-	</div>
-	<div class="form-group">
-		<h3>{!! Form::label('category','Categoría',["class"=>"label label-primary"]) !!}
-			<br><br>
-			<center>
-				{!! Form::text('category', $ova->category->name, ['class' => 'form-control','readonly'=>'readonly']) !!}
-			</center>	
-		</h3>
-	</div>
-	<select class="form-control " id="sel1" name="estrellas">
-    		<option>1</option>
-    		<option>2</option>
-    		<option>3</option>
-    		<option>4</option>
-    		<option>5</option>
-  	</select>
-	<div class="form-group pull-right">
-		{!! Form::submit('Evaluar',['class' => 'btn btn-primary']) !!}
-	</div>
-	{!! Form::close() !!}	
-	<?php
-		$text=asset('storage/')."/".$ova->archive;
-	
-	?>	
+	{!! Form::submit('Descargar',['class' => 'btn btn-primary']) !!}
+	{!! Form::close() !!}
 	<br>
-	<a href="{{$text}}">{!! Form::submit('Descargar',['class' => 'btn btn-primary']) !!}</a>
-	@endforeach
-	
-	@endsection
+	<div style="background: black; border: 1px solid #CCCCCC; padding: 4px;  border-radius: 13px; overflow-x: hidden;">
+    </div>
+	@endforeach	
+	<div class="text-center">
+		@if(isset($_GET['name']))
+			{!! $ovas->appends(array('name' => $_GET['name']))->links()!!}
+		@else
+			{!! $ovas->render() !!}
+		@endif
+	</div>
+@endsection

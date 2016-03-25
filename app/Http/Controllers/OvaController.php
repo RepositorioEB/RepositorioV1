@@ -20,16 +20,16 @@ class OvaController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function ovas()
+    public function ovas(Request $request)
     {
-        $ovas = Ova::orderBy('id','ASC')->get();
+        $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->paginate(10);
                 
         $ovas->each(function($ovas){
             $ovas->type;
             $ovas->category;
             $ovas->user;    
         });
-        return view('ova.ova.index')->with("ovas",$ovas);  
+        return view('ova.ova.index')->with("ovas",$ovas);
     }
     
     public function index(Request $request)

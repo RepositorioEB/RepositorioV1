@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Lista de tipos de ovas')
+@section('title', 'Lista tipos de ovas')
 
 @section('content')
 	
 	@include('admin.template.partials.errors')
 		<br />
+		<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
 		<h3>Busqueda por: <label class="label label-info">Tipo</label></h3>
 		<br />
 		<center>

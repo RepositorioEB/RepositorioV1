@@ -74,6 +74,8 @@ Route::group(['middleware' => 'web'], function () {
           //End routes foro
         });
         
+        
+
         Route::group(['prefix' => 'ovas'],function(){
         
           Route::resource('ova', 'OvaEvaluationController');
@@ -85,7 +87,12 @@ Route::group(['middleware' => 'web'], function () {
             return view('ova.menu');
           });
           Route::resource('ovamember', 'OvaMemberController');       
-      });
+
+        Route::resource('downloads', 'DownloadMemberController');
+          
+
+
+        });
        
 
 

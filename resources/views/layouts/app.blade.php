@@ -99,7 +99,7 @@
                                 <center>
                                     <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="1">¡Chat!</a>
                                     <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success" tabindex="1" accesskey="2">¡Foros!</a>
-                                    <a href="../ovas/ova" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
+                                    <a href="../ovas/menu" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
                                 </center>
                             </div>
                         </div>

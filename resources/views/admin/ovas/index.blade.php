@@ -5,8 +5,6 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-<<<<<<< HEAD
-=======
 	<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 	{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 		<select class="form-control" id="sel1" name="select">
@@ -20,15 +18,7 @@
 		</div>
 	{!! Form::close() !!}
 	<br />
->>>>>>> origin/master
 	<div class="table-responsive">
-		<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ova</a>
-		{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-			<div class="input-group">
-				{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
-				<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-			</div>
-		{!! Form::close() !!}
 		<table class="table table-striped">
 			<thead>
 				<th>Id</th>

@@ -20,9 +20,9 @@ class OvaTypeController extends Controller
         return view('ova.type.index')->with('types', $types);
     }
 
-    public function show($id)
+    public function show(Request $request,$id)
     {
-    	$ovas = Ova::orderBy('id', 'ASC')->where('type_id',$id)->get();
+        $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->where('type_id',$id)->paginate(10);
         return view('ova.type.show')->with('ovas', $ovas);
     }
 }

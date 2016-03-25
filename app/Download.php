@@ -21,6 +21,6 @@ class Download extends Model
 
     public function ova()
     {
-    	return $table->belongsTo('App\Ova');
+    	return $this->belongsTo('App\Ova');
     }
 }
