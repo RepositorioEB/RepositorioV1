@@ -29,7 +29,7 @@
 			</center>	
 		</h3>
 	</div>
-	{!! Form::submit('Descargar',['class' => 'btn btn-primary']) !!}
+	{!! Form::submit('Descargar',['class' => 'btn btn-warning']) !!}
 	{!! Form::close() !!}
 	<br>
 	<div style="background: black; border: 1px solid #CCCCCC; padding: 4px;  border-radius: 13px; overflow-x: hidden;">

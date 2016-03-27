@@ -25,21 +25,25 @@ class OvaMemberController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('archive2');
-        //obtenemos el nombre del archivo
-        $nombre = $file->getClientOriginalName();
-        
-        $ova = new Ova($request->all());
-        $ova->archive = $nombre;
-        $ova->type_id = $request->type_id;
-        $ova->category_id = $request->category_id;
-        $ova->user_id = \Auth::user()->id;
-        $ova->save();
-        $nombre = $ova->id.$nombre;
-        \Storage::disk('local')->put($nombre,  \File::get($file));
-        $ova->archive = $nombre;
-        $ova->save();
-        Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
-        return redirect()->route('ovas.ova.index');
+        if($file==null){
+            Flash::error("Debe ingresar el archivo.");
+            return redirect()->route('ovas.ovamember.create');
+        }else
+        {
+            $nombre = $file->getClientOriginalName();
+            $ova = new Ova($request->all());
+            $ova->archive = $nombre;
+            $ova->type_id = $request->type_id;
+            $ova->category_id = $request->category_id;
+            $ova->user_id = \Auth::user()->id;
+            $ova->save();
+            $nombre = $ova->id.$nombre;
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+            $ova->archive = $nombre;
+            $ova->save();
+            Flash::success("Se ha realizado la solicitud del ova " .$ova->name. " con exito!");
+            return redirect()->route('ovas.ova.index');
+        }
     }
     public function create()
     {

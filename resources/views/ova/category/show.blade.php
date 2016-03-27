@@ -10,7 +10,7 @@
 	{!! Form::open([ 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 		<h3><label>Buscar OVA: </label></h3>			
 		<div class="input-group">
-			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+			{!! Form::text('name', null, ['title'=>'Buscar OVA','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 		</div>
 	{!! Form::close() !!}
@@ -22,14 +22,14 @@
 	{!! Form::close() !!}	
 	{!! Form::open( ['route' => ['ovas.downloads.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
 	<div class="form-group">
-		<h3>{!! Form::label('archive','Archivo',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('archivelb','Archivo',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('archive', $ova->archive, ['class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('archive', $ova->archive, ['title'=> 'Archivo' ,'class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
-	{!! Form::submit('Descargar',['class' => 'btn btn-primary']) !!}
+	{!! Form::submit('Descargar',['class' => 'btn btn-warning']) !!}
 	{!! Form::close() !!}
 	<br>
 	<div style="background: black; border: 1px solid #CCCCCC; padding: 4px;  border-radius: 13px; overflow-x: hidden;">

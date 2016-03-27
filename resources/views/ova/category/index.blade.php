@@ -7,7 +7,7 @@
 	@include('admin.template.partials.errors')
 		<br />
 		<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
-		<h3>Busqueda por: <label class="label label-info">Categoria</label></h3>
+		<h3>Búsqueda por: <label class="label label-primary">Categoria</label></h3>
 		<br />
 		<center>
 		@foreach($categories as $category)

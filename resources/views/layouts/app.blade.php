@@ -12,6 +12,7 @@
     <!-- Fin Modificado (ed) -->
 
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
     
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -82,14 +83,11 @@
                                 {!! Form::close() !!}
                                 <br><br><br>
                                 <ul>
-                                    <li><h4><div class="label label-info">
-                                        Archivos recientes</div></h4>
+                                    <li><h4><div class="label label-info">Archivos recientes</div></h4>
                                         <ul>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo1</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo2</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo3</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo4</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo5</a></li>
+                                        {!! Form::open( ['route' => ['ovas.recentarchive.index'],'method' => 'GET', 'files' => true]) !!}
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"> {!! Form::submit('Ovas') !!}</span></li>
+                                        {!! Form::close() !!}   
                                         </ul>
                                     </li>
                                     <li><h4><div class="label label-info">Noticias</div></h4></li>
@@ -99,7 +97,7 @@
                                 <center>
                                     <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="1">¡Chat!</a>
                                     <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success" tabindex="1" accesskey="2">¡Foros!</a>
-                                    <a href="../ovas/menu" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
+                                    <a href="../../ovas/menu" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
                                 </center>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ class Ova extends Model implements SluggableInterface
 
     protected $table = "ovas";
 
-    protected $fillable = ['name','language','description','archive','punctuation','type_id','category_id','user_id'];
+    protected $fillable = ['name','language','description','archive','punctuation','state','type_id','category_id','user_id'];
             
     public function type()
     {
@@ -38,6 +38,11 @@ class Ova extends Model implements SluggableInterface
     public function downloads()
     {
         return $this->hasMany('App\Download');
+    }
+
+    public function ovas_comments()
+    {
+        return $this->hasMany('App\Ova_Comment');
     }
 
     public function user()

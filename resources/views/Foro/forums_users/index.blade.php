@@ -38,5 +38,4 @@
 			{!! $forums->render() !!}
 		</div>
 	</div>
-	
 @endsection

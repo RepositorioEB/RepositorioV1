@@ -9,6 +9,7 @@ use App\Category;
 use App\User;
 use App\Ova_Evaluation;
 use App\Ova;
+use App\Ova_Comment;
 use DB;
 use Laracasts\Flash\Flash;
 
@@ -22,14 +23,16 @@ class OvaController extends Controller
     
     public function ovas(Request $request)
     {
-        $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->paginate(10);
+        $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->where('state','1')->paginate(10);
+        $ovas_comments = Ova_Comment::orderBy('id', 'ASC')->get();
                 
         $ovas->each(function($ovas){
             $ovas->type;
             $ovas->category;
             $ovas->user;    
         });
-        return view('ova.ova.index')->with("ovas",$ovas);
+        $ovas_evaluations = Ova_Evaluation::get();  
+        return view('ova.ova.index')->with("ovas",$ovas)->with("ovas_comments",$ovas_comments)->with("ovas_evaluations",$ovas_evaluations);
     }
     
     public function index(Request $request)
@@ -77,7 +80,7 @@ class OvaController extends Controller
                 $cont=1;
             }
             $res =$sum / $cont; 
-            $ova->punctuation =$res;
+            $ova->punctuation = round($res,2);
         }
         $ovas->each(function($ovas){
             $ovas->type;
@@ -108,21 +111,25 @@ class OvaController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('archive2');
-        //obtenemos el nombre del archivo
-        $nombre = $file->getClientOriginalName();
-        
-        $ova = new Ova($request->all());
-        $ova->archive = $nombre;
-        $ova->type_id = $request->type_id;
-        $ova->category_id = $request->category_id;
-        $ova->user_id = \Auth::user()->id;
-        $ova->save();
-        $nombre = $ova->id.$nombre;
-        \Storage::disk('local')->put($nombre,  \File::get($file));
-        $ova->archive = $nombre;
-        $ova->save();
-        Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
-        return redirect()->route('admin.ovas.index');
+        if($file==null){
+            Flash::error("Debe ingresar el archivo.");
+            return redirect()->route('admin.ovas.create');
+        }else
+        {
+            $nombre = $file->getClientOriginalName();
+            $ova = new Ova($request->all());
+            $ova->archive = $nombre;
+            $ova->type_id = $request->type_id;
+            $ova->category_id = $request->category_id;
+            $ova->user_id = \Auth::user()->id;
+            $ova->save();
+            $nombre = $ova->id.$nombre;
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+            $ova->archive = $nombre;
+            $ova->save();
+            Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
+            return redirect()->route('admin.ovas.index');
+        }
     }
 
     /**
@@ -161,15 +168,15 @@ class OvaController extends Controller
     public function update(Request $request, $id)
     {
         $file = $request->file('archive2');
-        //obtenemos el nombre del archivo
-        $nombre = $file->getClientOriginalName();
-        //indicamos que queremos guardar un nuevo archivo en el disco local
-        \Storage::delete($request->archive);
         $ova = Ova::find($id);
         $ova->fill($request->all());
-        $nombre = $ova->id.$nombre;
-        \Storage::disk('local')->put($nombre,  \File::get($file));
-        $ova->archive = $nombre;
+        if($file != null){
+            $nombre = $file->getClientOriginalName();
+            \Storage::delete($request->archive);
+            $nombre = $ova->id.$nombre;
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+            $ova->archive = $nombre;
+        }
         $ova->save();
 
         Flash::warning("Se ha actualizado el ova " .$ova->id. " con exito!");

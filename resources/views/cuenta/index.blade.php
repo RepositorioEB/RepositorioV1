@@ -27,7 +27,7 @@
 					</br>
 					<a href="#" class="btn btn btn-primary" title="Foro"><span class="glyphicon glyphicon-trash" aria-hidden="true">Foro</span></a>
 					</br>
-					<a href="../chat/contactos" title="Chatear" class="btn btn-success" tabindex="1" accesskey="s">¡Chat!</a>
+					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="s">¡Chat!</a>
 	            </div>
 	        </div>
 	    </div>
@@ -110,7 +110,7 @@
 							</tbody>	
 						</table>
 					@else
-						{{ 'Ud no ha subido ninguna ova a este repositorio' }}
+						{{ 'Ud no ha subido ningun ova a este repositorio' }}
 					@endif
 	            </div>
 	        </div>

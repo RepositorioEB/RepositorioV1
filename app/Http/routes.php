@@ -87,11 +87,9 @@ Route::group(['middleware' => 'web'], function () {
             return view('ova.menu');
           });
           Route::resource('ovamember', 'OvaMemberController');       
-
-        Route::resource('downloads', 'DownloadMemberController');
-          
-
-
+          Route::resource('downloads', 'DownloadMemberController');
+          Route::resource('recentarchive', 'RecentArchiveController');
+          Route::resource('ova_comment', 'OvaCommentController');
         });
        
 

@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\User_chat;
 use App\Http\Requests;
+use Laracasts\Flash\Flash;
 
 class User_ChatController extends Controller
 {
@@ -21,7 +22,12 @@ class User_ChatController extends Controller
     public function store(Request $request)
     {
         $users_chats = new User_chat($request->all());
-        $users_chats->save();
+        if($users_chats->mensaje == null){
+            Flash::warning("No ha ingresado ningun mensaje");
+        }else{
+            Flash::success("Mensaje enviado!");
+            $users_chats->save();    
+        }
         return redirect()->route('chat.users_chats.conversationchat',['nombredestino'=>$request->namedestino]);
     }
 
@@ -45,7 +51,7 @@ class User_ChatController extends Controller
     public function conversation()
     {
         $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
-        $users = DB::table('users')->paginate(30);
+        $users = DB::table('users')->get();
         return view('chat.users_chats.conversation')->with('users', $users)->with('users_chats', $users_chats);
     }
 

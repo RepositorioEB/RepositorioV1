@@ -93,7 +93,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.categories.index') }}" >Categoria<span class="caret"></span></a>
+                        <li><a href="{{ route('admin.categories.index') }}" >Categoría<span class="caret"></span></a>
                             <ul>
                                 <li><a href="">Submenu1</a></li>
                                 <li><a href="">Submenu2</a></li>
@@ -154,9 +154,9 @@
                             </ul>
                         </li>
                     @else
-                        <li><a href="{{ route('ovas.ova.index') }}" >Objetos<span class="caret"></span></a>
+                        <li><a href="../../ovas/menu" title="Objetos">Objetos<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
+                                <li><a href="" title ="menu1">Submenu1</a></li>
                                 <li><a href="">Submenu2</a></li>
                                 <li><a href="">Submenu3</a></li>
                                 <li><a href="">Submenu4</a>
@@ -169,7 +169,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="../foro/foros-lista" >Foros<span class="caret"></span></a>
+                        <li><a href="{{ route('foro.foros_usuarios.index') }}" >Foros<span class="caret"></span></a>
                             <ul>
                                 <li><a href="">Submenu1</a></li>
                                 <li><a href="">Submenu2</a></li>

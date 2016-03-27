@@ -13,9 +13,11 @@ use Laracasts\Flash\Flash;
 use App\Type;
 use App\Category;
 use App\User;
+use App\Ova_Comment;
 
 class OvaEvaluationController extends Controller
 {
+    
     public function index(Request $request)
     {   
         if($request->name){
@@ -62,13 +64,14 @@ class OvaEvaluationController extends Controller
                 $cont=1;
             }
             $res =$sum / $cont; 
-            $ova->punctuation =$res;
+            $ova->punctuation = round($res,2);
         }
         $ovas->each(function($ovas){
             $ovas->type;
             $ovas->category;
             $ovas->user;    
         });
+
         return view('ova.index')->with('ovas', $ovas);
     }
 
@@ -87,16 +90,22 @@ class OvaEvaluationController extends Controller
      */
     public function store(Request $request)
     {
-        $ova_evaluation = new Ova_Evaluation($request->all());
-        $ova_evaluation->ova_id = $request->id;
-        $ova_evaluation->user_id = \Auth::user()->id;
-        $ova_evaluation->punctuation = $request->estrellas;
-        $ova_evaluation->save();
-        Flash::success("Gracias por realizar la evaluacion del ova");
-        return redirect()->route('ovas.ova.index');
+        $ovas_evaluations = Ova_Evaluation::where([['ova_id',$request->id],['user_id',\Auth::user()->id]])->first();
+        if($ovas_evaluations == null){
+            $ova_evaluation = new Ova_Evaluation($request->all());
+            $ova_evaluation->ova_id = $request->id;
+            $ova_evaluation->user_id = \Auth::user()->id;
+            $ova_evaluation->punctuation = $request->estrellas;
+            $ova_evaluation->save();
+            Flash::success("Gracias por realizar la evaluacion del ova");
+            return redirect()->route('ovas.ova.index');
+        }else{
+            $ovas_evaluations = Ova_Evaluation::get();  
+            return redirect()->route('ovas.ova.show',$request->id)->with('ovas_evaluations',$ovas_evaluations);
+        }
     }
     /**
-     * Display the specified resource.
+     * Display the specified resource.::
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -104,6 +113,13 @@ class OvaEvaluationController extends Controller
     public function show($id)
     {    
         $ova = Ova::find($id);
-        return view('ova.show')->with('ova', $ova);
+        if($ova->state ==true){
+            $ovas_comments = Ova_comment::orderBy('id','DES')->where('ova_id',$ova->id)->get();
+            $ovas_comments->each(function($ovas_comments){
+                $ovas_comments->user;    
+            });
+            $ovas_evaluations = Ova_Evaluation::get();  
+            return view('ova.show')->with('ova', $ova)->with('ovas_comments', $ovas_comments)->with('ovas_evaluations',$ovas_evaluations);
+        }
     }
 }
