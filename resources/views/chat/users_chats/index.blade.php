@@ -17,7 +17,7 @@
 	
 	<br><br><br><br>
 	<center>
-	{!! Form::open(['route' => 'chat.users_chats.conversation','method'=>'GET','target'=>'_blank'])!!}
+	{!! Form::open(['route' => 'chat.users_chats.conversationchat','method'=>'GET','target'=>'_blank'])!!}
 		<div class="input-group">
 		{!! Form::label('seleccion', 'Seleccione el contacto: &nbsp;',['class'=>'form-control'])!!}				
 		{!! Form::select('nombredestino',$array,null,['title'=>'Seleccionar Usuario','class'=>'form-control'])!!}

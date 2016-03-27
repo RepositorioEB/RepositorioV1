@@ -12,7 +12,7 @@
 				<th>Id</th>
 				<th>Nombre</th>
 				<th>Descripcion</th>
-				<th>Estado</th>
+				<th>Enlace</th>
 				<th>Creador</th>
 				<th>Accion</th>
 			</thead>
@@ -22,7 +22,7 @@
 						<td>{{ $help->id }}</td>
 						<td>{{ $help->name }}</td>
 						<td>{{ $help->description }}</td>
-						<td>{{ $help->state }}</td>
+						<td>{{ $help->video }}</td>
 						<td>{{ $help->user->name }}</td>
 						<td>
 							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>

@@ -28,5 +28,6 @@
 			</tbody>	
 		</table>
 	</div>
+>>>>>>> origin/master
 	
 @endsection

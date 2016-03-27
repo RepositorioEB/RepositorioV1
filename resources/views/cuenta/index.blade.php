@@ -68,6 +68,19 @@
 		            </center>
 	            </div>
 	        </div>
+	        {!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+			<select class="form-control" id="sel1" name="select">
+    			<option>Nombre</option>
+    			<option>Tipo</option>
+    			<option>Categoria</option>
+  			</select>
+			<div class="input-group">
+				{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+				<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+			</div>
+			{!! Form::close() !!}
+			<h3><label class="navbar-form pull-right">Busqueda de OVA:</label></h3>
+			<br><br><br>	        
 	        <div class="panel panel-default">
 	            <div class="panel-heading">Tus ovas</div>
 	            <div class="panel-body">

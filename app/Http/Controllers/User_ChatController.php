@@ -22,7 +22,7 @@ class User_ChatController extends Controller
     {
         $users_chats = new User_chat($request->all());
         $users_chats->save();
-        return redirect()->route('chat.users_chats.index',['nombredestino'=>$request->namedestino]);
+        return redirect()->route('chat.users_chats.conversationchat',['nombredestino'=>$request->namedestino]);
     }
 
     public function show($id)

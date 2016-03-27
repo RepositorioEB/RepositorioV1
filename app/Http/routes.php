@@ -61,7 +61,7 @@ Route::group(['middleware' => 'web'], function () {
         });
         Route::group(['prefix' => 'cuenta'],function(){
         
-          //Routes Foro
+          //Routes cuenta
           Route::resource('user', 'AccountController');
           Route::get('user/{id}/password',[
             'uses' => 'AccountController@password',
@@ -71,15 +71,28 @@ Route::group(['middleware' => 'web'], function () {
           ['as' => 'cuenta.user.update',
           'uses' => 'AccountController@update'
           ]);
-          //End routes foro
+          //End routes cuenta
         });
+        
 
         Route::group(['prefix' => 'ovas'],function(){
+        
           Route::resource('ova', 'OvaEvaluationController');
           Route::resource('ovamember', 'OvaMemberController');
-        });
+          Route::resource('type', 'OvaTypeController');
+          Route::resource('category', 'OvaCategoryController');
+          Route::get('ovas', 'OvaController@ovas');
+          Route::get('menu', function () {
+            return view('ova.menu');
+          });
+          Route::resource('ovamember', 'OvaMemberController');       
 
-        // --------------> Routes Admin <------------ 
+          Route::resource('downloads', 'DownloadMemberController');
+        });
+       
+
+
+          // --------------> Routes Admin <------------ 
         Route::group(['prefix' => 'admin', 'middleware' => ['AdminMw']],function(){
         // --------------> Home <------------ 
           Route::get('/', ['as' => 'admin.index', function () {
@@ -157,6 +170,16 @@ Route::group(['middleware' => 'web'], function () {
             ]);
 
             Route::resource('forums', 'ForumController');
+
+            Route::get('helps',[
+            'uses' => 'HelpController@listas',
+            'as'   => 'member.helps'
+            ]);
+
+            Route::get('helps/{helps}', [
+            'as' => 'member.helps.show',
+            'uses' => 'HelpController@show'
+            ]);
 
         });
 

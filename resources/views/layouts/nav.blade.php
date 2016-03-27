@@ -154,34 +154,30 @@
                             </ul>
                         </li>
                     @else
-                        <li><a href="#" >Objetos<span class="caret"></span></a>
+                        <li><a href="{{ route('ovas.ova.index') }}" >Objetos<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
+                                <li><a href="">Subir</a></li>
+                                <li><a href="">Lista</a></li>
+                                <li><a href="">Busqueda</a>
                                     <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
+                                        <li><a href="">General</a></li>
+                                        <li><a href="">Ovas</a></li>
+                                        <li><a href="">Tipo</a></li>
+                                        <li><a href="">Categoria</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="#" >Foros<span class="caret"></span></a>
+                        <li><a href="{{ route('foro.foros_usuarios.index') }}" >Foros<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="">Crear</a></li>
+                                <li><a href="">Lista</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('member.helps') }}" >Ayuda<span class="caret"></span></a>
+                            <ul>
+                                <li><a href="{{ route('member.helps') }}">Lista</a></li>
+                                <li><a href="">Problema</a></li>
                             </ul>
                         </li>
                     @endif

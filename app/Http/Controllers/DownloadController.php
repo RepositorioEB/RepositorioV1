@@ -21,7 +21,7 @@ class DownloadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $downloads = Download::orderBy('id','ASC')->paginate(10);
         $downloads->each(function($downloads){
@@ -50,6 +50,7 @@ class DownloadController extends Controller
      */
     public function store(Request $request)
     {
+       
         $download = new Download($request->all());
         $download->user_id = \Auth::user()->id;
         $download->ova_id = $request->ova_id;

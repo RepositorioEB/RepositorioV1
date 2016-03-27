@@ -65,7 +65,14 @@ class HelpController extends Controller
      */
     public function show($id)
     {
-        //
+        $help = Help::find($id);   
+        $help->user;
+        $url = $help->video;
+        $query_string = array();
+        parse_str(parse_url($url, PHP_URL_QUERY), $query_string);
+        $youtube_id = $query_string["v"];
+        $urls = "https://www.youtube.com/embed/".$youtube_id;
+        return view('member.helps.show')->with('help',$help)->with('urls',$urls);
     }
 
     /**
@@ -108,5 +115,14 @@ class HelpController extends Controller
         $helps->delete();
         Flash::error('La ayuda ' .$helps->name. ' ha sido borrado con exito!');
         return redirect()->route('admin.helps.index');
+    }
+
+    public function listas()
+    {
+        $helps = Help::orderBy('id','ASC')->paginate(10);
+        $helps->each(function($helps){
+            $helps->user;
+        });
+        return view('member.helps.index')->with('helps', $helps);
     }
 }

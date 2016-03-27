@@ -40,7 +40,11 @@
 		</table>
 	</div>
 	<div class="text-center">
-		{!! $ovas->render() !!}
+		@if(isset($_GET['select']))
+			{!! $ovas->appends(array('select' => $_GET['select'],'name' => $_GET['name']))->links()!!}
+		@else
+			{!! $ovas->render() !!}
+		@endif
 	</div>
 	
 @endsection

@@ -18,15 +18,16 @@ class Forum_UserController extends Controller
 {
     public function message(Request $request)
     {
-    	$foros_usuarios = forum_user::orderBy('created_at','ASC')->paginate(10);
+    	$foros_usuarios = forum_user::orderBy('created_at','ASC')->paginate(30);
     	$foros = DB::table('forums')->where('id', $request->forum_id)->first();
-        $users = user::orderBy('created_at','ASC')->paginate(10);
+        $users = user::orderBy('created_at','ASC')->get();
         return view('foro.forums_users.message')->with('foros_usuarios', $foros_usuarios)->with("foros",$foros)->with("users",$users);
     }
 
     public function index(){
         $forums = DB::table('forums')->paginate(30);
         $users = DB::table('users')->paginate(30);
+        $users = DB::table('users')->get();
         return view('foro.forums_users.index')->with('forums', $forums)->with("users",$users);
     }
 
@@ -39,9 +40,9 @@ class Forum_UserController extends Controller
     	    $foros_usuarios = new forum_user($request->all());
             $foros_usuarios->message = $request->message;
             $foros_usuarios->save();
-            $foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(10);
+            $foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(30);
             $foros = DB::table('forums')->where('id', $request->forum_id)->first();
-            $users = user::orderBy('created_at','ASC')->paginate(10);
+            $users = user::orderBy('created_at','ASC')->get();
             return view('foro.forums_users.message')->with('foros_usuarios', $foros_usuarios)->with("foros",$foros)->with("users",$users);
     }
 
