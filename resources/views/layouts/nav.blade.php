@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
         <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url('/') }}" title="Inicio"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a href="{{ url('/') }}" title="Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}" title="Ingresar">Ingresar</a></li>

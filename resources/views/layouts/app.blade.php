@@ -11,7 +11,6 @@
     <title>@yield('title', 'Inicio')</title>
     <!-- Fin Modificado (ed) -->
 
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     
     <!-- Fonts -->
@@ -23,11 +22,24 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- Inicio Modificado (ed) -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Fin Modificado (ed) -->
+    @if (Auth::guest())
+        <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
+    @else
 
+        @if(Auth::user()->profile->name =='Daltonismo')
+            <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
+        @else
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
+        @endif
+    @endif    
+    
     <style>
         body {
             font-family: 'Lato';
@@ -122,7 +134,7 @@
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h6 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h6>
+            <h6 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=" glyphicon glyphicon-menu-right" aria-hidden="true"> </span> Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h6>
         </div>
     </div>
 </body>

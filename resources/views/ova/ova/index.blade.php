@@ -10,7 +10,7 @@
 	{!! Form::open([ 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 		<h3><label>Buscar OVA: </label></h3>			
 		<div class="input-group">
-			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+			{!! Form::text('name', null, ['title'=>'Buscar OVA','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 		</div>
 	{!! Form::close() !!}
