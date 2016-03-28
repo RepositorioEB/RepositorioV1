@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
         <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url('/') }}" title="PaginaPrincipal"><span class="glyphicon glyphicon-home">Inicio</span></a></li>
+                <li><a href="{{ url('/') }}" title="Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}" title="Ingresar">Ingresar</a></li>
@@ -51,7 +51,7 @@
                                 <li><a href="" title="PropiosHelps">Propios</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.categories.index') }}" >Categoria<span class="caret"></span></a>
+                        <li><a href="{{ route('admin.categories.index') }}" >Categoría<span class="caret"></span></a>
                             <ul>
                                 <li><a href="{{ route('admin.categories.create') }}" title="CrearCategory">Crear</a></li>
                             </ul>
@@ -72,7 +72,7 @@
                             </ul>
                         </li>
                     @else
-                        <li><a href="{{ route('ovas.ova.index') }}" >Objetos<span class="caret"></span></a>
+                        <li><a href="../../ovas/menu" title="Objetos">Objetos<span class="caret"></span></a>
                             <ul>
                                 <li><a href="" title="SubirOva">Subir</a></li>
                                 <li><a href="" title="Busquedas">Busqueda</a>

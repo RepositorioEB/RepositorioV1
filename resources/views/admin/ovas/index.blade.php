@@ -20,6 +20,7 @@
 				<th>Puntuacion</th>
 				<th>Tipo</th>
 				<th>Categoria</th>
+				<th>Estado</th>
 				<th>Accion</th>
 			</thead>
 			<tbody>
@@ -30,6 +31,13 @@
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $ova->punctuation}}</td>
 						<td>{{ $ova->type->name }}</td>
 						<td>{{ $ova->category->name }}</td>
+						<td>
+							@if ($ova->state)
+								<h4><span class="label label-danger">{{ 'Subido' }}</span></h4>
+							@else
+								<h4><span class="label label-primary">{{ 'Solicitud' }}</span></h4>
+							@endif
+						</td>
 						<td>
 							<a href="{{ route('admin.ovas.edit', $ova->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
 							<a href="{{ route('admin.ovas.destroy', $ova->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>

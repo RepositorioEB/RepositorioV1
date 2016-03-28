@@ -11,7 +11,6 @@
     <title>@yield('title', 'Inicio')</title>
     <!-- Fin Modificado (ed) -->
 
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -22,10 +21,23 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- Inicio Modificado (ed) -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Fin Modificado (ed) -->
+
+    @if (Auth::guest())
+        <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
+    @else
+
+        @if(Auth::user()->profile->name =='Daltonismo')
+            <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
+        @else
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
+        @endif
+    @endif   
 
     <style>
         body {

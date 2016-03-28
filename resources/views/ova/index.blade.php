@@ -10,7 +10,7 @@
 		<select class="form-control" id="sel1" name="select">
     		<option>Nombre</option>
     		<option>Tipo</option>
-    		<option>Categoria</option>
+    		<option>Categoría</option>
   		</select>
 		<div class="input-group">
 			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
@@ -22,12 +22,13 @@
 		<thead>
 			<th>Nombre</th>
 			<th>Tipo</th>
-			<th>Categoria</th>
+			<th>Categoría</th>
 			<th>Puntuación</th>
-			<th>Accion</th>
+			<th>Acción</th>
 		</thead>
 		<tbody>
 			@foreach($ovas as $ova)
+				@if($ova->state == true)
 				<tr>
 					<td>{{ $ova->name }}</td>
 					<td>{{ $ova->type->name }}</td>
@@ -37,6 +38,7 @@
 					    <a href="{{ route('ovas.ova.show', $ova->id) }}" class="btn btn-warning" title="Seleccionar"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
     				</td>
 				</tr>
+				@endif
 			@endforeach
 		</tbody>	
 	</table>

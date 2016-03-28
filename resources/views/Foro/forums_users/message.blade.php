@@ -18,10 +18,10 @@
         </div>
     {!! Form::close() !!}
     
-    <div id="conversation" style="background: gray;height:800px; border: 1px solid #CCCCCC; padding: 12px;  border-radius: 13px; overflow-x: hidden;">
+    <div id="conversation" >
         @foreach ($foros_usuarios as $foro_usuario)
             @if ($foro_usuario->forum_id == $_GET['forum_id'])
-                <div style="background: #4f4f4f; border: 1px solid #CCCCCC; padding: 12px; overflow-x: hidden; border-radius: 79px 28px 64px 29px; -moz-border-radius: 79px 28px 64px 29px;-webkit-border-radius: 79px 28px 64px 29px; border: 0px solid #000000;">
+                <div id="message">
                     <p> <h4><img alt="Foto" src="{{ asset('images/logos.png') }}" width=50 height=50 title="Foto">&nbsp;<label class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->name}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </label>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label label-primary">{{$foro_usuario->created_at}}</label></h4></p>   
                 </div>
                 <br>

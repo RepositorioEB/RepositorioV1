@@ -9,199 +9,12 @@ use App\Category;
 use App\User;
 use App\Ova_Evaluation;
 use App\Ova;
+use App\Ova_Comment;
 use DB;
 use Laracasts\Flash\Flash;
 
 class OvaController extends Controller
 {
-    
-    protected $language = array(
-        'aa' => 'Afar',
-        'ab' => 'Abkhaz',
-        'ae' => 'Avestan',
-        'af' => 'Afrikaans',
-        'ak' => 'Akan',
-        'am' => 'Amharic',
-        'an' => 'Aragonese',
-        'ar' => 'Arabic',
-        'as' => 'Assamese',
-        'av' => 'Avaric',
-        'ay' => 'Aymara',
-        'az' => 'Azerbaijani',
-        'ba' => 'Bashkir',
-        'be' => 'Belarusian',
-        'bg' => 'Bulgarian',
-        'bh' => 'Bihari',
-        'bi' => 'Bislama',
-        'bm' => 'Bambara',
-        'bn' => 'Bengali',
-        'bo' => 'Tibetan Standard, Tibetan, Central',
-        'br' => 'Breton',
-        'bs' => 'Bosnian',
-        'ca' => 'Catalan; Valencian',
-        'ce' => 'Chechen',
-        'ch' => 'Chamorro',
-        'co' => 'Corsican',
-        'cr' => 'Cree',
-        'cs' => 'Czech',
-        'cu' => 'Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic',
-        'cv' => 'Chuvash',
-        'cy' => 'Welsh',
-        'da' => 'Danish',
-        'de' => 'German',
-        'dv' => 'Divehi; Dhivehi; Maldivian;',
-        'dz' => 'Dzongkha',
-        'ee' => 'Ewe',
-        'el' => 'Greek, Modern',
-        'en' => 'English',
-        'eo' => 'Esperanto',
-        'es' => 'Spanish; Castilian',
-        'et' => 'Estonian',
-        'eu' => 'Basque',
-        'fa' => 'Persian',
-        'ff' => 'Fula; Fulah; Pulaar; Pular',
-        'fi' => 'Finnish',
-        'fj' => 'Fijian',
-        'fo' => 'Faroese',
-        'fr' => 'French',
-        'fy' => 'Western Frisian',
-        'ga' => 'Irish',
-        'gd' => 'Scottish Gaelic; Gaelic',
-        'gl' => 'Galician',
-        'gn' => 'GuaranÃ­',
-        'gu' => 'Gujarati',
-        'gv' => 'Manx',
-        'ha' => 'Hausa',
-        'he' => 'Hebrew (modern)',
-        'hi' => 'Hindi',
-        'ho' => 'Hiri Motu',
-        'hr' => 'Croatian',
-        'ht' => 'Haitian; Haitian Creole',
-        'hu' => 'Hungarian',
-        'hy' => 'Armenian',
-        'hz' => 'Herero',
-        'ia' => 'Interlingua',
-        'id' => 'Indonesian',
-        'ie' => 'Interlingue',
-        'ig' => 'Igbo',
-        'ii' => 'Nuosu',
-        'ik' => 'Inupiaq',
-        'io' => 'Ido',
-        'is' => 'Icelandic',
-        'it' => 'Italian',
-        'iu' => 'Inuktitut',
-        'ja' => 'Japanese (ja)',
-        'jv' => 'Javanese (jv)',
-        'ka' => 'Georgian',
-        'kg' => 'Kongo',
-        'ki' => 'Kikuyu, Gikuyu',
-        'kj' => 'Kwanyama, Kuanyama',
-        'kk' => 'Kazakh',
-        'kl' => 'Kalaallisut, Greenlandic',
-        'km' => 'Khmer',
-        'kn' => 'Kannada',
-        'ko' => 'Korean',
-        'kr' => 'Kanuri',
-        'ks' => 'Kashmiri',
-        'ku' => 'Kurdish',
-        'kv' => 'Komi',
-        'kw' => 'Cornish',
-        'ky' => 'Kirghiz, Kyrgyz',
-        'la' => 'Latin',
-        'lb' => 'Luxembourgish, Letzeburgesch',
-        'lg' => 'Luganda',
-        'li' => 'Limburgish, Limburgan, Limburger',
-        'ln' => 'Lingala',
-        'lo' => 'Lao',
-        'lt' => 'Lithuanian',
-        'lu' => 'Luba-Katanga',
-        'lv' => 'Latvian',
-        'mg' => 'Malagasy',
-        'mh' => 'Marshallese',
-        'mi' => 'Maori',
-        'mk' => 'Macedonian',
-        'ml' => 'Malayalam',
-        'mn' => 'Mongolian',
-        'mr' => 'Marathi (Marāṭhī)',
-        'ms' => 'Malay',
-        'mt' => 'Maltese',
-        'my' => 'Burmese',
-        'na' => 'Nauru',
-        'nb' => 'Norwegian Bokmål',
-        'nd' => 'North Ndebele',
-        'ne' => 'Nepali',
-        'ng' => 'Ndonga',
-        'nl' => 'Dutch',
-        'nn' => 'Norwegian Nynorsk',
-        'no' => 'Norwegian',
-        'nr' => 'South Ndebele',
-        'nv' => 'Navajo, Navaho',
-        'ny' => 'Chichewa; Chewa; Nyanja',
-        'oc' => 'Occitan',
-        'oj' => 'Ojibwe, Ojibwa',
-        'om' => 'Oromo',
-        'or' => 'Oriya',
-        'os' => 'Ossetian, Ossetic',
-        'pa' => 'Panjabi, Punjabi',
-        'pi' => 'Pali',
-        'pl' => 'Polish',
-        'ps' => 'Pashto, Pushto',
-        'pt' => 'Portuguese',
-        'qu' => 'Quechua',
-        'rm' => 'Romansh',
-        'rn' => 'Kirundi',
-        'ro' => 'Romanian, Moldavian, Moldovan',
-        'ru' => 'Russian',
-        'rw' => 'Kinyarwanda',
-        'sa' => 'Sanskrit (Saṁskṛta)',
-        'sc' => 'Sardinian',
-        'sd' => 'Sindhi',
-        'se' => 'Northern Sami',
-        'sg' => 'Sango',
-        'si' => 'Sinhala, Sinhalese',
-        'sk' => 'Slovak',
-        'sl' => 'Slovene',
-        'sm' => 'Samoan',
-        'sn' => 'Shona',
-        'so' => 'Somali',
-        'sq' => 'Albanian',
-        'sr' => 'Serbian',
-        'ss' => 'Swati',
-        'st' => 'Southern Sotho',
-        'su' => 'Sundanese',
-        'sv' => 'Swedish',
-        'sw' => 'Swahili',
-        'ta' => 'Tamil',
-        'te' => 'Telugu',
-        'tg' => 'Tajik',
-        'th' => 'Thai',
-        'ti' => 'Tigrinya',
-        'tk' => 'Turkmen',
-        'tl' => 'Tagalog',
-        'tn' => 'Tswana',
-        'to' => 'Tonga (Tonga Islands)',
-        'tr' => 'Turkish',
-        'ts' => 'Tsonga',
-        'tt' => 'Tatar',
-        'tw' => 'Twi',
-        'ty' => 'Tahitian',
-        'ug' => 'Uighur, Uyghur',
-        'uk' => 'Ukrainian',
-        'ur' => 'Urdu',
-        'uz' => 'Uzbek',
-        've' => 'Venda',
-        'vi' => 'Vietnamese',
-        'vo' => 'Volapük',
-        'wa' => 'Walloon',
-        'wo' => 'Wolof',
-        'xh' => 'Xhosa',
-        'yi' => 'Yiddish',
-        'yo' => 'Yoruba',
-        'za' => 'Zhuang, Chuang',
-        'zh' => 'Chinese',
-        'zu' => 'Zulu',
-    );
-
     /**
      * Display a listing of the resource.
      *
@@ -210,13 +23,15 @@ class OvaController extends Controller
     
     public function ovas(Request $request)
     {
-        $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->paginate(10);                
+        $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->where('state','1')->paginate(10);
+        $ovas_comments = Ova_Comment::orderBy('id', 'ASC')->get();
         $ovas->each(function($ovas){
             $ovas->type;
             $ovas->category;
             $ovas->user;    
         });
-        return view('ova.ova.index')->with("ovas",$ovas);
+        $ovas_evaluations = Ova_Evaluation::get();  
+        return view('ova.ova.index')->with("ovas",$ovas)->with("ovas_comments",$ovas_comments)->with("ovas_evaluations",$ovas_evaluations);
     }
     
     public function index(Request $request)
@@ -264,7 +79,7 @@ class OvaController extends Controller
                 $cont=1;
             }
             $res =$sum / $cont; 
-            $ova->punctuation =$res;
+            $ova->punctuation = round($res,2);
         }
         $ovas->each(function($ovas){
             $ovas->type;
@@ -295,21 +110,25 @@ class OvaController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('archive2');
-        //obtenemos el nombre del archivo
-        $nombre = $file->getClientOriginalName();
-        
-        $ova = new Ova($request->all());
-        $ova->archive = $nombre;
-        $ova->type_id = $request->type_id;
-        $ova->category_id = $request->category_id;
-        $ova->user_id = \Auth::user()->id;
-        $ova->save();
-        $nombre = $ova->id.$nombre;
-        \Storage::disk('local')->put($nombre,  \File::get($file));
-        $ova->archive = $nombre;
-        $ova->save();
-        Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
-        return redirect()->route('admin.ovas.index');
+        if($file==null){
+            Flash::error("Debe ingresar el archivo.");
+            return redirect()->route('admin.ovas.create');
+        }else
+        {
+            $nombre = $file->getClientOriginalName();
+            $ova = new Ova($request->all());
+            $ova->archive = $nombre;
+            $ova->type_id = $request->type_id;
+            $ova->category_id = $request->category_id;
+            $ova->user_id = \Auth::user()->id;
+            $ova->save();
+            $nombre = $ova->id.$nombre;
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+            $ova->archive = $nombre;
+            $ova->save();
+            Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
+            return redirect()->route('admin.ovas.index');
+        }
     }
 
     /**
@@ -348,15 +167,15 @@ class OvaController extends Controller
     public function update(Request $request, $id)
     {
         $file = $request->file('archive2');
-        //obtenemos el nombre del archivo
-        $nombre = $file->getClientOriginalName();
-        //indicamos que queremos guardar un nuevo archivo en el disco local
-        \Storage::delete($request->archive);
         $ova = Ova::find($id);
         $ova->fill($request->all());
-        $nombre = $ova->id.$nombre;
-        \Storage::disk('local')->put($nombre,  \File::get($file));
-        $ova->archive = $nombre;
+        if($file != null){
+            $nombre = $file->getClientOriginalName();
+            \Storage::delete($request->archive);
+            $nombre = $ova->id.$nombre;
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+            $ova->archive = $nombre;
+        }
         $ova->save();
 
         Flash::warning("Se ha actualizado el ova " .$ova->id. " con exito!");

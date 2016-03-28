@@ -11,7 +11,7 @@
     <title>@yield('title', 'Inicio')</title>
     <!-- Fin Modificado (ed) -->
 
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
     
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -22,13 +22,26 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- Inicio Modificado (ed) -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Iconos -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <!-- Fin Modificado (ed) -->
+    @if (Auth::guest())
+        <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
+    @else
 
+        @if(Auth::user()->profile->name =='Daltonismo')
+            <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
+        @else
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
+        @endif
+    @endif    
+    
     <style>
         body {
             font-family: 'Lato';
@@ -86,14 +99,11 @@
                                 {!! Form::close() !!}
                                 <br><br><br>
                                 <ul>
-                                    <li><h4><div class="label label-info">
-                                        Archivos recientes</div></h4>
+                                    <li><h4><div class="label label-info">Archivos recientes</div></h4>
                                         <ul>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo1</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo2</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo3</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo4</a></li>
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Archivo5</a></li>
+                                        {!! Form::open( ['route' => ['ovas.recentarchive.index'],'method' => 'GET', 'files' => true]) !!}
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"> {!! Form::submit('Ovas') !!}</span></li>
+                                        {!! Form::close() !!}   
                                         </ul>
                                     </li>
                                     <li><h4><div class="label label-info">Noticias</div></h4></li>
@@ -103,7 +113,7 @@
                                 <center>
                                     <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="1">¡Chat!</a>
                                     <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success" tabindex="1" accesskey="2">¡Foros!</a>
-                                    <a href="../ovas/menu" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
+                                    <a href="../../ovas/menu" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
                                 </center>
                             </div>
                         </div>
@@ -128,7 +138,7 @@
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h5>
+            <h6 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=" glyphicon glyphicon-menu-right" aria-hidden="true"> </span> Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h6>
         </div>
     </div>
 </body>

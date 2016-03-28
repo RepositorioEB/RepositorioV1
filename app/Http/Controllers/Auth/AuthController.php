@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Mail;
+use Session;
+use Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -71,6 +74,11 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        
+        Mail::send('emails.contact', ['data' => $data], function ($m) use ($data) {
+            $m->from('repositorioovas@gmail.com', 'Repositorio de OVAS');
+            $m->to($data['email'],$data['name'])->subject('Código de usuario:');
+        });
         return User::create([
             'name' => $data['name'],
             'username' => $data['username'],

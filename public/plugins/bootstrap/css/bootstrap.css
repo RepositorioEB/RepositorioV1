@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;       btn
+  font-family: sans-serif;       .panel-default
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -3175,7 +3175,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
+  background-color: #117e11;
   border-color: #4cae4c;
 }
 .btn-success:focus,
@@ -3232,7 +3232,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-info {
   color: #fff;
-  background-color: #5bc0de;
+  background-color: #127b9a;
   border-color: #46b8da;
 }
 .btn-info:focus,
@@ -3289,7 +3289,7 @@ fieldset[disabled] .btn-info.focus {
 }
 .btn-warning {
   color: #fff;
-  background-color: #f0ad4e;
+  background-color: #a7680f;
   border-color: #eea236;
 }
 .btn-warning:focus,
@@ -4897,7 +4897,7 @@ a.label:focus {
   background-color: #449d44;
 }
 .label-info {
-  background-color: #5bc0de;
+  background-color: #227e9a;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
@@ -4911,7 +4911,7 @@ a.label:focus {
   background-color: #ec971f;
 }
 .label-danger {
-  background-color: #d9534f;
+  background-color: #cb3a36;
 }
 .label-danger[href]:hover,
 .label-danger[href]:focus {
@@ -5696,7 +5696,16 @@ border-radius: 15px;
   border-bottom: 1px solid #ddd;
 }
 .panel-default {
-  border-color: #ddd;
+/*  border-color: #ddd;*/
+  border-color:rgba(0,0,0,0.6);
+-webkit-box-shadow: 0px 3px 40px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 40px 1px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 40px 1px rgba(0,0,0,0.75);
+
+border-radius: 48px 14px 47px 30px;
+-webkit-box-shadow: -6px 33px 82px -26px rgba(124,124,133,1);
+-moz-box-shadow: -6px 33px 82px -26px rgba(124,124,133,1);
+box-shadow: -6px 33px 82px -26px rgba(124,124,133,1);
 }
 .panel-default > .panel-heading {
   color: #333;

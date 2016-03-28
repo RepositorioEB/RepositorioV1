@@ -19,6 +19,7 @@ class AddOvasTable extends Migration
             $table->string('description')->nullable();
             $table->string('archive');
             $table->integer('punctuation')->nullable();
+            $table->boolean('state')->default(false);
             $table->integer('type_id')->unsigned()->nullable();
             $table->integer('category_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
@@ -26,6 +27,15 @@ class AddOvasTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+        });
+        Schema::create('ovas_comments',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('ova_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->string('comment',250);
+            $table->foreign('ova_id')->references('id')->on('ovas')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();     
         });
     }
 

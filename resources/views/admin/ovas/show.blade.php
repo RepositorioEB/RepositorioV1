@@ -27,7 +27,5 @@
 					</tr>
 			</tbody>	
 		</table>
-	</div>
->>>>>>> origin/master
-	
+	</div>	
 @endsection
