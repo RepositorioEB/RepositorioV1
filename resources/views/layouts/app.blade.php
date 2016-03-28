@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <!-- Fin Modificado (ed) -->
 
     <style>
@@ -73,12 +75,14 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 {!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+                                <!--
                                     <div class="input-group">
                                         <span class="input-group-addon" id="search">
                                             <input type="Buscar" title="Busqueda" onclick="" placeholder="Buscar" /> 
                                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                         </span>
                                     </div>
+                                -->
                                 {!! Form::close() !!}
                                 <br><br><br>
                                 <ul>
@@ -124,7 +128,7 @@
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h6 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h6>
+            <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h5>
         </div>
     </div>
 </body>

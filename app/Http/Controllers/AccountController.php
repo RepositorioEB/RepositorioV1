@@ -16,6 +16,7 @@ use Hash;
 use DB;
 use App\Type;
 use App\Category;
+use App\Country;
 
 use Laracasts\Flash\Flash;
 
@@ -139,7 +140,8 @@ class AccountController extends Controller
             $user->photo = 'userdefect.png';
         }
         $profiles = Profile::orderBy('name', 'ASC')->lists('name', 'id');
-        return view('cuenta.edit')->with('user',$user)->with('profiles',$profiles);
+        $country = Country::countryList();
+        return view('cuenta.edit')->with('country',$country)->with('user',$user)->with('profiles',$profiles);
     }
 
     public function password($id){

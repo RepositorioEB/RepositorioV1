@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
         <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url('/') }}" title="Inicio"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a href="{{ url('/') }}" title="PaginaPrincipal"><span class="glyphicon glyphicon-home">Inicio</span></a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}" title="Ingresar">Ingresar</a></li>
@@ -20,164 +20,79 @@
                     @if(Auth::user()->role == 'admin')
                         <li><a href="{{ route('admin.users.index') }}" >Usuarios<span class="caret"></span></a>
                             <ul>
-                                <li><a href="" title="Submenu1">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.users.create') }}" title="CrearUser">Crear</a></li>
+                                <li><a href="" title="BuscarUser">Buscar</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.profiles.index') }}" >Perfiles<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.profiles.create') }}" title="CrearProfile">Crear</a></li>
+                                <li><a href="" title="BuscarProfile">Buscar</a></li>
+                                <li><a href="" title="PropiosProfile">Propios</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.ovas.index') }}" >Objetos<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.ovas.create') }}" title="CrearOva">Crear</a></li>
+                                <li><a href="" title="BuscarOva">Buscar</a></li>
+                                <li><a href="" title="PropiosOva">Propios</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.forums.index') }}" >Foros<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.forums.create') }}" title="CrearForum">Crear</a></li>
+                                <li><a href="" title="PropiosForum">Propios</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.helps.index') }}" >Ayuda<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.helps.create') }}" title="CrearHelps">Crear</a></li>
+                                <li><a href="" title="BuscarHelps">Buscar</a></li>
+                                <li><a href="" title="PropiosHelps">Propios</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.categories.index') }}" >Categoria<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.categories.create') }}" title="CrearCategory">Crear</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.types.index') }}" >Tipo<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.types.create') }}" title="CrearType">Crear</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.downloads.index') }}" >Descargas<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.downloads.create') }}" title="CrearDownload">Crear</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.problems.index') }}" >Problema<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Submenu1</a></li>
-                                <li><a href="">Submenu2</a></li>
-                                <li><a href="">Submenu3</a></li>
-                                <li><a href="">Submenu4</a>
-                                    <ul>
-                                        <li><a href="">Submenu1</a></li>
-                                        <li><a href="">Submenu2</a></li>
-                                        <li><a href="">Submenu3</a></li>
-                                        <li><a href="">Submenu4</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ route('admin.problems.create') }}" title="CrearProblem">Crear</a></li>
                             </ul>
                         </li>
                     @else
                         <li><a href="{{ route('ovas.ova.index') }}" >Objetos<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Subir</a></li>
-                                <li><a href="">Lista</a></li>
-                                <li><a href="">Busqueda</a>
+                                <li><a href="" title="SubirOva">Subir</a></li>
+                                <li><a href="" title="Busquedas">Busqueda</a>
                                     <ul>
-                                        <li><a href="">General</a></li>
-                                        <li><a href="">Ovas</a></li>
-                                        <li><a href="">Tipo</a></li>
-                                        <li><a href="">Categoria</a></li>
+                                        <li><a href="" title="BusquedaGeneral">General</a></li>
+                                        <li><a href="" title="BusquedaOva">Ovas</a></li>
+                                        <li><a href="" title="BusquedaTipo">Tipo</a></li>
+                                        <li><a href="" title="BusquedaCategoria">Categoria</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li><a href="{{ route('foro.foros_usuarios.index') }}" >Foros<span class="caret"></span></a>
                             <ul>
-                                <li><a href="">Crear</a></li>
-                                <li><a href="">Lista</a></li>
+                                <li><a href="" title="CrearForo">Crear</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('member.helps') }}" >Ayuda<span class="caret"></span></a>
                             <ul>
-                                <li><a href="{{ route('member.helps') }}">Lista</a></li>
-                                <li><a href="">Problema</a></li>
+                                <li><a href="" title="Problemas">Problema</a></li>
                             </ul>
                         </li>
                     @endif

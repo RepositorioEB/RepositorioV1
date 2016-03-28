@@ -10,7 +10,7 @@
 	            <div class="panel-body">
 	                <div class="media">
 			          	<div class="media-center">
-			          		<a href=""><img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" /></a>
+			          		<img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" alt="avatar"/>
 			          		<h1>{{$user->name." ".$user->last_name}}
 			          			<small>{{$user->username}}</small>
 			          		</h1>
@@ -53,7 +53,7 @@
 									<td>{{ $user->email }}</td>
 									<td>{{ $user->date }}</td>
 									<td>{{ $user->profile->name }}</td>
-									<td>{{ $user->country }}</td>
+									<td>{{ \App\Country::countryCode($user->country) }}</td>
 								</tr>
 							</tbody>	
 						</table>
@@ -68,23 +68,23 @@
 		            </center>
 	            </div>
 	        </div>
-	        {!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-			<select class="form-control" id="sel1" name="select">
-    			<option>Nombre</option>
-    			<option>Tipo</option>
-    			<option>Categoria</option>
-  			</select>
-			<div class="input-group">
-				{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
-				<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-			</div>
-			{!! Form::close() !!}
-			<h3><label class="navbar-form pull-right">Busqueda de OVA:</label></h3>
-			<br><br><br>	        
 	        <div class="panel panel-default">
 	            <div class="panel-heading">Tus ovas</div>
 	            <div class="panel-body">
 	            	@if($i)
+						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+							<label for="sel1" class="control-label">Seleccione:</label>
+							<select class="form-control" id="sel1" name="select">
+				    			<option>Nombre</option>
+				    			<option>Tipo</option>
+				    			<option>Categoria</option>
+				  			</select>
+							<div class="input-group">
+								{!! Form::label('name','Buscar:') !!}
+								{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+								<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+							</div>
+						{!! Form::close() !!}
 		            	<table class="table table-striped">
 							<thead>
 								<th>Nombre</th>
@@ -110,6 +110,19 @@
 							</tbody>	
 						</table>
 					@else
+						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+							<label for="sel1" class="control-label">Seleccione:</label>
+							<select class="form-control" id="sel1" name="select">
+				    			<option>Nombre</option>
+				    			<option>Tipo</option>
+				    			<option>Categoria</option>
+				  			</select>
+							<div class="input-group">
+								{!! Form::label('name','Buscar:') !!}
+								{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+								<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+							</div>
+						{!! Form::close() !!}
 						{{ 'Ud no ha subido ninguna ova a este repositorio' }}
 					@endif
 	            </div>

@@ -25,6 +25,9 @@
 		$('.select-role').chosen({
 			placeholder_text_single: 'Seleccione el rol adecuado';
 		});
+		$('.select-country').chosen({
+			placeholder_text_single: 'Seleccione el pais adecuado';
+		});
 		$('.select-profiles').chosen({
 			placeholder_text_single: 'Seleccione la discapacidad adecuado';
 			search_contains: true;

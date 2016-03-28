@@ -27,7 +27,7 @@
 					<td>{{ $user->gender }}</td>
 					<td>{{ $user->date }}</td>
 					<td>{{ $user->studies }}</td>
-					<td>{{ $user->country }}</td>
+					<td>{{ $country }}</td>
 				</tr>
 		</tbody>	
 	</table>

@@ -14,10 +14,13 @@ use App\User;
 
 use App\Profile;
 
+use App\Country;
+
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +43,8 @@ class UserController extends Controller
     public function create()
     {
         $profiles = Profile::orderBy('name', 'ASC')->lists('name', 'id');
-        return view('admin.users.create')->with('profiles',$profiles);
+        $country = Country::countryList();
+        return view('admin.users.create')->with('profiles',$profiles)->with('country',$country);
     }
 
     /**
@@ -77,7 +81,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin.users.show')->with('user', $user);
+        $country = Country::countryCode($user->country);
+        return view('admin.users.show')->with('country', $country)->with('user', $user);
     }
 
     /**
@@ -90,7 +95,8 @@ class UserController extends Controller
     {
         $users = User::find($id);
         $profiles = Profile::orderBy('name', 'ASC')->lists('name', 'id');
-        return view('admin.users.edit')->with('users', $users)->with('profiles', $profiles); 
+        $country = Country::countryList();
+        return view('admin.users.edit')->with('country', $country)->with('users', $users)->with('profiles', $profiles); 
     }
 
     /**

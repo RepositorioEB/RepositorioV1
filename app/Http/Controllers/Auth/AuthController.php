@@ -57,6 +57,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'gender' => 'required',
             'date' => 'required',
+            'country' => 'required',
             'role' => 'required',
             'profile_id' => 'required',
         ]);
@@ -77,6 +78,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
             'gender' => $data['gender'],
             'date' => $data['date'],
+            'country' => $data['country'],
             'role' => $data['role'],
             'profile_id' => $data['profile_id'],
         ]);

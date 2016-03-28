@@ -44,7 +44,7 @@
 </div>
 <div class="form-group">
 	{!! Form::label('country','Pais') !!}
-	{!! Form::text('country', null, ['class' => 'form-control','placeholder' => 'Pais']) !!}
+	{!! Form::select('country', $country, 'CO', ['class' => 'form-control select-country','required']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('role','Tipo de nivel') !!}
