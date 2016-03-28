@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
 use App\Forum;
-
 use Laracasts\Flash\Flash;
 
 class ForumController extends Controller

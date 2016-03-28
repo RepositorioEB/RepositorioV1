@@ -7,7 +7,7 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Nombre</label>
+                            <label class="col-md-4 control-label">Nombre: </label>
 
                             <div class="col-md-6">
                                 <input type="text" title="Nombre" class="form-control" name="name" value="{{ old('name') }}">
@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Nombre de usuario</label>
+                            <label class="col-md-4 control-label">Nombre de usuario: </label>
 
                             <div class="col-md-6">
                                 <input type="text" title="Nombre de usuario" class="form-control" name="username" value="{{ old('username') }}">
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Correo electrónico</label>
+                            <label class="col-md-4 control-label">Correo electrónico: </label>
 
                             <div class="col-md-6">
                                 <input type="email" title="Correo electronico" class="form-control" name="email" value="{{ old('email') }}">
@@ -47,12 +47,25 @@
                                 @endif
                             </div>
                         </div>
-
+                        <?php 
+                            function getRandomCode(){
+                                $an = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-)(.:,;";
+                                $su = strlen($an) - 1;
+                                return substr($an, rand(0, $su), 1) .
+                                    substr($an, rand(0, $su), 1) .
+                                    substr($an, rand(0, $su), 1) .
+                                    substr($an, rand(0, $su), 1) .
+                                    substr($an, rand(0, $su), 1) .
+                                    substr($an, rand(0, $su), 1) .
+                                    substr($an, rand(0, $su), 1) .
+                                    substr($an, rand(0, $su), 1);
+                            }
+                            $clave=getRandomCode();
+                        ?>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Contraseña</label>
-
+                            
                             <div class="col-md-6">
-                                <input type="password" title="Contraseña" class="form-control" name="password">
+                                <input type="hidden" title="Contraseña" value="{{$clave}}" class="form-control" name="password">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -63,10 +76,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirmar contraseña</label>
-
+                                
                             <div class="col-md-6">
-                                <input type="password" title="Confirmar contraseña" class="form-control" name="password_confirmation">
+                                <input type="hidden" title="Confirmar contraseña" value="{{$clave}}" class="form-control" name="password_confirmation">
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
@@ -77,7 +89,7 @@
                         </div>
                         
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Genero</label>
+                            <label class="col-md-4 control-label">Genero: </label>
 
                             <div class="col-md-6">
                                 <select title="Seleccionar genero" class="form-control" name="gender">
@@ -94,7 +106,7 @@
                         </div>  
 
                         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Fecha de nacimiento</label>
+                            <label class="col-md-4 control-label">Fecha de nacimiento: </label>
 
                             <div class="col-md-6">
                                 <input type="date" title="Fecha de nacimiento" class="form-control" name="date" value="{{ old('date') }}" >
@@ -108,7 +120,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('profile_id') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Discapacidad</label>
+                            <label class="col-md-4 control-label">Discapacidad: </label>
 
                             <div class="col-md-6">
                                 {!! Form::select( 'profile_id', \App\Profile::orderBy('name', 'ASC')->lists('name', 'id'), null, ['title' =>'Seleccionar discapacidad','class' => 'form-control','required']) !!}
@@ -122,10 +134,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Rol</label>
+                            <label class="col-md-4 control-label">Rol: </label>
 
                             <div class="col-md-6">
-                                    {!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['class' => 'form-control','required']) !!}
+                                    {!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['title' =>'Seleccionar rol','class' => 'form-control','required']) !!}
 
                                 @if ($errors->has('role'))
                                     <span class="help-block">
@@ -142,5 +154,6 @@
                                 </button>
                             </div>
                         </div>
+                        Al dar Click en el botón registro, se le enviará una contraseña a su correo con la que podrá ingresar al repositorio y cambiarla si lo desea.
                     </form>
 @endsection

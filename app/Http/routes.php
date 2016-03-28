@@ -4,8 +4,7 @@
 |--------------------------------------------------------------------------
 | Routes File
 |--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
+|all of the routes in an application.
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
@@ -15,6 +14,9 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 });*/
+
+Route::resource('contacto','MailController@contacto');
+Route::resource('mail','MailController');
 
 Route::group(['middleware' => 'web'], function () {
 
@@ -52,7 +54,7 @@ Route::group(['middleware' => 'web'], function () {
         
           //Routes Foro
           Route::resource('foros_usuarios', 'Forum_UserController');
-          Route::get('foro/comentar', [
+          Route::get('/comentar', [
             'as' => 'foro.foros_usuarios.message', 
             'uses' => 'Forum_UserController@message'
             ]);

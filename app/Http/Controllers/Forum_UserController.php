@@ -9,12 +9,13 @@ use App\forum_user;
 use App\user;
 use App\Forum;
 use Laracasts\Flash\Flash;
+use Redirect;
 
 class Forum_UserController extends Controller
 {
     public function message(Request $request)
     {
-    	$foros_usuarios = forum_user::orderBy('created_at','ASC')->paginate(100);
+    	$foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(10);
     	$foros = DB::table('forums')->where('id', $request->forum_id)->first();
         $users = user::orderBy('created_at','ASC')->get();
         return view('foro.forums_users.message')->with('foros_usuarios', $foros_usuarios)->with("foros",$foros)->with("users",$users);
@@ -40,10 +41,10 @@ class Forum_UserController extends Controller
                 Flash::success("Comentario registrado!");
                 $foros_usuarios->save();    
             }
-            $foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(100);
+            $foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(10);
             $foros = DB::table('forums')->where('id', $request->forum_id)->first();
             $users = user::orderBy('created_at','ASC')->get();
-            return view('foro.forums_users.message')->with('foros_usuarios', $foros_usuarios)->with("foros",$foros)->with("users",$users);
+            return Redirect::to('/foro/comentar?forum_id='.$request->forum_id.'&user_id='.$request->user_id);
     }
 
     public function show($id)
