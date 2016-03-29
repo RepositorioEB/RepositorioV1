@@ -115,19 +115,27 @@ class OvaController extends Controller
             return redirect()->route('admin.ovas.create');
         }else
         {
-            $nombre = $file->getClientOriginalName();
-            $ova = new Ova($request->all());
-            $ova->archive = $nombre;
-            $ova->type_id = $request->type_id;
-            $ova->category_id = $request->category_id;
-            $ova->user_id = \Auth::user()->id;
-            $ova->save();
-            $nombre = $ova->id.$nombre;
-            \Storage::disk('local')->put($nombre,  \File::get($file));
-            $ova->archive = $nombre;
-            $ova->save();
-            Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
-            return redirect()->route('admin.ovas.index');
+            $cont = substr_count($file->getClientOriginalName(), '.');
+            $arrayNombre = explode(".", $file->getClientOriginalName(), ($cont+1));
+            $tam=sizeof($arrayNombre);
+            if($arrayNombre[$tam-1] == 'zip' || $arrayNombre[$tam-1] == 'rar'){
+                $nombre = $file->getClientOriginalName();
+                $ova = new Ova($request->all());
+                $ova->archive = $nombre;
+                $ova->type_id = $request->type_id;
+                $ova->category_id = $request->category_id;
+                $ova->user_id = \Auth::user()->id;
+                $ova->save();
+                $nombre = $ova->id.$nombre;
+                \Storage::disk('local')->put($nombre,  \File::get($file));
+                $ova->archive = $nombre;
+                $ova->save();
+                Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
+                return redirect()->route('admin.ovas.index');
+            }else{
+                Flash::error("El archivo debe ser .rar ó .zip.");
+                return redirect()->route('ovas.ovamember.create');
+            }
         }
     }
 

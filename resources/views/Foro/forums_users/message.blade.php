@@ -22,7 +22,16 @@
         @foreach ($foros_usuarios as $foro_usuario)
             @if ($foro_usuario->forum_id == $_GET['forum_id'])
                 <div id="message">
-                    <p> <h4><img alt="Foto" src="{{ asset('images/logos.png') }}" width=50 height=50 title="Foto">&nbsp;<label class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->name}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </label>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label label-primary">{{$foro_usuario->created_at}}</label></h4></p>   
+                    <p> <h4>
+                    <?php
+                        if(($foro_usuario->user->photo) == null)
+                        {
+                            echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 title='Foto'>";
+                        }else{
+                            echo "<img alt='Foto' src='".asset('images/users/'.$foro_usuario->user->photo.'')."' width=50 height=50 title='Foto'>";
+                        }    
+                    ?>
+                    &nbsp;<label class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </label>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label label-primary">{{$foro_usuario->created_at}}</label></h4></p>   
                 </div>
                 <br>
             @endif
