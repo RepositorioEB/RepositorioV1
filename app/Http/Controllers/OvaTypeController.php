@@ -24,7 +24,7 @@ class OvaTypeController extends Controller
     public function show(Request $request,$id)
     {
         $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->where('state','1')->where('type_id',$id)->paginate(10);
-        $ovas_comments = Ova_Comment::orderBy('id', 'ASC')->get();
+        $ovas_comments = Ova_Comment::orderBy('id', 'DESC')->get();
         $ovas_evaluations = Ova_Evaluation::get();  
         
         return view('ova.type.show')->with('ovas', $ovas)->with('ovas_comments', $ovas_comments)->with('ovas_evaluations',$ovas_evaluations);

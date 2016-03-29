@@ -25,7 +25,7 @@ class OvaController extends Controller
     public function ovas(Request $request)
     {
         $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->where('state','1')->paginate(10);
-        $ovas_comments = Ova_Comment::orderBy('id', 'ASC')->get();
+        $ovas_comments = Ova_Comment::orderBy('id', 'DESC')->get();
         $ovas->each(function($ovas){
             $ovas->type;
             $ovas->category;
@@ -99,7 +99,7 @@ class OvaController extends Controller
     {
         $types = Type::orderBy('name', 'ASC')->lists('name', 'id');
         $categories = Category::orderBy('name', 'ASC')->lists('name', 'id');
-        //$language = Language::languageList();
+        $language = Language::languageList();
         return view('admin.ovas.create')->with('types',$types)->with('categories',$categories);
     }
 
@@ -150,7 +150,7 @@ class OvaController extends Controller
     public function show($id)
     {
         $ova = Ova::find($id);
-        //$language = Language::languageCode($ova->language);
+        $language = Language::languageCode($ova->language);
         return view('admin.ovas.show')->with('ova', $ova);
     }
 
@@ -165,7 +165,7 @@ class OvaController extends Controller
         $ovas = Ova::find($id);
         $types = Type::orderBy('name', 'ASC')->lists('name', 'id');
         $categories = Category::orderBy('name', 'ASC')->lists('name', 'id');
-        //$language = Language::languageList();
+        $language = Language::languageList();
         return view('admin.ovas.edit')->with('ovas', $ovas)->with('types', $types)->with('categories', $categories); 
     }
 

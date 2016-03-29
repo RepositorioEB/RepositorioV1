@@ -4,7 +4,8 @@
 </div>
 <div class="form-group">
 	{!! Form::label('language','Lenguaje') !!}
-	{!! Form::text('language', null, ['class' => 'form-control','placeholder' => 'Escriba el lenguaje','required']) !!}
+	{!! Form::select( 'language', \App\Language::languageList(), 'es', ['title' =>'Seleccionar lenguaje','class' => 'form-control','required']) !!}
+	<!--{!! Form::text('language', null, ['class' => 'form-control','placeholder' => 'Escriba el lenguaje','required']) !!}-->
 </div>
 <div class="form-group">
 	{!! Form::label('description','Descripcion') !!}

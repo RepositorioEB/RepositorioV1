@@ -18,7 +18,8 @@
 		<h3>{!! Form::label('languagelb','Lenguaje: ',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('language',$ova->language , ['title'=>'Lenguaje','class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::select( 'language', \App\Language::languageList(), 'es', ['title' =>'Seleccionar lenguaje','class' => 'form-control','disabled']) !!}
+				<!--{!! Form::text('language',$ova->language , ['title'=>'Lenguaje','class' => 'form-control','readonly'=>'readonly']) !!}-->
 			</center>
 		</h3>
 	</div>
@@ -104,6 +105,14 @@
 			<br>
 			<div style="border-top: 1px solid black;">
 			<br>
+			<?php
+				if(($ova_comment->user->photo) == null)
+                {
+                    echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 title='Foto'>";
+                }else{
+                    echo "<img alt='Foto' src='".asset('images/users/'.$ova_comment->user->photo.'')."' width=50 height=50 title='Foto'>";
+                }    
+            ?>
 			<label class="label label-danger" name="nombreusuario" alt="2">{{$ova_comment->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></label>
 			{{$ova_comment->comment}}
 			<label class="label label-primary">{{$ova_comment->created_at}}</label>

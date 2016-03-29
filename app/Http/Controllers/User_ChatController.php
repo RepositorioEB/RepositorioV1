@@ -58,7 +58,8 @@ class User_ChatController extends Controller
     public function conversationchat()
     {
         $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
-        return view('chat.users_chats.conversationchat')->with('users_chats', $users_chats);    
+        $users = DB::table('users')->get();
+        return view('chat.users_chats.conversationchat')->with('users', $users)->with('users_chats', $users_chats);    
     }
 
 }
