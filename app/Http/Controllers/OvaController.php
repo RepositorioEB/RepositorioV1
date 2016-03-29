@@ -9,6 +9,7 @@ use App\Category;
 use App\User;
 use App\Ova_Evaluation;
 use App\Ova;
+use App\Language;
 use App\Ova_Comment;
 use DB;
 use Laracasts\Flash\Flash;
@@ -98,6 +99,7 @@ class OvaController extends Controller
     {
         $types = Type::orderBy('name', 'ASC')->lists('name', 'id');
         $categories = Category::orderBy('name', 'ASC')->lists('name', 'id');
+        //$language = Language::languageList();
         return view('admin.ovas.create')->with('types',$types)->with('categories',$categories);
     }
 
@@ -140,6 +142,7 @@ class OvaController extends Controller
     public function show($id)
     {
         $ova = Ova::find($id);
+        //$language = Language::languageCode($ova->language);
         return view('admin.ovas.show')->with('ova', $ova);
     }
 
@@ -154,6 +157,7 @@ class OvaController extends Controller
         $ovas = Ova::find($id);
         $types = Type::orderBy('name', 'ASC')->lists('name', 'id');
         $categories = Category::orderBy('name', 'ASC')->lists('name', 'id');
+        //$language = Language::languageList();
         return view('admin.ovas.edit')->with('ovas', $ovas)->with('types', $types)->with('categories', $categories); 
     }
 
