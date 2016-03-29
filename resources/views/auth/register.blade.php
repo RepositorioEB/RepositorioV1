@@ -133,6 +133,20 @@
             </div>
         </div>
 
+        <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
+            <label class="col-md-4 control-label">Discapacidad: </label>
+
+            <div class="col-md-6">
+                {!! Form::select( 'country', \App\Country::countryList(), 'CO', ['title' =>'Seleccionar pais','class' => 'form-control','required']) !!}
+
+                @if ($errors->has('country'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('country') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
             <label class="col-md-4 control-label">Rol: </label>
 
