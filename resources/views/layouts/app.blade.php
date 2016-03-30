@@ -73,9 +73,9 @@
                                 <div class="panel-title">
                                     <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
                                     @yield('title')
-                                    <h5 class="navbar-form pull-right">
+                                    <div class="col-md-2.5 borde pull-right">
                                         <script language="JavaScript" type="text/javascript" >document.write(TODAY);</script>
-                                    </h5>
+                                    </div> 
                                 </div>
                             </div>
                             <div class="panel-body">
@@ -102,7 +102,7 @@
                                     <li><h4><div class="label label-info">Archivos recientes</div></h4>
                                         <ul>
                                         {!! Form::open( ['route' => ['ovas.recentarchive.index'],'method' => 'GET', 'files' => true]) !!}
-                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"> {!! Form::submit('Ovas') !!}</span></li>
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ovas') !!}</li>
                                         {!! Form::close() !!}   
                                         </ul>
                                     </li>

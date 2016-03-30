@@ -15,8 +15,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 });*/
 
-Route::resource('contacto','MailController@contacto');
-Route::resource('mail','MailController');
 
 Route::group(['middleware' => 'web'], function () {
 

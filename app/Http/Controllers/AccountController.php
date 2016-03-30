@@ -15,6 +15,7 @@ use App\Ova;
 use Hash;
 use DB;
 use App\Type;
+use App\Forum;
 use App\Category;
 use App\Country;
 
@@ -33,6 +34,8 @@ class AccountController extends Controller
         $user->profile;
         $profiles = Profile::orderBy('name', 'ASC')->lists('name', 'id');
         $ovas = Ova::orderBy('id','ASC')->paginate(10);
+        $forums = Forum::orderBy('id','ASC')->get();
+        
         if($request->name){
             if(($request->select)=='Nombre'){
                 $ovas = Ova::Search($request->name)->orderBy('id','ASC')->first();
@@ -62,7 +65,10 @@ class AccountController extends Controller
         }else{
              $ovas = Ova::Search($request->nameOva)->orderBy('id','ASC')->paginate(20);
         }
-                     
+        if($request->nameForo){
+            $forums = Forum::SearchForum($request->nameForo)->orderBy('id','ASC')->get();
+        }
+
         foreach($ovas as $ova){
             $ovas_evaluations = DB::table('ovas_evaluations')->where('ova_id',$ova->id)->get();
             //Ova_Evaluation::orderBy('ova_id','ASC')->paginate(10);
@@ -91,7 +97,14 @@ class AccountController extends Controller
                 $i = true;
             }
         }
-        return view('cuenta.index')->with('i', $i)->with('ovas', $ovas)->with('user', $user)->with('profiles', $profiles);
+        $j = false;
+        foreach ($forums as $forum) {
+            if ($forum->user_id == $user->id) {
+                $j = true;
+            }
+        }
+        
+        return view('cuenta.index')->with('i', $i)->with('j', $j)->with('ovas', $ovas)->with('forums', $forums)->with('user', $user)->with('profiles', $profiles);
     }
 
     /**

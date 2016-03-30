@@ -21,13 +21,13 @@
 	        <div class="panel panel-default">
 	            <div class="panel-heading">Acciones</div>
 	            <div class="panel-body">
-	                <a href="#" class="btn btn btn-primary" title="Comentarios"><span class="glyphicon glyphicon-wrench" aria-hidden="true" >Comentarios</span></a>
-					</br>
-					<a href="#" class="btn btn btn-primary" title="Ovas"><span class="glyphicon glyphicon-trash" aria-hidden="true">Ovas</span></a>
-					</br>
-					<a href="#" class="btn btn btn-primary" title="Foro"><span class="glyphicon glyphicon-trash" aria-hidden="true">Foro</span></a>
-					</br>
+	            	<center>
+	                <a href="../../ovas/menu" class="btn btn btn-primary" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
+					</br></br>
+					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-primary" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>
+					</br></br>
 					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="s">¡Chat!</a>
+	            	</center>
 	            </div>
 	        </div>
 	    </div>
@@ -73,14 +73,14 @@
 	            <div class="panel-body">
 	            	@if($i)
 						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-							<label for="sel1" class="control-label">Seleccione:</label>
+							<label for="sel1" class="control-label">Buscar por:</label>
 							<select class="form-control" id="sel1" name="select">
 				    			<option>Nombre</option>
 				    			<option>Tipo</option>
 				    			<option>Categoria</option>
 				  			</select>
+							{!! Form::label('name','Ingrese el nombre:') !!}
 							<div class="input-group">
-								{!! Form::label('name','Buscar:') !!}
 								{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
 								<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 							</div>
@@ -110,24 +110,44 @@
 							</tbody>	
 						</table>
 					@else
-						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-							<label for="sel1" class="control-label">Seleccione:</label>
-							<select class="form-control" id="sel1" name="select">
-				    			<option>Nombre</option>
-				    			<option>Tipo</option>
-				    			<option>Categoria</option>
-				  			</select>
-							<div class="input-group">
-								{!! Form::label('name','Buscar:') !!}
-								{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
-								<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-							</div>
-						{!! Form::close() !!}
 						{{ 'Ud no ha subido ningun ova a este repositorio' }}
 					@endif
 	            </div>
 	        </div>
+
+	        <div class="panel panel-default">
+	            <div class="panel-heading">Tus foros</div>
+	            <div class="panel-body">
+	            	@if($j)
+						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+							{!! Form::label('name','Ingrese el nombre del foro:') !!}
+							<div class="input-group">
+								{!! Form::text('nameForo', null, ['class' => 'form-control', 'placeholder' => 'Buscar foro', 'aria-describedby' => 'search']) !!}
+								<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+							</div>
+						{!! Form::close() !!}
+						<table class="table table-striped">
+							<thead>
+								<th>Nombre</th>
+								<th>Caracteristicas</th>
+							</thead>
+							<tbody>
+								@foreach($forums as $forum)
+									@if($forum->user_id == $user->id)
+										<tr>
+											<td>{{ $forum->name }}</td>
+											<td>{{ $forum->characteristic }}</td>
+										</tr>
+									@endif
+								@endforeach
+							</tbody>	
+						</table>
+					@else
+						{{ 'Ud no ha creado ningun foro en este repositorio' }}
+					@endif
+	            </div>
+	        </div>
+
 	    </div>
 	</div>
-
 @endsection

@@ -21,4 +21,7 @@ class Forum extends Model
     {
         return $this->belongsToMany('App\User');
     }
+    public function scopeSearchForum($query, $name){
+        return $query->where('name','LIKE',"%$name%");
+    }
 }

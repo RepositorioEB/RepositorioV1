@@ -65,7 +65,7 @@
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             
             <div class="col-md-6">
-                <input type="hidden" title="Contraseña" value="{{$clave}}" class="form-control" name="password">
+                <input type="password" title="Contraseña" class="form-control" name="password">
 
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -78,7 +78,7 @@
         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                 
             <div class="col-md-6">
-                <input type="hidden" title="Confirmar contraseña" value="{{$clave}}" class="form-control" name="password_confirmation">
+                <input type="password" title="Confirmar contraseña" class="form-control" name="password_confirmation">
 
                 @if ($errors->has('password_confirmation'))
                     <span class="help-block">
