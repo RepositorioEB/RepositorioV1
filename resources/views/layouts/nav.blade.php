@@ -18,57 +18,66 @@
                     <li><a href="{{ url('/register') }}" title="Registrarse">Registrarse</a></li>
                 @else
                     @if(Auth::user()->role == 'admin')
-                        <li><a href="{{ route('admin.users.index') }}" >Usuarios<span class="caret"></span></a>
+                        <li><a href="#" >Usuarios<span class="caret"></span></a>
                             <ul>
-                                <li><a href="{{ route('admin.users.create') }}" title="CrearUser">Crear</a></li>
+                                <li><a href="{{ route('admin.users.create') }}" title="RegistrarUser">Registrar</a></li>
                                 <li><a href="" title="BuscarUser">Buscar</a></li>
+                                <li><a href="{{ route('admin.users.index') }}" title="ListarUser">Lista</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.profiles.index') }}" >Perfiles<span class="caret"></span></a>
+                        <li><a href="#" >Discapacidad<span class="caret"></span></a>
                             <ul>
-                                <li><a href="{{ route('admin.profiles.create') }}" title="CrearProfile">Crear</a></li>
+                                <li><a href="{{ route('admin.profiles.create') }}" title="RegistrarProfile">Registrar</a></li>
                                 <li><a href="" title="BuscarProfile">Buscar</a></li>
                                 <li><a href="" title="PropiosProfile">Propios</a></li>
+                                <li><a href="{{ route('admin.profiles.index') }}" title="ListarProfile">Lista</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.ovas.index') }}" >Objetos<span class="caret"></span></a>
+                        <li><a href="#" >Objetos<span class="caret"></span></a>
                             <ul>
-                                <li><a href="{{ route('admin.ovas.create') }}" title="CrearOva">Crear</a></li>
+                                <li><a href="{{ route('admin.ovas.create') }}" title="RegistrarOva">Registrar</a></li>
                                 <li><a href="" title="BuscarOva">Buscar</a></li>
                                 <li><a href="" title="PropiosOva">Propios</a></li>
+                                <li><a href="{{ route('admin.ovas.index') }}" title="ListarOva">Lista</a></li>
+                                <li><a href="">Categoría</a>
+                                    <ul>
+                                        <li><a href="{{ route('admin.categories.create') }}" title="RegistrarCategory">Registrar</a></li>
+                                        <li><a href="{{ route('admin.categories.index') }}" title="ListarCategory">Lista</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" >Tipo</a>
+                                    <ul>
+                                        <li><a href="{{ route('admin.types.create') }}" title="RegistrarType">Registrar</a></li>
+                                        <li><a href="{{ route('admin.types.index') }}" title="ListarType">Lista</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" >Descargas</a>
+                                    <ul>
+                                        <li><a href="{{ route('admin.downloads.create') }}" title="RegistrarDownload">Registrar</a></li>
+                                        <li><a href="{{ route('admin.downloads.index') }}" title="ListarDownload">Lista</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.forums.index') }}" >Foros<span class="caret"></span></a>
+                        <li><a href="#" >Foros<span class="caret"></span></a>
                             <ul>
-                                <li><a href="{{ route('admin.forums.create') }}" title="CrearForum">Crear</a></li>
+                                <li><a href="{{ route('admin.forums.create') }}" title="RegistrarForum">Registrar</a></li>
                                 <li><a href="" title="PropiosForum">Propios</a></li>
+                                <li><a href="{{ route('admin.forums.index') }}" title="ListarForum">Lista</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('admin.helps.index') }}" >Ayuda<span class="caret"></span></a>
+                        <li><a href="#" >Ayuda<span class="caret"></span></a>
                             <ul>
-                                <li><a href="{{ route('admin.helps.create') }}" title="CrearHelps">Crear</a></li>
+                                <li><a href="{{ route('admin.helps.create') }}" title="RegistrarHelps">Registrar</a></li>
                                 <li><a href="" title="BuscarHelps">Buscar</a></li>
                                 <li><a href="" title="PropiosHelps">Propios</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ route('admin.categories.index') }}" >Categoría<span class="caret"></span></a>
-                            <ul>
-                                <li><a href="{{ route('admin.categories.create') }}" title="CrearCategory">Crear</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ route('admin.types.index') }}" >Tipo<span class="caret"></span></a>
-                            <ul>
-                                <li><a href="{{ route('admin.types.create') }}" title="CrearType">Crear</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ route('admin.downloads.index') }}" >Descargas<span class="caret"></span></a>
-                            <ul>
-                                <li><a href="{{ route('admin.downloads.create') }}" title="CrearDownload">Crear</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ route('admin.problems.index') }}" >Problema<span class="caret"></span></a>
-                            <ul>
-                                <li><a href="{{ route('admin.problems.create') }}" title="CrearProblem">Crear</a></li>
+                                <li><a href="{{ route('admin.helps.index') }}" title="ListarHelps">Lista</a></li>
+                                <li><a href="#" >Problema</a>
+                                    <ul>
+                                        <li><a href="{{ route('admin.problems.create') }}" title="RegistrarProblem">Registrar</a></li>
+                                        <li><a href="{{ route('admin.problems.index') }}" title="ListarProblem">Lista</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     @else
@@ -87,7 +96,7 @@
                         </li>
                         <li><a href="{{ route('foro.foros_usuarios.index') }}" >Foros<span class="caret"></span></a>
                             <ul>
-                                <li><a href="" title="CrearForo">Crear</a></li>
+                                <li><a href="" title="RegistrarForo">Registrar</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('member.helps') }}" >Ayuda<span class="caret"></span></a>

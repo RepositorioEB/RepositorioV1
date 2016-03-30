@@ -23,6 +23,7 @@
 			        <div class="panel panel-default">
 			            <div class="panel-heading">Tus datos</div>
 			            <div class="panel-body">
+			            	@include('admin.template.partials.errors')
 							@include('cuenta.fieldsaccount')
 				            <center>
 				            	<input class="btn btn-primary" type="submit" value="Guardar" name="Guardar" style="width: 120px;" />

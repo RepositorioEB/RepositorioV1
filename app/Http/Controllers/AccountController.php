@@ -18,7 +18,7 @@ use App\Type;
 use App\Forum;
 use App\Category;
 use App\Country;
-
+use App\Http\Requests\AccountRequest;
 use Laracasts\Flash\Flash;
 
 class AccountController extends Controller
@@ -32,6 +32,9 @@ class AccountController extends Controller
     {
         $user = User::find(\Auth::user()->id);
         $user->profile;
+        if ($user->photo == null) {
+            $user->photo = 'userdefect.png';
+        }
         $profiles = Profile::orderBy('name', 'ASC')->lists('name', 'id');
         $ovas = Ova::orderBy('id','ASC')->paginate(10);
         $forums = Forum::orderBy('id','ASC')->get();
@@ -169,7 +172,7 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(AccountRequest $request)
     {
         if($request->section == "passwordnew"){
             if (strlen($request->password) >= 8 AND strlen($request->newpassword) >= 8 AND strlen($request->newpassword) >= 8) {                
