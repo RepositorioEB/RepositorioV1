@@ -31,7 +31,6 @@ class UserRequest extends Request
             'password' => 'min:8|max:60|required',
             'gender' => 'required',
             'date' => 'required',
-            'state' => 'required',
             'role' => 'required',
             'photo' => 'image',
             'profile_id' => 'required'

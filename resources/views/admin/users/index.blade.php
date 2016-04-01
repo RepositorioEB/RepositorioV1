@@ -21,7 +21,6 @@
 				<th>Nombre</th>
 				<th>Username</th>
 				<th>Correo</th>
-				<th>Estado</th>
 				<th>Rol</th>
 				<th>Discapacidad</th>
 				<th>Accion</th>
@@ -33,13 +32,6 @@
 						<td>{{ $user->name }}</td>
 						<td>{{ $user->username }}</td>
 						<td>{{ $user->email }}</td>
-						<td>
-							@if ($user->state)
-								<h4><span class="label label-danger">{{ 'Activo' }}</span></h4>
-							@else
-								<h4><span class="label label-primary">{{ 'Solicitud' }}</span></h4>
-							@endif
-						</td>
 						<td>
 							@if ($user->role == "admin")
 								<h4><span class="label label-danger">{{ $user->role }}</span></h4>

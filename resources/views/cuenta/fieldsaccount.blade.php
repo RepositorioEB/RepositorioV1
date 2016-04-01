@@ -27,10 +27,6 @@
 	{!! Form::textarea('studies', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('state','Estado del usuario') !!}
-	{!! Form::select('state', [ false => 'Solicitud', true => 'Activo'], null, ['class' => 'form-control select-state','required']) !!}
-</div>
-<div class="form-group">
 	{!! Form::label('country','Pais') !!}
 	{!! Form::select('country', $country, null, ['class' => 'form-control select-country','required']) !!}
 </div>

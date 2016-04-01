@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Iconos -->
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
     <!-- Fin Modificado (ed) -->
     @if (Auth::guest())
         <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
@@ -135,6 +135,7 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">

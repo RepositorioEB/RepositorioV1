@@ -7,7 +7,11 @@
 	@include('admin.template.partials.errors')
 	
 	{!! Form::model($users, ['route' => ['admin.users.update',$users->id],'method' => 'PUT']) !!}
-		@include('admin.template.partials.fieldsuser', ['routes' => 'edit'])
+		@if(\Auth::user()->id == $users->id)
+			@include('admin.template.partials.fieldsuser', ['routes' => 'edit', 'variable' => 'no'])
+		@else
+			@include('admin.template.partials.fieldsuser', ['routes' => 'edit', 'variable' => 'si'])
+		@endif
 		<div class="form-group">
 			{!! Form::submit('Editar',['class' => 'btn btn-primary']) !!}
 			<a href="{{ route('admin.users.index') }}" class="btn btn btn-primary" title="Cancelar" name="Cancelar">Cancelar</a>

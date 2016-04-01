@@ -39,17 +39,15 @@
 	{!! Form::textarea('studies', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('state','Estado del usuario') !!}
-	{!! Form::select('state', [ false => 'Solicitud', true => 'Activo'], null, ['class' => 'form-control select-state','required']) !!}
-</div>
-<div class="form-group">
 	{!! Form::label('country','Pais') !!}
 	{!! Form::select('country', $country, 'CO', ['class' => 'form-control select-country','required']) !!}
 </div>
-<div class="form-group">
-	{!! Form::label('role','Tipo de nivel') !!}
-	{!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['class' => 'form-control select-role','required']) !!}
-</div>
+@if($variable == 'si')
+	<div class="form-group">
+		{!! Form::label('role','Tipo de nivel') !!}
+		{!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['class' => 'form-control select-role','required']) !!}
+	</div>
+@endif
 <div class="form-group">
 	{!! Form::label('profile_id','Perfil') !!}
 	{!! Form::select('profile_id', $profiles, null, ['class' => 'form-control select-profiles','required']) !!}
