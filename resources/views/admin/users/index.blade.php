@@ -9,7 +9,8 @@
 		<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
 		{!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 			<div class="input-group">
-				{!! Form::text('name', null, ['title'=>'Buscar usuario','class' => 'form-control', 'placeholder' => 'Buscar usuario', 'aria-describedby' => 'search']) !!}
+				<label for="name">Buscar usuario: </label>
+				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar usuario','class' => 'form-control', 'placeholder' => 'Buscar usuario', 'aria-describedby' => 'search']) !!}
 				<span class="input-group-addon" id="search">
 					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 				</span>
@@ -41,11 +42,11 @@
 						</td>
 						<td>{{ $user->profile->name }}</td>
 						<td>
-							<a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
+							<a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning" title="Editar usuario"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
 							@if(\Auth::user()->id != $user->id)
-								<a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true">Eliminar</span></a>
+								<a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar usuario"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true">Eliminar</span></a>
 							@endif
-							<a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-info" title="Consultar"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Consultar</span></a>
+							<a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-info" title="Consultar usuario"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Consultar</span></a>
 						</td>
 					</tr>
 				@endforeach

@@ -11,10 +11,10 @@
 			<thead>
 				<th>Id</th>
 				<th>Nombre</th>
-				<th>Descripcion</th>
+				<th>Descripción</th>
 				<th>Enlace</th>
 				<th>Creador</th>
-				<th>Accion</th>
+				<th>Acción</th>
 			</thead>
 			<tbody>
 				@foreach($helps as $help)
@@ -25,8 +25,8 @@
 						<td>{{ $help->video }}</td>
 						<td>{{ $help->user->name }}</td>
 						<td>
-							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
-							<a href="{{ route('admin.helps.destroy', $help->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>
+							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar ayuda"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
+							<a href="{{ route('admin.helps.destroy', $help->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar ayuda"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>
 						</td>
 					</tr>
 				@endforeach

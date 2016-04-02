@@ -7,7 +7,7 @@
 		@if (\Auth::user()->role == 'admin') 
             <a href="{{ route('admin.forums.create') }}" class="btn btn-info">Crear nuevo foro admin</a>
         @else
-            <a href="{{ route('member.forums.create') }}" class="btn btn-info">Crear nuevo foro memeber</a>
+            <a href="{{ route('member.forums.create') }}" class="btn btn-info">Crear nuevo foro member</a>
         @endif
 		@include('admin.template.partials.errors')
 		<table class="table table-striped ">
@@ -28,7 +28,7 @@
 							@endif			
 						@endforeach		
 						<td>
-		                    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
+		                    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar Foro"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
 	    				</td>
 					</tr>
 				@endforeach

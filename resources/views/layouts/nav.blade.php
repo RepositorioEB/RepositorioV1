@@ -132,7 +132,7 @@
                 @endif
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="Nombre de usuario">
-                       <img class="imag-responsive" src="/images/users/{{ Auth::user()->photo }}" width="25" height="25" name="photo" /> {{ Auth::user()->name }} <span class="caret"></span>
+                       <img alt="Foto usuario" class="imag-responsive" src="/images/users/{{ Auth::user()->photo }}" width="25" height="25" name="photo" /> {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         

@@ -3,7 +3,7 @@
 @section('title', 'Chat' )
 
 @section('content')
-    <h3>Contacto: <label class="label label-info">{{$_GET['nombredestino']}}</label></h3>
+    <h3><legend>Contacto: {{$_GET['nombredestino']}}</legend></h3>
     <br><br>
     <div id="conversation">
        <noscript>
@@ -19,15 +19,15 @@
                     {
                         if(($user->photo) == null)
                         {
-                            echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 title='Foto'>";
+                            echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                         }else{
-                            echo "<img alt='Foto' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 title='Foto'>";
+                            echo "<img alt='Foto' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 >";
                         }
                     
                     }   
                 }
                     
-                echo "&nbsp;<label class='label label-danger' name='nombreusuario' alt='2'>$user_chat->nameorigen : <span class='glyphicon glyphicon-arrow-right' aria-hidden='true'></span> </label>&nbsp;$user_chat->mensaje&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class='label label-primary'>$user_chat->created_at</label></h4></p>";   
+                echo "&nbsp;<div class='label label-danger' name='nombreusuario' alt='2'>$user_chat->nameorigen : <span class='glyphicon glyphicon-arrow-right' aria-hidden='true'></span> </div>&nbsp;$user_chat->mensaje&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class='label label-primary'>$user_chat->created_at</div></h4></p>";   
                 echo "</div>";
                 echo "<br>";  
             }
@@ -38,7 +38,8 @@
     </div>
     {!! Form::open(['route' => ['chat.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}
     <br>
-    <input type="text" placeholder="Mensaje" class="form-control" title="Mensaje" name="mensaje" size="40">
+    <label class="label label-primary" for="mensaje">Ingrese el mensaje: </label>
+    <input type="text" placeholder="Mensaje" id="mensaje" class="form-control"  name="mensaje" size="40">
     <br>
         <div class="form-group">
             <center>{!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}</center>

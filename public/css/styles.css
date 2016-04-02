@@ -41,7 +41,7 @@ ul, ol {
     background-color:#383A3C;
     display:none;
     position:absolute;
-    min-width:80px;
+    min-width:120px;
 }
 
 .nav li:hover > ul {
@@ -53,7 +53,7 @@ ul, ol {
 }
 
 .nav li ul li ul {
-    right:-81px;
+    right:-121px;
     top:0px;
 }
 

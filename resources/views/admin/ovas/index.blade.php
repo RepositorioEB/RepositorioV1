@@ -8,10 +8,12 @@
 	<div class="table-responsive">
 		<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 		{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-			<div class="input-group">
-				{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+			<h4><label for="name" >Ingrese el nombre del OVA:</label>
+				<div class="input-group">
+				{!! Form::text('name', null, ['id' => 'name','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
 				<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 			</div>
+			</h4>
 		{!! Form::close() !!}
 		<table class="table table-striped">
 			<thead>
@@ -39,8 +41,8 @@
 							@endif
 						</td>
 						<td>
-							<a href="{{ route('admin.ovas.edit', $ova->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-							<a href="{{ route('admin.ovas.destroy', $ova->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a href="{{ route('admin.ovas.edit', $ova->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Editar</a>
+							<a href="{{ route('admin.ovas.destroy', $ova->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Eliminar</a>
 						</td>
 					</tr>
 				@endforeach

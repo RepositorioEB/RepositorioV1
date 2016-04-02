@@ -8,8 +8,10 @@
 	{!! Form::open(['route' => 'admin.problems.store','method' => 'POST']) !!}
 		@include('admin.template.partials.fieldsproblem')
 		<div class="form-group">
-			{!! Form::submit('Crear',['class' => 'btn btn-primary']) !!}
-			<a href="{{ route('admin.problems.index') }}" class="btn btn btn-primary" title="Cancelar" name="Cancelar">Cancelar</a>
+			<center>
+			{!! Form::submit('Crear',['class' => 'btn btn-warning']) !!}
+			<a href="{{ route('admin.problems.index') }}" class="btn btn btn-warning" title="Cancelar problema" name="Cancelar">Cancelar</a>
+			</center>
 		</div>
 	{!! Form::close() !!}
 	

@@ -1,65 +1,67 @@
 	<div class="form-group">
-		<h3>{!! Form::label('idlabel','Identificación: ',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('id'.$ova->id,'Identificación: ',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('id', $ova->id, ['title'=>'Identificación','class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('id', $ova->id, ['id' => 'id'.$ova->id,'class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
 	<div class="form-group">
-		<h3>{!! Form::label('namelb','Nombre: ',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('name'.$ova->id,'Nombre: ',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('name', $ova->name, ['title'=>'Nombre','class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('name', $ova->name, ['id'=>'name'.$ova->id,'class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
 	<div class="form-group">
-		<h3>{!! Form::label('languagelb','Lenguaje: ',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('language'.$ova->id,'Lenguaje: ',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::select( 'language', \App\Language::languageList(), 'es', ['title' =>'Seleccionar lenguaje','class' => 'form-control','disabled']) !!}
+				{!! Form::select( 'language'.$ova->id, \App\Language::languageList(), 'es', ['title' =>'Seleccionar lenguaje','class' => 'form-control','disabled']) !!}
 				<!--{!! Form::text('language',$ova->language , ['title'=>'Lenguaje','class' => 'form-control','readonly'=>'readonly']) !!}-->
 			</center>
 		</h3>
 	</div>
 	<div class="form-group">
-		<h3>{!! Form::label('descriptionlb','Descripción',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('description'.$ova->id,'Descripción',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::textarea('description', $ova->description, ['title'=>'Descripción','class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::textarea('description'.$ova->id, $ova->description, ['title'=>'Descripción','class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>
 		</h3>
 	</div>
+	<!--
 	<div class="form-group">
-		<h3>{!! Form::label('archivelb','Archivo',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('archive'.$ova->id,'Archivo',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('archive', $ova->archive, ['title'=>'Archivo','class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('archive', $ova->archive, ['id'=>'archive'.$ova->id,'class' => 'form-control','readonly'=>'readonly']) !!}
+			</center>	
+		</h3>
+	</div>
+	-->
+	<div class="form-group">
+		<h3>{!! Form::label('type'.$ova->id,'Tipo',["class"=>"label label-primary"]) !!}
+			<br><br>
+			<center>
+				{!! Form::text('type', $ova->type->name, ['id'=>'type'.$ova->id,'class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
 	<div class="form-group">
-		<h3>{!! Form::label('typelb','Tipo',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('category'.$ova->id,'Categoría',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('type', $ova->type->name, ['title'=>'Tipo','class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('category', $ova->category->name, ['id'=>'category'.$ova->id,'class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
 	<div class="form-group">
-		<h3>{!! Form::label('categorylb','Categoría',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('user'.$ova->id,'Usuario',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('category', $ova->category->name, ['title'=>'Categoria','class' => 'form-control','readonly'=>'readonly']) !!}
-			</center>	
-		</h3>
-	</div>
-	<div class="form-group">
-		<h3>{!! Form::label('userlb','Usuario',["class"=>"label label-primary"]) !!}
-			<br><br>
-			<center>
-				{!! Form::text('user', $ova->user->username, ['title'=>'Usuario','class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('user', $ova->user->username, ['id'=>'user'.$ova->id,'class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
@@ -75,9 +77,9 @@
 			}
 		}
 	?>
-	<h3>{!! Form::label('calificatiolb','Calificación',['title' => 'Calificación',"class"=>"label label-primary"]) !!}</h3>		
+	<h3>{!! Form::label('calification'.$ova->id,'Calificación',['for' => 'sel1',"class"=>"label label-primary"]) !!}</h3>		
 	@if($var== 0)
-		<select class="form-control " id="sel1" name="estrellas" title="Calificación">
+		<select class="form-control " id="calification{{$ova->id}}" name="estrellas">
     		<option>1</option>
     		<option>2</option>
     		<option>3</option>
@@ -90,7 +92,7 @@
 		</div>	
 	@else
 		<div class="form-group">
-			{!! Form::text('punctuation', $punctuation, ["title"=>"Calificación", 'class' => 'form-control','readonly'=>'readonly']) !!}
+			{!! Form::text('punctuation', $punctuation, ["id"=>"calification".$ova->id, 'class' => 'form-control','readonly'=>'readonly']) !!}
 		</div>
 		<div class="form-group pull-right">
 			{!! Form::submit('Evaluar',['class' => 'btn btn-warning','disabled']) !!}
@@ -98,7 +100,7 @@
 	@endif
 	
 	<br>
-	<h3>{!! Form::label('comments','Comentarios',["class"=>"label label-primary"]) !!}</h3>
+	<h3><legend class="label label-primary">Comentarios</legend></h3>
 	<div id="conversation" style="background: white;color: black;height:200px; border: 1px solid #CCCCCC; padding: 12px;  border-radius: 13px; overflow-x: hidden;">
     @foreach($ovas_comments as $ova_comment)
 		@if($ova_comment->ova_id == $ova->id)
@@ -108,14 +110,14 @@
 			<?php
 				if(($ova_comment->user->photo) == null)
                 {
-                    echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 title='Foto'>";
+                    echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                 }else{
-                    echo "<img alt='Foto' src='".asset('images/users/'.$ova_comment->user->photo.'')."' width=50 height=50 title='Foto'>";
+                    echo "<img alt='Foto' src='".asset('images/users/'.$ova_comment->user->photo.'')."' width=50 height=50 >";
                 }    
             ?>
-			<label class="label label-danger" name="nombreusuario" alt="2">{{$ova_comment->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></label>
+			<div class="label label-danger" name="nombreusuario" alt="2">{{$ova_comment->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></div>
 			{{$ova_comment->comment}}
-			<label class="label label-primary">{{$ova_comment->created_at}}</label>
+			<div class="label label-primary">{{$ova_comment->created_at}}</div>
 			<br>
 			</div>
 		@endif	

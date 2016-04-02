@@ -3,17 +3,17 @@
 @section('title', 'Foro' )
 
 @section('content')
-    <center><h3><label class="label label-info">NOMBRE DEL FORO: </label>&nbsp; {{$foros->name}}</h3></center> 
+    <center><h3><legend>NOMBRE DEL FORO: &nbsp; {{$foros->name}}</legend></h3></center> 
     <br>     
     <br><br>
-    <h3>Ingrese su comentario: </h3>
+    <h3><label for="opinion" class="label label-primary">Ingrese su comentario: </label></h3>
     {!! Form::open(['route' => ['foro.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>$_GET['user_id']],'method' => 'POST']) !!}
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Opinion" title="Campo de mensaje" name="message" size="40">
+            <input type="text" id="opinion" class="form-control" placeholder="Opinion" title="Campo de mensaje" name="message" size="40">
              <br>
              <center>
-                {!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-primary" title="Cancelar" name="Cancelar">Cancelar</a>
+                {!! Form::submit('Enviar',['title'=>'Enviar comentario','class' => 'btn btn-warning']) !!}
+                <a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-warning" title="Cancelar comentar" name="Cancelar">Cancelar</a>
              </center>
         </div>
     {!! Form::close() !!}
@@ -26,12 +26,12 @@
                     <?php
                         if(($foro_usuario->user->photo) == null)
                         {
-                            echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 title='Foto'>";
+                            echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                         }else{
-                            echo "<img alt='Foto' src='".asset('images/users/'.$foro_usuario->user->photo.'')."' width=50 height=50 title='Foto'>";
+                            echo "<img alt='Foto' src='".asset('images/users/'.$foro_usuario->user->photo.'')."' width=50 height=50 >";
                         }    
                     ?>
-                    &nbsp;<label class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </label>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label label-primary">{{$foro_usuario->created_at}}</label></h4></p>   
+                    &nbsp;<div class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </div>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="label label-primary">{{$foro_usuario->created_at}}</div></h4></p>   
                 </div>
                 <br>
             @endif

@@ -21,8 +21,8 @@
 						<td>{{ $profile->name }}</td>
 						<td>{{ $profile->characteristic }}</td>
 						<td>
-							<a href="{{ route('admin.profiles.edit', $profile->id) }}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
-							<a href="{{ route('admin.profiles.destroy', $profile->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>
+							<a href="{{ route('admin.profiles.edit', $profile->id) }}" class="btn btn-warning" title="Editar discapacidad"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
+							<a href="{{ route('admin.profiles.destroy', $profile->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar discapacidad"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>
 						</td>
 					</tr>
 				@endforeach

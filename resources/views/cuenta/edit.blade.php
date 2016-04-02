@@ -11,7 +11,7 @@
 			            <div class="panel-body">
 			                <div class="media">
 					          	<div class="media-center">
-					          		<a href=""><img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" /></a>
+					          		<a href=""><img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" alt="avatar"/></a>
 									{!! Form::label('photo','Cambiar foto')!!}
 					          		{!! Form::file('photo')!!}
 					          	</div>
@@ -26,8 +26,8 @@
 			            	@include('admin.template.partials.errors')
 							@include('cuenta.fieldsaccount')
 				            <center>
-				            	<input class="btn btn-primary" type="submit" value="Guardar" name="Guardar" style="width: 120px;" />
-				            	<a href="{{ route('cuenta.user.index') }}" class="btn btn btn-primary" title="Cancelar" name="Cancelar">Cancelar</a>
+				            	<input class="btn btn-warning" type="submit" value="Guardar" name="Guardar" style="width: 120px;" />
+				            	<a href="{{ route('cuenta.user.index') }}" class="btn btn btn-warning" title="Cancelar modificación" name="Cancelar">Cancelar</a>
 				            </center>
 			            </div>
 			        </div>
