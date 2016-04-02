@@ -63,9 +63,10 @@
             $clave=getRandomCode();
         ?>
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            
+            <label class="col-md-4 control-label">Contraseña</label>
+
             <div class="col-md-6">
-                <input type="password" title="Contraseña" class="form-control" name="password">
+                <input type="password" class="form-control" name="password">
 
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -76,9 +77,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                
+            <label class="col-md-4 control-label">Confirmar contraseña</label>
+
             <div class="col-md-6">
-                <input type="password" title="Confirmar contraseña" class="form-control" name="password_confirmation">
+                <input type="password" class="form-control" name="password_confirmation">
 
                 @if ($errors->has('password_confirmation'))
                     <span class="help-block">

@@ -61,7 +61,6 @@ class AuthController extends Controller
             'gender' => 'required',
             'date' => 'required',
             'country' => 'required',
-            'role' => 'required',
             'profile_id' => 'required',
         ]);
     }
@@ -88,7 +87,6 @@ class AuthController extends Controller
             'date' => $data['date'],
             'photo' => 'userdefect.png',
             'country' => $data['country'],
-            'role' => $data['role'],
             'profile_id' => $data['profile_id'],
         ]);
     }

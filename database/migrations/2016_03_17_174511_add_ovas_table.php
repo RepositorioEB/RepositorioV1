@@ -15,8 +15,8 @@ class AddOvasTable extends Migration
         Schema::create('ovas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('language',15)->nullable();
-            $table->string('description')->nullable();
+            $table->string('language',25)->nullable();
+            $table->text('description')->nullable();
             $table->string('archive');
             $table->integer('punctuation')->nullable();
             $table->boolean('state')->default(false);
@@ -32,7 +32,7 @@ class AddOvasTable extends Migration
             $table->increments('id');
             $table->integer('ova_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->string('comment',250);
+            $table->string('comment');
             $table->foreign('ova_id')->references('id')->on('ovas')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();     
