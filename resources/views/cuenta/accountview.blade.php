@@ -23,6 +23,7 @@
     <!-- Inicio Modificado (ed) -->
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
+    
     <!-- Fin Modificado (ed) -->
 
     @if (Auth::guest())
@@ -38,7 +39,7 @@
             <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
         @endif
     @endif   
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <style>
         body {
             font-family: 'Lato';
@@ -80,6 +81,7 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">

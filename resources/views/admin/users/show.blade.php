@@ -22,7 +22,7 @@
 				<tr>
 					<td>{{ $user->name }}</td>
 					<td>{{ $user->last_name }}</td>
-					<td>{{ $user->nickname }}</td>
+					<td>{{ $user->username }}</td>
 					<td>{{ $user->email }}</td>
 					<td>{{ $user->gender }}</td>
 					<td>{{ $user->date }}</td>

@@ -7,7 +7,7 @@
 	@include('admin.template.partials.errors')
 	
 	{!! Form::open(['route' => 'admin.users.store','method' => 'POST', 'files' => true]) !!}
-		@include('admin.template.partials.fieldsuser', ['routes' => 'create'])
+		@include('admin.template.partials.fieldsuser', ['routes' => 'create', 'variable' => 'si'])
 		<div class="form-group">
 			<center>{!! Form::submit('Registrar',['class' => 'btn btn-warning']) !!}
 			<a href="{{ route('admin.users.index') }}" class="btn btn btn-warning" title="Cancelar registro" name="Cancelar">Cancelar</a>

@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Iconos -->
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
     <!-- Fin Modificado (ed) -->
     @if (Auth::guest())
         <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
@@ -85,12 +85,17 @@
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title">
+                                    <center><b> Herramientas</b></center>
+                                </div>
+                            </div>
                             <div class="panel-body">
-                                <br><br>
+                                <h3><div class="label label-info">Búsqueda</div></h3>
                                 {!! Form::open(['route' => 'search.mainsearch.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
                                     <label for="search">Ingresar búsqueda:</label>  
                                     <div class="input-group">
-                                    {!! Form::text('search', null, ['id' => 'search','class' => 'form-control', 'placeholder' => 'Buscar ova','required', 'aria-describedby' => 'search']) !!}
+                                    {!! Form::text('search', null, ['id' => 'search','class' => 'form-control', 'placeholder' => 'Buscar','required', 'aria-describedby' => 'search']) !!}
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                                     </div>
                                 {!! Form::close() !!}
@@ -144,6 +149,7 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">

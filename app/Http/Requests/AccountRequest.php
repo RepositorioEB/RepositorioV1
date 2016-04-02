@@ -30,7 +30,6 @@ class AccountRequest extends Request
             'email' => 'min:7|max:30|required',
             'gender' => 'required',
             'date' => 'required',
-            'state' => 'required',
             'photo' => 'image',
             'profile_id' => 'required'
         ];
