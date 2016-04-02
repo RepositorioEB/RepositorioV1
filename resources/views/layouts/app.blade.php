@@ -22,7 +22,6 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- Inicio Modificado (ed) -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Iconos -->
@@ -87,33 +86,43 @@
                     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                {!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-                                <!--
+                                <br><br>
+                                {!! Form::open(['route' => 'search.mainsearch.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+                                    <label for="search">Ingresar búsqueda:</label>  
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="search">
-                                            <input type="Buscar" title="Busqueda" onclick="" placeholder="Buscar" /> 
-                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                        </span>
+                                    {!! Form::text('search', null, ['id' => 'search','class' => 'form-control', 'placeholder' => 'Buscar ova','required', 'aria-describedby' => 'search']) !!}
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                                     </div>
-                                -->
                                 {!! Form::close() !!}
-                                <br><br><br>
+    
+                                <br><br><br><br>
                                 <ul>
-                                    <li><h4><div class="label label-info">Archivos recientes</div></h4>
+                                    <li><h3><div class="label label-info">Archivos recientes</div></h3>
                                         <ul>
                                         {!! Form::open( ['route' => ['ovas.recentarchive.index'],'method' => 'GET', 'files' => true]) !!}
                                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ovas') !!}</li>
                                         {!! Form::close() !!}   
                                         </ul>
+                                        <br>
+                                        <ul>
+                                        {!! Form::open( ['route' => ['member.helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ayudas') !!}</li>
+                                        {!! Form::close() !!}   
+                                        </ul>
+                                        <br>
+                                        <ul>
+                                        {!! Form::open( ['route' => ['foro.forums.recentarchive'],'method' => 'GET', 'files' => true]) !!}
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Foros') !!}</li>
+                                        {!! Form::close() !!}   
+                                        </ul>
                                     </li>
-                                    <li><h4><div class="label label-info">Noticias</div></h4></li>
-                                    <li><h4><div class="label label-info">Acerca de</div></h4></li>
+                                    <li><h3><div class="label label-info">Acerca de</div></h3></li>
                                 </ul>
                                 <br>
                                 <center>
-                                    <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="1">¡Chat!</a>
-                                    <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success" tabindex="1" accesskey="2">¡Foros!</a>
-                                    <a href="../../ovas/menu" title="Ovas" class="btn btn-success" tabindex="1" accesskey="3">¡Ovas!</a>
+                                    <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success">¡Chat!</a>
+                                    <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success">¡Foros!</a>
+                                    <a href="../../ovas/menu" title="Ovas" class="btn btn-success" >¡Ovas!</a>
                                 </center>
                             </div>
                         </div>
@@ -138,7 +147,7 @@
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h6 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=" glyphicon glyphicon-menu-right" aria-hidden="true"> </span> Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h6>
+            <h4 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=" glyphicon glyphicon-menu-right" aria-hidden="true"> </span> Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h4>
         </div>
     </div>
 </body>

@@ -8,7 +8,9 @@
 	{!! Form::open(['route' => 'ovas.ovamember.store','method' => 'POST', 'files' => true]) !!}
 		@include('admin.template.partials.fieldsova')
 		<div class="form-group">
-			{!! Form::submit('Crear',['class' => 'btn btn-primary']) !!}
+			<center>
+			{!! Form::submit('Crear',['class' => 'btn btn-warning']) !!}
+			</center>
 		</div>
 	{!! Form::close() !!}
 	

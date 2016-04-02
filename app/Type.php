@@ -20,4 +20,7 @@ class Type extends Model
     public function scopeSearchType($query, $name){
         return $query->where('name','LIKE',"%$name%");
     }
+    public function scopeSearchTypeDescription($query, $description){
+        return $query->where('description','LIKE',"%$description%");
+    }
 }

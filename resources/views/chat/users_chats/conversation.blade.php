@@ -10,15 +10,15 @@
 						{
 							if(($user->photo) == null)
                 			{
-                    			echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 title='Foto'>";
+                    			echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                 			}else{
-                    			echo "<img alt='Foto' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 title='Foto'>";
+                    			echo "<img alt='Foto' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 >";
                 			}
                		
 						}	
 					}
                     ?> 
-                    &nbsp;<label class="label label-danger" name="nombreusuario" alt="2">{{$user_chat->nameorigen}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </label>&nbsp;{{$user_chat->mensaje}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="label label-primary">{{$user_chat->created_at}}</label></h4></p>   
+                    &nbsp;<div class="label label-danger" name="nombreusuario">{{$user_chat->nameorigen}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </div>&nbsp;{{$user_chat->mensaje}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="label label-primary">{{$user_chat->created_at}}</div></h4></p>   
                 </div>
                 <br>
             @endif

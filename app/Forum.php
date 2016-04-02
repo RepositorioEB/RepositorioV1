@@ -24,4 +24,7 @@ class Forum extends Model
     public function scopeSearchForum($query, $name){
         return $query->where('name','LIKE',"%$name%");
     }
+    public function scopeSearchForumCharacteristic($query, $characteristic){
+        return $query->where('characteristic','LIKE',"%$characteristic%");
+    }
 }

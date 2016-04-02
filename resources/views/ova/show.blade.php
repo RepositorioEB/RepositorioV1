@@ -5,11 +5,11 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<a href="{{ route('ovas.ova.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
+	<!--<a href="{{ route('ovas.ova.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>-->
 
 	{!! Form::open( ['route' => ['ovas.ova.store'],'method' => 'POST', 'files' => true]) !!}
 	
-	<center><label><h2>DATOS COMPLETOS DEL OVA</h2></label></center>
+	<center><legend><h2>DATOS COMPLETOS DEL OVA</h2></legend></center>
 	<div class="form-group">
 		<h3>{!! Form::label('id','Identificación: ',["class"=>"label label-primary"]) !!}
 			<br><br>
@@ -79,12 +79,11 @@
 			}
 		}
 	?>
-	<h3>{!! Form::label('calification','Calificación',["class"=>"label label-primary"]) !!}</h3>		
+	<legend>Calificación</legend>
 	@if($var== 0)
+		<fieldset>
 		<div class="form-group pull-right">
-		<h4><label class="label label-primary"> Número de estrellas : </label></h4>
-		</div>
-  		<br><br><br>
+		<h3><legend class="label label-primary"> Número de estrellas : </legend></h3>
 		<p class="clasificacion">
        <input id="radio1" type="radio" name="estrellas" value="5"><!--
     --><label for="radio1">★5</label><!--
@@ -97,7 +96,9 @@
     --><input id="radio5" type="radio" name="estrellas" value="1"><!--
     --><label for="radio5">★1</label>
 		</p>
-	
+		</div>
+  		
+		</fieldset>
 		<div class="form-group pull-right">
 		{!! Form::submit('Evaluar',['class' => 'btn btn-warning']) !!}
 		</div>	
@@ -112,30 +113,29 @@
 	
 	{!! Form::close() !!}	
 	<br>
-	<h3>{!! Form::label('comments','Comentarios',["class"=>"label label-primary"]) !!}</h3>
+	<h3><legend>Comentarios</legend><h3>
 	<div id="conversation" style="background: white;color: black;height:200px; border: 1px solid #CCCCCC; padding: 10px;  border-radius: 13px; overflow-x: hidden;">
     @foreach($ovas_comments as $ova_comment)
 		@if($ova_comment->ova_id == $ova->id)
 			<br>
 			<div style="border-top: 1px solid black;">
-			<br>
+			<h4>
 			<?php
 				if(($ova_comment->user->photo) == null)
                 {
-                    echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 title='Foto'>";
+                    echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50>";
                 }else{
-                    echo "<img alt='Foto' src='".asset('images/users/'.$ova_comment->user->photo.'')."' width=50 height=50 title='Foto'>";
+                    echo "<img alt='Foto' src='".asset('images/users/'.$ova_comment->user->photo.'')."' width=50 height=50>";
                 }    
             ?>
-			<label class="label label-danger" name="nombreusuario" alt="2">{{$ova_comment->user->username}}:<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></label>
+			<div class="label label-danger" name="nombreusuario">{{$ova_comment->user->username}}:<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></div>
 			{{$ova_comment->comment}}
-			<label class="label label-primary">{{$ova_comment->created_at}}</label>
-			<br>
+			<div class="label label-primary">{{$ova_comment->created_at}}</div></h4>
 			</div>
 		@endif	
 	@endforeach
 	</div>
-	<br>
+	<h3>{!! Form::label('comment','Ingrese el comentario',["class"=>"label label-primary"]) !!}</h3>
 	{!! Form::open( ['route' => ['ovas.ova_comment.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
 		{!! Form::text('comment', null, ['title'=>'Comentario','class' => 'form-control','placeholder'=>'Ingrese el comentario']) !!}
 		<div class="form-group pull-right">
@@ -144,14 +144,14 @@
 	{!! Form::close() !!}
 	{!! Form::open( ['route' => ['ovas.downloads.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
 	<div class="form-group">
-		<h3>{!! Form::label('archivelb','Archivo',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('archive','Archivo',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
 				{!! Form::text('archive', $ova->archive, ['title'=>'Archivo','class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
-	{!! Form::submit('Descargar',['class' => 'btn btn-warning']) !!}
+	<center>{!! Form::submit('Descargar',['class' => 'btn btn-warning']) !!}</center>
 	{!! Form::close() !!}
 	
 @endsection

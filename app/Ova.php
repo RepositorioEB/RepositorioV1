@@ -53,4 +53,10 @@ class Ova extends Model implements SluggableInterface
     public function scopeSearch($query, $name){
         return $query->where('name','LIKE',"%$name%");
     }
+    public function scopeSearchDescription($query, $description){
+        return $query->where('description','LIKE',"%$description%");
+    }
+    public function scopeSearchArchive($query, $archive){
+        return $query->where('archive','LIKE',"%$archive%");
+    }
 }

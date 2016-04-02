@@ -7,10 +7,10 @@
         {!! csrf_field() !!}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Nombre: </label>
+            <label class="col-md-4 control-label" for="name">Nombre: </label>
 
             <div class="col-md-6">
-                <input type="text" title="Nombre" class="form-control" name="name" value="{{ old('name') }}">
+                <input type="text" id="name" title="Nombre" class="form-control" name="name" value="{{ old('name') }}">
 
                 @if ($errors->has('name'))
                     <span class="help-block">
@@ -21,10 +21,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Nombre de usuario: </label>
+            <label class="col-md-4 control-label" for="username">Nombre de usuario: </label>
 
             <div class="col-md-6">
-                <input type="text" title="Nombre de usuario" class="form-control" name="username" value="{{ old('username') }}">
+                <input type="text" id="username" title="Nombre de usuario" class="form-control" name="username" value="{{ old('username') }}">
 
                 @if ($errors->has('username'))
                     <span class="help-block">
@@ -35,10 +35,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Correo electrónico: </label>
+            <label class="col-md-4 control-label" for="email">Correo electrónico: </label>
 
             <div class="col-md-6">
-                <input type="email" title="Correo electronico" class="form-control" name="email" value="{{ old('email') }}">
+                <input type="email" id="email" title="Correo electronico" class="form-control" name="email" value="{{ old('email') }}">
 
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -89,10 +89,10 @@
         </div>
         
         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Genero: </label>
+            <label class="col-md-4 control-label" for="gender">Genero: </label>
 
             <div class="col-md-6">
-                <select title="Seleccionar genero" class="form-control" name="gender">
+                <select title="Seleccionar genero" class="form-control" id="gender" name="gender">
                   <option value="man">Hombre</option>
                   <option value="woman">Mujer</option>
                 </select>
@@ -106,10 +106,10 @@
         </div>  
 
         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Fecha de nacimiento: </label>
+            <label class="col-md-4 control-label" for="birthdate">Fecha de nacimiento: </label>
 
             <div class="col-md-6">
-                <input type="date" title="Fecha de nacimiento" class="form-control" name="date" value="{{ old('date') }}" >
+                <input type="date" id="birthdate" title="Fecha de nacimiento" class="form-control" name="date" value="{{ old('date') }}" >
 
                 @if ($errors->has('date'))
                     <span class="help-block">
@@ -120,10 +120,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('profile_id') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Discapacidad: </label>
+            <label class="col-md-4 control-label" for="profile">Discapacidad: </label>
 
             <div class="col-md-6">
-                {!! Form::select( 'profile_id', \App\Profile::orderBy('name', 'ASC')->lists('name', 'id'), null, ['title' =>'Seleccionar discapacidad','class' => 'form-control','required']) !!}
+                {!! Form::select( 'profile_id', \App\Profile::orderBy('name', 'ASC')->lists('name', 'id'), null, ['id' =>'profile', 'title' =>'Seleccionar discapacidad','class' => 'form-control','required']) !!}
 
                 @if ($errors->has('profile_id'))
                     <span class="help-block">
@@ -134,10 +134,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Discapacidad: </label>
+            <label class="col-md-4 control-label" for="country">País: </label>
 
             <div class="col-md-6">
-                {!! Form::select( 'country', \App\Country::countryList(), 'CO', ['title' =>'Seleccionar pais','class' => 'form-control','required']) !!}
+                {!! Form::select( 'country', \App\Country::countryList(), 'CO', ['id' =>'country','title' =>'Seleccionar pais','class' => 'form-control','required']) !!}
 
                 @if ($errors->has('country'))
                     <span class="help-block">
@@ -148,10 +148,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Rol: </label>
+            <label class="col-md-4 control-label" for="role">Rol: </label>
 
             <div class="col-md-6">
-                    {!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['title' =>'Seleccionar rol','class' => 'form-control','required']) !!}
+                    {!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['id' =>'role','title' =>'Seleccionar rol','class' => 'form-control','required']) !!}
 
                 @if ($errors->has('role'))
                     <span class="help-block">

@@ -83,7 +83,7 @@
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h6 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h6>
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=" glyphicon glyphicon-menu-right" aria-hidden="true"> </span>Creado por Braian Estiven Alvarado Rodriguez y Edison Andres Quijano Suarez</h4>
         </div>
     </div>
 </body>

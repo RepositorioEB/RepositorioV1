@@ -8,8 +8,10 @@
 	{!! Form::model($problems, ['route' => ['admin.problems.update',$problems->id],'method' => 'PUT']) !!}
 		@include('admin.template.partials.fieldsproblem')
 		<div class="form-group">
-			{!! Form::submit('Editar',['class' => 'btn btn-primary']) !!}
-			<a href="{{ route('admin.problems.index') }}" class="btn btn btn-primary" title="Cancelar" name="Cancelar">Cancelar</a>
+			<center>
+			{!! Form::submit('Editar',['class' => 'btn btn-warning']) !!}
+			<a href="{{ route('admin.problems.index') }}" class="btn btn btn-warning" title="Cancelar modificación" name="Cancelar">Cancelar</a>
+			</center>
 		</div>
 	{!! Form::close() !!}
 	

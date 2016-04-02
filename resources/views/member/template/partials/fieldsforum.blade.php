@@ -1,8 +1,8 @@
 <div class="form-group">
-	{!! Form::label('name','Nombre') !!}
+	<h3>{!! Form::label('name','Nombre',["class"=>"label label-primary"]) !!}</h3>
 	{!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Nombres completos','required']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('characteristic','Caracteristicas') !!}
+	<h3>{!! Form::label('characteristic','Caracteristicas',["class"=>"label label-primary"]) !!}</h3>
 	{!! Form::textarea('characteristic', null, ['class' => 'form-control']) !!}
 </div>

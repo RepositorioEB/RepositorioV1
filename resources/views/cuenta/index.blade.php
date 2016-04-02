@@ -12,7 +12,7 @@
 			          	<div class="media-center">
 			          		<img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" alt="avatar"/>
 			          		<h1>{{$user->name." ".$user->last_name}}
-			          			<small>{{$user->username}}</small>
+			          			<small >{{$user->username}}</small>
 			          		</h1>
 			        	</div>
 			        </div>
@@ -22,11 +22,11 @@
 	            <div class="panel-heading">Acciones</div>
 	            <div class="panel-body">
 	            	<center>
-	                <a href="../../ovas/menu" class="btn btn btn-primary" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
+	                <a href="../../ovas/menu" class="btn btn btn-warning" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
 					</br></br>
-					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-primary" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>
+					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-warning" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>
 					</br></br>
-					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success" tabindex="1" accesskey="s">¡Chat!</a>
+					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success">¡Chat!</a>
 	            	</center>
 	            </div>
 	        </div>
@@ -63,8 +63,8 @@
 						<p>{{ $user->studies }}</p>
 					@endif
 		            <center>
-		            	<a href="{{ route('cuenta.user.password', $user->id) }}" class="btn btn btn-primary" title="PasswordEdit" name="Modificar_password">Modificar contraseña</a>
-		            	<a href="{{ route('cuenta.user.edit', $user->id) }}" class="btn btn btn-primary" title="Modificar_datos" name="Modificar_datos">Modificar datos</a>
+		            	<a href="{{ route('cuenta.user.password', $user->id) }}" class="btn btn btn-warning" title="PasswordEdit" name="Modificar_password">Modificar contraseña</a>
+		            	<a href="{{ route('cuenta.user.edit', $user->id) }}" class="btn btn btn-warning" title="Modificar_datos" name="Modificar_datos">Modificar datos</a>
 		            </center>
 	            </div>
 	        </div>
@@ -120,7 +120,7 @@
 	            <div class="panel-body">
 	            	@if($j)
 						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-							{!! Form::label('name','Ingrese el nombre del foro:') !!}
+							{!! Form::label('nameForo','Ingrese el nombre del foro:') !!}
 							<div class="input-group">
 								{!! Form::text('nameForo', null, ['class' => 'form-control', 'placeholder' => 'Buscar foro', 'aria-describedby' => 'search']) !!}
 								<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>

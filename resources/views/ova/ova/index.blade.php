@@ -6,11 +6,11 @@
 
 	@include('admin.template.partials.errors')
 	<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
-	<center><label><h2>DATOS COMPLETOS DE CADA OVA</h2></label></center>
+	<center><legend><h2>DATOS COMPLETOS DE CADA OVA</h2></legend></center>
 	{!! Form::open([ 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-		<h3><label>Buscar OVA: </label></h3>			
+		<h3><label for="nameOva" >Buscar OVA: </label></h3>			
 		<div class="input-group">
-			{!! Form::text('name', null, ['title'=>'Buscar OVA','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+			{!! Form::text('name', null, ['id'=>'nameOva','title'=>'Buscar OVA','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 		</div>
 	{!! Form::close() !!}
@@ -22,10 +22,10 @@
 	{!! Form::close() !!}	
 	{!! Form::open( ['route' => ['ovas.downloads.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
 	<div class="form-group">
-		<h3>{!! Form::label('archive','Archivo',["class"=>"label label-primary"]) !!}
+		<h3>{!! Form::label('archive'.$ova->id,'Archivo',["for"=>"archive".$ova->id,"class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::text('archive', $ova->archive, ['class' => 'form-control','readonly'=>'readonly']) !!}
+				{!! Form::text('archive', $ova->archive, ["id"=>"archive".$ova->id,'class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>

@@ -57,7 +57,11 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Forum_UserController@message'
             ]);
           //End routes foro
-        
+          Route::get('recentarchive',[
+            'uses' => 'ForumRecentArchiveController@index',
+            'as'   => 'foro.forums.recentarchive'
+            ]);
+            
         });
         Route::group(['prefix' => 'cuenta'],function(){
         
@@ -90,7 +94,9 @@ Route::group(['middleware' => 'web'], function () {
           Route::resource('recentarchive', 'RecentArchiveController');
           Route::resource('ova_comment', 'OvaCommentController');
         });
-       
+        Route::group(['prefix' => 'search'],function(){
+          Route::resource('mainsearch', 'MainSearchController');
+        });
 
 
           // --------------> Routes Admin <------------ 
@@ -176,7 +182,10 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'HelpController@listas',
             'as'   => 'member.helps'
             ]);
-
+            Route::get('recentarchive',[
+            'uses' => 'HelpRecentArchiveController@index',
+            'as'   => 'member.helps.recentarchive'
+            ]);
             Route::get('helps/{helps}', [
             'as' => 'member.helps.show',
             'uses' => 'HelpController@show'

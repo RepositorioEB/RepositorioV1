@@ -8,8 +8,10 @@
 	{!! Form::model($forums, ['route' => ['admin.forums.update',$forums->id],'method' => 'PUT']) !!}
 		@include('admin.template.partials.fieldsforum')
 		<div class="form-group">
-			{!! Form::submit('Editar',['class' => 'btn btn-primary']) !!}
-			<a href="{{ route('admin.forums.index') }}" class="btn btn btn-primary" title="Cancelar" name="Cancelar">Cancelar</a>
+			<center>
+			{!! Form::submit('Editar',['class' => 'btn btn-warning']) !!}
+			<a href="{{ route('admin.forums.index') }}" class="btn btn btn-warning" title="Cancelar modificación" name="Cancelar">Cancelar</a>
+			</center>
 		</div>
 	{!! Form::close() !!}
 	
