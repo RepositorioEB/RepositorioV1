@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('gender', ['man','woman']);
             $table->date('date');
             $table->string('photo')->nullable();
-            $table->string('studies')->nullable();
+            $table->text('studies')->nullable();
             $table->string('country')->nullable();
             $table->enum('role', ['member','admin'])->default('member');
             $table->integer('profile_id')->unsigned()->nullable();

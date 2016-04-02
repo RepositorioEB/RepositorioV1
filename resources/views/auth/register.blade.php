@@ -63,9 +63,10 @@
             $clave=getRandomCode();
         ?>
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            
+            <label class="col-md-4 control-label">Contraseña</label>
+
             <div class="col-md-6">
-                <input type="password" title="Contraseña" class="form-control" name="password">
+                <input type="password" class="form-control" name="password">
 
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -76,9 +77,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                
+            <label class="col-md-4 control-label">Confirmar contraseña</label>
+
             <div class="col-md-6">
-                <input type="password" title="Confirmar contraseña" class="form-control" name="password_confirmation">
+                <input type="password" class="form-control" name="password_confirmation">
 
                 @if ($errors->has('password_confirmation'))
                     <span class="help-block">
@@ -134,7 +136,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Discapacidad: </label>
+            <label class="col-md-4 control-label">Pais: </label>
 
             <div class="col-md-6">
                 {!! Form::select( 'country', \App\Country::countryList(), 'CO', ['title' =>'Seleccionar pais','class' => 'form-control','required']) !!}
@@ -142,20 +144,6 @@
                 @if ($errors->has('country'))
                     <span class="help-block">
                         <strong>{{ $errors->first('country') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-
-        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Rol: </label>
-
-            <div class="col-md-6">
-                    {!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['title' =>'Seleccionar rol','class' => 'form-control','required']) !!}
-
-                @if ($errors->has('role'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('role') }}</strong>
                     </span>
                 @endif
             </div>

@@ -14,7 +14,7 @@ class AddProblemsTable extends Migration
     {
         Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->text('description');
             $table->boolean('state')->default(false);
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
