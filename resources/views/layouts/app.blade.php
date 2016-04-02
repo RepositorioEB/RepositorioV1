@@ -55,13 +55,14 @@
         var monthname=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");  
         var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
     </script>
+
 </head>
 <body id="app-layout">
     <!-- Inicio Modificado (ed) -->
     <header>
         @include('layouts.nav')
     </header>
-    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
     <div class="container">
         <section class="main row">
             <div class="section-admin">

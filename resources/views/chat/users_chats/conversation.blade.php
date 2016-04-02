@@ -10,9 +10,9 @@
 						{
 							if(($user->photo) == null)
                 			{
-                    			echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
+                    			echo "<img alt='Foto".$user_chat->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                 			}else{
-                    			echo "<img alt='Foto' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 >";
+                    			echo "<img alt='Foto".$user_chat->id."' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 >";
                 			}
                		
 						}	

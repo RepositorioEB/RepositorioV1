@@ -26,9 +26,9 @@
                     <?php
                         if(($foro_usuario->user->photo) == null)
                         {
-                            echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
+                            echo "<img alt='Foto".$foro_usuario->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                         }else{
-                            echo "<img alt='Foto' src='".asset('images/users/'.$foro_usuario->user->photo.'')."' width=50 height=50 >";
+                            echo "<img alt='Foto".$foro_usuario->id."' src='".asset('images/users/'.$foro_usuario->user->photo.'')."' width=50 height=50 >";
                         }    
                     ?>
                     &nbsp;<div class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </div>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="label label-primary">{{$foro_usuario->created_at}}</div></h4></p>   

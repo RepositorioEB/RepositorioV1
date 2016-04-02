@@ -21,8 +21,8 @@
             <li class="active"><a href="{{ url('/') }}" title="Home"><span class="glyphicon glyphicon-home"></span></span>Inicio</a></li>
             <!-- Authentication Links -->
             @if (Auth::guest())
-                <li><a href="{{ url('/login') }}" title="Ingresar">Ingresar</a></li>
-                <li><a href="{{ url('/register') }}" title="Registrarse">Registrarse</a></li>
+                <li><a href="{{ url('/login') }}" title="Ingresar al repositorio">Ingresar</a></li>
+                <li><a href="{{ url('/register') }}" title="Registrarse en el repositorio">Registrarse</a></li>
             @else
                 @if(Auth::user()->role == 'admin')
                     <li class="dropdown">
@@ -105,7 +105,7 @@
                             <li><a href="../../ovas/menu" title="ListaOva">Lista</a></li>
                             <li><a href="" title="SubirOva">Subir</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="" title="Busquedas">Busqueda</a>
+                            <li><a title="Busquedas">Busqueda</a>
                                 <ul>
                                     <li><a href="" title="BusquedaGeneral">General</a></li>
                                     <li><a href="" title="BusquedaOva">Ovas</a></li>
