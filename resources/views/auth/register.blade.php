@@ -165,9 +165,25 @@
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-                <button type="submit" title="Boton registro" onclick="return confirm('Se le enviará una contraseña a su correo con la que podrá ingresar al repositorio y cambiarla si lo desea.')" class="btn btn-primary">
-                    <i class="fa fa-btn fa-user"></i>Registro
-                </button>
+            <a href="#ventana1" class="btn btn-primary" data-toggle="modal"><i class="fa fa-btn fa-user"></i>Registrar</a>
+            <div class="modal fade" id="ventana1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button tyle "submit" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
+                    <h3 class="modal-title">Aviso</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Su contraseña se enviará al correo electronico anteriormente registrado.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" title="Boton registro" class="btn btn-primary">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+            </div>
+            </div>
             </div>
         </div>
         Al dar Click en el botón registro, se le enviará una contraseña a su correo con la que podrá ingresar al repositorio y cambiarla si lo desea.

@@ -9,7 +9,25 @@
 		@include('admin.template.partials.fieldsova')
 		<div class="form-group">
 			<center>
-			{!! Form::submit('Crear',["class" => "btn btn-warning","onclick"=>"return confirm('Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.')"]) !!}
+			<a href="#ventana1" class="btn btn-warning" data-toggle="modal">Guardar</a>
+            <div class="modal fade" id="ventana1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button tyle "submit" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
+                    <h3 class="modal-title">Aviso</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" title="Boton registro" class="btn btn-primary">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+            </div>
+            </div>
 			</center>
 		</div>
 	{!! Form::close() !!}
