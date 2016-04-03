@@ -78,6 +78,7 @@ class AuthController extends Controller
             $m->from('repositorioovas@gmail.com', 'Repositorio de OVAS');
             $m->to($data['email'],$data['name'])->subject('Código de usuario:');
         });*/
+            
         return User::create([
             'name' => $data['name'],
             'username' => $data['username'],
@@ -85,6 +86,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
             'gender' => $data['gender'],
             'date' => $data['date'],
+            'photo' => 'userdefect.png',
             'country' => $data['country'],
             'profile_id' => $data['profile_id'],
         ]);

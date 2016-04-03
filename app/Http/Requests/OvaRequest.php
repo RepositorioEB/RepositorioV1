@@ -29,7 +29,6 @@ class OvaRequest extends Request
             'property_letter' => 'max:255|required',
             'description' => 'min:20',
             'archive' => 'max:255|required',
-            'punctuation' => 'max:255',
             'type_id' => 'required',
             'category_id' => 'required'
         ];

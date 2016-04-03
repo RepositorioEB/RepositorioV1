@@ -5,17 +5,16 @@
 @section('content')
 	
 	@include('admin.template.partials.errors')
+	<div class="table-responsive">
 		<br />
 		<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
 		<h3><legend>Búsqueda por: Categoria</legend></h3>
 		<br />
 		<center>
-		<table>
+		<table class="table table-striped">
 			<thead>
-				<tr>
-					<td><big><b><center>Nombre</center></b></big></td>
-					<td><big><b><center>Descripción</center></b></big></td>
-				</tr>
+					<th><big><b><center>Nombre</center></b></big></th>
+					<th><big><b><center>Descripción</center></b></big></th>
 			</thead>
 		@foreach($categories as $category)
 				<tbody>
@@ -26,11 +25,15 @@
 							{!! Form::close() !!}	
 						</td>
 						<td>
-							&nbsp;&nbsp;{{$category->description}}
+							{{$category->description}}<br><br>
 						</td>
 					</tr>
 				</tbody>
 		@endforeach
 		</table>
 		</center>
+	</div>
+	<div class="text-center">
+		{!! $categories->render() !!}
+	</div>
 @endsection

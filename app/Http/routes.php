@@ -61,6 +61,11 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'ForumRecentArchiveController@index',
             'as'   => 'foro.forums.recentarchive'
             ]);
+          Route::get('own',[
+            'uses' => 'ForumController@own',
+            'as'   => 'foro.own.index'
+            ]);
+          
             
         });
         Route::group(['prefix' => 'cuenta'],function(){
@@ -93,6 +98,12 @@ Route::group(['middleware' => 'web'], function () {
           Route::resource('downloads', 'DownloadMemberController');
           Route::resource('recentarchive', 'RecentArchiveController');
           Route::resource('ova_comment', 'OvaCommentController');
+
+          Route::get('own',[
+            'uses' => 'OvaEvaluationController@own',
+            'as'   => 'ovas.own.index'
+          ]);
+
         });
         Route::group(['prefix' => 'search'],function(){
           Route::resource('mainsearch', 'MainSearchController');
@@ -162,7 +173,26 @@ Route::group(['middleware' => 'web'], function () {
             ]);
 
         });
+        Route::group(['prefix' => 'helps'],function(){
+            Route::get('helps',[
+            'uses' => 'HelpController@listas',
+            'as'   => 'helps.helps'
+            ]);
+            Route::get('recentarchive',[
+            'uses' => 'HelpRecentArchiveController@index',
+            'as'   => 'helps.helps.recentarchive'
+            ]);
+            Route::get('own',[
+            'uses' => 'HelpController@own',
+            'as'   => 'helps.own.index'
+            ]);
+            Route::get('helps/{helps}', [
+            'as' => 'helps.helps.show',
+            'uses' => 'HelpController@show'
+            ]);
+        });
 
+        
         // --------------> Routes Member <------------ 
         Route::group(['prefix' => 'member', 'middleware' => ['MemberMw']],function(){
             Route::get('/', ['as' => 'member.index', function () 
@@ -177,8 +207,12 @@ Route::group(['middleware' => 'web'], function () {
             ]);
 
             Route::resource('forums', 'ForumController');
-
-            Route::get('helps',[
+             Route::resource('problems', 'ProblemController');
+            Route::get('problems/{id}/destroy', [
+            'uses' => 'ProblemController@destroy',
+            'as' => 'member.problems.destroy'
+            ]);
+            /*Route::get('helps',[
             'uses' => 'HelpController@listas',
             'as'   => 'member.helps'
             ]);
@@ -189,7 +223,7 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('helps/{helps}', [
             'as' => 'member.helps.show',
             'uses' => 'HelpController@show'
-            ]);
+            ]);*/
 
         });
 

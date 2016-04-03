@@ -56,7 +56,7 @@
     <header>
         @include('layouts.nav')
     </header>
-    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
     <div class="container">
         <section class="main row">
             <div class="section-admin">
@@ -124,7 +124,7 @@
                                         </ul>
                                         <br>
                                         <ul>
-                                        {!! Form::open( ['route' => ['member.helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
+                                        {!! Form::open( ['route' => ['helps.helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
                                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ayudas') !!}</li>
                                         {!! Form::close() !!}   
                                         </ul>

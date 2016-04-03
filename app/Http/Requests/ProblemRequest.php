@@ -25,7 +25,6 @@ class ProblemRequest extends Request
     {
         return [
             'description' => 'min:20',
-            'state' => 'required'
         ];
     }
 }

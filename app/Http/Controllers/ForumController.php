@@ -14,9 +14,26 @@ class ForumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function own()
     {
-        $forums = Forum::orderBy('id','ASC')->paginate(10);
+        $forums = Forum::orderBy('id','ASC')->paginate(20);
+        $forums->each(function($forums){
+            $forums->user;
+        });
+        if (\Auth::user()->role == 'admin') {
+            return view('admin.forums.own.index')->with('forums', $forums);
+        }else{
+            return view('member.forums.own.index')->with('forums', $forums);
+        }   
+    }
+    public function index(Request $request)
+    {
+        $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->first();
+        if($forums){
+            $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->paginate(10);
+        }else{
+            $forums = Forum::orderBy('id','ASC')->paginate(10);
+        }
         $forums->each(function($forums){
             $forums->user;
         });

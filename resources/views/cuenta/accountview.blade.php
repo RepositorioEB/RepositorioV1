@@ -60,7 +60,7 @@
     <header>
         @include('layouts.nav')
     </header>
-    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
     <div class="container">
         <section class="main row">
             <div class="section-admin">

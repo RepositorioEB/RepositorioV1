@@ -123,9 +123,9 @@
 			<?php
 				if(($ova_comment->user->photo) == null)
                 {
-                    echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50>";
+                    echo "<img alt='Foto".$ova_comment->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50>";
                 }else{
-                    echo "<img alt='Foto' src='".asset('images/users/'.$ova_comment->user->photo.'')."' width=50 height=50>";
+                    echo "<img alt='Foto".$ova_comment->id."' src='".asset('images/users/'.$ova_comment->user->photo.'')."' width=50 height=50>";
                 }    
             ?>
 			<div class="label label-danger" name="nombreusuario">{{$ova_comment->user->username}}:<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></div>
