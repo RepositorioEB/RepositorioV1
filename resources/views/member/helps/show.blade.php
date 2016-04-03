@@ -8,7 +8,7 @@
 		<div>
 			<header><h1>{{ 'Nombre de la ayuda: '.$help->name }}</h1></header> 
 			<article>
-				<p>{{ $help->description }}</p>
+				<p>{!! $replace=str_replace("\r","<br>",$help->description); !!}</p>
 			</article>
 		</div>
 	</section> 

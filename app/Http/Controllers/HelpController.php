@@ -10,6 +10,8 @@ use Laracasts\Flash\Flash;
 
 use App\User;
 
+use App\Url;
+
 use App\Help;
 
 use Illuminate\Support\Facades\Redirect;
@@ -61,10 +63,43 @@ class HelpController extends Controller
     public function store(HelpRequest $request)
     {
         $helps = new Help($request->all());
-        $helps->user_id = \Auth::user()->id;
-        $helps->save();
-        Flash::success("Se ha registrado la ayuda " .$helps->name. " con exito!");
-        return redirect()->route('admin.helps.index');
+        $ayudas = Help::orderBy('id','ASC')->lists('name', 'id');
+        foreach ($ayudas as $lista) {
+            if (strtolower($lista) === strtolower($helps->name)) {
+                Flash::error("La ayuda ya existe");
+                return redirect()->route('admin.helps.create');
+            }
+        }
+        $validacion = strpos($helps->video, "www.youtube.com");
+        if ($validacion === false ) {
+                Flash::error("El enlace no existe y/o no es valido");
+                return redirect()->route('admin.helps.create');
+        }else{
+            $link = explode("//", $helps->video);
+            if (isset($link[1])) {
+                $url = Url::url_exists($link[1]);
+                if ($url) {
+                    $helps->user_id = \Auth::user()->id;
+                    $helps->save();
+                    Flash::success("Se ha registrado la ayuda " .$helps->name. " con exito!");
+                    return redirect()->route('admin.helps.index');
+                }else{
+                    Flash::error("El enlace no existe y/o no es valido");
+                    return redirect()->route('admin.helps.create');
+                }
+            }else{
+                $url = Url::url_exists($helps->video);
+                if ($url) {
+                    $helps->user_id = \Auth::user()->id;
+                    $helps->save();
+                    Flash::success("Se ha registrado la ayuda " .$helps->name. " con exito!");
+                    return redirect()->route('admin.helps.index');
+                }else{
+                    Flash::error("El enlace no existe y/o no es valido");
+                    return redirect()->route('admin.helps.create');
+                }
+            }
+        }
     }
 
     /**

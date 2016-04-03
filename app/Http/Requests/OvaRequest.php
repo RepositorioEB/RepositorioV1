@@ -27,7 +27,7 @@ class OvaRequest extends Request
             'name' => 'min:5|max:255|required',
             'language' => 'max:15',
             'property_letter' => 'max:255|required',
-            'description' => 'max:255',
+            'description' => 'min:20',
             'archive' => 'max:255|required',
             'type_id' => 'required',
             'category_id' => 'required'

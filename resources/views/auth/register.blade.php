@@ -149,20 +149,6 @@
             </div>
         </div>
 
-        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label" for="role">Rol: </label>
-
-            <div class="col-md-6">
-                    {!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['id' =>'role','title' =>'Seleccionar rol','class' => 'form-control','required']) !!}
-
-                @if ($errors->has('role'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('role') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
             <a href="#ventana1" class="btn btn-primary" data-toggle="modal"><i class="fa fa-btn fa-user"></i>Registrar</a>

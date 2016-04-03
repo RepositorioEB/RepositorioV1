@@ -25,7 +25,7 @@ class ProfileRequest extends Request
     {
         return [
             'name' => 'min:4|max:20|required',
-            'characteristic' => 'max:255'
+            'characteristic' => 'min:20'
         ];
     }
 }

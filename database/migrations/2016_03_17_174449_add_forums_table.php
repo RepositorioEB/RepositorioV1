@@ -14,7 +14,7 @@ class AddForumsTable extends Migration
     {
         Schema::create('forums', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',30);
+            $table->string('name',30)->unique();
             $table->text('characteristic')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

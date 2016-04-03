@@ -24,7 +24,7 @@ class ProblemRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'max:255',
+            'description' => 'min:20',
         ];
     }
 }

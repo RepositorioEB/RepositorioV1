@@ -32,6 +32,13 @@ class ProfileController extends Controller
     public function store(ProfileRequest $request)
     {
         $profiles = new Profile($request->all());
+        $profileslist = Profile::orderBy('id','ASC')->lists('name', 'id');
+        foreach ($profileslist as $lista) {
+            if (strtolower($lista) === strtolower($profiles->name)) {
+                Flash::error("La categoria ya existe");
+                return redirect()->route('admin.profiles.create');
+            }
+        }
         $profiles->save();
         Flash::success("Se ha registrado el perfil " .$profiles->name. " con exito!");
         return redirect()->route('admin.profiles.index');
