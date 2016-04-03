@@ -25,7 +25,7 @@ class ForumRequest extends Request
     {
         return [
             'name' => 'min:5|max:30|required',
-            'characteristic' => 'max:255'
+            'characteristic' => 'min:20'
         ];
     }
 }

@@ -50,11 +50,6 @@
             margin-right: 6px;
         }
     </style>
-    <script language="JavaScript" type="text/javascript">
-        var d=new Date();
-        var monthname=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");  
-        var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
-    </script>
 </head>
 <body id="app-layout">
     <!-- Inicio Modificado (ed) -->
@@ -73,7 +68,26 @@
                                     <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
                                     @yield('title')
                                     <div class="col-md-2.5 borde pull-right">
-                                        <script language="JavaScript" type="text/javascript" >document.write(TODAY);</script>
+                                        <?php
+                                            $mesn =\Carbon\Carbon::now()->format('m');
+                                            if( $mesn == 1 ) $mes = 'Enero';
+                                            if( $mesn == 2 ) $mes = 'Febrero';
+                                            if( $mesn == 3 ) $mes = 'Marzo';
+                                            if( $mesn == 4 ) $mes = 'Abril';
+                                            if( $mesn == 5 ) $mes = 'Mayo';
+                                            if( $mesn == 6 ) $mes = 'Junio';
+                                            if( $mesn == 7 ) $mes = 'Julio';
+                                            if( $mesn == 8 ) $mes = 'Agosto';
+                                            if( $mesn == 9 ) $mes = 'Septiembre';
+                                            if( $mesn == 10 ) $mes = 'Octubre';
+                                            if( $mesn == 11 ) $mes = 'Noviembre';
+                                            if( $mesn == 12 ) $mes = 'Diciembre';
+                                        ?>
+                                        {{$mes}}
+                                        {!!\Carbon\Carbon::now()->format('d');!!}
+                                        {{','}}
+                                        {!!\Carbon\Carbon::now()->format('y');
+                                        !!}
                                     </div> 
                                 </div>
                             </div>

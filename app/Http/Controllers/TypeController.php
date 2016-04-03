@@ -46,6 +46,13 @@ class TypeController extends Controller
     public function store(TypeRequest $request)
     {
         $types = new Type($request->all());
+        $typeslist = Type::orderBy('id','ASC')->lists('name', 'id');
+        foreach ($typeslist as $lista) {
+            if (strtolower($lista) === strtolower($types->name)) {
+                Flash::error("El tipo ya existe");
+                return redirect()->route('admin.types.create');
+            }
+        }
         $types->save();
         Flash::success("Se ha registrado el tipo " .$types->name. " de las ovas con exito!");
         return redirect()->route('admin.types.index');

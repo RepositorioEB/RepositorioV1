@@ -46,6 +46,13 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $categories = new Category($request->all());
+        $categorieslist = Category::orderBy('id','ASC')->lists('name', 'id');
+        foreach ($categorieslist as $lista) {
+            if (strtolower($lista) === strtolower($categories->name)) {
+                Flash::error("La categoria ya existe");
+                return redirect()->route('admin.categories.create');
+            }
+        }
         $categories->save();
         Flash::success("Se ha registrado la categoria " .$categories->name. " de las ovas con exito!");
         return redirect()->route('admin.categories.index');

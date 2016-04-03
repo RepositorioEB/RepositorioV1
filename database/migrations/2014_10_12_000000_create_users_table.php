@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->enum('gender', ['man','woman']);
             $table->date('date');
-            $table->string('photo')->nullable();
+            $table->string('photo')->default('userdefect.png');
             $table->text('studies')->nullable();
             $table->string('country')->nullable();
             $table->enum('role', ['member','admin'])->default('member');

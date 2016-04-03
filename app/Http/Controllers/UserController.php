@@ -16,6 +16,8 @@ use App\Profile;
 
 use App\Country;
 
+use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
@@ -55,21 +57,30 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        if ($request->file('photo')) {
-            $file = $request->file('photo');
-            $name = 'roa_'.time().'.'. $file->getClientOriginalExtension();
-            $path = public_path().'/images/users/';
-            $file->move($path, $name);
-        }
-        $user = new User($request->all());
-        $user->profile_id = $request->profile_id;
-        $user->password = bcrypt($request->password);
-        if ($user->photo == null) {
-            $user->photo = 'userdefect.png';
-        }
-        $user->save();
-        Flash::success("Se ha registrado el usuario " .$user->name. " con exito!");
-        return redirect()->route('admin.users.index');
+        $dates = explode("-", $request->date);
+        $date = Carbon::createFromDate($dates[0],$dates[1],$dates[2])->age;
+        if ($date > 15 AND $date < 90) {
+            if ($request->file('photo')) {
+                $file = $request->file('photo');
+                $name = 'roa_'.time().'.'. $file->getClientOriginalExtension();
+                $path = public_path().'/images/users/';
+                $file->move($path, $name);
+            }
+            $user = new User($request->all());
+            $user->profile_id = $request->profile_id;
+            $user->password = bcrypt($request->password);
+            if ($user->photo == null) {
+                $user->photo = 'userdefect.png';
+            }
+            $user->save();
+            Flash::success("Se ha registrado el usuario " .$user->name. " con exito!");
+            return redirect()->route('admin.users.index');   
+        }else{
+            $profiles = Profile::orderBy('name', 'ASC')->lists('name', 'id');
+            $country = Country::countryList();
+            Flash::error("La edad no es aceptada, los rangos permitidos son de 15 a 90");
+            return view('admin.users.create')->with('profiles',$profiles)->with('country',$country);
+        }        
     }
 
     /**
