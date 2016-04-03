@@ -78,6 +78,7 @@ class AuthController extends Controller
             $m->from('repositorioovas@gmail.com', 'Repositorio de OVAS');
             $m->to($data['email'],$data['name'])->subject('Código de usuario:');
         });*/
+            
         return User::create([
             'name' => $data['name'],
             'username' => $data['username'],

@@ -10,6 +10,15 @@
             <a href="{{ route('member.forums.create') }}" class="btn btn-info">Crear nuevo foro member</a>
         @endif
 		@include('admin.template.partials.errors')
+		{!! Form::open(['route' => 'foro.foros_usuarios.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+			<label for="name">Buscar foro: </label>
+			<div class="input-group">
+				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar foro', 'aria-describedby' => 'search']) !!}
+				<span class="input-group-addon" id="search">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				</span>
+			</div>
+		{!! Form::close() !!}
 		<table class="table table-striped ">
 			<thead>
 				<th>Nombre</th>

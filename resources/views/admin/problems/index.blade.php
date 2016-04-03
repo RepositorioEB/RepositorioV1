@@ -20,7 +20,11 @@
 					<tr>
 						<td>{{ $problem->id }}</td>
 						<td>{{ $problem->description }}</td>
-						<td>{{ $problem->state }}</td>
+						@if($problem->state == 0)
+							<td><h4><span class="label label-primary">Sin resolver</span></h4></td>
+						@else
+							<td><h4><span class="label label-danger">Resuelto</span></h4></td>
+						@endif
 						<td>{{ $problem->user->name }}</td>
 						<td>
 							<a href="{{ route('admin.problems.edit', $problem->id) }}" class="btn btn-warning" title="Editar pronlema"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
@@ -34,5 +38,4 @@
 	<div class="text-center">
 		{!! $problems->render() !!}
 	</div>
-	
 @endsection

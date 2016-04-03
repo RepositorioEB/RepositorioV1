@@ -55,7 +55,6 @@
         var monthname=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");  
         var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
     </script>
-
 </head>
 <body id="app-layout">
     <!-- Inicio Modificado (ed) -->
@@ -75,6 +74,7 @@
                                     @yield('title')
                                     <div class="col-md-2.5 borde pull-right">
                                         <script language="JavaScript" type="text/javascript" >document.write(TODAY);</script>
+                                        
                                     </div> 
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                         </ul>
                                         <br>
                                         <ul>
-                                        {!! Form::open( ['route' => ['member.helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
+                                        {!! Form::open( ['route' => ['helps.helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
                                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ayudas') !!}</li>
                                         {!! Form::close() !!}   
                                         </ul>

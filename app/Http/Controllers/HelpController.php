@@ -23,6 +23,16 @@ class HelpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function own()
+    {
+        $helps = Help::orderBy('id','ASC')->paginate(10);
+        $helps->each(function($helps){
+            $helps->user;
+        });
+        return view('admin.helps.own.index')->with('helps', $helps);
+    }
+
     public function index()
     {
         $helps = Help::orderBy('id','ASC')->paginate(10);

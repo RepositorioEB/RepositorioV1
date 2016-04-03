@@ -17,7 +17,7 @@ class OvaCategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = Category::orderBy('id','ASC')->get();
+        $categories = Category::orderBy('id','ASC')->paginate(10);
         return view('ova.category.index')->with('categories', $categories);
     }
 

@@ -9,9 +9,9 @@
 			<thead>
 				<th>Nombre</th>
 				<th>Enlace</th>
-				<th>Descripcion</th>
+				<th>Descripción</th>
 				<th>Creador</th>
-				<th>Accion</th>
+				<th>Acción</th>
 			</thead>
 			<tbody>
 				@foreach($helps as $help)
@@ -21,7 +21,7 @@
 						<td>{{ $help->description }}</td>
 						<td>{{ $help->user->name }}</td>
 						<td>
-							<a href="{{ route('member.helps.show', $help->id) }}" class="btn btn-info" title="Consultar"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Visualizar</span></a>
+							<a href="{{ route('helps.helps.show', $help->id) }}" class="btn btn-info" title="Consultar"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Visualizar</span></a>
 						</td>
 					</tr>
 				@endforeach

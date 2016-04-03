@@ -165,7 +165,7 @@
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-                <button type="submit" title="Boton registro" class="btn btn-primary">
+                <button type="submit" title="Boton registro" onclick="return confirm('Se le enviará una contraseña a su correo con la que podrá ingresar al repositorio y cambiarla si lo desea.')" class="btn btn-primary">
                     <i class="fa fa-btn fa-user"></i>Registro
                 </button>
             </div>

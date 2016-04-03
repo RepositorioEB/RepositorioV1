@@ -39,7 +39,7 @@
 	{!! Form::textarea('studies', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('country','Pais',["class"=>"label label-primary"] !!}
+	{!! Form::label('country','Pais',["class"=>"label label-primary"]) !!}
 	{!! Form::select('country', $country, 'CO', ['class' => 'form-control select-country','required']) !!}
 </div>
 @if($variable == 'si')

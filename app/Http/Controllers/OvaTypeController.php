@@ -17,7 +17,7 @@ class OvaTypeController extends Controller
 {
     public function index(Request $request)
     {
-        $types = Type::orderBy('id','ASC')->get();
+        $types = Type::orderBy('id','ASC')->paginate(10);
         return view('ova.type.index')->with('types', $types);
     }
 

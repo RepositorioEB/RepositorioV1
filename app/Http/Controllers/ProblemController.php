@@ -29,7 +29,12 @@ class ProblemController extends Controller
         $problems->each(function($problems){
             $problems->user;
         });
-        return view('admin.problems.index')->with('problems', $problems); 
+        if(\Auth::user()->role =="member")
+        {
+            return view('member.problems.index')->with('problems', $problems);
+        }else{
+            return view('admin.problems.index')->with('problems', $problems);
+        }  
     }
 
     /**
@@ -39,7 +44,12 @@ class ProblemController extends Controller
      */
     public function create()
     {
-        return view('admin.problems.create');
+        if(\Auth::user()->role =="member")
+        {
+            return view('member.problems.create');      
+        }else{
+            return view('admin.problems.create');   
+        }
     }
 
     /**
@@ -54,7 +64,12 @@ class ProblemController extends Controller
         $problems->user_id = \Auth::user()->id;
         $problems->save();
         Flash::success("Se ha registrado el problema " .$problems->id. " con exito!");
-        return redirect()->route('admin.problems.index');
+        if(\Auth::user()->role =="member")
+        {
+            return redirect()->route('member.problems.index');      
+        }else{
+            return redirect()->route('admin.problems.index');   
+        }
     }
 
     /**
@@ -106,7 +121,14 @@ class ProblemController extends Controller
     {
         $problems = Problem::find($id);
         $problems->delete();
-        Flash::error('El problema ' .$problems->id. ' ha sido borrado con exito!');
-        return redirect()->route('admin.problems.index');
+        if(\Auth::user()->role =="member")
+        {
+            Flash::error('El problema ha sido borrado con exito!');
+            return redirect()->route('member.problems.index');      
+        }else{
+            Flash::error('El problema ' .$problems->id. ' ha sido borrado con exito!');
+            return redirect()->route('admin.problems.index');  
+        }
+        
     }
 }

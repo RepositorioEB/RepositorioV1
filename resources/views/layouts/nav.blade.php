@@ -28,105 +28,109 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('admin.users.create') }}" title="NuevoUser">Nuevo</a></li>
-                            <li><a href="" title="BuscarUser">Buscar</a></li>
-                            <li><a href="{{ route('admin.users.index') }}" title="ListarUser">Lista</a></li>
+                            <li><a href="{{ route('admin.users.create') }}" title="Nuevo Usuario">Nuevo</a></li>
+                            <li><a href="{{ route('admin.users.index') }}" title="Listar Usuarios">Listar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Discapacidad<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('admin.profiles.create') }}" title="NuevoProfile">Nuevo</a></li>
-                            <li><a href="" title="BuscarProfile">Buscar</a></li>
-                            <li><a href="" title="PropiosProfile">Propios</a></li>
-                            <li><a href="{{ route('admin.profiles.index') }}" title="ListarProfile">Lista</a></li>
+                            <li><a href="{{ route('admin.profiles.create') }}" title="Nueva Discapacidad">Nueva</a></li>
+                            <li><a href="{{ route('admin.profiles.index') }}" title="Listar Discapacidades">Listar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Objetos<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('admin.ovas.create') }}" title="NuevoOva">Nuevo</a></li>
-                            <li><a href="{{ route('admin.ovas.index') }}" title="ListarOva">Lista</a></li>
+                            <li><a href="{{ route('admin.ovas.create') }}" title="Nuevo OVA">Nuevo</a></li>
+                            <li><a href="{{ route('admin.ovas.index') }}" title="Listar OVAS">Listar</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="">Categoría</a>
+                            <li><a>Categorías</a>
                                 <ul>
-                                    <li><a href="{{ route('admin.categories.create') }}" title="NuevoCategory">Nuevo</a></li>
-                                    <li><a href="{{ route('admin.categories.index') }}" title="ListarCategory">Lista</a></li>
+                                    <li><a href="{{ route('admin.categories.create') }}" title="Nueva Categoría">Nueva</a></li>
+                                    <li><a href="{{ route('admin.categories.index') }}" title="Listar Categoría">Listar</a></li>
                                 </ul>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#" >Tipo</a>
+                            <li><a>Tipo</a>
                                 <ul>
-                                    <li><a href="{{ route('admin.types.create') }}" title="NuevoType">Nuevo</a></li>
-                                    <li><a href="{{ route('admin.types.index') }}" title="ListarType">Lista</a></li>
+                                    <li><a href="{{ route('admin.types.create') }}" title="Nuevo Tipo">Nuevo</a></li>
+                                    <li><a href="{{ route('admin.types.index') }}" title="Listar Tipos">Listar</a></li>
                                 </ul>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#" >Descargas</a>
+                            <li><a>Descargas</a>
                                 <ul>
-                                    <li><a href="{{ route('admin.downloads.create') }}" title="NuevoDownload">Nuevo</a></li>
-                                    <li><a href="{{ route('admin.downloads.index') }}" title="ListarDownload">Lista</a></li>
+                                    <li><a href="{{ route('admin.downloads.create') }}" title="Nueva Descarga">Nueva</a></li>
+                                    <li><a href="{{ route('admin.downloads.index') }}" title="Listar Descargas">Listar</a></li>
                                 </ul>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="" title="BuscarOva">Buscar</a></li>
-                            <li><a href="" title="PropiosOva">Propios</a></li>
+                            <li><a href="{{ route('ovas.own.index') }}" title="OVAS Propios">Propios</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Foros<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('admin.forums.create') }}" title="NuevoForum">Nuevo</a></li>
-                            <li><a href="" title="PropiosForum">Propios</a></li>
-                            <li><a href="{{ route('admin.forums.index') }}" title="ListarForum">Lista</a></li>
+                            <li><a href="{{ route('admin.forums.create') }}" title="Nuevo Foro">Nuevo</a></li>
+                            <li><a href="{{ route('admin.forums.index') }}" title="Listar Foros">Listar</a></li>
+                            <li><a href="{{ route('foro.own.index') }}" title="Foros Propios">Propios</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ayuda<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ayudas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('admin.helps.create') }}" title="NuevoHelps">Nuevo</a></li>
-                            <li><a href="" title="BuscarHelps">Buscar</a></li>
+                            <li><a href="{{ route('admin.helps.create') }}" title="Nueva Ayuda">Nueva</a></li>
+                            <li><a href="{{ route('admin.helps.index') }}" title="Listar Ayudas">Listar</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#" >Problema</a>
+                            <li><a>Problemas</a>
                                 <ul>
-                                    <li><a href="{{ route('admin.problems.create') }}" title="NuevoProblem">Nuevo</a></li>
-                                    <li><a href="{{ route('admin.problems.index') }}" title="ListarProblem">Lista</a></li>
+                                    <li><a href="{{ route('admin.problems.create') }}" title="Nuevo Problema">Nuevo</a></li>
+                                    <li><a href="{{ route('admin.problems.index') }}" title="Listar Problemas">Listar</a></li>
                                 </ul>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="" title="PropiosHelps">Propios</a></li>
-                            <li><a href="{{ route('admin.helps.index') }}" title="ListarHelps">Lista</a></li>
+                            <li><a href="{{ route('helps.own.index') }}" title="Ayudas Propias">Propias</a></li>
                         </ul>
                     </li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Objetos<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../../ovas/menu" title="ListaOva">Lista</a></li>
-                            <li><a href="" title="SubirOva">Subir</a></li>
+                            <li><a href="{{route('ovas.ovamember.create')}}" title="Subir Ova">Subir</a></li>
+                            <li><a href="../../ovas/menu" title="Listar OVAS">Listar</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a title="Busquedas">Busqueda</a>
+                            <li><a title="Buscar OVA">Búsqueda</a>
                                 <ul>
-                                    <li><a href="" title="BusquedaGeneral">General</a></li>
-                                    <li><a href="" title="BusquedaOva">Ovas</a></li>
-                                    <li><a href="" title="BusquedaTipo">Tipo</a></li>
-                                    <li><a href="" title="BusquedaCategoria">Categoria</a></li>
+                                    <li><a href="{{route('ovas.ova.index')}}" title="Búsqueda General">General</a></li>
+                                    <li><a href="../../ovas/ovas" title="Búsqueda Ova">Ovas</a></li>
+                                    <li><a href="{{ route('ovas.type.index') }}" title="Búsqueda Tipo">Tipo</a></li>
+                                    <li><a href="{{ route('ovas.category.index') }}" title="Búsqueda Categoría">Categoría</a></li>
                                 </ul>
                             </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ route('ovas.own.index') }}" title="OVAS Propios">Propios</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Foros<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('foro.foros_usuarios.index') }}" title="ListarForo">Listar</a></li>
-                            <li><a href="" title="NuevoForo">Nuevo</a></li>
+                            <li><a href="{{ route('member.forums.create') }}" title="Nuevo Foro">Nuevo</a></li>
+                            <li><a href="{{ route('foro.foros_usuarios.index') }}" title="Listar Foros">Listar</a></li>
+                            <li><a href="{{ route('foro.own.index') }}" title="Foros Propios">Propios</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ayuda<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ayudas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('member.helps') }}" title="ListarAyuda">Listar</a></li>
-                            <li><a href="" title="Problemas">Problema</a></li>
+                            <li><a href="{{ route('helps.helps') }}" title="Listar Ayudas">Listar</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Problemas<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{route('member.problems.create')}}" title="Nuevo Problema">Nuevo</a></li>
+                            <li><a href="{{route('member.problems.index')}}" title="Problemas propios">Propios</a></li>
                         </ul>
                     </li>
                 @endif
@@ -136,10 +140,10 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         
-                        <li><a href="{{ route('cuenta.user.index') }}"><i class="glyphicon glyphicon-user" title="Perfil" name="Perfil"></i> Perfil</a></li>
-                        <li><a href="{{ route('cuenta.user.edit', \Auth::user()->id) }}"><i class="glyphicon glyphicon-cog" title="Configurar" name="Configurar"></i> Configurar</a></li>
+                        <li><a href="{{ route('cuenta.user.index') }}"><i class="glyphicon glyphicon-user" title="Perfíl Usuario" name="Perfíl"></i> Perfíl</a></li>
+                        <li><a href="{{ route('cuenta.user.edit', \Auth::user()->id) }}"><i class="glyphicon glyphicon-cog" title="Configurar Usuario" name="Configurar"></i> Configurar</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out" title="Cerrar sesion" name="Cerrar_sesion"></i>Cerrar sesion</a></li>
+                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out" title="Cerrar sesión Usuario" name="Cerrar_sesion"></i>Cerrar sesión</a></li>
                     </ul>
                 </li>
             @endif

@@ -21,10 +21,15 @@ class Forum_UserController extends Controller
         return view('foro.forums_users.message')->with('foros_usuarios', $foros_usuarios)->with("foros",$foros)->with("users",$users);
     }
 
-    public function index(){
-        $forums = DB::table('forums')->paginate(30);
-        $users = DB::table('users')->paginate(30);
-        $users = DB::table('users')->get();
+    public function index(Request $request){
+        $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->first();
+        if($forums){
+            $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->paginate(30);
+        }else{
+            $forums = Forum::orderBy('id','ASC')->paginate(30);
+        }
+        $users = User::orderBy('id','ASC')->get();
+        
         return view('foro.forums_users.index')->with('forums', $forums)->with("users",$users);
     }
 

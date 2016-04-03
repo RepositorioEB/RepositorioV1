@@ -25,7 +25,6 @@ class ProblemRequest extends Request
     {
         return [
             'description' => 'max:255',
-            'state' => 'required'
         ];
     }
 }

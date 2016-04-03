@@ -18,6 +18,34 @@ use App\Ova_Comment;
 class OvaEvaluationController extends Controller
 {
     
+    public function own()
+    {   
+        $ovas = Ova::orderBy('id','ASC')->paginate(20);
+                     
+        foreach($ovas as $ova){
+            $ovas_evaluations = DB::table('ovas_evaluations')->where('ova_id',$ova->id)->get();
+            $sum = 0;
+            $cont =0;
+            $res = 0;
+            foreach($ovas_evaluations as $ova_evaluation){
+                $cont = $cont +1;
+                $sum = $sum + $ova_evaluation->punctuation;
+            }
+            if($cont==0){
+                $cont=1;
+            }
+            $res =$sum / $cont; 
+            $ova->punctuation = round($res,2);
+        }
+        $ovas->each(function($ovas){
+            $ovas->type;
+            $ovas->category;
+            $ovas->user;    
+        });
+
+        return view('ova.own.index')->with('ovas', $ovas);
+    }
+
     public function index(Request $request)
     {   
         if($request->name){

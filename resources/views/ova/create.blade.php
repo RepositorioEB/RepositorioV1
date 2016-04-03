@@ -9,7 +9,7 @@
 		@include('admin.template.partials.fieldsova')
 		<div class="form-group">
 			<center>
-			{!! Form::submit('Crear',['class' => 'btn btn-warning']) !!}
+			{!! Form::submit('Crear',["class" => "btn btn-warning","onclick"=>"return confirm('Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.')"]) !!}
 			</center>
 		</div>
 	{!! Form::close() !!}

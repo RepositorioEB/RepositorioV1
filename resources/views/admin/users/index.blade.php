@@ -8,8 +8,8 @@
 	<div class="table-responsive">
 		<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
 		{!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+			<label for="name">Buscar usuario: </label>
 			<div class="input-group">
-				<label for="name">Buscar usuario: </label>
 				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar usuario','class' => 'form-control', 'placeholder' => 'Buscar usuario', 'aria-describedby' => 'search']) !!}
 				<span class="input-group-addon" id="search">
 					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
