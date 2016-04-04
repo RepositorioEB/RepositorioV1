@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Crear ayuda')
+@section('title', 'Registrar ayuda')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 		@include('admin.template.partials.fieldshelp')
 		<div class="form-group">
 			<center>
-			{!! Form::submit('Crear',['class' => 'btn btn-warning']) !!}
+			{!! Form::submit('Registrar',['class' => 'btn btn-warning']) !!}
 			<a href="{{ route('admin.helps.index') }}" class="btn btn btn-warning" title="Cancelar registro" name="Cancelar">Cancelar</a>
 			</center>
 		</div>

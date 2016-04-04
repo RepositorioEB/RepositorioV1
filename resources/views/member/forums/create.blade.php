@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Crear foro')
+@section('title', 'Registrar foro')
 
 @section('content')
 

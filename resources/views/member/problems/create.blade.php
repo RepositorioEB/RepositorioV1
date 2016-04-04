@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Crear problema')
+@section('title', 'Registrar problema')
 
 @section('content')
 
@@ -12,7 +12,7 @@
 		</div>
 		<div class="form-group">
 			<center>
-			{!! Form::submit('Crear',['class' => 'btn btn-warning']) !!}
+			{!! Form::submit('Registrar',['class' => 'btn btn-warning']) !!}
 			<a href="{{ route('admin.problems.index') }}" class="btn btn btn-warning" title="Cancelar problema" name="Cancelar">Cancelar</a>
 			</center>
 		</div>

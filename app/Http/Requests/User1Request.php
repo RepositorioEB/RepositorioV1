@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ForumRequest extends Request
+class User1Request extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,12 @@ class ForumRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'min:5|max:30|required',
-            'characteristic' => 'min:20|required'
+            'name' => 'min:4|max:30|required',
+            'last_name' => 'max:30',
+            'gender' => 'required',
+            'country' => 'required',
+            'studies' => 'min:20',
+            'profile_id' => 'required'
         ];
     }
 }

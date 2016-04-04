@@ -18,16 +18,19 @@
 		{!! Form::close() !!}
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Caracteristicas</th>
 				<th>Creador</th>
 				<th>Accion</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($forums as $forum)
 					<tr>
-						<td>{{ $forum->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $forum->name }}</td>
 						<td>{{ $forum->characteristic }}</td>
 						<td>{{ $forum->user->name }}</td>

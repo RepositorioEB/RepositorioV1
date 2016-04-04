@@ -9,7 +9,7 @@
 		<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nuevo ayuda</a>
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Descripción</th>
 				<th>Enlace</th>
@@ -17,9 +17,12 @@
 				<th>Acción</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($helps as $help)
 					<tr>
-						<td>{{ $help->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $help->name }}</td>
 						<td>{{ $help->description }}</td>
 						<td>{{ $help->video }}</td>

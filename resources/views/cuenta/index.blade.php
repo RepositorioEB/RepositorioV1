@@ -26,7 +26,7 @@
 					</br></br>
 					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-warning" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>
 					</br></br>
-					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success">¡Chat!</a>
+					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Chat</a>
 	            	</center>
 	            </div>
 	        </div>

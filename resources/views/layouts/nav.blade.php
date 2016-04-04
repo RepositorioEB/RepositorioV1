@@ -61,7 +61,6 @@
                             <li role="separator" class="divider"></li>
                             <li><a>Descargas</a>
                                 <ul>
-                                    <li><a href="{{ route('admin.downloads.create') }}" title="Nueva Descarga">Nueva</a></li>
                                     <li><a href="{{ route('admin.downloads.index') }}" title="Listar Descargas">Listar</a></li>
                                 </ul>
                             </li>

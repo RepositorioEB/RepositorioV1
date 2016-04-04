@@ -13,6 +13,7 @@ use App\Language;
 use App\Ova_Comment;
 use DB;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\OvaRequest;
 
 class OvaController extends Controller
 {
@@ -109,7 +110,7 @@ class OvaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OvaRequest $request)
     {
         $file = $request->file('archive2');
         if($file==null){
@@ -176,7 +177,7 @@ class OvaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OvaRequest $request, $id)
     {
         $file = $request->file('archive2');
         $ova = Ova::find($id);
