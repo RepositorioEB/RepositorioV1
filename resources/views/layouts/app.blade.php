@@ -136,6 +136,8 @@
                                         </ul>
                                     </li>
                                     <li><h3><div class="label label-info">Acerca de</div></h3></li>
+                                        <li>&nbsp;&nbsp;&nbsp;<a href="{{ url('acercade') }}" title="Creadores"> - Creadores</a></li>
+                                        <li>&nbsp;&nbsp;&nbsp;<a href="{{ url('problematica') }}" title="Acerca d"> - Problemática</a></li>
                                 </ul>
                                 <br>
                                 <center>

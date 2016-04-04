@@ -7,7 +7,7 @@
     <br>     
     <br><br>
     <h3><label for="opinion" class="label label-primary">Ingrese su comentario: </label></h3>
-    {!! Form::open(['route' => ['foro.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>$_GET['user_id']],'method' => 'POST']) !!}
+    {!! Form::open(['route' => ['foro.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>Auth::user()->id],'method' => 'POST']) !!}
         <div class="form-group">
             <input type="text" id="opinion" class="form-control" placeholder="Opinion" title="Campo de mensaje" name="message" size="40">
              <br>

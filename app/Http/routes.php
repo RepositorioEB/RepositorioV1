@@ -15,7 +15,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 });*/
 
-
+        
 Route::group(['middleware' => 'web'], function () {
 
       // -----Vista principal
@@ -25,7 +25,24 @@ Route::group(['middleware' => 'web'], function () {
         }
         return view('welcome');
       });
-
+      Route::get('rovaa',function(){
+        if(Auth::check()){
+          return view('rovaa');
+        }
+          return Redirect::to('member');
+      });
+      Route::get('acercade',function(){
+        if(Auth::check()){
+          return view('acercade.creadores');
+        }
+          return Redirect::to('member');
+      });
+      Route::get('problematica',function(){
+        if(Auth::check()){
+          return view('acercade.problematica');
+        }
+          return Redirect::to('member');
+      });
       // -----Autenticación
       Route::auth();
       
@@ -47,7 +64,7 @@ Route::group(['middleware' => 'web'], function () {
         
           //End routes chat
         });
-        
+
         Route::group(['prefix' => 'foro'],function(){
         
           //Routes Foro
@@ -82,7 +99,6 @@ Route::group(['middleware' => 'web'], function () {
           ]);
           //End routes cuenta
         });
-        
 
         Route::group(['prefix' => 'ovas'],function(){
         

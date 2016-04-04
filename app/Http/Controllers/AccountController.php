@@ -172,7 +172,7 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AccountRequest $request)
+    public function update(Request $request)
     {
         if($request->section == "passwordnew"){
             if (strlen($request->password) >= 8 AND strlen($request->newpassword) >= 8 AND strlen($request->newpassword) >= 8) {                

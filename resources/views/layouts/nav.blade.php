@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <a class="navbar-brand" href="#">ROVAA</a>      
+            <a class="navbar-brand" href="{{url('rovaa')}}">ROVAA</a>      
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="{{ url('/') }}" title="Home"><span class="glyphicon glyphicon-home"></span></span>Inicio</a></li>
