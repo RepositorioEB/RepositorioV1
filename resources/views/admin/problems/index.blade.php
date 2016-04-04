@@ -7,10 +7,21 @@
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
 		<a href="{{ route('admin.problems.create') }}" class="btn btn-info">Registrar nuevo problema</a>
+		{!! Form::open(['route' => 'admin.problems.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+			<label for="name">Buscar problema: </label>
+			<div class="input-group">
+				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar foro', 'aria-describedby' => 'search']) !!}
+				<span class="input-group-addon" id="search">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				</span>
+			</div>
+		{!! Form::close() !!}
+	
 		<table class="table table-striped">
 			<thead>
 				<th>Id</th>
-				<th>Descripcion</th>
+				<th>Nombre</th>
+				<th>Descripción</th>
 				<th>Estado</th>
 				<th>Creador</th>
 				<th>Accion</th>
@@ -19,6 +30,7 @@
 				@foreach($problems as $problem)
 					<tr>
 						<td>{{ $problem->id }}</td>
+						<td>{{ $problem->name }}</td>
 						<td>{{ $problem->description }}</td>
 						@if($problem->state == 0)
 							<td><h4><span class="label label-primary">Sin resolver</span></h4></td>

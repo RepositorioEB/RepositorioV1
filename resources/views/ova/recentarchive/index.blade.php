@@ -5,6 +5,7 @@
 @section('content')
 	
 	@include('admin.template.partials.errors')
+	<div class="table-responsive">
 	<center>
 		<table>
 		<thead>
@@ -23,4 +24,5 @@
 		</tbody>	
 		</table>
 	</center>
+	</div>
 @endsection

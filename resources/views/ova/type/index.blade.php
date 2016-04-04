@@ -32,8 +32,8 @@
 		@endforeach
 		</table>
 		</center>
-	</div>
 	<div class="text-center">
 		{!! $types->render() !!}
+	</div>
 	</div>
 @endsection

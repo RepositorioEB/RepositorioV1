@@ -23,9 +23,9 @@ class ProblemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $problems = Problem::orderBy('id','ASC')->paginate(10);
+        $problems = Problem::SearchName($request->name)->orderBy('id','ASC')->paginate(10);
         $problems->each(function($problems){
             $problems->user;
         });

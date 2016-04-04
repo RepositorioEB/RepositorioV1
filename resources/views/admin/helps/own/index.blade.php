@@ -6,7 +6,7 @@
 
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
-		<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nuevo ayuda</a>
+	<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nuevo ayuda</a>
 		<table class="table table-striped">
 			<thead>
 				<th>Nombre</th>

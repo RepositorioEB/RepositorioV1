@@ -24,6 +24,15 @@ class OvaMemberController extends Controller
 {
     public function store(Request $request)
     {
+        $ovas = new Ova($request->all());
+        $ovaslist = Ova::orderBy('id','ASC')->lists('name', 'id');
+        foreach ($ovaslist as $lista) {
+            if (strtolower($lista) === strtolower($ovas->name)) {
+                Flash::error("El OVA ya existe");
+                return redirect()->route('ovas.ovamember.create');
+            }
+        }
+
         $file = $request->file('archive2');
         if($file==null){
             Flash::error("Debe ingresar el archivo.");
