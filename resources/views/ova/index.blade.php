@@ -5,6 +5,7 @@
 @section('content')
 	
 	@include('admin.template.partials.errors')
+	<div class="table-responsive">
 	<a href="{{ route('ovas.ovamember.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 	{!! Form::open(['route' => 'ovas.ova.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 		<br><br>
@@ -51,5 +52,6 @@
 		@else
 			{!! $ovas->render() !!}
 		@endif
+	</div>
 	</div>
 @endsection

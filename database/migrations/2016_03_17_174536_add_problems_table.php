@@ -14,6 +14,7 @@ class AddProblemsTable extends Migration
     {
         Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name',30);
             $table->text('description');
             $table->boolean('state')->default(false);
             $table->integer('user_id')->unsigned()->nullable();

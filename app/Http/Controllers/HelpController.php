@@ -35,9 +35,14 @@ class HelpController extends Controller
         return view('admin.helps.own.index')->with('helps', $helps);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $helps = Help::orderBy('id','ASC')->paginate(10);
+        $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->first();
+        if($helps){
+            $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->paginate(10);
+        }else{
+            $helps = Help::orderBy('id','ASC')->paginate(10);
+        }
         $helps->each(function($helps){
             $helps->user;
         });
@@ -162,9 +167,14 @@ class HelpController extends Controller
         return redirect()->route('admin.helps.index');
     }
 
-    public function listas()
+    public function listas(Request $request)
     {
-        $helps = Help::orderBy('id','ASC')->paginate(10);
+        $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->first();
+        if($helps){
+            $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->paginate(10);
+        }else{
+            $helps = Help::orderBy('id','ASC')->paginate(10);
+        }
         $helps->each(function($helps){
             $helps->user;
         });

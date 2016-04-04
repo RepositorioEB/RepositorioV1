@@ -3,8 +3,17 @@
 @section('title', 'Lista de ayudas')
 
 @section('content')
-	
 	<div class="table-responsive">
+	{!! Form::open(['route' => 'helps.helps', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+			<label for="name">Buscar ayuda: </label>
+			<div class="input-group">
+				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar foro', 'aria-describedby' => 'search']) !!}
+				<span class="input-group-addon" id="search">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				</span>
+			</div>
+	{!! Form::close() !!}
+	<br><br><br>
 		<table class="table table-striped">
 			<thead>
 				<th>Nombre</th>
@@ -27,8 +36,8 @@
 				@endforeach
 			</tbody>	
 		</table>
-	</div>
 	<div class="text-center">
 		{!! $helps->render() !!}
+	</div>
 	</div>
 @endsection

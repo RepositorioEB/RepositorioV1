@@ -5,6 +5,7 @@
 @section('content')
 	
 	@include('admin.template.partials.errors')
+	<div class="table-responsive">
 	<a href="{{ route('ovas.ovamember.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 	<br><br><br>
 	<table class="table table-striped">
@@ -37,5 +38,6 @@
 	</table>
 	<div class="text-center">
 		{!! $ovas->render() !!}
+	</div>
 	</div>
 @endsection

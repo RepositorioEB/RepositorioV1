@@ -6,7 +6,17 @@
 
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
-		<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nuevo ayuda</a>
+	<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nuevo ayuda</a>
+	{!! Form::open(['route' => 'admin.helps.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+			<label for="name">Buscar ayuda: </label>
+			<div class="input-group">
+				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar foro', 'aria-describedby' => 'search']) !!}
+				<span class="input-group-addon" id="search">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				</span>
+			</div>
+	{!! Form::close() !!}
+	<br><br><br>
 		<table class="table table-striped">
 			<thead>
 				<th>N°</th>
