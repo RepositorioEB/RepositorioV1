@@ -9,15 +9,18 @@
 		<a href="{{ route('admin.profiles.create') }}" class="btn btn-info">Registrar nueva discapacidad</a>
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Caracteristicas</th>
 				<th>Accion</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($profiles as $profile)
 					<tr>
-						<td>{{ $profile->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $profile->name }}</td>
 						<td>{{ $profile->characteristic }}</td>
 						<td>

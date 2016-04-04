@@ -39,18 +39,18 @@ class Forum_UserController extends Controller
     }
     public function store(Request $request)
     {
-    	    $foros_usuarios = new forum_user($request->all());
-            $foros_usuarios->message = $request->message;
-            if($foros_usuarios->message == null){
-                Flash::warning("No ha ingresado ningun comentario");
-            }else{
-                Flash::success("Comentario registrado!");
-                $foros_usuarios->save();    
-            }
-            $foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(10);
-            $foros = DB::table('forums')->where('id', $request->forum_id)->first();
-            $users = user::orderBy('created_at','ASC')->get();
-            return Redirect::to('/foro/comentar?forum_id='.$request->forum_id.'&user_id='.$request->user_id);
+	    $foros_usuarios = new forum_user($request->all());
+        $foros_usuarios->message = $request->message;
+        if($foros_usuarios->message == null){
+            Flash::warning("No ha ingresado ningun comentario");
+        }else{
+            Flash::success("Comentario registrado!");
+            $foros_usuarios->save();    
+        }
+        $foros_usuarios = forum_user::orderBy('created_at','DESC')->paginate(10);
+        $foros = DB::table('forums')->where('id', $request->forum_id)->first();
+        $users = user::orderBy('created_at','ASC')->get();
+        return Redirect::to('/foro/comentar?forum_id='.$request->forum_id.'&user_id='.$request->user_id);
     }
 
     public function show($id)

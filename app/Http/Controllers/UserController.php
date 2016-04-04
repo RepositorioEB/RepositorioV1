@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Http\Requests\UserRequest;
-
+use App\Http\Requests\User1Request;
 use Laracasts\Flash\Flash;
 
 use App\User;
@@ -117,7 +117,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(User1Request $request, $id)
     {
         $user = User::find($id);
         $user->fill($request->all());

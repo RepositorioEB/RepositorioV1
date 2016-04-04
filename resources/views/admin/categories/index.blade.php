@@ -9,15 +9,18 @@
 		<a href="{{ route('admin.categories.create') }}" class="btn btn-info">Registrar nueva categoría</a>
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Descripción</th>
 				<th>Acción</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($categories as $category)
 					<tr>
-						<td>{{ $category->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $category->name }}</td>
 						<td>{{ $category->description }}</td>
 						<td>

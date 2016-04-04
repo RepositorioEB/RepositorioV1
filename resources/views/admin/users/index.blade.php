@@ -18,7 +18,7 @@
 		{!! Form::close() !!}
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Username</th>
 				<th>Correo</th>
@@ -27,9 +27,12 @@
 				<th>Accion</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($users as $user)
 					<tr>
-						<td>{{ $user->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $user->name }}</td>
 						<td>{{ $user->username }}</td>
 						<td>{{ $user->email }}</td>

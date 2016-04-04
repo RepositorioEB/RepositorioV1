@@ -86,7 +86,7 @@
                                         {{$mes}}
                                         {!!\Carbon\Carbon::now()->format('d');!!}
                                         {{','}}
-                                        {!!\Carbon\Carbon::now()->format('y');
+                                        {!!\Carbon\Carbon::now()->format('Y');
                                         !!}
                                     </div> 
                                 </div>

@@ -174,60 +174,61 @@ class AccountController extends Controller
      */
     public function update(Request $request)
     {
-        if($request->section == "passwordnew"){
-            if (strlen($request->password) >= 8 AND strlen($request->newpassword) >= 8 AND strlen($request->newpassword) >= 8) {                
-                if (Hash::check($request->password, \Auth::user()->password)){
-                    if ($request->newpassword == $request->newpassword2) {
-                        if ($request->password == $request->newpassword) {
-                            $user = User::find(\Auth::user()->id);
-                            Flash::warning("La contraseña actual es la misma que la nueva");
-                            return view('cuenta.modificatepassword')->with('user',$user);
-                        }else{
-                            $user = User::find(\Auth::user()->id);
-                            $user->password = bcrypt($request->newpassword);
-                            $user->save();
-                            Flash::warning("Se ha actualizado la contraseña de " .$user->name. " con exito!");
-                            return redirect()->route('cuenta.user.index');
-                        }
+        $s = \Auth::user()->photo;
+        if ($s != 'userdefect.png') {
+            if ($s != null) {
+                if ($request->file('photo')){
+                    $path = public_path().'/images/users/';
+                    \File::delete($path.$s);
+                }
+            }
+        }
+        if ($request->file('photo')) {
+            $file = $request->file('photo');
+            $name = 'roa_'.time().'.'. $file->getClientOriginalExtension();
+            $path = public_path().'/images/users/';
+            $file->move($path, $name);
+        }
+        $user = User::find(\Auth::user()->id);
+        $user->fill($request->all());
+        if ($request->file('photo')) {
+            $user->photo = $name;
+        }
+        $user->save();
+        Flash::warning("Se ha actualizado el usuario " .$user->name. " con exito!");
+        return redirect()->route('cuenta.user.index');
+    }
+
+    public function update2(Request $request)
+    {
+        if (strlen($request->password) >= 8 AND strlen($request->newpassword) >= 8 AND strlen($request->newpassword) >= 8) {
+            if (Hash::check($request->password, \Auth::user()->password)){
+                if ($request->newpassword == $request->newpassword2) {
+                    if ($request->password == $request->newpassword) {
+                        $user = User::find(\Auth::user()->id);
+                        Flash::warning("La contraseña actual es la misma que la nueva");
+                        return view('cuenta.modificatepassword')->with('user',$user);
                     }else{
                         $user = User::find(\Auth::user()->id);
-                        Flash::warning("La contraseña nueva no coincide con su confirmacion");
-                        return view('cuenta.modificatepassword')->with('user',$user);
+                        $user->password = bcrypt($request->newpassword);
+                        $user->save();
+                        Flash::warning("Se ha actualizado la contraseña de " .$user->name. " con exito!");
+                        return redirect()->route('cuenta.user.index');
                     }
                 }else{
                     $user = User::find(\Auth::user()->id);
-                    Flash::warning("La contraseña actual es erronea");
+                    Flash::warning("La contraseña nueva no coincide con su confirmacion");
                     return view('cuenta.modificatepassword')->with('user',$user);
                 }
             }else{
                 $user = User::find(\Auth::user()->id);
-                Flash::warning("Las contraseñas deben ser de minimo 8 caracteres");
+                Flash::warning("La contraseña actual es erronea");
                 return view('cuenta.modificatepassword')->with('user',$user);
             }
         }else{
-            $s = \Auth::user()->photo;
-            if ($s != 'userdefect.png') {
-                if ($s != null) {
-                    if ($request->file('photo')){
-                        $path = public_path().'/images/users/';
-                        \File::delete($path.$s);
-                    }
-                }
-            }
-            if ($request->file('photo')) {
-                $file = $request->file('photo');
-                $name = 'roa_'.time().'.'. $file->getClientOriginalExtension();
-                $path = public_path().'/images/users/';
-                $file->move($path, $name);
-            }
             $user = User::find(\Auth::user()->id);
-            $user->fill($request->all());
-            if ($request->file('photo')) {
-                $user->photo = $name;
-            }
-            $user->save();
-            Flash::warning("Se ha actualizado el usuario " .$user->name. " con exito!");
-            return redirect()->route('cuenta.user.index');
+            Flash::warning("Las contraseñas deben ser de minimo 8 caracteres");
+            return view('cuenta.modificatepassword')->with('user',$user);
         }
     }
 

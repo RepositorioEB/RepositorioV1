@@ -26,7 +26,7 @@
 					</br></br>
 					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-warning" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>
 					</br></br>
-					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success">¡Chat!</a>
+					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>¡Chat!</a>
 	            	</center>
 	            </div>
 	        </div>
@@ -36,19 +36,16 @@
 	            <div class="panel-heading">Tus datos</div>
 	            <div class="panel-body">
 	            	<div class="form-group">
+	            		@include('admin.template.partials.errors')
 	            		@include('flash::message')
-	            		{!! Form::open(['route' => ['cuenta.user.update', 'section' => 'passwordnew'], 'method' => 'PUT']) !!}
-							{!! Form::label('password','Contraseña actual') !!}
-							{!! Form::password('password', ['class' => 'form-control','placeholder' => '*********','required','min:8']) !!}
-							{!! Form::label('newpassword','Contraseña nueva') !!}
-							{!! Form::password('newpassword', ['class' => 'form-control','placeholder' => '*********','required','min:8']) !!}
-							{!! Form::label('newpassword2','Confirme contraseña') !!}
-							{!! Form::password('newpassword2', ['class' => 'form-control','placeholder' => '*********','required','min:8']) !!}
-							<center>
-								</br>
-				            	{!! Form::submit('Guardar',['class' => 'btn btn-warning']) !!}
-				            	<a href="{{ route('cuenta.user.index') }}" class="btn btn btn-warning" title="Modificar_datos" name="Cancelar">Cancelar</a>
-				            </center>
+	            		{!! Form::open(['route' => ['cuenta.user.updates', 'section' => 'passwordnew'], 'method' => 'PUT']) !!}
+	            			@include('cuenta.fieldspassword')
+	            			<div class="form-group">
+								<center>
+					            		{!! Form::submit('Guardar',['class' => 'btn btn-warning']) !!}
+					            		<a href="{{ route('cuenta.user.index') }}" class="btn btn btn-warning" title="Modificar_datos" name="Cancelar">Cancelar</a>
+					            </center>
+				            </div>
 						{!! Form::close() !!}
 					</div>
 	            </div>

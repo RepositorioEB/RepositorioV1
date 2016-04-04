@@ -6,19 +6,21 @@
 
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
-		<a href="{{ route('admin.downloads.create') }}" class="btn btn-info">Registrar nueva descarga</a>
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Usuario</th>
 				<th>Ova</th>
 				<th>Fecha</th>
 				<th>Acción</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($downloads as $download)
 					<tr>
-						<td>{{ $download->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $download->user->name }}</td>
 						<td>{{ $download->ova->name }}</td>
 						<td>{{ $download->created_at }}</td>

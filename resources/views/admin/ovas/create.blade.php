@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Crear ova')
+@section('title', 'Registrar ova')
 
 @section('content')
 
@@ -13,7 +13,7 @@
 		</div>
 		<div class="form-group">
 			<center>
-			{!! Form::submit('Crear',['class' => 'btn btn-warning']) !!}
+			{!! Form::submit('Registrar',['class' => 'btn btn-warning']) !!}
 			<a href="{{ route('admin.ovas.index') }}" class="btn btn btn-warning" title="Cancelar registro" name="Cancelar">Cancelar</a>
 			</center>
 		</div>

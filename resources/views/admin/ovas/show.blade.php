@@ -9,7 +9,7 @@
 		<a href="{{ route('admin.ovas.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Lenguaje</th>
 				<th>Descripcion</th>
@@ -18,7 +18,7 @@
 			</thead>
 			<tbody>
 					<tr>
-						<td>{{ $ova->name }}</td>
+						<td>{{ '1' }}</td>
 						<td>{{ $ova->lenguaje }}</td>
 						<td>{{ $ova->description }}</td>
 						<td>{{ $ova->archive }}</td>

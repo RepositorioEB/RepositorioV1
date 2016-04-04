@@ -17,7 +17,7 @@
 		{!! Form::close() !!}
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Puntuacion</th>
 				<th>Tipo</th>
@@ -26,9 +26,12 @@
 				<th>Accion</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($ovas as $ova)
 					<tr>
-						<td>{{ $ova->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $ova->name }}</td>
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $ova->punctuation}}</td>
 						<td>{{ $ova->type->name }}</td>

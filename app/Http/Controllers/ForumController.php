@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Forum;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\ForumRequest;
 
 class ForumController extends Controller
 {
@@ -60,7 +61,7 @@ class ForumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ForumRequest $request)
     {
         $forums = new Forum($request->all());
         $forumslist = Forum::orderBy('id','ASC')->lists('name', 'id');
@@ -120,7 +121,7 @@ class ForumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ForumRequest $request, $id)
     {
         $forums = Forum::find($id);
         $forums->fill($request->all());

@@ -94,8 +94,8 @@ Route::group(['middleware' => 'web'], function () {
             'as'   => 'cuenta.user.password'
             ]);
           Route::put('configuracion',
-          ['as' => 'cuenta.user.update',
-          'uses' => 'AccountController@update'
+          ['as' => 'cuenta.user.updates',
+          'uses' => 'AccountController@update2'
           ]);
           //End routes cuenta
         });

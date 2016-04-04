@@ -19,7 +19,7 @@
 	
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Descripción</th>
 				<th>Estado</th>
@@ -27,9 +27,12 @@
 				<th>Accion</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($problems as $problem)
 					<tr>
-						<td>{{ $problem->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $problem->name }}</td>
 						<td>{{ $problem->description }}</td>
 						@if($problem->state == 0)

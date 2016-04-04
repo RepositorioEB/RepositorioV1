@@ -9,15 +9,18 @@
 		<a href="{{ route('admin.types.create') }}" class="btn btn-info">Registrar nuevo tipo</a>
 		<table class="table table-striped">
 			<thead>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Descripción</th>
 				<th>Acción</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;
+				?>
 				@foreach($types as $type)
 					<tr>
-						<td>{{ $type->id }}</td>
+						<td>{!! $cont++; !!}</td>
 						<td>{{ $type->name }}</td>
 						<td>{{ $type->description }}</td>
 						<td>
