@@ -143,7 +143,7 @@
                                 <center>
                                     <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success">¡Chat!</a>
                                     <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success">¡Foros!</a>
-                                    <a href="../../ovas/menu" title="Ovas" class="btn btn-success" >¡Ovas!</a>
+                                    <a href="../../../../../ovas/menu" title="Ovas" class="btn btn-success" >¡Ovas!</a>
                                 </center>
                             </div>
                         </div>

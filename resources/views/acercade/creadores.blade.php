@@ -8,7 +8,7 @@
             <div class="panel-body">
             	<div class="media">
 			          	<div class="media-center">
-			          		<center><img class="imag-responsive" src="/images/admin/estiven.png" width="230" height="230" name="photo" alt="avatar"/></center>			          	
+			          		<center><img class="imag-responsive" src="/images/admin/estiven.png" width="230" height="230" name="photo" alt="braian"/></center>			          	
 			        	</div>
 			        </div>
 			        
@@ -28,7 +28,7 @@
             <div class="panel-body">
             	<div class="media">
 			          	<div class="media-center">
-			          		<center><img class="imag-responsive" src="/images/admin/edison.png" width="230" height="230" name="photo" alt="avatar"/></center>			          	
+			          		<center><img class="imag-responsive" src="/images/admin/edison.png" width="230" height="230" name="photo" alt="edison"/></center>			          	
 			        	</div>
 			        </div>
     			<h3><legend class="label label-default" >Nombres:</legend></h3><h4><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Edison Andrés</h4>
