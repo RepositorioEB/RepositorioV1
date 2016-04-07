@@ -45,7 +45,7 @@
                             <li><a href="{{ route('admin.ovas.create') }}" title="Nuevo OVA">Nuevo</a></li>
                             <li><a href="{{ route('admin.ovas.index') }}" title="Listar OVAS">Listar</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a>Categorías</a>
+                            <li><a href="">Categorías</a>
                                 <ul>
                                     <li><a href="{{ route('admin.categories.create') }}" title="Nueva Categoría">Nueva</a></li>
                                     <li><a href="{{ route('admin.categories.index') }}" title="Listar Categoría">Listar</a></li>

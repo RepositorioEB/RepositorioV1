@@ -15,7 +15,7 @@
 		<tbody>
 			@foreach($ovas as $ova)
 				<tr>	
-					<td><h3><legend><span class="glyphicon glyphicon-file" aria-hidden="true"> {{ $ova->name }}  &nbsp;&nbsp;&nbsp;</span></legend></h3></td>
+					<td><h3><legend><span class="glyphicon glyphicon-file" aria-hidden="true"></span>  {{ $ova->name }}  &nbsp;&nbsp;&nbsp;</legend></h3></td>
 					<td>
 					    <a href="{{ route('ovas.ova.show', $ova->id) }}" class="btn btn-warning" title="Seleccionar OVA">    <span class="glyphicon glyphicon-ok" aria-hidden="true"> Seleccionar</span></a>   					
     				</td>

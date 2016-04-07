@@ -15,14 +15,14 @@
                 <div class="modal-content">
                 <div class="modal-header">
                     <button tyle "submit" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
-                    <h3 class="modal-title">Aviso</h3>
+                    <h3 class="modal-title"><label for="aviso"> Aviso</label></h3>
                 </div>
                 <div class="modal-body">
-                    <p>Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.</p>
+                	{!! Form::text('aviso', 'Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.', ['id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" title="Boton registro" class="btn btn-primary">
-                        Aceptar
+                    <button type="submit" title="Boton registro" class="btn btn-warning">
+                    	Aceptar
                     </button>
                 </div>
             </div>

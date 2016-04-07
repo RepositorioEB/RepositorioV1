@@ -8,14 +8,20 @@
 	<div class="table-responsive">
 		<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ova</a>
 		{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-			<h4><label for="name" >Ingrese el nombre del OVA:</label>
-				<div class="input-group">
-				{!! Form::text('name', null, ['id' => 'name','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
-				<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-			</div>
-			</h4>
-		{!! Form::close() !!}
-		<table class="table table-striped">
+		<br><br>
+		<label for="sel1">Seleccionar tipo de búsqueda:</label>
+		<select class="form-control" id="sel1" name="select">
+    		<option>Nombre</option>
+    		<option>Tipo</option>
+    		<option>Categoría</option>
+  		</select>
+		<label for="name">Ingresar nombre:</label>	
+		<div class="input-group">
+			{!! Form::text('name', null, ['id' => 'name','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}
+			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+		</div>
+	{!! Form::close() !!}
+	<table class="table table-striped">
 			<thead>
 				<th>N°</th>
 				<th>Nombre</th>

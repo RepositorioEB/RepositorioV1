@@ -156,10 +156,11 @@
                 <div class="modal-content">
                 <div class="modal-header">
                     <button tyle "submit" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
-                    <h3 class="modal-title">Aviso</h3>
+                    <h3 class="modal-title"><label for="aviso"> Aviso</label></h3>
                 </div>
                 <div class="modal-body">
-                    <p>Su contraseña se enviará al correo electronico anteriormente registrado.</p>
+                    <!--{!! Form::text('aviso', 'Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.', ['id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}-->
+                    {!! Form::textarea('aviso', 'Felicidades!. El usuario ha sido registrado. Inicie sesión para ingresar al repositorio.', ['rows'=>'2','cols'=>'10%','id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}
                 </div>
                 <div class="modal-footer">
                     <button type="submit" title="Boton registro" class="btn btn-primary">
@@ -171,6 +172,6 @@
             </div>
             </div>
         </div>
-        Al dar Click en el botón registro, se le enviará una contraseña a su correo con la que podrá ingresar al repositorio y cambiarla si lo desea.
+        <!--Al dar Click en el botón registro, se le enviará una contraseña a su correo con la que podrá ingresar al repositorio y cambiarla si lo desea.-->
     </form>
 @endsection

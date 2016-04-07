@@ -32,7 +32,7 @@
 			</tbody>	
 		</table>
 	</div>
-	<div class="text-center">
+	<div title="Paginación" class="text-center">
 		{!! $profiles->render() !!}
 	</div>
 	

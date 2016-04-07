@@ -30,8 +30,7 @@
 		<h3>{!! Form::label('language','Lenguaje: ',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
-				{!! Form::select( 'language', \App\Language::languageList(), $ova->language, ['title' =>'Seleccionar lenguaje','class' => 'form-control','readonly'=>'readonly','disabled']) !!}
-				<!--{!! Form::text('language',$ova->language , ['class' => 'form-control','readonly'=>'readonly']) !!}-->
+				{!! Form::text('language', \App\Language::languageCode('es'), ['class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>
 		</h3>
 	</div>

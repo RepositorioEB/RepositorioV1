@@ -10,7 +10,7 @@
 		{!! Form::open(['route' => 'admin.problems.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 			<label for="name">Buscar problema: </label>
 			<div class="input-group">
-				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar foro', 'aria-describedby' => 'search']) !!}
+				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar problema', 'aria-describedby' => 'search']) !!}
 				<span class="input-group-addon" id="search">
 					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 				</span>
