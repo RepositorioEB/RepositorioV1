@@ -4,12 +4,13 @@
 
 @section('content')
 	<div class="table-responsive">
-		@if (\Auth::user()->role == 'admin') 
+		@if (\Auth::user()->role == 'admin')   <!-- Condicion si es administrador-->
             <a href="{{ route('admin.forums.create') }}" class="btn btn-info">Crear nuevo foro admin</a>
         @else
             <a href="{{ route('member.forums.create') }}" class="btn btn-info">Crear nuevo foro</a>
         @endif
 		@include('admin.template.partials.errors')
+		<!-- Formualrio para mostrar los foros registrados-->
 		{!! Form::open(['route' => 'foro.foros_usuarios.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 			<label for="name">Buscar foro: </label>
 			<div class="input-group">
@@ -27,16 +28,17 @@
 				<th>Accion</th>
 			</thead>
 			<tbody>
-				@foreach($forums as $forum)
+				@foreach($forums as $forum)   <!-- Ciclo de foros-->
 					<tr>
 						<td>{{ $forum->name }}</td>
 						<td>{{ $forum->characteristic }}</td>
-						@foreach($users as $user)
+						@foreach($users as $user)   <!-- Ciclo de usuario-->
 							@if($user->id==$forum->user_id)
 								<td>{{ $user->name }}</td>		
 							@endif			
 						@endforeach		
 						<td>
+							<!-- Enlace para seleccionar foro-->
 		                    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar Foro"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
 	    				</td>
 					</tr>
@@ -44,7 +46,7 @@
 			</tbody>	
 		</table>
 		<div class="text-center">
-			{!! $forums->render() !!}
+			{!! $forums->render() !!}   <!-- Paginacion fora-->
 		</div>
 	</div>
 @endsection

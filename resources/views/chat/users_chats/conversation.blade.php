@@ -1,14 +1,15 @@
-@foreach ($users_chats as $user_chat)
+@foreach ($users_chats as $user_chat)    <!-- Ciclo para los chata de los usuarios-->
+            <!-- Condicion para eviar el mensaje al usuario correspondiente-->
             @if (((($user_chat->nameorigen == Auth::user()->username) AND ($user_chat->namedestino == $_GET['nombredestino'])) || (($user_chat->namedestino == Auth::user()->username)AND($user_chat->nameorigen == $_GET['nombredestino']))))
                 
                 <div id="message">
                     <p> <h4>
                     <?php
-                    foreach ($users as $user)
+                    foreach ($users as $user)   
 					{
-						if($user_chat->nameorigen == $user->username)
+						if($user_chat->nameorigen == $user->username)    //Condicion de usuario que va a enciar el mensaje
 						{
-							if(($user->photo) == null)
+							if(($user->photo) == null)  //Condicion si el usuario tiene foto
                 			{
                     			echo "<img alt='Foto".$user_chat->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                 			}else{

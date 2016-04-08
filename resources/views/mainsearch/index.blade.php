@@ -7,7 +7,7 @@
 	<?php
 		$var = 0;
 	?>
-	@foreach($ovasname as $ovaname)
+	@foreach($ovasname as $ovaname)  <!-- Ciclo nombreova-->
 		@if($ovaname->state ==1)
 			<?php
 				$var = 1;
@@ -22,7 +22,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($ovasname as $ovaname)
+			@foreach($ovasname as $ovaname)   <!-- Ciclo nombre ova-->
 				@if($ovaname->state ==1)
 				<tr>
 					<td>{{$ovaname->name}}</td>
@@ -40,7 +40,7 @@
 	<?php
 		$var = 0;
 	?>
-	@foreach($ovasdescription as $ovadescription)
+	@foreach($ovasdescription as $ovadescription)  <!-- Ciclo para la descripcion del ova-->
 		@if($ovadescription->state ==1)
 			<?php
 				$var = 1;
@@ -56,8 +56,8 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($ovasdescription as $ovadescription)
-				@if($ovadescription->state ==1)
+			@foreach($ovasdescription as $ovadescription) <!-- Ciclo para la desccripcion del ova-->
+				@if($ovadescription->state ==1)   <!-- Estado del ova-->
 				<tr>
 					<td>{{$ovadescription->name}}</td>
 					<td>{{$ovadescription->description}}</td>
@@ -90,8 +90,8 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($ovasarchive as $ovaarchive)
-				@if($ovaarchive->state ==1)
+			@foreach($ovasarchive as $ovaarchive)   <!-- Ciclo archivos de ova-->
+				@if($ovaarchive->state ==1)   <!-- Condicion estado del ova-->
 				<tr>
 					<td>{{$ovaarchive->name}}</td>
 					<td>{{$ovaarchive->archive}}</td>
@@ -121,7 +121,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($ovascategory as $ovacategory)
+			@foreach($ovascategory as $ovacategory)   <!-- Ciclo categorias de ovas-->
 				<tr>
 					<td>{{$ovacategory->name}}</td>
 					<td align="right">
@@ -149,7 +149,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($ovastype as $ovatype)
+			@foreach($ovastype as $ovatype)       <!-- Ciclo tipos de ova-->
 				<tr>
 					<td>{{$ovatype->name}}</td>
 					<td align="right">
@@ -178,7 +178,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($categoriesdescription as $categorydescription)
+			@foreach($categoriesdescription as $categorydescription)   <!-- Ciclo descripcion de la categoria de ovas-->
 				<tr>
 					<td>{{$categorydescription->name}}</td>
 					<td>{{$categorydescription->description}}</td>
@@ -208,7 +208,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($typesdescription as $typedescription)
+			@foreach($typesdescription as $typedescription)   <!-- Descripcion de los tipos de ovas-->
 				<tr>
 					<td>{{$typedescription->name}}</td>
 					<td>{{$typedescription->description}}</td>
@@ -237,7 +237,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($forumsname as $forumname)
+			@foreach($forumsname as $forumname)   <!-- Ciclo con los nombres de los foros-->
 				<tr>
 					<td>{{$forumname->name}}</td>
 					<td align="right">
@@ -266,7 +266,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($forumscharacteristic as $forumcharacteristic)
+			@foreach($forumscharacteristic as $forumcharacteristic)  <!--Ciclo con las caracteristicas de los foros -->
 				<tr>
 					<td>{{$forumcharacteristic->name}}</td>
 					<td>{{$forumcharacteristic->characteristic}}</td>
@@ -295,7 +295,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($helpsname as $helpname)
+			@foreach($helpsname as $helpname)     <!-- Ciclo con el nombre de las ayudas-->
 				<tr>
 					<td>{{$helpname->name}}</td>
 					<td align="right">
@@ -324,7 +324,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($helpsvideo as $helpvideo)
+			@foreach($helpsvideo as $helpvideo)   <!--Ciclo con el video de las ayudas -->
 				<tr>
 					<td>{{$helpvideo->name}}</td>
 					<td>{{$helpvideo->video}}</td>
@@ -354,7 +354,7 @@
 			<th>Acción</th>
 		</thead>
 		<tbody>
-			@foreach($helpsdescription as $helpdescription)
+			@foreach($helpsdescription as $helpdescription)   <!-- Ciclo con la descripcion de las ayudas-->
 				<tr>
 					<td>{{$helpdescription->name}}</td>
 					<td>{{$helpdescription->description}}</td>
@@ -368,7 +368,7 @@
 	@endif
 
 	<div class="text-center">
-	    {!! $ovasdescription->appends(array('search' => $_GET['search']))->links()!!}
+	    {!! $ovasdescription->appends(array('search' => $_GET['search']))->links()!!}  <!--Realizar la paginacion -->
     </div>
 	</div>
 @endsection

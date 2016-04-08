@@ -24,7 +24,7 @@
                 <li><a href="{{ url('/login') }}" title="Ingresar al repositorio">Ingresar</a></li>
                 <li><a href="{{ url('/register') }}" title="Registrarse en el repositorio">Registrarse</a></li>
             @else
-                @if(Auth::user()->role == 'admin')
+                @if(Auth::user()->role == 'admin')   <!-- Condicion administrador-->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -92,7 +92,7 @@
                             <li><a href="{{ route('helps.own.index') }}" title="Ayudas Propias">Propias</a></li>
                         </ul>
                     </li>
-                @else
+                @else  <!-- Condicion cliente-->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Objetos<span class="caret"></span></a>
                         <ul class="dropdown-menu">

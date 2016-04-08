@@ -26,12 +26,12 @@
     
     <!-- Fin Modificado (ed) -->
 
-    @if (Auth::guest())
+    @if (Auth::guest())  <!-- Condicion si ha iniciado sesion el usuarios-->
         <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
     @else
 
-        @if(Auth::user()->profile->name =='Daltonismo')
+        @if(Auth::user()->profile->name =='Daltonismo')  <!--Condicion si el usuario sufre de daltonismo -->
             <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
             <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
         @else
@@ -58,13 +58,13 @@
 <body id="app-layout">
     <!-- Inicio Modificado (ed) -->
     <header>
-        @include('layouts.nav')
+        @include('layouts.nav')   <!-- Incluir navegacion-->
     </header>
     <br><br><br><br><br><br>
     <div class="container">
         <section class="main row">
             <div class="section-admin">
-                @yield('content')
+                @yield('content')  <!-- Incluir contenido-->
             </div>
         </section>
     </div>

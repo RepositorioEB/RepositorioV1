@@ -1,3 +1,4 @@
+<!-- Campos de contraseña de usuario-->
 <div class="form-group">
 	{!! Form::label('password','Contraseña actual') !!}
 	{!! Form::password('password', ['class' => 'form-control','placeholder' => '*********','required','min:8']) !!}

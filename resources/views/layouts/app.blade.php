@@ -27,12 +27,12 @@
     <!-- Iconos -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
     <!-- Fin Modificado (ed) -->
-    @if (Auth::guest())
+    @if (Auth::guest())   <!-- Condicion inicio de sesion-->
         <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
     @else
 
-        @if(Auth::user()->profile->name =='Daltonismo')
+        @if(Auth::user()->profile->name =='Daltonismo')   <!-- Condicion de discapacidad-->
             <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
             <link rel="stylesheet" href="{{ asset('css/stylesDaltonismo.css') }}">
         @else
@@ -68,6 +68,7 @@
                                     <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
                                     @yield('title')
                                     <div class="col-md-2.5 borde pull-right">
+                                        <!-- Fecha con el uso de la libreria carbon sin necesidad de javascript-->
                                         <?php
                                             $mesn =\Carbon\Carbon::now()->format('m');
                                             if( $mesn == 1 ) $mes = 'Enero';

@@ -7,6 +7,7 @@
     <br>     
     <br><br>
     <h3><label for="opinion" class="label label-primary">Ingrese su comentario: </label></h3>
+    <!-- Formulario para enviar mensaje del foro-->
     {!! Form::open(['route' => ['foro.foros_usuarios.store','forum_id'=>$_GET['forum_id'],'user_id'=>Auth::user()->id],'method' => 'POST']) !!}
         <div class="form-group">
             <input type="text" id="opinion" class="form-control" placeholder="Opinion" title="Campo de mensaje" name="message" size="40">
@@ -18,7 +19,7 @@
         </div>
     {!! Form::close() !!}
     
-    <div id="conversation" >
+    <div id="conversation" >  <!-- Mostrar conversacion del foro-->
         @foreach ($foros_usuarios as $foro_usuario)
             @if ($foro_usuario->forum_id == $_GET['forum_id'])
                 <div id="message">
@@ -39,6 +40,8 @@
                                        
     </div>
     <div class="text-center">
+        <!-- Paginacion del foro
+    -->
         {!! $foros_usuarios->appends(array('forum_id' => $_GET['forum_id'],'user_id' => $_GET['user_id']))->links()!!}
     </div>
 @endsection

@@ -11,7 +11,7 @@
 	                <div class="media">
 			          	<div class="media-center">
 			          		<img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" alt="avatar"/>
-			          		<h1>{{$user->name." ".$user->last_name}}
+			          		<h1>{{$user->name." ".$user->last_name}}  <!-- Datos de usuario-->
 			          			<small >{{$user->username}}</small>
 			          		</h1>
 			        	</div>
@@ -22,10 +22,13 @@
 	            <div class="panel-heading">Acciones</div>
 	            <div class="panel-body">
 	            	<center>
+	            	<!-- Enlace de menu de ovas-->
 	                <a href="../../ovas/menu" class="btn btn btn-warning" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
 					</br></br>
+					<!-- Enlace de foros-->
 					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-warning" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>
 					</br></br>
+					<!-- Enlace de chats-->
 					<a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-warning"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Chat</a>
 	            	</center>
 	            </div>
@@ -35,7 +38,7 @@
 	        <div class="panel panel-default">
 	            <div class="panel-heading">Tus datos</div>
 	            <div class="panel-body">
-	            	@include('flash::message')
+	            	@include('flash::message')   <!-- Mensaje flash para el usuario-->
 	            	<div class="table-responsive">
 	            		<table class="table table-striped">
 							<thead>
@@ -72,6 +75,7 @@
 	            <div class="panel-heading">Tus ovas</div>
 	            <div class="panel-body">
 	            	@if($i)
+	            		<!-- Formulario para raer ovas de usuario-->
 						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 							<label for="sel1" class="control-label">Buscar por:</label>
 							<select class="form-control" id="sel1" name="select">
@@ -119,6 +123,7 @@
 	            <div class="panel-heading">Tus foros</div>
 	            <div class="panel-body">
 	            	@if($j)
+	            		<!-- Formulario para traer foros de usuario-->
 						{!! Form::open(['route' => 'cuenta.user.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 							{!! Form::label('nameForo','Ingrese el nombre del foro:') !!}
 							<div class="input-group">

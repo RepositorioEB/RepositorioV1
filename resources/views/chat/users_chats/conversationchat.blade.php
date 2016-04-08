@@ -6,18 +6,19 @@
     <h3><legend>Contacto: {{$_GET['nombredestino']}}</legend></h3>
     <br><br>
     <div id="conversation">
-       <noscript>
+       <noscript>   <!-- Consdicion si no funciona javascript-->
         <?php 
-        foreach ($users_chats as $user_chat) {
+        foreach ($users_chats as $user_chat) {                //Ciclo para los chat de los usuarios
+            //Consicion usuario indicado para enviar mensaje
             if (((($user_chat->nameorigen == Auth::user()->username) AND ($user_chat->namedestino == $_GET['nombredestino'])) || (($user_chat->namedestino == Auth::user()->username)AND($user_chat->nameorigen == $_GET['nombredestino'])))) {
                 echo "<br>";
                 echo "<div id='message'>";
                 echo "<p> <h4>";
-                foreach ($users as $user)
+                foreach ($users as $user)  //Ciclo de usuarios
                 {
                     if($user_chat->nameorigen == $user->username)
                     {
-                        if(($user->photo) == null)
+                        if(($user->photo) == null)   //Condicion si el usuario tiene foto
                         {
                             echo "<img alt='Foto".$user_chat->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
                         }else{
@@ -36,29 +37,29 @@
         </noscript>
                                        
     </div>
-    {!! Form::open(['route' => ['chat.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}
+    {!! Form::open(['route' => ['chat.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}  <!-- Forumulario para enviar el mensaje-->
     <br>
     <h3><label class="label label-primary" for="mensaje">Ingrese el mensaje: </label></h3>
     <input type="text" placeholder="Mensaje" id="mensaje" class="form-control"  name="mensaje" size="40">
     <br>
         <div class="form-group">
-            <center>{!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}</center>
+            <center>{!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}</center>   <!-- Boton enviar mensaje-->
         </div>
     {!! Form::close() !!}
         
     <noscript>
         <div class="text-center">
-            {!! $users_chats->appends(array('nombredestino' => $_GET['nombredestino']))->links()!!}
+            {!! $users_chats->appends(array('nombredestino' => $_GET['nombredestino']))->links()!!}   <!-- Paginacion de mensjaes-->
         </div>
     </noscript>
 @endsection
 
         
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>     
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>       <!-- Script para el envio de mensaje-->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
             $(document).on("ready", function(){             
-                $.ajaxSetup({"cache":false});
+                $.ajaxSetup({"cache":false});   //Uso del ajax para envio de mensaje
                 setInterval("loadOldMessages()",500);
             });
             

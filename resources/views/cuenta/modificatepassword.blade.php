@@ -38,6 +38,7 @@
 	            	<div class="form-group">
 	            		@include('admin.template.partials.errors')
 	            		@include('flash::message')
+	            		<!-- Formulario para editar datos de usuario-->
 	            		{!! Form::open(['route' => ['cuenta.user.updates', 'section' => 'passwordnew'], 'method' => 'PUT']) !!}
 	            			@include('cuenta.fieldspassword')
 	            			<div class="form-group">
