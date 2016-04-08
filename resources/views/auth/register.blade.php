@@ -124,7 +124,7 @@
             <label class="col-md-4 control-label" for="profile">Discapacidad: </label>
 
             <div class="col-md-6">
-                {!! Form::select( 'profile_id', \App\Profile::orderBy('name', 'ASC')->lists('name', 'id'), 11, ['id' =>'profile', 'title' =>'Seleccionar discapacidad','class' => 'form-control','required']) !!}
+                {!! Form::select( 'profile_id', \App\Profile::orderBy('name', 'ASC')->lists('name', 'id'), 12, ['id' =>'profile', 'title' =>'Seleccionar discapacidad','class' => 'form-control','required']) !!}
 
                 @if ($errors->has('profile_id'))
                     <span class="help-block">
