@@ -6,10 +6,10 @@
 
 	@include('admin.template.partials.errors')
 	
-	{!! Form::open(['route' => 'admin.users.store','method' => 'POST', 'files' => true]) !!}
+	{!! Form::open(['route' => 'admin.users.store','method' => 'POST', 'files' => true]) !!}   <!-- Formulario para registrar nuevo usuario-->
 		@include('admin.template.partials.fieldsuser', ['routes' => 'create', 'variable' => 'si'])
 		<div class="form-group">
-			<center>{!! Form::submit('Registrar',['class' => 'btn btn-warning']) !!}
+			<center>{!! Form::submit('Registrar',['class' => 'btn btn-warning']) !!}   <!-- Boton registrar usuario-->
 			<a href="{{ route('admin.users.index') }}" class="btn btn btn-warning" title="Cancelar registro" name="Cancelar">Cancelar</a>
 			</center>
 		</div>

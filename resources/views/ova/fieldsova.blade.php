@@ -19,7 +19,7 @@
 		<br><br> 
 		<center>
 			<!--{!! Form::select( 'language'.$ova->id, \App\Language::languageList(), 'es', ['title' =>'Seleccionar lenguaje','class' => 'form-control','disabled']) !!}-->
-			{!! Form::text('language', \App\Language::languageCode('es'), ['class' => 'form-control','readonly'=>'readonly']) !!}
+			{!! Form::text('language', \App\Language::languageCode($ova->language), ['class' => 'form-control','readonly'=>'readonly']) !!}
 		</center>
 	</h3>
 </div>

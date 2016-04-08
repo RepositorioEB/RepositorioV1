@@ -6,7 +6,7 @@
 
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
-		<a href="{{ route('admin.ovas.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
+		<a href="{{ route('admin.ovas.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a> 
 		<table class="table table-striped">
 			<thead>
 				<th>N°</th>
@@ -20,7 +20,7 @@
 					<tr>
 						<td>{{ '1' }}</td>
 						<td>{{ $ova->lenguaje }}</td>
-						<td>{{ $ova->description }}</td>
+						<td>{{ $ova->description }}</td>         <!-- Campos ova-->
 						<td>{{ $ova->archive }}</td>
 						<td>{{ $ova->user->name }}
 						</td>

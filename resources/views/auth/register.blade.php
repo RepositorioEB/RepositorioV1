@@ -10,6 +10,7 @@
             <label class="col-md-4 control-label" for="name">Nombre: </label>
 
             <div class="col-md-6">
+                <!-- Campo para el nombre de usuario-->
                 <input type="text" id="name" title="Nombre" class="form-control" name="name" value="{{ old('name') }}">
 
                 @if ($errors->has('name'))
@@ -24,6 +25,7 @@
             <label class="col-md-4 control-label" for="username">Nombre de usuario: </label>
 
             <div class="col-md-6">
+                <!-- Campo para el nicname del usuario-->
                 <input type="text" id="username" title="Nombre de usuario" class="form-control" name="username" value="{{ old('username') }}">
 
                 @if ($errors->has('username'))
@@ -38,6 +40,7 @@
             <label class="col-md-4 control-label" for="email">Correo electrónico: </label>
 
             <div class="col-md-6">
+                <!-- Campo para el correo electronico del usuario-->
                 <input type="email" id="email" title="Correo electronico" class="form-control" name="email" value="{{ old('email') }}">
 
                 @if ($errors->has('email'))
@@ -66,6 +69,7 @@
             <label class="col-md-4 control-label">Contraseña</label>
 
             <div class="col-md-6">
+                <!-- Campo para la contrasela del usaurio-->
                 <input type="password" class="form-control" name="password">
 
                 @if ($errors->has('password'))
@@ -93,6 +97,7 @@
             <label class="col-md-4 control-label" for="gender">Genero: </label>
 
             <div class="col-md-6">
+                <!-- Campo para seleccionar el genero-->
                 <select title="Seleccionar genero" class="form-control" id="gender" name="gender">
                   <option value="man">Hombre</option>
                   <option value="woman">Mujer</option>
@@ -110,6 +115,7 @@
             <label class="col-md-4 control-label" for="birthdate">Fecha de nacimiento: </label>
 
             <div class="col-md-6">
+                <!-- Campo para la fecha de nacimiento-->
                 <input type="date" id="birthdate" title="Fecha de nacimiento" class="form-control" name="date" value="{{ old('date') }}" >
 
                 @if ($errors->has('date'))
@@ -138,6 +144,7 @@
             <label class="col-md-4 control-label" for="country">País: </label>
 
             <div class="col-md-6">
+                <!-- Campo para seleccionar el pais-->
                 {!! Form::select( 'country', \App\Country::countryList(), 'CO', ['id' =>'country','title' =>'Seleccionar pais','class' => 'form-control','required']) !!}
 
                 @if ($errors->has('country'))
@@ -160,6 +167,7 @@
                 </div>
                 <div class="modal-body">
                     <!--{!! Form::text('aviso', 'Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.', ['id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}-->
+                    <!--Campo para mostrar el mensaje -->
                     {!! Form::textarea('aviso', 'Felicidades!. El usuario ha sido registrado. Inicie sesión para ingresar al repositorio.', ['rows'=>'2','cols'=>'10%','id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}
                 </div>
                 <div class="modal-footer">

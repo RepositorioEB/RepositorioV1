@@ -1,53 +1,53 @@
-@extends('layouts.app')
+@extends('layouts.app')                    <!--Extender las herramientas que se utilizan en todas las ventanas-->
 
-@section('title', 'Lista de ayudas')
+@section('title', 'Lista de ayudas')         <!-- Seccion titulo de la pagina-->
 
-@section('content')
+@section('content')                 <!-- Inicio de contenido-->
 
-	@include('admin.template.partials.errors')
-	<div class="table-responsive">
-	<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nuevo ayuda</a>
-	{!! Form::open(['route' => 'admin.helps.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-			<label for="name">Buscar ayuda: </label>
-			<div class="input-group">
-				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar ayuda', 'aria-describedby' => 'search']) !!}
+	@include('admin.template.partials.errors')                 <!-- Revisar errores ventana-->
+	<div class="table-responsive">              <!-- Clase para adaptacion movil-->
+	<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nuevo ayuda</a>             <!-- Enlace para registrar una nueva ayuda-->
+	{!! Form::open(['route' => 'admin.helps.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}     <!-- Inicio de formulario para traer las ayudas registradas-->
+			<label for="name">Buscar ayuda: </label>        <!-- Etiqueta ayuda-->
+			<div class="input-group"> 
+				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar foro','class' => 'form-control', 'placeholder' => 'Buscar ayuda', 'aria-describedby' => 'search']) !!}     <!-- Campo para ingresar la ayuda-->
 				<span class="input-group-addon" id="search">
-					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>              <!-- Icono de buscar-->
 				</span>
 			</div>
-	{!! Form::close() !!}
+	{!! Form::close() !!}     <!-- Fin de ciclo-->
 	<br><br><br>
-		<table class="table table-striped">
-			<thead>
-				<th>N°</th>
+		<table class="table table-striped">         <!-- Tabla con estilo-->
+			<thead>        <!-- Cabeza tabla-->
+				<th>N°</th>               <!-- Nombre columna-->
 				<th>Nombre</th>
 				<th>Descripción</th>
 				<th>Enlace</th>
 				<th>Creador</th>
 				<th>Acción</th>
 			</thead>
-			<tbody>
+			<tbody>         <!-- Cuerpo tabla-->
 				<?php
-					$cont = 1;
+					$cont = 1;          //Contador
 				?>
-				@foreach($helps as $help)
+				@foreach($helps as $help)         <!-- Ciclo de ayudas-->
 					<tr>
-						<td>{!! $cont++; !!}</td>
-						<td>{{ $help->name }}</td>
-						<td>{{ $help->description }}</td>
-						<td>{{ $help->video }}</td>
-						<td>{{ $help->user->name }}</td>
+						<td>{!! $cont++; !!}</td>            <!-- Contador-->
+						<td>{{ $help->name }}</td>          <!-- Nombre ayuda-->
+						<td>{{ $help->description }}</td>          <!-- Descripcion ayuda-->
+						<td>{{ $help->video }}</td>           <!-- Video ayuda-->
+						<td>{{ $help->user->name }}</td>          <!-- Nombre creador ayuda-->
 						<td>
-							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar ayuda"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
-							<a href="{{ route('admin.helps.destroy', $help->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar ayuda"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>
+							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar ayuda"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>          <!-- Enlace para modificar la ayuda-->
+							<a href="{{ route('admin.helps.destroy', $help->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar ayuda"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>         <!-- Enlace para eliminar la ayuda-->
 						</td>
 					</tr>
-				@endforeach
+				@endforeach                    <!-- Fin de ciclo-->
 			</tbody>	
 		</table>
 	</div>
 	<div class="text-center">
-		{!! $helps->render() !!}
+		{!! $helps->render() !!}               <!-- Paginacion de ayuda-->
 	</div>
 	
-@endsection
+@endsection                  <!-- Fin de contenido-->
