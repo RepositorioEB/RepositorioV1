@@ -8,7 +8,7 @@ class Language extends Model
 {
     public static function languageCode($code)
     {
-    	$code = strtoupper($code);
+    	//$code = strtoupper($code);
         $lenguaje = '';
 	    if( $code == 'aa' ) $lenguaje = 'Afar';
 	    if( $code == 'ab' ) $lenguaje = 'Abkhaz';

@@ -7,7 +7,7 @@
 		@if (\Auth::user()->role == 'admin') 
             <a href="{{ route('admin.forums.create') }}" class="btn btn-info">Crear nuevo foro admin</a>
         @else
-            <a href="{{ route('member.forums.create') }}" class="btn btn-info">Crear nuevo foro member</a>
+            <a href="{{ route('member.forums.create') }}" class="btn btn-info">Crear nuevo foro</a>
         @endif
 		@include('admin.template.partials.errors')
 		{!! Form::open(['route' => 'foro.foros_usuarios.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}

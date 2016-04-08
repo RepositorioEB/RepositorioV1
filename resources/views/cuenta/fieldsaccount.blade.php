@@ -8,11 +8,11 @@
 </div>
 <div class="form-group">
 	{!! Form::label('username','Nombre de usuario') !!}
-	{!! Form::text('username', null, ['class' => 'form-control','placeholder' => 'Nombre de usuario','required']) !!}
+	{!! Form::text('username', null, ['class' => 'form-control','placeholder' => 'Nombre de usuario','required','disabled']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('email','Correo Electronico') !!}
-	{!! Form::email('email', null, ['class' => 'form-control','placeholder' => 'example@mail.com','required']) !!}
+	{!! Form::email('email', null, ['class' => 'form-control','placeholder' => 'example@mail.com','required','disabled']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('gender','Genero') !!}

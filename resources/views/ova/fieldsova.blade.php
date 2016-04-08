@@ -16,10 +16,10 @@
 </div>
 <div class="form-group">
 	<h3>{!! Form::label('language'.$ova->id,'Lenguaje: ',["class"=>"label label-primary"]) !!}
-		<br><br>
+		<br><br> 
 		<center>
-			{!! Form::select( 'language'.$ova->id, \App\Language::languageList(), 'es', ['title' =>'Seleccionar lenguaje','class' => 'form-control','disabled']) !!}
-			<!--{!! Form::text('language',$ova->language , ['title'=>'Lenguaje','class' => 'form-control','readonly'=>'readonly']) !!}-->
+			<!--{!! Form::select( 'language'.$ova->id, \App\Language::languageList(), 'es', ['title' =>'Seleccionar lenguaje','class' => 'form-control','disabled']) !!}-->
+			{!! Form::text('language', \App\Language::languageCode($ova->language), ['class' => 'form-control','readonly'=>'readonly']) !!}
 		</center>
 	</h3>
 </div>

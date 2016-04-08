@@ -48,16 +48,16 @@ class OvaController extends Controller
                 }
             }else{
                 if(($request->select)=='Tipo'){
-                    $type = Type::SearchType($request->name)->orderBy('id','ASC')->first();
+                    $type = Type::SearchType($request->name)->select('id')->orderBy('id','ASC')->get();
                     if($type){
-                        $ovas = Ova::where('type_id', $type->id)->orderBy('id','ASC')->paginate(20);
+                        $ovas = Ova::whereIn('type_id',$type)->orderBy('id','ASC')->paginate(20);  
                     }else{
                         $ovas = Ova::orderBy('id','ASC')->paginate(20);
                     }
                 }else{
-                    $category = Category::SearchCategory($request->name)->orderBy('id','ASC')->first();
+                    $category = Category::SearchCategory($request->name)->select('id')->orderBy('id','ASC')->get();
                     if($category){
-                        $ovas = Ova::where('category_id', $category->id)->orderBy('id','ASC')->paginate(20);
+                        $ovas = Ova::whereIn('category_id', $category)->orderBy('id','ASC')->paginate(20);
                     }else{
                         $ovas = Ova::orderBy('id','ASC')->paginate(20);
                     }

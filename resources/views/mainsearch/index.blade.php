@@ -27,7 +27,7 @@
 				<tr>
 					<td>{{$ovaname->name}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.ova.show', $ovaname->id) }}" class="btn btn-warning" title="Ver OVA"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.ova.show', $ovaname->id) }}" class="btn btn-warning" title="Ver OVA {{$ovaname->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 				@endif
@@ -62,7 +62,7 @@
 					<td>{{$ovadescription->name}}</td>
 					<td>{{$ovadescription->description}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.ova.show', $ovadescription->id) }}" class="btn btn-warning" title="Ver OVA"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.ova.show', $ovadescription->id) }}" class="btn btn-warning" title="Ver OVA {{$ovadescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 				@endif
@@ -96,7 +96,7 @@
 					<td>{{$ovaarchive->name}}</td>
 					<td>{{$ovaarchive->archive}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.ova.show', $ovaarchive->id) }}" class="btn btn-warning" title="Ver OVA"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.ova.show', $ovaarchive->id) }}" class="btn btn-warning" title="Ver OVA {{$ovaarchive->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 				@endif
@@ -125,7 +125,7 @@
 				<tr>
 					<td>{{$ovacategory->name}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.category.show', $ovacategory->id) }}" class="btn btn-warning" title="Ver OVA"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.category.show', $ovacategory->id) }}" class="btn btn-warning" title="Ver categoría {{$ovacategory->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -153,7 +153,7 @@
 				<tr>
 					<td>{{$ovatype->name}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.type.show', $ovatype->id) }}" class="btn btn-warning" title="Ver OVA"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.type.show', $ovatype->id) }}" class="btn btn-warning" title="Ver Tipo {{$ovatype->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -183,7 +183,7 @@
 					<td>{{$categorydescription->name}}</td>
 					<td>{{$categorydescription->description}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.category.show', $categorydescription->id) }}" class="btn btn-warning" title="Ver Categoría"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.category.show', $categorydescription->id) }}" class="btn btn-warning" title="Ver Categoría {{$categorydescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -213,7 +213,7 @@
 					<td>{{$typedescription->name}}</td>
 					<td>{{$typedescription->description}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.type.show', $typedescription->id) }}" class="btn btn-warning" title="Ver Tipo"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.type.show', $typedescription->id) }}" class="btn btn-warning" title="Ver Tipo {{$typedescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -241,7 +241,7 @@
 				<tr>
 					<td>{{$forumname->name}}</td>
 					<td align="right">
-					    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forumname->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar Foro"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
+					    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forumname->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar Foro {{$forumname->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
 	    			</td>
 				</tr>
 			@endforeach
@@ -271,7 +271,7 @@
 					<td>{{$forumcharacteristic->name}}</td>
 					<td>{{$forumcharacteristic->characteristic}}</td>
 					<td align="right">
-					    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forumcharacteristic->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar Foro"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
+					    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forumcharacteristic->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar Foro {{$forumcharacteristic->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
 	    			</td>
 				</tr>
 			@endforeach
@@ -299,7 +299,7 @@
 				<tr>
 					<td>{{$helpname->name}}</td>
 					<td align="right">
-						<a href="{{ route('helps.helps.show', $helpname->id) }}" class="btn btn-warning" title="Ver Ayuda"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('helps.helps.show', $helpname->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpname->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -329,7 +329,7 @@
 					<td>{{$helpvideo->name}}</td>
 					<td>{{$helpvideo->video}}</td>
 					<td align="right">
-						<a href="{{ route('helps.helps.show',$helpvideo->id) }}" class="btn btn-warning" title="Ver Ayuda"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('helps.helps.show',$helpvideo->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpvideo->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -359,7 +359,7 @@
 					<td>{{$helpdescription->name}}</td>
 					<td>{{$helpdescription->description}}</td>
 					<td align="right">
-						<a href="{{ route('helps.helps.show',$helpdescription->id) }}" class="btn btn-warning" title="Ver Ayuda"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('helps.helps.show',$helpdescription->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpdescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach

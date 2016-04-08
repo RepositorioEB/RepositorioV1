@@ -24,6 +24,7 @@ class DownloadController extends Controller
     public function index(Request $request)
     {
         $downloads = Download::orderBy('id','ASC')->paginate(10);
+        //Utilizar las relaciones hechas en las funciones del modelo de dwonloads
         $downloads->each(function($downloads){
             $downloads->user;
             $downloads->ova;

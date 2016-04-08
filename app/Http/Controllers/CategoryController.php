@@ -48,6 +48,8 @@ class CategoryController extends Controller
         $categories = new Category($request->all());
         $categorieslist = Category::orderBy('id','ASC')->lists('name', 'id');
         foreach ($categorieslist as $lista) {
+            //En este ciclo se evalua si la categoria que se va ingresar ya existe en el sistema o no.
+            //Con la funcion strlower nos permite converitir el parametro enviado a minuscula
             if (strtolower($lista) === strtolower($categories->name)) {
                 Flash::error("La categoria ya existe");
                 return redirect()->route('admin.categories.create');
