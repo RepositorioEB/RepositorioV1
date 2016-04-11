@@ -3,10 +3,11 @@
 @section('title', 'Inicio')
 @section('content')
     <center>
-        <h1>Repositorio de Objetos Virtuales de Aprendizaje Accesible</h1>
+        <h1>Repositorio de Objetos Virtuales de Aprendizaje Accesible</h1>   <!-- Titulo-->
     </center>
     <br>
-    <h2>¡Bienvenido!</h2>
+    <h2>¡Bienvenido!</h2><!--Subtitulo -->
+    <!-- Texto-->
     <p>En este repositorio podr&aacute;s encontrar las diferentes herramientas para la manipulación de los Objetos Virtuales de Aprendizaje, teniendo en cuenta la accesibilidad web.</p>
     <p>Cada uno de los usuarios que utilice este repositorio podr&aacute; realizar la comunicación con los demás usuarios y contar con la ayuda de los administradores. </p>
     <p>&nbsp;</p>

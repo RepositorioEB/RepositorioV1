@@ -5,22 +5,24 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	{!! Form::open(['route' => 'ovas.ovamember.store','method' => 'POST', 'files' => true]) !!}
-		@include('admin.template.partials.fieldsova')
+	{!! Form::open(['route' => 'ovas.ovamember.store','method' => 'POST', 'files' => true]) !!}  <!-- Formulario para crear ovas-->
+		@include('admin.template.partials.fieldsova')   <!-- Traer campos de ova-->
 		<div class="form-group">
 			<center>
-			<a href="#ventana1" class="btn btn-warning" data-toggle="modal">Guardar</a>
+			<a href="#ventana1" class="btn btn-warning" data-toggle="modal">Guardar</a> <!-- Enlace para guardar el ova-->
             <div class="modal fade" id="ventana1">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
                     <button tyle "submit" class="close" data-dismiss="modal" aria-hiden="true">&times;</button>
-                    <h3 class="modal-title"><label for="aviso"> Aviso</label></h3>
+                    <h3 class="modal-title"><label for="aviso"> Aviso</label></h3>   
                 </div>
                 <div class="modal-body">
+                	<!-- Campo de texto con el avison de solicitud ova-->
                 	{!! Form::text('aviso', 'Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.', ['id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}
                 </div>
                 <div class="modal-footer">
+                	<!-- Boton para aceptar el mensaje de aviso-->
                     <button type="submit" title="Boton registro" class="btn btn-warning">
                     	Aceptar
                     </button>

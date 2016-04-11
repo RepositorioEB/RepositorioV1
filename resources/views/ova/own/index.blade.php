@@ -6,7 +6,7 @@
 	
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
-	<a href="{{ route('ovas.ovamember.create') }}" class="btn btn-info">Registrar nuevo ova</a>
+	<a href="{{ route('ovas.ovamember.create') }}" class="btn btn-info">Registrar nuevo ova</a>   <!-- Enlace para registrar un nueo ova-->
 	<br><br><br>
 	<table class="table table-striped">
 		<thead>
@@ -17,15 +17,16 @@
 			<th>Estado</th>
 		</thead>
 		<tbody>
-			@foreach($ovas as $ova)
-				@if($ova->user_id == Auth::user()->id)
+			@foreach($ovas as $ova)     <!-- Ciclo de ovas-->
+				@if($ova->user_id == Auth::user()->id)         <!-- Condicion si el ova es del usuario-->
 				<tr>
 					<td>{{ $ova->name }}</td>
 					<td>{{ $ova->type->name }}</td>
 					<td>{{ $ova->category->name }}</td>
+					<!-- Puntuacion registrada del voa-->
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $ova->punctuation}}</td>
 					<td>
-							@if ($ova->state)
+							@if ($ova->state)   <!-- Condicion si el ova ya fue subido o se encuentra en solicitud-->
 								<h4><span class="label label-danger">{{ 'Subido' }}</span></h4>
 							@else
 								<h4><span class="label label-primary">{{ 'Solicitud' }}</span></h4>
@@ -37,7 +38,7 @@
 		</tbody>	
 	</table>
 	<div class="text-center">
-		{!! $ovas->render() !!}
+		{!! $ovas->render() !!}    <!-- Paginacion de ovas-->
 	</div>
 	</div>
 @endsection

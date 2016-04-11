@@ -7,13 +7,13 @@
 	<article>
 		<div>
 			<ul>
-				@foreach($profiles as $profile)
-					<li><a href="">{{ $profile->name }}</a></li>
+				@foreach($profiles as $profile)    <!-- Ciclo de los perfiles-->
+					<li><a href="">{{ $profile->name }}</a></li>     <!-- Enlace con el nombre de los perfiles-->
 				@endforeach
 			</ul>
 		</div>
 		<div class="text-center">
-			{!! $profiles->render() !!}
+			{!! $profiles->render() !!}      <!-- Paginacion de perfiles-->
 		</div>
 	</article>
 	

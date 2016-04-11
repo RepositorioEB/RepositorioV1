@@ -9,13 +9,17 @@
         <fieldset>
 		<h3><legend>&nbsp;&nbsp;&nbsp;Selección de búsqueda</legend></h3>
 		<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="{{ route('ovas.ova.index') }}" class="btn btn-warning" title="Botón búsqueda general"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda General</span></a>
+		<!-- Enlace para consultar los ovas con busqueda general-->
+        <a href="{{ route('ovas.ova.index') }}" class="btn btn-warning" title="Botón búsqueda general"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda General</span></a>
     	<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    	<a href="../../../../../ovas/ovas" class="btn btn-warning" title="Botón búsqueda por OVAS"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda por OVAS</span></a>
+    	<!-- Enlace para consultar todos los tipos de ovas-->
+        <a href="../../../../../ovas/ovas" class="btn btn-warning" title="Botón búsqueda por OVAS"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda por OVAS</span></a>
     	<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    	<a href="{{ route('ovas.type.index') }}" class="btn btn-warning" title="Botón búsqueda por tipos"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda por Tipo</span></a>
+    	<!-- Enlace para buscar ovas por tipo-->
+        <a href="{{ route('ovas.type.index') }}" class="btn btn-warning" title="Botón búsqueda por tipos"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda por Tipo</span></a>
     	<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    	<a href="{{ route('ovas.category.index') }}" class="btn btn-warning" title="Botón búsqueda por categoría"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda por Categoría</span></a>
+    	<!-- Enlace para consultar ovas por categoria-->
+        <a href="{{ route('ovas.category.index') }}" class="btn btn-warning" title="Botón búsqueda por categoría"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"> Búsqueda por Categoría</span></a>
     	</fieldset>
         <br />
 @endsection

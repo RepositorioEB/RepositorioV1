@@ -119,18 +119,21 @@
                                 <ul>
                                     <li><h3><div class="label label-info">Archivos recientes</div></h3>
                                         <ul>
+                                        <!-- Formulario para abrir archivos recientes de OVA-->
                                         {!! Form::open( ['route' => ['ovas.recentarchive.index'],'method' => 'GET', 'files' => true]) !!}
                                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ovas') !!}</li>
                                         {!! Form::close() !!}   
                                         </ul>
                                         <br>
                                         <ul>
+                                        <!-- Formulario para abrir archivos recientes de ayudas-->
                                         {!! Form::open( ['route' => ['helps.helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
                                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ayudas') !!}</li>
                                         {!! Form::close() !!}   
                                         </ul>
                                         <br>
                                         <ul>
+                                        <!-- Formulario para abir archivos recientes de foros-->
                                         {!! Form::open( ['route' => ['foro.forums.recentarchive'],'method' => 'GET', 'files' => true]) !!}
                                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Foros') !!}</li>
                                         {!! Form::close() !!}   
@@ -142,6 +145,7 @@
                                 </ul>
                                 <br>
                                 <center>
+                                    <!-- Enlaces para chat, foros y ovas-->
                                     <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success">¡Chat!</a>
                                     <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success">¡Foros!</a>
                                     <a href="../../../../../ovas/menu" title="Ovas" class="btn btn-success" >¡Ovas!</a>

@@ -25,6 +25,7 @@
                 <div id="message">
                     <p> <h4>
                     <?php
+                        //Condicion si usuario tiene foto
                         if(($foro_usuario->user->photo) == null)
                         {
                             echo "<img alt='Foto".$foro_usuario->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
@@ -32,6 +33,7 @@
                             echo "<img alt='Foto".$foro_usuario->id."' src='".asset('images/users/'.$foro_usuario->user->photo.'')."' width=50 height=50 >";
                         }    
                     ?>
+                    <!-- Mostrar foto y nomnre de usuario origen, mensaje a enviar y la fecha-->
                     &nbsp;<div class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </div>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="label label-primary">{{$foro_usuario->created_at}}</div></h4></p>   
                 </div>
                 <br>

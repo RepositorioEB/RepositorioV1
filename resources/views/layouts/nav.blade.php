@@ -134,6 +134,7 @@
                     </li>
                 @endif
                 <li class="dropdown">
+                    <!-- Mostrar foto y nombre usuario-->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="Nombre de usuario">
                        <img alt="Foto usuario" class="imag-responsive" src="/images/users/{{ Auth::user()->photo }}" width="25" height="25" name="photo" /> {{ ucwords(Auth::user()->name) }} <span class="caret"></span>
                     </a>

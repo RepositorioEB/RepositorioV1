@@ -8,19 +8,19 @@
 		<div>
 			<header><h1>{{ 'Nombre de la ayuda: '.$help->name }}</h1></header> 
 			<article>
-				<p>{!! $replace=str_replace("\r","<br>",$help->description); !!}</p>
+				<p>{!! $replace=str_replace("\r","<br>",$help->description); !!}</p>  <!-- Descripcion de la ayuda-->
 			</article>
 		</div>
 	</section> 
 	<section>
 		<h2>Video</h2>
 	    <div class="embed-responsive embed-responsive-16by9">
-	    	<iframe class="embed-responsive-item" src="{{ $urls }}"></iframe>
+	    	<iframe class="embed-responsive-item" src="{{ $urls }}"></iframe>  <!-- Enace video de la ayuda-->
 		</div>
 	</section>
 	<section>
 		<div id="disqus_thread"></div>
-		<script>
+		<script>   //Script para opinar la ayuda
 		/**
 		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables

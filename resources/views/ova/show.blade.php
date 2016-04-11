@@ -5,9 +5,8 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<!--<a href="{{ route('ovas.ova.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>-->
 
-	{!! Form::open( ['route' => ['ovas.ova.store'],'method' => 'POST', 'files' => true]) !!}
+	{!! Form::open( ['route' => ['ovas.ova.store'],'method' => 'POST', 'files' => true]) !!}    <!-- Formulario para traer datos de ova-->
 	
 	<center><legend><h2>DATOS COMPLETOS DEL OVA</h2></legend></center>
 	<div class="form-group">
@@ -66,6 +65,7 @@
 			</center>	
 		</h3>
 	</div>
+	<!-- Consultar si el ova ya ha sido evaluado-->
 	<?php
 		$var=0;
 		$punctuation=0;
@@ -79,7 +79,7 @@
 		}
 	?>
 	<legend>Calificación</legend>
-	@if($var== 0)
+	@if($var== 0)  <!-- Condicion si el ova no ha sido evaluado-->
 		<fieldset>
 		<div class="form-group pull-right">
 		<h3><legend class="label label-primary"> Número de estrellas : </legend></h3>
@@ -99,28 +99,28 @@
   		
 		</fieldset>
 		<div class="form-group pull-right">
-		{!! Form::submit('Evaluar',['class' => 'btn btn-warning']) !!}
+		{!! Form::submit('Evaluar',['class' => 'btn btn-warning']) !!}   <!-- Boton evaluar-->
 		</div>	
-	@else
+	@else  <!--Condicion si el ova ya fue evalaudo -->
 		<div class="form-group">
 			{!! Form::text('punctuation', $punctuation, ['title'=>'Calificación','class' => 'form-control','readonly'=>'readonly']) !!}
 		</div>
 		<div class="form-group pull-right">
-			{!! Form::submit('Evaluar',['class' => 'btn btn-warning','disabled']) !!}
-		</div>
+			{!! Form::submit('Evaluar',['class' => 'btn btn-warning','disabled']) !!}   <!-- Boton evaluar deshabilitado-->
+ 		</div>
 	@endif
 	
 	{!! Form::close() !!}	
 	<br>
 	<h3><legend>Comentarios</legend><h3>
 	<div id="conversation" style="background: white;color: black;height:200px; border: 1px solid #CCCCCC; padding: 10px;  border-radius: 13px; overflow-x: hidden;">
-    @foreach($ovas_comments as $ova_comment)
+    @foreach($ovas_comments as $ova_comment)     <!-- Ciclo comentarios ova-->
 		@if($ova_comment->ova_id == $ova->id)
 			<br>
 			<div style="border-top: 1px solid black;">
 			<h4>
 			<?php
-				if(($ova_comment->user->photo) == null)
+				if(($ova_comment->user->photo) == null)   //Condicion si el usuario ya tiene foto
                 {
                     echo "<img alt='Foto".$ova_comment->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50>";
                 }else{
@@ -128,29 +128,34 @@
                 }    
             ?>
 			<div class="label label-danger" name="nombreusuario">{{$ova_comment->user->username}}:<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></div>
-			{{$ova_comment->comment}}
+			{{$ova_comment->comment}}   <!-- Mostrar comentario ova-->
 			<div class="label label-primary">{{$ova_comment->created_at}}</div></h4>
 			</div>
 		@endif	
 	@endforeach
 	</div>
 	<h3>{!! Form::label('comment','Ingrese el comentario',["class"=>"label label-primary"]) !!}</h3>
+	<!-- Formulario para comentar el ova-->
 	{!! Form::open( ['route' => ['ovas.ova_comment.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
+		<!-- Campo de texto para ingresar el comentario-->
 		{!! Form::text('comment', null, ['title'=>'Comentario','class' => 'form-control','placeholder'=>'Ingrese el comentario']) !!}
 		<div class="form-group pull-right">
+			<!-- Boton para registrar el comentario-->
 			{!! Form::submit('Comentar',['class' => 'btn btn-warning']) !!}
 		</div>
 	{!! Form::close() !!}
+	<!-- Formulario para realizar la descarga del ova-->
 	{!! Form::open( ['route' => ['ovas.downloads.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
 	<div class="form-group">
 		<h3>{!! Form::label('archive','Archivo',["class"=>"label label-primary"]) !!}
 			<br><br>
 			<center>
+				<!-- Campo del nombre del ova-->
 				{!! Form::text('archive', $ova->archive, ['title'=>'Archivo','class' => 'form-control','readonly'=>'readonly']) !!}
 			</center>	
 		</h3>
 	</div>
-	<center>{!! Form::submit('Descargar',['class' => 'btn btn-warning']) !!}</center>
+	<center>{!! Form::submit('Descargar',['class' => 'btn btn-warning']) !!}</center>       <!-- Boton para realizar la descarga del ova-->
 	{!! Form::close() !!}
 	
 @endsection

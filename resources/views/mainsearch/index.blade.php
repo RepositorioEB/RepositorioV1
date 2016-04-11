@@ -8,13 +8,13 @@
 		$var = 0;
 	?>
 	@foreach($ovasname as $ovaname)  <!-- Ciclo nombreova-->
-		@if($ovaname->state ==1)
+		@if($ovaname->state ==1)<!-- Condicion si el ova ya has sido subido-->
 			<?php
-				$var = 1;
+				$var = 1;     //Variable para verificar si hay ova
 			?>
 		@endif
 	@endforeach
-	@if($var==1)
+	@if($var==1) 
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ovas por nombre</legend>
 	<table class="table table-striped">
 		<thead>

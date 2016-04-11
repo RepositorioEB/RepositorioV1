@@ -7,7 +7,7 @@
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
 		<br />
-		<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>
+		<a href="../ovas/menu" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver</span></a>  <!-- Enlace para volver al menu de ovas-->
 		<h3><legend> Búsqueda por: Tipo</legend></h3>
 		<br />
 		<center>
@@ -16,16 +16,16 @@
 					<th><big><b><center>Nombre</center></b></big></th>
 					<th><big><b><center>Descripción</center></b></big></th>
 			</thead>
-		@foreach($types as $type)
+		@foreach($types as $type)    <!-- Ciclo de tipos de ova-->
 			<tbody>
 					<tr>
 						<td>
-							{!! Form::open(['route' =>['ovas.type.show', $type->id] , 'method' => 'GET']) !!}
-							{!! Form::submit($type->name ,['class' => 'btn btn-warning']) !!}
+							{!! Form::open(['route' =>['ovas.type.show', $type->id] , 'method' => 'GET']) !!}     <!-- Formulario para mostrar los ovas con ese tipo-->
+  							{!! Form::submit($type->name ,['class' => 'btn btn-warning']) !!}  <!-- Boton con el tipo de ovas-->
 							{!! Form::close() !!}	
 						</td>
 						<td>
-							{{$type->description}}<br><br>
+							{{$type->description}}<br><br>   <!-- Descripcion del tipo de ova-->
 						</td>
 					</tr>
 			</tbody>
@@ -33,7 +33,7 @@
 		</table>
 		</center>
 	<div class="text-center">
-		{!! $types->render() !!}
+		{!! $types->render() !!}     <!-- Paginacion de tipos de ova-->
 	</div>
 	</div>
 @endsection

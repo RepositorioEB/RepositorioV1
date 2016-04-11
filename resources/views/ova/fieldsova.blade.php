@@ -1,3 +1,4 @@
+<!-- Campos de ova sin modificacion-->
 <div class="form-group">
 	<h3>{!! Form::label('id'.$ova->id,'Identificación: ',["class"=>"label label-primary"]) !!}
 		<br><br>
@@ -65,6 +66,7 @@
 		</center>	
 	</h3>
 </div>
+<!-- Consultar si el ova ya fue evaluado-->
 <?php
 	$var=0;
 	$punctuation=0;
@@ -78,7 +80,7 @@
 	}
 ?>
 <h3>{!! Form::label('calification'.$ova->id,'Calificación',['for' => 'sel1',"class"=>"label label-primary"]) !!}</h3>		
-@if($var== 0)
+@if($var== 0)   <!-- Condicion si el ova no ha sido consultado-->
 	<select class="form-control " id="calification{{$ova->id}}" name="estrellas">
 		<option>1</option>
 		<option>2</option>
@@ -88,27 +90,28 @@
 		</select>
 
 	<div class="form-group pull-right">
-		{!! Form::submit('Evaluar',['class' => 'btn btn-warning']) !!}
+		{!! Form::submit('Evaluar',['class' => 'btn btn-warning']) !!}   <!-- Boton evaluar-->
 	</div>	
-@else
+@else  <!-- Condicion si el ova ya fue evaluado-->
 	<div class="form-group">
+		<!-- Mostrar campo de evaluacion-->
 		{!! Form::text('punctuation', $punctuation, ["id"=>"calification".$ova->id, 'class' => 'form-control','readonly'=>'readonly']) !!}
 	</div>
 	<div class="form-group pull-right">
-		{!! Form::submit('Evaluar',['class' => 'btn btn-warning','disabled']) !!}
+		{!! Form::submit('Evaluar',['class' => 'btn btn-warning','disabled']) !!}  <!-- Boton evaluar deshabilitado-->
 	</div>
 @endif
 
 <br>
 <h3><legend class="label label-primary">Comentarios</legend></h3>
 <div id="conversation" style="background: white;color: black;height:200px; border: 1px solid #CCCCCC; padding: 12px;  border-radius: 13px; overflow-x: hidden;">
-@foreach($ovas_comments as $ova_comment)
-	@if($ova_comment->ova_id == $ova->id)
+@foreach($ovas_comments as $ova_comment)     <!-- Ciclo de comentarios-->
+	@if($ova_comment->ova_id == $ova->id)   <!-- Consultar los comentarios del ova-->
 		<br>
 		<div style="border-top: 1px solid black;">
 		<br>
 		<?php
-			if(($ova_comment->user->photo) == null)
+			if(($ova_comment->user->photo) == null)    //Condicion si el usuario tiene foto
             {
                 echo "<img alt='Foto' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
             }else{
@@ -116,7 +119,7 @@
             }    
         ?>
 		<div class="label label-danger" name="nombreusuario" alt="2">{{$ova_comment->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></div>
-		{{$ova_comment->comment}}
+		{{$ova_comment->comment}}   <!-- Comentario del ova-->
 		<div class="label label-primary">{{$ova_comment->created_at}}</div>
 		<br>
 		</div>
@@ -125,6 +128,6 @@
 </div>
 <br>
 <div class="form-group pull-right">
-	<a href="{{ route('ovas.ova.show', $ova->id) }}" class="btn btn-warning" title="Seleccionar">Comentar</a>
+	<a href="{{ route('ovas.ova.show', $ova->id) }}" class="btn btn-warning" title="Seleccionar">Comentar</a>  <!-- Enlace para comentar el ova-->
 </div>
 
