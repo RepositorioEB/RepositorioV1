@@ -39,17 +39,33 @@
 	<h3>{!! Form::label('studies','Estudios',["class"=>"label label-primary"]) !!}</h3>
 	{!! Form::textarea('studies', null, ['class' => 'form-control']) !!}
 </div>
+
+@if($routes == 'create')
 <div class="form-group">
 	<h3>{!! Form::label('country','Pais',["class"=>"label label-primary"]) !!}</h3>
 	{!! Form::select('country', $country, 'CO', ['class' => 'form-control select-country','required']) !!}
 </div>
+@else
+<div class="form-group">
+	<h3>{!! Form::label('country','Pais',["class"=>"label label-primary"]) !!}</h3>
+	{!! Form::select('country', $country, null, ['class' => 'form-control select-country','required']) !!}
+</div>
+@endif
+
 @if($variable == 'si')
 	<div class="form-group">
 		<h3>{!! Form::label('role','Tipo de nivel',["class"=>"label label-primary"]) !!}</h3>
 		{!! Form::select('role', [ 'member' => 'Cliente', 'admin' => 'Administrador'], null, ['class' => 'form-control select-role','required']) !!}
 	</div>
 @endif
+@if($routes == 'create')
 <div class="form-group">
 	<h3>{!! Form::label('profile_id','Discapacidad',["class"=>"label label-primary"]) !!}</h3>
 	{!! Form::select('profile_id', $profiles, 11, ['class' => 'form-control select-profiles','required']) !!}
 </div>
+@else
+<div class="form-group">
+	<h3>{!! Form::label('profile_id','Discapacidad',["class"=>"label label-primary"]) !!}</h3>
+	{!! Form::select('profile_id', $profiles, null, ['class' => 'form-control select-profiles','required']) !!}
+</div>
+@endif

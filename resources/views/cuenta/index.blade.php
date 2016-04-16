@@ -103,7 +103,7 @@
 									@if($ova->user_id == $user->id)
 										<tr>
 											<td>{{ $ova->name }}</td>
-											<td>{{ $ova->language }}</td>
+											<td>{{ \App\Language::languageCode($ova->language)}}</td>
 											<td>{{ $ova->description }}</td>
 											<td>{{ $ova->punctuation }}</td>
 											<td>{{ $ova->type->name }}</td>

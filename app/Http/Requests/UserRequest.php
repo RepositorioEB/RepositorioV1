@@ -23,6 +23,8 @@ class UserRequest extends Request
      */
     public function rules()
     {
+        $fecha1 = '1930-01-01';
+        $fecha2 = '2001-01-01';
         return [
             'name' => 'min:4|max:30|required',
             'last_name' => 'max:30',
@@ -30,7 +32,7 @@ class UserRequest extends Request
             'email' => 'min:7|max:30|required|unique:users',
             'password' => 'min:8|max:60|required',
             'gender' => 'required',
-            'date' => 'required',
+            'date' => 'required|date|after:'.$fecha1.'|before:'.$fecha2.'',
             'role' => 'required',
             'photo' => 'image',
             'country' => 'required',

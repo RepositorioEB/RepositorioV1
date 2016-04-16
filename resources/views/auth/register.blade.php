@@ -120,7 +120,7 @@
 
                 @if ($errors->has('date'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('gender') }}</strong>
+                        <strong>{{ $errors->first('date') }}</strong>
                     </span>
                 @endif
             </div>
@@ -156,8 +156,14 @@
         </div>
         
         <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-            <a href="#ventana1" class="btn btn-primary" data-toggle="modal"><i class="fa fa-btn fa-user"></i>Registrar</a>
+            <div class="col-md-6 col-md-offset-4">        
+            <script type="text/javascript">
+            document.write("<a href='#ventana1' class='btn btn-primary' data-toggle='modal'>");
+            document.write("<i class='fa fa-btn fa-user'></i>");
+            document.write("Registrar");
+            document.write("</a>");
+            </script>
+            
             <div class="modal fade" id="ventana1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -168,7 +174,7 @@
                 <div class="modal-body">
                     <!--{!! Form::text('aviso', 'Se realizará una solicitud para que el administrador acepte subir el OVA al repositorio.', ['id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}-->
                     <!--Campo para mostrar el mensaje -->
-                    {!! Form::textarea('aviso', 'Felicidades!. El usuario ha sido registrado. Inicie sesión para ingresar al repositorio.', ['rows'=>'2','cols'=>'10%','id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}
+                    {!! Form::textarea('aviso', 'Cuando el usuario sea registrado, inicie sesión para ingresar al repositorio.', ['rows'=>'2','cols'=>'10%','id'=>'aviso','class' => 'form-control','readonly'=>'readonly']) !!}
                 </div>
                 <div class="modal-footer">
                     <button type="submit" title="Boton registro" class="btn btn-primary">
@@ -180,6 +186,15 @@
             </div>
             </div>
         </div>
+        <noscript>
+            <div class="col-md-6 col-md-offset-4">        
+            Cuando el usuario sea registrado, inicie sesión para ingresar al repositorio.
+            <br><br>
+            <button type='submit' title='Boton registro' class='btn btn-primary'>
+                <i class='fa fa-btn fa-user'></i>Registrar
+            </button>
+            </div>
+        </noscript>
         <!--Al dar Click en el botón registro, se le enviará una contraseña a su correo con la que podrá ingresar al repositorio y cambiarla si lo desea.-->
     </form>
 @endsection

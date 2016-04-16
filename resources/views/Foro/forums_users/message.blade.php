@@ -5,6 +5,7 @@
 @section('content')
     <center><h3><legend>NOMBRE DEL FORO: &nbsp; {{$foros->name}}</legend></h3></center> 
     <br>     
+    <h4><legend >Características: &nbsp; </legend>{{$foros->characteristic}}</h4> 
     <br><br>
     <h3><label for="opinion" class="label label-primary">Ingrese su comentario: </label></h3>
     <!-- Formulario para enviar mensaje del foro-->

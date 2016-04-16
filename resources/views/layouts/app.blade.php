@@ -108,7 +108,7 @@
                             <div class="panel-body">
                                 <h3><div class="label label-info">Búsqueda</div></h3>
                                 {!! Form::open(['route' => 'search.mainsearch.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-                                    <label for="search">Ingresar búsqueda:</label>  
+                                    {!! Form::label('search','Ingresar búsqueda:')!!}
                                     <div class="input-group">
                                     {!! Form::text('search', null, ['id' => 'search','class' => 'form-control', 'placeholder' => 'Buscar','required', 'aria-describedby' => 'search']) !!}
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>

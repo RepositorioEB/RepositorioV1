@@ -6,10 +6,17 @@
 
 	@include('admin.template.partials.errors')
 	{!! Form::open(['route' => 'ovas.ovamember.store','method' => 'POST', 'files' => true]) !!}  <!-- Formulario para crear ovas-->
-		@include('admin.template.partials.fieldsova')   <!-- Traer campos de ova-->
+		@include('admin.template.partials.fieldsova', ['routes' => 'create'])   <!-- Traer campos de ova-->
+		
 		<div class="form-group">
 			<center>
-			<a href="#ventana1" class="btn btn-warning" data-toggle="modal">Guardar</a> <!-- Enlace para guardar el ova-->
+			<!-- Enlace para guardar el ova-->
+            <script type="text/javascript">
+            document.write("<a href='#ventana1' class='btn btn-warning' data-toggle='modal'>");
+            document.write("Guardar");
+            document.write("</a>");
+            </script>
+            
             <div class="modal fade" id="ventana1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -32,6 +39,15 @@
             </div>
 			</center>
 		</div>
+		<noscript>
+            <center>
+            Cuando se almacene el ova se realizará la solicitud para que el administrador permita subirlo al repositorio.
+            <br><br>
+            <button type='submit' title='Boton registro' class='btn btn-warning'>
+                Guardar
+            </button>
+            </center>
+        </noscript>
 	{!! Form::close() !!}
 	
 @endsection

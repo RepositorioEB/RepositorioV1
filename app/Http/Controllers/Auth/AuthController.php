@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Carbon\Carbon;
+
 class AuthController extends Controller
 {
     /*
@@ -53,13 +55,15 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
+        $fecha1 = '1930-01-01';
+        $fecha2 = '2001-01-01';
         return Validator::make($data, [
             'name' => 'min:4|required|max:255',
             'username' => 'min:4|required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'gender' => 'required',
-            'date' => 'required',
+            'date' => 'required|date|after:'.$fecha1.'|before:'.$fecha2.'',
             'country' => 'required',
             'profile_id' => 'required',
         ]);
@@ -78,7 +82,6 @@ class AuthController extends Controller
             $m->from('repositorioovas@gmail.com', 'Repositorio de OVAS');
             $m->to($data['email'],$data['name'])->subject('Código de usuario:');
         });*/
-            
         return User::create([
             'name' => $data['name'],
             'username' => $data['username'],

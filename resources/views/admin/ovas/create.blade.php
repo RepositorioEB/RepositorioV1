@@ -6,7 +6,7 @@
 
 	@include('admin.template.partials.errors')                <!-- Revisar errores ventana-->
 	{!! Form::open(['route' => 'admin.ovas.store','method' => 'POST', 'files' => true]) !!}     <!-- Formulario para ingresar un nuevo ova-->
-		@include('admin.template.partials.fieldsova')    <!-- Traer campos ova-->
+		@include('admin.template.partials.fieldsova', ['routes' => 'create'])    <!-- Traer campos ova-->
 		<div class="form-group">
 			<h3>{!! Form::label('state','Estado',['class' => 'label label-primary']) !!}</h3>        <!-- Etqueta de estado ova-->
 			{!! Form::select('state', [ false => 'Solicitud', true => 'Subido'], null, ['class' => 'form-control select-state','required']) !!}    <!-- Selector de estado del ova-->

@@ -27,7 +27,7 @@ class Forum_UserController extends Controller
         $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->first();
         if($forums){
             $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->paginate(30);
-        }else{
+        }else{ 
             $forums = Forum::orderBy('id','ASC')->paginate(30);
         }
         $users = User::orderBy('id','ASC')->get();
