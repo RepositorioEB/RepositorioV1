@@ -14,7 +14,7 @@ class AddHelpsTable extends Migration
     {
         Schema::create('helps', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',30)->unique();
+            $table->string('name',40)->unique();
             $table->string('video');
             $table->text('description')->nullable();
             $table->integer('user_id')->unsigned()->nullable();

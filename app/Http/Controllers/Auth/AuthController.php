@@ -10,7 +10,6 @@ use Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
 use Carbon\Carbon;
 
 class AuthController extends Controller
@@ -55,8 +54,8 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        $fecha1 = '1930-01-01';
-        $fecha2 = '2001-01-01';
+        $fecha1 = '1936-'.Carbon::now()->format('m').'-'.Carbon::now()->format('d');
+        $fecha2 = '2001-'.Carbon::now()->format('m').'-'.Carbon::now()->format('d');
         return Validator::make($data, [
             'name' => 'min:4|required|max:255',
             'username' => 'min:4|required|max:255|unique:users',

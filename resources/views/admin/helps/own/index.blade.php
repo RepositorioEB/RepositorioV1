@@ -19,7 +19,7 @@
 					@if($help->user_id == Auth::user()->id)          <!-- Comparacion con la identificacion del usuario-->
 					<tr>
 						<td>{{ $help->name }}</td>         <!-- Nombre de la ayuda-->
-						<td>{{ $help->description }}</td>     <!-- Descripcion de la ayuda-->
+						<td>{!! $replace=str_replace("\r","<br>",$help->description); !!}</td>     <!-- Descripcion de la ayuda-->
 						<td>{{ $help->video }}</td>       <!-- Descripcion del video-->
 						<td>
 							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar ayuda"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>            <!-- Enlace para editar la ayuda-->

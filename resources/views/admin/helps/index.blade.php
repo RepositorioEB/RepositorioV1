@@ -34,7 +34,7 @@
 					<tr>
 						<td>{!! $cont++; !!}</td>            <!-- Contador-->
 						<td>{{ $help->name }}</td>          <!-- Nombre ayuda-->
-						<td>{{ $help->description }}</td>          <!-- Descripcion ayuda-->
+						<td>{!! $replace=str_replace("\r","<br>",$help->description); !!}</td>          <!-- Descripcion ayuda-->
 						<td>{{ $help->video }}</td>           <!-- Video ayuda-->
 						<td>{{ $help->user->name }}</td>          <!-- Nombre creador ayuda-->
 						<td>

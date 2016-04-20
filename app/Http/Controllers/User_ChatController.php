@@ -61,5 +61,4 @@ class User_ChatController extends Controller
         $users = DB::table('users')->get();
         return view('chat.users_chats.conversationchat')->with('users', $users)->with('users_chats', $users_chats);    
     }
-
 }
