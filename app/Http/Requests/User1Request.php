@@ -24,8 +24,8 @@ class User1Request extends Request
     public function rules()
     {
         return [
-            'name' => 'min:4|max:30|required',
-            'last_name' => 'max:30',
+            'name' => 'min:4|max:30|alpha|required',
+            'last_name' => 'max:30|alpha',
             'gender' => 'required',
             'country' => 'required',
             'studies' => 'min:20',

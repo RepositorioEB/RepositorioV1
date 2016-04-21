@@ -24,9 +24,9 @@ class AccountRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'min:4|max:30|required',
-            'last_name' => 'max:30',
-            'username' => 'min:4|max:10|required',
+            'name' => 'min:4|max:30|alpha|required',
+            'last_name' => 'max:30|alpha',
+            'username' => 'min:4|max:10|alpha_num|required',
             'email' => 'min:7|max:30|required',
             'gender' => 'required',
             'date' => 'required',

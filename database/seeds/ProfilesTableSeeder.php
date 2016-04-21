@@ -13,6 +13,7 @@ class ProfilesTableSeeder extends Seeder
     public function run()
     {
     	DB::table('profiles')->insert(array(
+    		array('name' => 'Ninguna', 'characteristic' => 'No se tiene una discapacidad y/o no esta al tanto de la misma','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
 		    array('name' => 'Autismo', 'characteristic' => 'El autismo es una discapacidad con características que varían en un amplio espectro. Si bien no se puede identificar a las personas autistas por su apariencia física, por lo general tienen dificultades con el lenguaje o la comunicación, las relaciones interpersonales y la conducta, las cuales a menudo se deben a dificultades sensoriales.','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
 			array('name' => 'Enfermedades cronicas', 'characteristic' => 'Las enfermedades crónicas varían en sus síntomas, tratamientos y evolución. Entre algunas enfermedades crónicas podrían mencionarse afecciones tan diversas como la parálisis cerebral, el asma, la esclerosis múltiple, la epilepsia, el cáncer, la diabetes, las enfermedades del corazón y el síndrome de fatiga crónica.','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
 			array('name' => 'Daltonismo', 'characteristic' => 'Es defecto de la vista que consiste en no distinguir ciertos colores o confundirlos con otros.','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
@@ -24,7 +25,6 @@ class ProfilesTableSeeder extends Seeder
 			array('name' => 'Discapacidad fisica', 'characteristic' => 'Existen muchas causas y afecciones que pueden provocar deficiencias motrices y para desplazarse. La incapacidad de usar eficazmente las piernas, los brazos o el tronco debido a parálisis, rigidez, dolor u otras deficiencias es común. Podría deberse a defectos congénitos, enfermedades, envejecimiento o accidentes.','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
 			array('name' => 'Trastornos del habla y del lenguaje', 'characteristic' => 'Los trastornos del habla y del lenguaje son diversos y pueden aparecer a cualquier edad. Independientemente de la gravedad de los trastornos del habla y del lenguaje, la capacidad de la persona para relacionarse y comunicarse con los demás se verá afectada.','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
 			array('name' => 'Deficiencia Visual y ceguera', 'characteristic' => 'Los problemas de la vista varían desde la visión nublada o borrosa hasta la ceguera total. Las personas con problemas de la vista difieren mucho en sus necesidades, aptitudes, personalidades y actitudes.','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
-			array('name' => 'Ninguna', 'characteristic' => 'No se tiene una discapacidad y/o no esta al tanto de la misma','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
 			array('name' => 'Otra', 'characteristic' => 'No se encuentra en el sistema','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
 		));
     }

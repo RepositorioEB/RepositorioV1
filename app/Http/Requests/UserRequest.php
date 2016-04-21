@@ -26,9 +26,9 @@ class UserRequest extends Request
         $fecha1 = '1930-01-01';
         $fecha2 = '2001-01-01';
         return [
-            'name' => 'min:4|max:30|required',
-            'last_name' => 'max:30',
-            'username' => 'min:4|max:10|required|unique:users',
+            'name' => 'min:4|max:30|alpha|required',
+            'last_name' => 'max:30|alpha',
+            'username' => 'min:4|max:10|alpha_num|required|unique:users',
             'email' => 'min:7|max:30|required|unique:users',
             'password' => 'min:8|max:60|required',
             'gender' => 'required',

@@ -24,7 +24,7 @@ class ProfileRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'min:4|max:20|required',
+            'name' => 'min:4|max:20|alpha|required',
             'characteristic' => 'min:20'
         ];
     }

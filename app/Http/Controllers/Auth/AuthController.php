@@ -58,8 +58,8 @@ class AuthController extends Controller
         $fecha1 = '1930-01-01';
         $fecha2 = '2001-01-01';
         return Validator::make($data, [
-            'name' => 'min:4|required|max:255',
-            'username' => 'min:4|required|max:255|unique:users',
+            'name' => 'min:4|required|max:255|alpha',
+            'username' => 'min:4|required|max:255|alpha_num|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'gender' => 'required',
