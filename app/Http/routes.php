@@ -20,8 +20,6 @@ Route::group(['middleware' => 'web'], function () {
 
     // -----Autenticación
       Route::auth();
-
-      
             
       Route::group(['middleware' => ['auth']],function(){
 
@@ -50,7 +48,7 @@ Route::group(['middleware' => 'web'], function () {
           }
             return Redirect::to('member');
         });
-        
+
         Route::group(['prefix' => 'chat'],function(){
         
           //Routes chat

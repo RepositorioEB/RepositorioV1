@@ -27,7 +27,7 @@
 					<tr>
 						<td>{{ $help->name }}</td>
 						<td>{{ $help->video }}</td>
-						<td>{{ $help->description }}</td>
+						<td>{!! $replace=str_replace("\r","<br>",$help->description); !!}</td>
 						<td>{{ $help->user->name }}</td>
 						<td>
 							<a href="{{ route('helps.helps.show', $help->id) }}" class="btn btn-info" title="Consultar"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Visualizar</span></a>   <!-- Enlace para seleccionar la ayuda que desea consultar--> 

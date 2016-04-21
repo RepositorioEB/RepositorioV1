@@ -15,15 +15,13 @@ return [
 
     'accepted'             => 'El campo :attribute debe ser aceptado.',
     'active_url'           => 'El campo :attribute no es una URL válida.',
-    'after'                => 'El campo :attribute debe ser una fecha posterior a :date.',
+    //'after'                => 'El campo :attribute debe ser una fecha posterior a :date.',
+    'after'                => 'El usuario debe tener como máximo 80 años.',
     'alpha'                => 'El campo :attribute sólo puede contener letras.',
     'alpha_dash'           => 'El campo :attribute sólo puede contener letras, números y guiones (a-z, 0-9, -_).',
     'alpha_num'            => 'El campo :attribute sólo puede contener letras y números.',
     'array'                => 'El campo :attribute debe ser un array.',
-    'before'               => 'El campo :attribute debe ser una fecha anterior a :date.',
-    /*
-    'before'               => 'El usuario debe tener mas de 15 años.',
-    */
+    'before'               => 'El usuario debe tener como mínimo 15 años.',
     'between'              => [
         'numeric' => 'El campo :attribute debe ser un valor entre :min y :max.',
         'file'    => 'El archivo :attribute debe pesar entre :min y :max kilobytes.',

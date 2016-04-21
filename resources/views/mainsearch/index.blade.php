@@ -357,7 +357,7 @@
 			@foreach($helpsdescription as $helpdescription)   <!-- Ciclo con la descripcion de las ayudas-->
 				<tr>
 					<td>{{$helpdescription->name}}</td>
-					<td>{{$helpdescription->description}}</td>
+					<td>{!! $replace=str_replace("\r","<br>",$helpdescription->description); !!}</td>
 					<td align="right">
 						<a href="{{ route('helps.helps.show',$helpdescription->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpdescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
