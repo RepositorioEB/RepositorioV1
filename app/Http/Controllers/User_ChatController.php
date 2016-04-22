@@ -50,15 +50,25 @@ class User_ChatController extends Controller
 
     public function conversation()
     {
-        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
+        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(100);
         $users = DB::table('users')->get();
         return view('chat.users_chats.conversation')->with('users', $users)->with('users_chats', $users_chats);
     }
 
     public function conversationchat()
     {
-        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(1000);
+        $users_chats = DB::table('users_chats')->orderBy('created_at','DESC')->paginate(100);
         $users = DB::table('users')->get();
         return view('chat.users_chats.conversationchat')->with('users', $users)->with('users_chats', $users_chats);    
+    }
+    public function escribir()
+    {
+        if($_GET['mensaje']!=''){
+            $users_chats = new User_chat();
+            $users_chats->nameorigen =$_GET['nombreorigen'];
+            $users_chats->namedestino=$_GET['nombredestino'];
+            $users_chats->mensaje=$_GET['mensaje'];
+            $users_chats->save();    
+        }
     }
 }

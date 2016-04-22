@@ -56,7 +56,10 @@ Route::group(['middleware' => 'web'], function () {
             'as' => 'chat.users_chats.conversation', 
             'uses' => 'User_ChatController@conversation'
           ]);
-
+          Route::get('escribir', [
+            'as' => 'chat.users_chats.escribir', 
+            'uses' => 'User_ChatController@escribir'
+          ]);
           Route::get('mensajes', [
             'as' => 'chat.users_chats.conversationchat', 
             'uses' => 'User_ChatController@conversationchat'

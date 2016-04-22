@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
     <!-- Iconos -->
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+    <!--<link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">-->
     <!-- Fin Modificado (ed) -->
     @if (Auth::guest())   <!-- Condicion inicio de sesion-->
         <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
@@ -49,6 +49,10 @@
         .fa-btn {
             margin-right: 6px;
         }
+    
+       #cargando{
+            display: none;
+       }
     </style>
 </head>
 <body id="app-layout">

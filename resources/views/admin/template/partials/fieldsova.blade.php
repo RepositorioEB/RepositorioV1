@@ -1,7 +1,7 @@
 <!-- Campos para ova-->
 <div class="form-group">
 	<h3>{!! Form::label('name','Nombre',[ "class"=>"label label-primary"]) !!}</h3>
-	{!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Nombre completo','required']) !!}
+	{!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Nombre completo (Minimo 5 caracteres)','required']) !!}
 </div>
 @if($routes == 'create')
 <div class="form-group">
@@ -16,7 +16,7 @@
 @endif
 <div class="form-group">
 	<h3>{!! Form::label('description','Descripción',["class"=>"label label-primary"]) !!}</h3>
-	{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+	{!! Form::textarea('description', null, ['class' => 'form-control','placeholder' => 'Descripción del OVA (Minimo 20 caracteres)']) !!}
 </div>
 <div class="form-group">
 		<h3>{!! Form::label('archive','Archivo',["for"=>"archive","class"=>"label label-primary"]) !!}

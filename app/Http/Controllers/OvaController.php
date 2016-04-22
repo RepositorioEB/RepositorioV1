@@ -141,7 +141,7 @@ class OvaController extends Controller
                 \Storage::disk('local')->put($nombre,  \File::get($file));
                 $ova->archive = $nombre;
                 $ova->save();
-                Flash::success("Se ha registrado el ova " .$ova->id. " con exito!");
+                Flash::success("Se ha registrado el ova " .$ova->name. " con exito!");
                 return redirect()->route('admin.ovas.index');
             }else{
                 Flash::error("El archivo debe ser .rar ó .zip.");
@@ -192,7 +192,7 @@ class OvaController extends Controller
         $ova->fill($request->all());
         if($file != null){
             $nombre = $file->getClientOriginalName();
-            \Storage::delete($request->archive);
+            \Storage::delete($request->archive);    
             $nombre = $ova->id.$nombre;
             \Storage::disk('local')->put($nombre,  \File::get($file));
             $ova->archive = $nombre;

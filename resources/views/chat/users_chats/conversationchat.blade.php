@@ -6,10 +6,10 @@
     <h3><legend>Contacto: {{$_GET['nombredestino']}}</legend></h3>
     <br><br>
     <div id="conversation">
-       <noscript>   <!-- Consdicion si no funciona javascript-->
+       <noscript>   <!-- Condicion si no funciona javascript-->
         <?php 
         foreach ($users_chats as $user_chat) {                //Ciclo para los chat de los usuarios
-            //Consicion usuario indicado para enviar mensaje
+            //Condicion usuario indicado para enviar mensaje
             if (((($user_chat->nameorigen == Auth::user()->username) AND ($user_chat->namedestino == $_GET['nombredestino'])) || (($user_chat->namedestino == Auth::user()->username)AND($user_chat->nameorigen == $_GET['nombredestino'])))) {
                 echo "<br>";
                 echo "<div id='message'>";
@@ -34,34 +34,53 @@
             }
         } 
         ?> 
-        </noscript>
-                                       
+        </noscript>                    
     </div>
-    {!! Form::open(['route' => ['chat.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}  <!-- Forumulario para enviar el mensaje-->
-    <br>
-    <h3><label class="label label-primary" for="mensaje">Ingrese el mensaje: </label></h3>
-    <input type="text" placeholder="Mensaje" id="mensaje" class="form-control"  name="mensaje" size="40">
-    <br>
-        <div class="form-group">
-            <center>{!! Form::submit('Enviar',['class' => 'btn btn-primary']) !!}</center>   <!-- Boton enviar mensaje-->
-        </div>
-    {!! Form::close() !!}
-        
+    <script type="text/javascript">
+            document.write("<form id='formChat' role='form' action='' onSubmit='myFunction(); return false'>");
+            document.write("<br>");
+            document.write("<h3><label class='label label-primary' for='mensaje'>Ingrese el mensaje: </label></h3>");
+            document.write("<input type='text' placeholder='Mensaje' id='mensaje' class='form-control'  name='mensaje' size='40'>");
+            document.write("<br>");
+            document.write("</form>");
+            document.write("<center>");
+            document.write("<button onclick='myFunction()' class = 'btn btn-warning'>Enviar</button>");
+            document.write("</center>");
+    </script>
     <noscript>
+        {!! Form::open(['route' => ['chat.users_chats.store','nameorigen'=>Auth::user()->username,'namedestino'=>$_GET['nombredestino']],'method' => 'POST']) !!}  <!-- Forumulario para enviar el mensaje-->
+        <br>
+        <h3><label class="label label-primary" for="mensaje">Ingrese el mensaje: </label></h3>
+        <input type="text" placeholder="Mensaje" id="mensaje" class="form-control"  name="mensaje" size="40">
+        <br>
+        <div class="form-group">
+            <center>{!! Form::submit('Enviar',['class' => 'btn btn-warning']) !!}</center>   <!-- Boton enviar mensaje-->
+        </div>
+        {!! Form::close() !!}
+    
         <div class="text-center">
             {!! $users_chats->appends(array('nombredestino' => $_GET['nombredestino']))->links()!!}   <!-- Paginacion de mensjaes-->
         </div>
     </noscript>
 @endsection
-
-        
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>       <!-- Script para el envio de mensaje-->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
             $(document).on("ready", function(){             
                 $.ajaxSetup({"cache":false});   //Uso del ajax para envio de mensaje
-                setInterval("loadOldMessages()",500);
+                setInterval("loadOldMessages()",1000);
             });
+            function myFunction() {
+                var frm = $("#formChat").serialize();
+                $.ajax({
+                        type: "GET",
+                        url: "/chat/escribir?nombredestino={{$_GET['nombredestino']}}&nombreorigen={{Auth::user()->username}}",
+                        data: frm
+                    }).done(function(info){
+                        $("#mensaje").val("");
+                        console.log(info);  
+                })
+            }
             
             var loadOldMessages = function (){
                 $.ajax({
@@ -76,4 +95,3 @@
             
             }
     </script>
-

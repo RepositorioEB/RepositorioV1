@@ -18,11 +18,11 @@ use App\Ova_Evaluation;
 use App\Ova;
 use DB;
 use Laracasts\Flash\Flash;
-
+use App\Http\Requests\OvaRequest;
 
 class OvaMemberController extends Controller
 {
-    public function store(Request $request)
+    public function store(OvaRequest $request)
     {
         $ovas = new Ova($request->all());
         $ovaslist = Ova::orderBy('id','ASC')->lists('name', 'id');
