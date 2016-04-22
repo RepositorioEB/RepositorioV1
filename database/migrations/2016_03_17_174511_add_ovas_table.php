@@ -15,7 +15,7 @@ class AddOvasTable extends Migration
         Schema::create('ovas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('language',25)->nullable();
+            $table->string('language',2)->default('es')->nullable();
             $table->text('description')->nullable();
             $table->string('archive');
             $table->integer('punctuation')->nullable();

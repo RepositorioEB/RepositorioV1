@@ -23,9 +23,9 @@ class CreateUsersTable extends Migration
             $table->date('date');
             $table->string('photo')->default('userdefect.png');
             $table->text('studies')->nullable();
-            $table->string('country')->nullable();
+            $table->string('country')->default('CO')->nullable();
             $table->enum('role', ['member','admin'])->default('member');
-            $table->integer('profile_id')->unsigned()->nullable();
+            $table->integer('profile_id')->default(1)->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

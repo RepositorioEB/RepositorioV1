@@ -24,7 +24,7 @@ class ForumRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'min:5|max:30|required',
+            'name' => 'min:5|max:30|alpha_num|required',
             'characteristic' => 'min:20|required'
         ];
     }

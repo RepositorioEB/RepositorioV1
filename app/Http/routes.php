@@ -18,35 +18,36 @@ Route::group(['middleware' => 'web'], function () {
         
 Route::group(['middleware' => 'web'], function () {
 
-      // -----Vista principal
-      Route::get('/', function () {
-        if(Auth::check()){
-          return Redirect::to('member');
-        }
-        return view('welcome');
-      });
-      Route::get('rovaa',function(){
-        if(Auth::check()){
-          return view('rovaa');
-        }
-          return Redirect::to('member');
-      });
-      Route::get('acercade',function(){
-        if(Auth::check()){
-          return view('acercade.creadores');
-        }
-          return Redirect::to('member');
-      });
-      Route::get('problematica',function(){
-        if(Auth::check()){
-          return view('acercade.problematica');
-        }
-          return Redirect::to('member');
-      });
-      // -----Autenticación
+    // -----Autenticación
       Route::auth();
-      
+            
       Route::group(['middleware' => ['auth']],function(){
+
+          // -----Vista principal
+        Route::get('/', function () {
+          if(Auth::check()){
+            return Redirect::to('member');
+          }
+          return view('welcome');
+        });
+        Route::get('rovaa',function(){
+          if(Auth::check()){
+            return view('rovaa');
+          }
+            return Redirect::to('member');
+        });
+        Route::get('acercade',function(){
+          if(Auth::check()){
+            return view('acercade.creadores');
+          }
+            return Redirect::to('member');
+        });
+        Route::get('problematica',function(){
+          if(Auth::check()){
+            return view('acercade.problematica');
+          }
+            return Redirect::to('member');
+        });
 
         Route::group(['prefix' => 'chat'],function(){
         

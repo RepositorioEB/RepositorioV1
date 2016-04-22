@@ -24,7 +24,7 @@ class TypeRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'min:5|max:255|required'
+            'name' => 'min:5|max:255|alpha_num|required'
         ];
     }
 }
