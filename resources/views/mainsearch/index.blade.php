@@ -3,7 +3,6 @@
 @section('title', 'Búsqueda principal')
 
 @section('content')
-	<div class="table-responsive">
 	<?php
 		$var = 0;
 	?>
@@ -16,6 +15,7 @@
 	@endforeach
 	@if($var==1) 
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ovas por nombre</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -34,6 +34,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 	
 	
@@ -49,6 +50,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ovas por descripcion</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -69,6 +71,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 
 	<?php
@@ -83,6 +86,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ovas por archivo</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -103,6 +107,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+    </div>
     @endif
 
 	<?php
@@ -115,6 +120,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ovas por categoria</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -131,7 +137,8 @@
 			@endforeach
 		</tbody>	
 	</table>
-    @endif
+    </div
+    >@endif
 	
     <?php
 		$var = 0;
@@ -143,6 +150,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ovas por tipo</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -159,6 +167,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 
 	<?php
@@ -171,6 +180,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Descripción categoría</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -189,6 +199,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 
 	<?php
@@ -201,6 +212,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Descripción tipo</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -219,6 +231,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 
 	<?php
@@ -231,6 +244,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Foros por nombre</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -247,6 +261,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 	
 	<?php
@@ -259,6 +274,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Foros por caracteristicas</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -277,6 +293,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 
 	<?php
@@ -289,6 +306,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ayudas por nombre</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -305,6 +323,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 
 	<?php
@@ -317,6 +336,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ayudas por video</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -335,6 +355,7 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 	
 	<?php
@@ -347,6 +368,7 @@
 	@endforeach
 	@if($var==1)
 	<legend><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Ayudas por descripción</legend>
+	<div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -365,10 +387,10 @@
 			@endforeach
 		</tbody>	
 	</table>
+	</div>
 	@endif
 
 	<div class="text-center">
 	    {!! $ovasdescription->appends(array('search' => $_GET['search']))->links()!!}  <!--Realizar la paginacion -->
     </div>
-	</div>
 @endsection

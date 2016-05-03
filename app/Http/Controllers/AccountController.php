@@ -20,6 +20,7 @@ use App\Category;
 use App\Country;
 use App\Http\Requests\AccountRequest;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\UserRequest;
 
 class AccountController extends Controller
 {
@@ -179,7 +180,7 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserRequest $request)
     {
         /*Esta funcion nos permite validar si el usuario modifico la imagen,
         Si el usuario modifico la imagen, se verifica que la imagen actual no sea

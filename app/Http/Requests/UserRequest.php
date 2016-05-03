@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 
 class UserRequest extends Request
 {
@@ -23,17 +24,17 @@ class UserRequest extends Request
      */
     public function rules()
     {
-        $fecha1 = '1930-01-01';
-        $fecha2 = '2001-01-01';
+        $fecha1 = '1936-'.Carbon::now()->format('m').'-'.Carbon::now()->format('d');
+        $fecha2 = '2001-'.Carbon::now()->format('m').'-'.Carbon::now()->format('d');
         return [
             'name' => 'min:4|max:30|alpha|required',
             'last_name' => 'max:30|alpha',
-            'username' => 'min:4|max:10|alpha_num|required|unique:users',
-            'email' => 'min:7|max:30|required|unique:users',
-            'password' => 'min:8|max:60|required',
+            //'username' => 'min:4|max:10|alpha_num|required|unique:users',
+            //'email' => 'min:7|max:30|required|unique:users',
+            //'password' => 'min:8|max:60|required',
             'gender' => 'required',
             'date' => 'required|date|after:'.$fecha1.'|before:'.$fecha2.'',
-            'role' => 'required',
+            //'role' => 'required',
             'photo' => 'image',
             'country' => 'required',
             'studies' => 'min:20',

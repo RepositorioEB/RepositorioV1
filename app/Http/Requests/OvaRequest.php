@@ -24,7 +24,7 @@ class OvaRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'min:5|max:255|alpha|required',
+            'name' => 'min:5|max:255|alpha_num|required',
             'language' => 'max:15',
             'description' => 'min:20',
             //'archive' => 'max:255|required',

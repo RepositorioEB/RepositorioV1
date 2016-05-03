@@ -20,16 +20,17 @@ Route::group(['middleware' => 'web'], function () {
 
     // -----Autenticación
       Route::auth();
+
+      Route::get('/', function () {
+        if(Auth::check()){
+          return Redirect::to('member');
+        }
+        return view('welcome');
+      });
             
       Route::group(['middleware' => ['auth']],function(){
 
           // -----Vista principal
-        Route::get('/', function () {
-          if(Auth::check()){
-            return Redirect::to('member');
-          }
-          return view('welcome');
-        });
         Route::get('rovaa',function(){
           if(Auth::check()){
             return view('rovaa');

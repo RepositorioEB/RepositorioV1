@@ -8,11 +8,11 @@
 	{!! Form::open(['route' => 'member.problems.store','method' => 'POST']) !!} <!-- Formuario para crear un nuevo problema-->
 		<div class="form-group">
 		<h3>{!! Form::label('name','Nombre',['class'=>'label label-primary']) !!}</h3> 
-			{!! Form::text('name', null, ['class' => 'form-control']) !!}   <!-- Campo para ingresar el nombre del problema-->
+			{!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Nombre completo (Minimo 5 caracteres)']) !!}   <!-- Campo para ingresar el nombre del problema-->
 		</div>
 		<div class="form-group">
 		<h3>{!! Form::label('description','Descripción',['class'=>'label label-primary']) !!}</h3>
-			{!! Form::textarea('description', null, ['class' => 'form-control']) !!} <!-- Campo para ingresar la descripcion del problema-->
+			{!! Form::textarea('description', null, ['class' => 'form-control','placeholder' => 'Descripción (Minimo 20 caracteres)']) !!} <!-- Campo para ingresar la descripcion del problema-->
 		</div>
 		<div class="form-group">
 			<center>
