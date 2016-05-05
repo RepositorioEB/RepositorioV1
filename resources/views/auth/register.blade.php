@@ -70,7 +70,7 @@
 
             <div class="col-md-6">
                 <!-- Campo para la contrasela del usaurio-->
-                <input type="password" id="contraseña" class="form-control" name="password">
+                <input type="password" id="contraseña" class="form-control" name="password" values="{{$clave}}">
 
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -83,7 +83,7 @@
         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
             <label class="col-md-4 control-label" for="contraseña_confirmar">Confirmar contraseña</label>
             <div class="col-md-6">
-                <input type="password" id="contraseña_confirmar" class="form-control" name="password_confirmation">
+                <input type="password" id="contraseña_confirmar" class="form-control" name="password_confirmation" values="{{$clave}}">
 
                 @if ($errors->has('password_confirmation'))
                     <span class="help-block">

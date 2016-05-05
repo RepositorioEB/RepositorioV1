@@ -12,7 +12,7 @@
 			            <div class="panel-body">
 			                <div class="media">
 					          	<div class="media-center">
-					          		<a href=""><img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" alt="avatar"/></a>
+					          		<a href=""><img class="imag-responsive" src="{{asset('images/users/'.$user->photo.'')}}" width="230" height="230" name="photo" alt="avatar"/></a>
 									{!! Form::label('photo','Cambiar foto')!!}
 					          		{!! Form::file('photo')!!}   <!-- Seleccionador de archivo para la foto de usuario-->
 					          	</div>

@@ -10,7 +10,7 @@
 	            <div class="panel-body">
 	                <div class="media">
 			          	<div class="media-center">
-			          		<img class="imag-responsive" src="/images/users/{{ $user->photo }}" width="230" height="230" name="photo" alt="avatar"/>
+			          		<img class="imag-responsive"  src="{{asset('images/users/'.$user->photo.'')}}" width="230" height="230" name="photo" alt="avatar"/>
 			          		<h1>{{$user->name." ".$user->last_name}}  <!-- Datos de usuario-->
 			          			<small >{{$user->username}}</small>
 			          		</h1>

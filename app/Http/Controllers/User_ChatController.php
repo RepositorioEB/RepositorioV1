@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
-use App\User_chat;
+use App\User_Chat;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
 
@@ -64,7 +64,7 @@ class User_ChatController extends Controller
     public function escribir()
     {
         if($_GET['mensaje']!=''){
-            $users_chats = new User_chat();
+            $users_chats = new User_Chat();
             $users_chats->nameorigen =$_GET['nombreorigen'];
             $users_chats->namedestino=$_GET['nombredestino'];
             $users_chats->mensaje=$_GET['mensaje'];

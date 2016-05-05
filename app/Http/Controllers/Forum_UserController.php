@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
-use App\forum_user;
+use App\Forum_User;
 use App\user;
 use App\Forum;
 use Laracasts\Flash\Flash;

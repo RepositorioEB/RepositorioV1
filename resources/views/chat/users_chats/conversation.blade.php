@@ -1,26 +1,28 @@
-@foreach ($users_chats as $user_chat)    <!-- Ciclo para los chata de los usuarios-->
-            <!-- Condicion para eviar el mensaje al usuario correspondiente-->
-            @if (((($user_chat->nameorigen == Auth::user()->username) AND ($user_chat->namedestino == $_GET['nombredestino'])) || (($user_chat->namedestino == Auth::user()->username)AND($user_chat->nameorigen == $_GET['nombredestino']))))
-                
-                <div id="message">
-                    <p> <h4>
-                    <?php
+<?php
+foreach ($users_chats as $user_chat) {
+    $mensajes[] = $user_chat;
+}
+foreach (array_reverse($mensajes) as $mensaje) {
+            if (((($mensaje->nameorigen == Auth::user()->username) AND ($mensaje->namedestino == $_GET['nombredestino'])) || (($mensaje->namedestino == Auth::user()->username)AND($mensaje->nameorigen == $_GET['nombredestino']))))
+            {    
+                echo"<div id='message'>";
+                    echo"<p> <h4>";
                     foreach ($users as $user)   
-					{
-						if($user_chat->nameorigen == $user->username)    //Condicion de usuario que va a enciar el mensaje
-						{
-							if(($user->photo) == null)  //Condicion si el usuario tiene foto
-                			{
-                    			echo "<img alt='Foto".$user_chat->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
-                			}else{
-                    			echo "<img alt='Foto".$user_chat->id."' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 >";
-                			}
-               		
-						}	
-					}
-                    ?> 
-                    &nbsp;<div class="label label-danger" name="nombreusuario">{{$user_chat->nameorigen}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </div>&nbsp;{{$user_chat->mensaje}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="label label-primary">{{$user_chat->created_at}}</div></h4></p>   
-                </div>
-                <br>
-            @endif
-@endforeach
+                    {
+                        if($mensaje->nameorigen == $user->username)    //Condicion de usuario que va a enciar el mensaje
+                        {
+                            if(($user->photo) == null)  //Condicion si el usuario tiene foto
+                            {
+                                echo "<img alt='Foto".$mensaje->id."' src='".asset('images/users/userdefect.png')."' width=50 height=50 >";
+                            }else{
+                                echo "<img alt='Foto".$mensaje->id."' src='".asset('images/users/'.$user->photo.'')."' width=50 height=50 >";
+                            }
+                    
+                        }   
+                    }
+                    echo"&nbsp;<div class='label label-danger' name='nombreusuario'>".$mensaje->nameorigen. ": <span class='glyphicon glyphicon-arrow-right' aria-hidden='true'></span> </div>&nbsp;".$mensaje->mensaje."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class='label label-primary'>".$mensaje->created_at."</div></h4></p>";   
+                echo"</div>";
+                echo"<br>";
+            }
+}
+?>

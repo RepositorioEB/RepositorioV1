@@ -45,6 +45,8 @@
             document.write("</form>");
             document.write("<center>");
             document.write("<button onclick='myFunction()' class = 'btn btn-warning'>Enviar</button>");
+            document.write("&nbsp;");
+            document.write("<button onclick='window.close();' class = 'btn btn-warning'>Cancelar</button>");
             document.write("</center>");
     </script>
     <noscript>
@@ -57,7 +59,6 @@
             <center>{!! Form::submit('Enviar',['class' => 'btn btn-warning']) !!}</center>   <!-- Boton enviar mensaje-->
         </div>
         {!! Form::close() !!}
-    
         <div class="text-center">
             {!! $users_chats->appends(array('nombredestino' => $_GET['nombredestino']))->links()!!}   <!-- Paginacion de mensjaes-->
         </div>
@@ -66,9 +67,15 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>       <!-- Script para el envio de mensaje-->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
+            var altura1=0;
+            
             $(document).on("ready", function(){             
                 $.ajaxSetup({"cache":false});   //Uso del ajax para envio de mensaje
                 setInterval("loadOldMessages()",1000);
+                $("#conversation p:last-child").css({"background-color":"black",
+                                                        "padding-botton":"20px"});
+                        var altura= $("#conversation").prop("scrollHeight");
+                        $("#conversation").scrollTop(altura);
             });
             function myFunction() {
                 var frm = $("#formChat").serialize();
@@ -78,7 +85,12 @@
                         data: frm
                     }).done(function(info){
                         $("#mensaje").val("");
-                        console.log(info);  
+                        console.log(info);
+                        $("#conversation p:last-child").css({"background-color":"black",
+                                                        "padding-botton":"20px"});
+                        var altura= $("#conversation").prop("scrollHeight");
+                        altura1=altura;
+                        $("#conversation").scrollTop(altura);  
                 })
             }
             
@@ -88,9 +100,11 @@
                     url: "/chat/llamando?nombredestino={{$_GET['nombredestino']}}"
                 }).done(function(info){
                     $("#conversation").html(info);
-                    $("#conversation p:first-child").css({"background-color":"black",
-                                                        "padding-botton":"20px"});
                     var altura= $("#conversation").prop("scrollHeight");
+                    if(altura1>1 || altura1==0){
+                        $("#conversation").scrollTop(altura);
+                        altura1=1;
+                    }         
                 });
             
             }

@@ -76,11 +76,11 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        
         /*Mail::send('emails.contact', ['data' => $data], function ($m) use ($data) {
-            $m->from('repositorioovas@gmail.com', 'Repositorio de OVAS');
+            $m->from('webmaster@rovaud.com', 'Repositorio de OVAS');
             $m->to($data['email'],$data['name'])->subject('Código de usuario:');
         });*/
+        
         return User::create([
             'name' => $data['name'],
             'username' => $data['username'],
