@@ -54,7 +54,7 @@ class Forum_UserController extends Controller
         $foros = DB::table('forums')->where('id', $request->forum_id)->first();
         $users = user::orderBy('created_at','ASC')->get();
         //Redireccionamos la ventana al foro en el que estamos ubicados pero cargadon los comentarios realizados
-        return Redirect::to('/foro/comentar?forum_id='.$request->forum_id.'&user_id='.$request->user_id);
+        return Redirect::to('/foro/comentar?forum_id='.$request->forum_id);
     }
 
     public function show($id)

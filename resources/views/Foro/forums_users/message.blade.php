@@ -21,8 +21,15 @@
     {!! Form::close() !!}
     
     <div id="conversation" >  <!-- Mostrar conversacion del foro-->
+    <?php
+        $x=0;
+    ?>
         @foreach ($foros_usuarios as $foro_usuario)
             @if ($foro_usuario->forum_id == $_GET['forum_id'])
+                @if($x==0)
+                    <div style="border-top: 1px solid black;">
+                @endif
+                <br>
                 <div id="message">
                     <p> <h4>
                     <?php
@@ -37,6 +44,15 @@
                     <!-- Mostrar foto y nomnre de usuario origen, mensaje a enviar y la fecha-->
                     &nbsp;<div class="label label-danger" name="nombreusuario" alt="2">{{$foro_usuario->user->username}} : <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> </div>&nbsp;{{$foro_usuario->message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="label label-primary">{{$foro_usuario->created_at}}</div></h4></p>   
                 </div>
+                @if($x==0)
+                    <?php
+                        $x=1;
+                    ?>
+                    </div>
+                    <br>
+                    <div style="border-top: 1px solid black;">
+                    </div>
+                @endif
                 <br>
             @endif
         @endforeach          
@@ -45,7 +61,7 @@
     <div class="text-center">
         <!-- Paginacion del foro
     -->
-        {!! $foros_usuarios->appends(array('forum_id' => $_GET['forum_id'],'user_id' => $_GET['user_id']))->links()!!}
+        {!! $foros_usuarios->appends(array('forum_id' => $_GET['forum_id']))->links()!!}
     </div>
 @endsection
 

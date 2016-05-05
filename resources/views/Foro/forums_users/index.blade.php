@@ -39,7 +39,7 @@
 						@endforeach		
 						<td>
 							<!-- Enlace para seleccionar foro-->
-		                    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forum->id,'user_id'=>Auth::user()->id]) }}" class="btn btn-warning" title="Seleccionar Foro"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
+		                    <a href="{{ route('foro.foros_usuarios.message',['forum_id'=>$forum->id]) }}" class="btn btn-warning" title="Seleccionar Foro"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>
 	    				</td>
 					</tr>
 				@endforeach
