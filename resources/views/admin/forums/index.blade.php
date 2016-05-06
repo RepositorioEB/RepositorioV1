@@ -16,13 +16,14 @@
 				</span>
 			</div>
 		{!! Form::close() !!}               <!-- Fin de formulario-->
+		@if(count($forums)>0)
 		<table class="table table-striped">   <!-- Tabla con estilo-->
 			<thead>               <!-- Cabeza de tabla-->
-				<th>N°</th>     <!-- Nombre columna-->
+				<th>Nº</th>     <!-- Nombre columna-->
 				<th>Nombre</th>
-				<th>Caracteristicas</th>
+				<th>Características</th>
 				<th>Creador</th>
-				<th>Accion</th>
+				<th>Acción</th>
 			</thead>
 			<tbody>             <!-- Cuerpo de tabla-->
 				<?php
@@ -42,9 +43,12 @@
 				@endforeach     <!-- Fin ciclo-->
 			</tbody>	
 		</table>
-	</div>
 	<div class="text-center">
 		{!! $forums->render() !!}             <!-- Paginacion de foros-->
 	</div>
-	
+	@else
+		<br><br><br><br>
+		<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+	@endif
+	</div>
 @endsection     <!-- Fin de contenido-->

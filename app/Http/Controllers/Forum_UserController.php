@@ -25,11 +25,8 @@ class Forum_UserController extends Controller
     public function index(Request $request){
         //La funcion search nos permite realizar las busquedas de los foros
         $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->first();
-        if($forums){
-            $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->paginate(30);
-        }else{ 
-            $forums = Forum::orderBy('id','ASC')->paginate(30);
-        }
+        $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->paginate(30);
+        
         $users = User::orderBy('id','ASC')->get();
         
         return view('foro.forums_users.index')->with('forums', $forums)->with("users",$users);

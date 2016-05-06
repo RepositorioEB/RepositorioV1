@@ -15,6 +15,10 @@
 		</div>
 	{!! Form::close() !!}
 	<br><br><br><br><br>
+	@if(count($ovas)==0)
+		<br><br>
+		<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+	@endif
 	@foreach($ovas as $ova)    <!-- Ciclo de ovas-->
 	<br>
 	{!! Form::open( ['route' => ['ovas.ova.store'],'method' => 'POST', 'files' => true]) !!}    <!-- Formulario para traer campos de ova-->

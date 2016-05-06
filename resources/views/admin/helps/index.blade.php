@@ -17,9 +17,10 @@
 			</div>
 	{!! Form::close() !!}     <!-- Fin de ciclo-->
 	<br><br><br>
+		@if(count($helps)>0)
 		<table class="table table-striped">         <!-- Tabla con estilo-->
 			<thead>        <!-- Cabeza tabla-->
-				<th>N°</th>               <!-- Nombre columna-->
+				<th>Nº</th>               <!-- Nombre columna-->
 				<th>Nombre</th>
 				<th>Descripción</th>
 				<th>Enlace</th>
@@ -45,9 +46,11 @@
 				@endforeach                    <!-- Fin de ciclo-->
 			</tbody>	
 		</table>
-	</div>
 	<div class="text-center">
 		{!! $helps->render() !!}               <!-- Paginacion de ayuda-->
 	</div>
-	
+	@else
+		<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+	@endif
+	</div>
 @endsection                  <!-- Fin de contenido-->

@@ -38,11 +38,8 @@ class HelpController extends Controller
     public function index(Request $request)
     {
         $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->first();
-        if($helps){
-            $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->paginate(10);
-        }else{
-            $helps = Help::orderBy('id','ASC')->paginate(10);
-        }
+        $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->paginate(10);
+        
         $helps->each(function($helps){
             $helps->user;
         });
@@ -170,11 +167,8 @@ class HelpController extends Controller
     public function listas(Request $request)
     {
         $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->first();
-        if($helps){
-            $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->paginate(10);
-        }else{
-            $helps = Help::orderBy('id','ASC')->paginate(10);
-        }
+        $helps = Help::SearchName($request->name)->orderBy('id', 'ASC')->paginate(10);
+        
         $helps->each(function($helps){
             $helps->user;
         });

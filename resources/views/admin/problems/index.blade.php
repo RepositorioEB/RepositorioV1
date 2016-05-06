@@ -16,15 +16,15 @@
 				</span>
 			</div>
 		{!! Form::close() !!}
-	
+		@if(count($problems)>0)
 		<table class="table table-striped">
 			<thead>
-				<th>N°</th>
+				<th>Nº</th>
 				<th>Nombre</th>
 				<th>Descripción</th>
 				<th>Estado</th>
 				<th>Creador</th>
-				<th>Accion</th>
+				<th>Acción</th>
 			</thead>
 			<tbody>
 				<?php
@@ -49,8 +49,12 @@
 				@endforeach
 			</tbody>	
 		</table>
-	</div>
-	<div class="text-center">
-		{!! $problems->render() !!}       <!-- Paginacion problema-->
+		<div class="text-center">
+			{!! $problems->render() !!}       <!-- Paginacion problema-->
+		</div>
+		@else
+			<br><br><br>
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+		@endif
 	</div>
 @endsection

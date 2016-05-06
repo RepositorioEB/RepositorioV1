@@ -16,6 +16,7 @@
 				</span>
 			</div>
 		{!! Form::close() !!}
+		@if(count($problems)>0)
 		<table class="table table-striped">
 			<thead>
 				<th>Nombre</th>
@@ -38,9 +39,12 @@
 				@endforeach
 			</tbody>	
 		</table>
+		<div class="text-center">
+			{!! $problems->render() !!}       <!-- Paginacion de los problemas-->
+		</div>
+		@else
+			<br><br>
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+		@endif
 	</div>
-	<div class="text-center">
-		{!! $problems->render() !!}       <!-- Paginacion de los problemas-->
-	</div>
-	
 @endsection

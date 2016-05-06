@@ -30,11 +30,8 @@ class ForumController extends Controller
     public function index(Request $request)
     {
         $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->first();
-        if($forums){
-            $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->paginate(10);
-        }else{
-            $forums = Forum::orderBy('id','ASC')->paginate(10);
-        }
+        $forums = Forum::SearchForum($request->name)->orderBy('id', 'ASC')->paginate(10);
+        
         $forums->each(function($forums){
             $forums->user;
         });

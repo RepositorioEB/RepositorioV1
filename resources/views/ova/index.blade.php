@@ -23,6 +23,7 @@
 		</div>
 	{!! Form::close() !!}
 	<br><br><br><br><br>
+	@if(count($ovas)>0)
 	<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
@@ -55,5 +56,9 @@
 			{!! $ovas->render() !!}   <!-- Paginacion de ovas-->
 		@endif
 	</div>
+	@else
+	<br><br><br><br>
+	<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+	@endif
 	</div>
 @endsection

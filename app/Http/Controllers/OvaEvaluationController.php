@@ -51,25 +51,17 @@ class OvaEvaluationController extends Controller
         if($request->name){
             if(($request->select)=='Nombre'){
                 $ovas = Ova::Search($request->name)->orderBy('id','ASC')->first();
-                if($ovas){
-                    $ovas = Ova::Search($request->name)->orderBy('id','ASC')->paginate(20);
-                }else{
-                    $ovas = Ova::orderBy('id','ASC')->paginate(20);
-                }
+                $ovas = Ova::Search($request->name)->orderBy('id','ASC')->paginate(20);
             }else{
                 if(($request->select)=='Tipo'){
                     $type = Type::SearchType($request->name)->select('id')->orderBy('id','ASC')->get();
                     if($type){
                         $ovas = Ova::whereIn('type_id',$type)->orderBy('id','ASC')->paginate(20);  
-                    }else{
-                        $ovas = Ova::orderBy('id','ASC')->paginate(20);
                     }
                 }else{
                     $category = Category::SearchCategory($request->name)->select('id')->orderBy('id','ASC')->get();
                     if($category){
                         $ovas = Ova::whereIn('category_id', $category)->orderBy('id','ASC')->paginate(20);
-                    }else{
-                        $ovas = Ova::orderBy('id','ASC')->paginate(20);
                     }
                 }
 

@@ -20,12 +20,13 @@
 				</span>
 			</div>
 		{!! Form::close() !!}
+		@if(count($forums)>0)
 		<table class="table table-striped ">
 			<thead>
 				<th>Nombre</th>
-				<th>Caracteristicas</th>
+				<th>Características</th>
 				<th>Creador</th>
-				<th>Accion</th>
+				<th>Acción</th>
 			</thead>
 			<tbody>
 				@foreach($forums as $forum)   <!-- Ciclo de foros-->
@@ -48,5 +49,9 @@
 		<div class="text-center">
 			{!! $forums->render() !!}   <!-- Paginacion fora-->
 		</div>
+		@else
+			<br><br><br><br>
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+		@endif
 	</div>
 @endsection

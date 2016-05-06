@@ -14,6 +14,7 @@
 			</div>
 	{!! Form::close() !!}
 	<br><br><br>
+		@if(count($helps)>0)
 		<table class="table table-striped">
 			<thead>
 				<th>Nombre</th>
@@ -39,5 +40,10 @@
 	<div class="text-center">
 		{!! $helps->render() !!}   <!-- Paginacion de las ayudas-->
 	</div>
+	@else
+		<br><br>
+		<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+	@endif
+	
 	</div>
 @endsection

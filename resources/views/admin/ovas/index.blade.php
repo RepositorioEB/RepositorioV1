@@ -5,10 +5,9 @@
 @section('content')
 
 	@include('admin.template.partials.errors')
-	<div class="table-responsive">
 		<a href="{{ route('admin.ovas.create') }}" class="btn btn-info">Registrar nuevo ova</a>   <!-- Enlace registrar nuevo ova-->
-		{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}   <!-- Formulario para seleccionar ova -->
 		<br><br>
+		{!! Form::open(['route' => 'admin.ovas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}   <!-- Formulario para seleccionar ova -->
 		<label for="sel1">Seleccionar tipo de búsqueda:</label>  
 		<select class="form-control" id="sel1" name="select">   <!-- Seleccionador para buscar ova por nombre tipo o categoria-->
     		<option>Nombre</option>
@@ -17,19 +16,20 @@
   		</select>
 		<label for="name">Ingresar nombre:</label>	
 		<div class="input-group">
-			{!! Form::text('name', null, ['id' => 'name','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}   <!-- Campo para ingresar nombre ova a buscar -->
+		{!! Form::text('name', null, ['id' => 'name','class' => 'form-control', 'placeholder' => 'Buscar ova', 'aria-describedby' => 'search']) !!}   <!-- Campo para ingresar nombre ova a buscar -->
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 		</div>
-	{!! Form::close() !!}
+		{!! Form::close() !!}
+	@if(count($ovas)>0)
 	<table class="table table-striped">
 			<thead>
 				<th>N°</th>
 				<th>Nombre</th>
-				<th>Puntuacion</th>
+				<th>Puntuación</th>
 				<th>Tipo</th>
-				<th>Categoria</th>
+				<th>Categoría</th>
 				<th>Estado</th>
-				<th>Accion</th>
+				<th>Acción</th>
 			</thead>
 			<tbody>
 				<?php
@@ -57,7 +57,6 @@
 				@endforeach
 			</tbody>	
 		</table>
-	</div>
 	<div class="text-center">
 		@if(isset($_GET['select']))
 			{!! $ovas->appends(array('select' => $_GET['select'],'name' => $_GET['name']))->links()!!}   <!-- Paginacion ovas-->
@@ -65,5 +64,9 @@
 			{!! $ovas->render() !!}
 		@endif
 	</div>
-	
+	@else
+	<br><br><br><br>
+	<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>
+	@endif
+			
 @endsection
