@@ -1,14 +1,11 @@
 @extends('layouts.app')
 
 <!-- Main Content -->
+
+@section('title', 'Envío Correo')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>   
-                <div class="panel-body">
-                    @if (session('status'))
+        <br><br><br>
+        @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
@@ -18,7 +15,7 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>    
+                            <label class="col-md-4 control-label">Correo electrónico: </label>    
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}"><!--Campo de correo para la password del usuario-->
@@ -34,14 +31,10 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i>Send Password Reset Link
+                                    <i class="fa fa-btn fa-envelope"></i>Enviar link al correo
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+              
 @endsection
