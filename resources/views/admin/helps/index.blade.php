@@ -23,7 +23,7 @@
 				<th>Nº</th>               <!-- Nombre columna-->
 				<th>Nombre</th>
 				<th>Descripción</th>
-				<th>Enlace</th>
+				<th>Video</th>
 				<th>Creador</th>
 				<th>Acción</th>
 			</thead>
@@ -36,7 +36,10 @@
 						<td>{!! $cont++; !!}</td>            <!-- Contador-->
 						<td>{{ $help->name }}</td>          <!-- Nombre ayuda-->
 						<td>{!! $replace=str_replace("\r","<br>",$help->description); !!}</td>          <!-- Descripcion ayuda-->
-						<td>{{ $help->video }}</td>           <!-- Video ayuda-->
+						<td><video width="300" controls>
+  								<source src="{{asset('videos/'.$help->video.'')}}">
+							</video>
+						</td>
 						<td>{{ $help->user->name }}</td>          <!-- Nombre creador ayuda-->
 						<td>
 							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar ayuda"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>          <!-- Enlace para modificar la ayuda-->

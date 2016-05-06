@@ -64,44 +64,51 @@ class HelpController extends Controller
      */
     public function store(HelpRequest $request)
     {
-        $helps = new Help($request->all());
+        
+        $help = new Help($request->all());
         $ayudas = Help::orderBy('id','ASC')->lists('name', 'id');
         foreach ($ayudas as $lista) {
-            if (strtolower($lista) === strtolower($helps->name)) {
+            if (strtolower($lista) === strtolower($help->name)) {
                 Flash::error("La ayuda ya existe");
                 return redirect()->route('admin.helps.create');
             }
         }
-        $validacion = strpos($helps->video, "www.youtube.com");
-        if ($validacion === false ) {
-                Flash::error("El enlace no existe y/o no es valido");
+        $file = $request->file('video2');
+        $filesize =filesize($request->file('video2'))/1024/1024; 
+        
+        if($file==null){
+            Flash::error("Debe ingresar el video.");
+            return redirect()->route('admin.helps.create');
+        }else
+        {
+            if($filesize>60){
+                Flash::error("El tamaño del video debe ser menor a 60 MB");
                 return redirect()->route('admin.helps.create');
-        }else{
-            $link = explode("//", $helps->video);
-            if (isset($link[1])) {
-                $url = Url::url_exists($link[1]);
-                if ($url) {
-                    $helps->user_id = \Auth::user()->id;
-                    $helps->save();
-                    Flash::success("Se ha registrado la ayuda " .$helps->name. " con exito!");
-                    return redirect()->route('admin.helps.index');
-                }else{
-                    Flash::error("El enlace no existe y/o no es valido");
-                    return redirect()->route('admin.helps.create');
-                }
             }else{
-                $url = Url::url_exists($helps->video);
-                if ($url) {
-                    $helps->user_id = \Auth::user()->id;
-                    $helps->save();
-                    Flash::success("Se ha registrado la ayuda " .$helps->name. " con exito!");
-                    return redirect()->route('admin.helps.index');
-                }else{
-                    Flash::error("El enlace no existe y/o no es valido");
-                    return redirect()->route('admin.helps.create');
-                }
+            $cont = substr_count($file->getClientOriginalName(), '.');
+            $arrayNombre = explode(".", $file->getClientOriginalName(), ($cont+1));
+            $tam=sizeof($arrayNombre);
+            if($arrayNombre[$tam-1] == 'mp4'){
+                $nombre = $file->getClientOriginalName();
+                $help->name = $request->name;
+                $help->description = $request->description;
+                $help->user_id = \Auth::user()->id;
+                $help->save();
+                $nombre = "help_".$help->id.$nombre;
+                $path = public_path().'/videos/';
+                $file->move($path, $nombre);
+                $help->video = $nombre;
+                $help->save();
+                Flash::success("Se ha registrado el video " .$help->name. " con exito!");
+                return redirect()->route('admin.helps.index');
+            }else{
+                Flash::error("El archivo debe ser .wmv");
+                return redirect()->route('admin.helps.create');
+            }
             }
         }
+        Flash::success("Se ha registrado la ayuda " .$help->name. " con exito!");
+        return redirect()->route('admin.helps.index');
     }
 
     /**
@@ -113,13 +120,7 @@ class HelpController extends Controller
     public function show($id)
     {
         $help = Help::find($id);   
-        $help->user;
-        $url = $help->video;
-        $query_string = array();
-        parse_str(parse_url($url, PHP_URL_QUERY), $query_string);
-        $youtube_id = $query_string["v"];
-        $urls = "https://www.youtube.com/embed/".$youtube_id;
-        return view('member.helps.show')->with('help',$help)->with('urls',$urls);
+        return view('member.helps.show')->with('help',$help);
     }
 
     /**
@@ -145,6 +146,16 @@ class HelpController extends Controller
     {
         $helps = Help::find($id);
         $helps->fill($request->all());
+        $file = $request->file('video2');
+        if($file != null){
+            $nombre = $file->getClientOriginalName();
+            $path = public_path().'/videos/';
+            \File::delete($path.$helps->video);
+            $nombre = "help_".$helps->id.$nombre;
+            $path = public_path().'/videos/';
+            $file->move($path, $nombre);
+            $helps->video = $nombre;
+        }
         $helps->save();
         Flash::warning("Se ha actualizado la ayuda " .$helps->name. " con exito!");
         return redirect()->route('admin.helps.index');
@@ -159,6 +170,8 @@ class HelpController extends Controller
     public function destroy($id)
     {
         $helps = Help::find($id);
+        $path = public_path().'/videos/';
+        \File::delete($path.$helps->video);
         $helps->delete();
         Flash::error('La ayuda ' .$helps->name. ' ha sido borrado con exito!');
         return redirect()->route('admin.helps.index');

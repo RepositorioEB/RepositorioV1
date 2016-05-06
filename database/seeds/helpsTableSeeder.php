@@ -13,7 +13,7 @@ class helpsTableSeeder extends Seeder
     public function run()
     {
         DB::table('helps')->insert(array(
-		    array('name' => 'Chat', 'video' => 'https://www.youtube.com/watch?v=O1LgDTUHH7Q&nohtml5=False', 'description' => '
+		    array('name' => 'ChatContactos', 'video' => 'help_1VideoChat.mp4', 'description' => '
 Paso 1:
 Seleccionar el botón chat.
 
@@ -25,7 +25,7 @@ Ingresar comentario.
 
 Paso 4:
 Dar clic al botón enviar.', 'user_id' => '1','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
-		    array('name' => 'Modificar perfil', 'video' => 'https://www.youtube.com/watch?v=bgbWxaf00lg&nohtml5=False', 'description' => '
+		    array('name' => 'Modificar perfil', 'video' => 'help_2VideoModificarPerfil.mp4', 'description' => '
 Paso 1:
 Seleccionar el botón con el nombre de usuario.
 
@@ -49,7 +49,7 @@ Modificar los campos.
 
 Paso 8:
 Seleccionar botón guardar.', 'user_id' => '1','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
-		    array('name' => 'Descarga, Evaluación y comentar OVA', 'video' => 'https://www.youtube.com/watch?v=xzrwPvq8A7k&nohtml5=False', 'description' => '
+		    array('name' => 'Descarga, Evaluación y comentar OVA', 'video' => 'help_3VideoDescargarEvaluarComentarOVA.mp4', 'description' => '
 Paso 1:
 Seleccionar el botón objetos.
 
@@ -88,7 +88,7 @@ Ingresar comentario.
 
 Paso 13:
 Seleccionar el botón comentar.', 'user_id' => '1','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
-		    array('name' => 'Subir y consultar OVA', 'video' => 'https://www.youtube.com/watch?v=mUapSIZddoc&nohtml5=False', 'description' => '
+		    array('name' => 'SubirConsultarOVA', 'video' => 'help_4VideoSubirConsultarOVA.mp4', 'description' => '
 Paso 1:
 Seleccionar el botón objetos.
 
@@ -115,7 +115,7 @@ Seleccionar OVA.
 
 Paso 9:
 Consultar OVA.', 'user_id' => '1','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
-		    array('name' => 'Problema', 'video' => 'https://www.youtube.com/watch?v=14yZu7iJOGE&nohtml5=False', 'description' => '
+		    array('name' => 'Problema', 'video' => 'help_5VideoProblema.mp4', 'description' => '
 Paso 1:
 Seleccionar el botón problemas.
 
@@ -136,6 +136,30 @@ Buscar problema.
 
 Paso 7:
 Ver estado del problema.', 'user_id' => '1','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
-		));
+            array('name' => 'ForoCrearComentar', 'video' => 'help_6VideoProblema.mp4', 'description' => '
+Paso 1:
+Seleccionar el botón foros.
+
+Paso 2:
+Seleccionar submenú nuevo.
+
+Paso 3:
+Ingresar datos en los campos.
+
+Paso 4:
+Seleccionar el botón crear.
+
+Paso 5:
+Buscar foro.
+
+Paso 6:
+Seleccionar foro.
+
+Paso 7:
+Ingresar comentario.
+
+Paso 8:
+Seleccionar el botón enviar.', 'user_id' => '1','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
+        ));
     }
 }

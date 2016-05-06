@@ -17,17 +17,25 @@
 		@if(count($helps)>0)
 		<table class="table table-striped">
 			<thead>
+				<th>Nº</th>               <!-- Nombre columna-->
 				<th>Nombre</th>
-				<th>Enlace</th>
+				<th>Video</th>
 				<th>Descripción</th>
 				<th>Creador</th>
 				<th>Acción</th>
 			</thead>
 			<tbody>
+				<?php
+					$cont = 1;          //Contador
+				?>
 				@foreach($helps as $help)   <!-- Ciclo de ayudas-->
 					<tr>
+						<td>{!! $cont++; !!}</td>            <!-- Contador-->
 						<td>{{ $help->name }}</td>
-						<td>{{ $help->video }}</td>
+						<td><video width="300" controls>
+  								<source src="{{asset('videos/'.$help->video.'')}}">
+							</video>
+						</td>
 						<td>{!! $replace=str_replace("\r","<br>",$help->description); !!}</td>
 						<td>{{ $help->user->name }}</td>
 						<td>

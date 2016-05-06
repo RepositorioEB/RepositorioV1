@@ -5,7 +5,7 @@
 @section('content')                        <!-- Inicio de contenido-->
 	
 	@include('admin.template.partials.errors')                      <!-- Revisar errores ventana-->
-	{!! Form::model($helps, ['route' => ['admin.helps.update',$helps->id],'method' => 'PUT']) !!}          <!-- Inicio de formulario para modificar la ayuda-->
+	{!! Form::model($helps, ['route' => ['admin.helps.update',$helps->id],'method' => 'PUT', 'files' => true]) !!}          <!-- Inicio de formulario para modificar la ayuda-->
 		@include('admin.template.partials.fieldshelp')    <!-- Traer campos ayuda-->
 		<div class="form-group">   <!-- Estructura de formualrio-->
 			<center>

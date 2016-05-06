@@ -9,18 +9,26 @@
 	<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nueva ayuda</a>     <!-- Enlace para registrar nueva ayuda-->
 		<table class="table table-striped">           <!-- Table con estilo-->
 			<thead>                  <!-- Cabeza tabla-->
+				<th>Nº</th>               <!-- Nombre columna-->
 				<th>Nombre</th>       <!-- Nombre columna-->
 				<th>Descripción</th>
-				<th>Enlace</th>
+				<th>Video</th>
 				<th>Acción</th>
 			</thead>
 			<tbody>         <!-- Cuerpo tabla-->
+				<?php
+					$cont = 1;          //Contador
+				?>
 				@foreach($helps as $help)              <!-- Ciclo de ayudas-->
 					@if($help->user_id == Auth::user()->id)          <!-- Comparacion con la identificacion del usuario-->
 					<tr>
+						<td>{!! $cont++; !!}</td>            <!-- Contador-->
 						<td>{{ $help->name }}</td>         <!-- Nombre de la ayuda-->
 						<td>{!! $replace=str_replace("\r","<br>",$help->description); !!}</td>     <!-- Descripcion de la ayuda-->
-						<td>{{ $help->video }}</td>       <!-- Descripcion del video-->
+						<td><video width="300" controls>
+  								<source src="{{asset('videos/'.$help->video.'')}}">
+							</video>
+						</td>
 						<td>
 							<a href="{{ route('admin.helps.edit', $help->id) }}" class="btn btn-warning" title="Editar ayuda"><span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>            <!-- Enlace para editar la ayuda-->
 							<a href="{{ route('admin.helps.destroy', $help->id) }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')" class="btn btn-danger" title="Eliminar ayuda"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>           <!-- Enlace para eliminar la ayuda-->

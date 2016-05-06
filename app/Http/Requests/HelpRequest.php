@@ -25,7 +25,7 @@ class HelpRequest extends Request
     {
         return [
             'name' => 'min:5|max:20|alpha_num|required',
-            'video' => 'required',
+            //'video' => 'required',
             'description' => 'min:20'
         ];
     }

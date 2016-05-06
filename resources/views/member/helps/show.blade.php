@@ -14,9 +14,9 @@
 	</section> 
 	<section>
 		<h2>Video</h2>
-	    <div class="embed-responsive embed-responsive-16by9">
-	    	<iframe class="embed-responsive-item" src="{{ $urls }}"></iframe>  <!-- Enace video de la ayuda-->
-		</div>
+		<video controls autoplay>
+  			<source src="{{asset('videos/'.$help->video.'')}}">
+		</video>
 	</section>
 	<section>
 		<div id="disqus_thread"></div>
