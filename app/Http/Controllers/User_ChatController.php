@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\User_Chat;
+use App\User;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
 
@@ -12,7 +13,7 @@ class User_ChatController extends Controller
 {
     public function index(Request $request)
     {   
-        $users = DB::table('users')->paginate(30);
+        $users = User::SearchUsername($request->username)->orderBy('username','ASC')->paginate(30);
         return view('chat.users_chats.index')->with('users', $users);
     }
     public function create()
