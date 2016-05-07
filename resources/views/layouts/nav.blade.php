@@ -97,12 +97,12 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Objetos<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('ovas.ovamember.create')}}" title="Subir Ova">Subir</a></li>
-                            <li><a href="../../ovas/menu" title="Listar OVAS">Listar</a></li>
+                            <li><a href="{{route('ovas.menu')}}" title="Listar OVAS">Listar</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a title="Buscar OVA">Búsqueda</a>
                                 <ul>
                                     <li><a href="{{route('ovas.ova.index')}}" title="Búsqueda General">General</a></li>
-                                    <li><a href="../../ovas/ovas" title="Búsqueda Ova">Ovas</a></li>
+                                    <li><a href="{{route('ovas.alls')}}" title="Búsqueda Ova">Ovas</a></li>
                                     <li><a href="{{ route('ovas.type.index') }}" title="Búsqueda Tipo">Tipo</a></li>
                                     <li><a href="{{ route('ovas.category.index') }}" title="Búsqueda Categoría">Categoría</a></li>
                                 </ul>

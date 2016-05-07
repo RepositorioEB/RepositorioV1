@@ -23,7 +23,7 @@
 	            <div class="panel-body">
 	            	<center>
 	            	<!-- Enlace de menu de ovas-->
-	                <a href="../../ovas/menu" class="btn btn btn-warning" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
+	                <a href="{{ route('ovas.menu') }}" class="btn btn btn-warning" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
 					</br></br>
 					<!-- Enlace de foros-->
 					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-warning" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>

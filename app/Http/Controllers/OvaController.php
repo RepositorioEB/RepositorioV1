@@ -22,7 +22,6 @@ class OvaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
     public function ovas(Request $request)
     {
         $ovas = Ova::Search($request->name)->orderBy('id', 'ASC')->where('state','1')->paginate(10);

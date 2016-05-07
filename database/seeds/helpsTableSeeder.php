@@ -136,7 +136,7 @@ Buscar problema.
 
 Paso 7:
 Ver estado del problema.', 'user_id' => '1','created_at' => Carbon::now(), 'updated_at' => Carbon::now()),
-            array('name' => 'ForoCrearComentar', 'video' => 'help_6VideoProblema.mp4', 'description' => '
+            array('name' => 'ForoCrearComentar', 'video' => 'help_6VideoForoCrearComentar.mp4', 'description' => '
 Paso 1:
 Seleccionar el botón foros.
 

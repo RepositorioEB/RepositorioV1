@@ -107,14 +107,22 @@ Route::group(['middleware' => 'web'], function () {
 
         Route::group(['prefix' => 'ovas'],function(){
         
+          Route::get('ova/{slug}',
+          ['as' => 'ovas.ova.slug', 
+          'uses' => 'OvaEvaluationController@slug']
+          );
           Route::resource('ova', 'OvaEvaluationController');
           Route::resource('ovamember', 'OvaMemberController');
           Route::resource('type', 'OvaTypeController');
           Route::resource('category', 'OvaCategoryController');
-          Route::get('ovas', 'OvaController@ovas');
-          Route::get('menu', function () {
-            return view('ova.menu');
-          });
+          Route::get('alls',
+          ['as' => 'ovas.alls', 
+          'uses' => 'OvaController@ovas']
+          );
+          Route::get('menu',
+          ['as' => 'ovas.menu', 
+          'uses' => 'OvaMemberController@menu']
+          );
           Route::resource('ovamember', 'OvaMemberController');
           Route::resource('downloads', 'DownloadMemberController');
           Route::resource('recentarchive', 'RecentArchiveController');

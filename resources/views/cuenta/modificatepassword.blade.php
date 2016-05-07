@@ -22,7 +22,7 @@
 	            <div class="panel-heading">Acciones</div>
 	            <div class="panel-body">
 	            	<center>
-	                <a href="../../ovas/menu" class="btn btn btn-warning" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
+	                <a href="{{ route('ovas.menu') }}" class="btn btn btn-warning" title="Ovas"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ovas</a>
 					</br></br>
 					<a href="{{ route('foro.foros_usuarios.index') }}" class="btn btn btn-warning" title="Foros"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Foros</a>
 					</br></br>

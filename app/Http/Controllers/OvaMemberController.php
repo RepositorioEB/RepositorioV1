@@ -22,6 +22,9 @@ use App\Http\Requests\OvaRequest;
 
 class OvaMemberController extends Controller
 {
+    public function menu(){
+        return view("ova.menu");
+    }
     public function store(OvaRequest $request)
     {
         $ovas = new Ova($request->all());

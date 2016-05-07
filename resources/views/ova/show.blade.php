@@ -136,7 +136,7 @@
 	</div>
 	<h3>{!! Form::label('comment','Ingrese el comentario',["class"=>"label label-primary"]) !!}</h3>
 	<!-- Formulario para comentar el ova-->
-	{!! Form::open( ['route' => ['ovas.ova_comment.store','ova_id'=>$ova->id],'method' => 'POST', 'files' => true]) !!}		
+	{!! Form::open( ['route' => ['ovas.ova_comment.store','ova_slug'=>$ova->slug],'method' => 'POST', 'files' => true]) !!}		
 		<!-- Campo de texto para ingresar el comentario-->
 		{!! Form::text('comment', null, ['title'=>'Comentario','class' => 'form-control','placeholder'=>'Ingrese el comentario']) !!}
 		<div class="form-group pull-right">

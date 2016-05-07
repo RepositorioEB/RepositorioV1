@@ -128,6 +128,6 @@
 </div>
 <br>
 <div class="form-group pull-right">
-	<a href="{{ route('ovas.ova.show', $ova->id) }}" class="btn btn-warning" title="Seleccionar">Comentar</a>  <!-- Enlace para comentar el ova-->
+	<a href="{{ route('ovas.ova.show', $ova->slug) }}" class="btn btn-warning" title="Seleccionar">Comentar</a>  <!-- Enlace para comentar el ova-->
 </div>
 

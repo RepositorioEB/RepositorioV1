@@ -42,7 +42,7 @@
 					<!-- Puntuacion del ova-->
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $ova->punctuation}}</td>
 					<td>
-					    <a href="{{ route('ovas.ova.show', $ova->id) }}" class="btn btn-warning" title="Seleccionar OVA"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>   <!-- Enlace para seleccionar el ova-->
+					    <a href="{{ route('ovas.ova.slug', $ova->slug) }}" class="btn btn-warning" title="Seleccionar OVA"><span class="glyphicon glyphicon-ok" aria-hidden="true">Seleccionar</span></a>   <!-- Enlace para seleccionar el ova-->
     				</td>
 				</tr>
 				@endif
