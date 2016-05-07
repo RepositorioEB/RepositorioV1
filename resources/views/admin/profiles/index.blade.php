@@ -7,6 +7,7 @@
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
 		<a href="{{ route('admin.profiles.create') }}" class="btn btn-info">Registrar nueva discapacidad</a>   <!-- Enlace registrar nuevo perfil-->
+		@if(count($profiles)>0)
 		<table class="table table-striped">
 			<thead>
 				<th>N°</th>
@@ -31,9 +32,12 @@
 				@endforeach
 			</tbody>	
 		</table>
-	</div>
-	<div title="Paginación" class="text-center">
-		{!! $profiles->render() !!}                     <!-- Paginacion perfil-->
+		<div title="Paginación" class="text-center">
+			{!! $profiles->render() !!}                     <!-- Paginacion perfil-->
+		</div>
+		@else
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+		@endif
 	</div>
 	
 @endsection

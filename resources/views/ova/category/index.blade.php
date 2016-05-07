@@ -11,6 +11,7 @@
 		<h3><legend>Búsqueda por: Categoria</legend></h3>
 		<br />
 		<center>
+		@if(count($categories)>0)
 		<table class="table table-striped">
 			<thead>
 					<th><big><b><center>Nombre</center></b></big></th>
@@ -32,8 +33,11 @@
 		@endforeach
 		</table>
 		</center>
-	</div>
 	<div class="text-center">
 		{!! $categories->render() !!}          <!-- Paginacion de las categorias de ovas-->
+	</div>
+	@else
+		<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>	
+	@endif
 	</div>
 @endsection

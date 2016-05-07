@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="table-responsive">
-	{!! Form::open(['route' => 'helps.helps', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}    <!-- Formulario para traer las ayudas registradas-->
+	{!! Form::open(['route' => 'helps.list', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}    <!-- Formulario para traer las ayudas registradas-->
 			<label for="name">Buscar ayuda: </label>
 			<div class="input-group">
 				{!! Form::text('name', null, ['id'=>'name','title'=>'Ingresar ayuda','class' => 'form-control', 'placeholder' => 'Buscar ayuda', 'aria-describedby' => 'search']) !!}   <!-- Campo para ingresar la ayuda a buscar-->
@@ -39,7 +39,7 @@
 						<td>{!! $replace=str_replace("\r","<br>",$help->description); !!}</td>
 						<td>{{ $help->user->name }}</td>
 						<td>
-							<a href="{{ route('helps.helps.show', $help->id) }}" class="btn btn-info" title="Consultar"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Visualizar</span></a>   <!-- Enlace para seleccionar la ayuda que desea consultar--> 
+							<a href="{{ route('helps.show', $help->id) }}" class="btn btn-info" title="Consultar"><span class="glyphicon glyphicon-folder-open" aria-hidden="true">Visualizar</span></a>   <!-- Enlace para seleccionar la ayuda que desea consultar--> 
 						</td>
 					</tr>
 				@endforeach

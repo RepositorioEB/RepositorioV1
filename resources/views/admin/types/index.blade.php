@@ -7,6 +7,7 @@
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
 		<a href="{{ route('admin.types.create') }}" class="btn btn-info">Registrar nuevo tipo</a>  <!-- Enlace registrar nuevo tipo de ova-->
+		@if(count($types)>0)
 		<table class="table table-striped">
 			<thead>
 				<th>N°</th>
@@ -31,9 +32,12 @@
 				@endforeach
 			</tbody>	
 		</table>
+		<div class="text-center">
+			{!! $types->render() !!}    <!--Paginacion tipo de ova -->
+		</div>
+		@else
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+		@endif
 	</div>		
-	<div class="text-center">
-		{!! $types->render() !!}    <!--Paginacion tipo de ova -->
-	</div>
 	
 @endsection

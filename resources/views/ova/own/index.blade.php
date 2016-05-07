@@ -8,7 +8,18 @@
 	<div class="table-responsive">
 	<a href="{{ route('ovas.ovamember.create') }}" class="btn btn-info">Registrar nuevo ova</a>   <!-- Enlace para registrar un nueo ova-->
 	<br><br><br>
-	<table class="table table-striped">
+	<?php
+		$i=0;
+	?>
+	@foreach($ovas as $ova)     <!-- Ciclo de ovas-->
+		@if($ova->user_id == Auth::user()->id)         <!-- Condicion si el ova es del usuario-->
+			<?php
+				$i=1;
+			?>
+		@endif
+	@endforeach
+	@if($i==1)
+		<table class="table table-striped">
 		<thead>
 			<th>Nombre</th>
 			<th>Tipo</th>
@@ -40,5 +51,8 @@
 	<div class="text-center">
 		{!! $ovas->render() !!}    <!-- Paginacion de ovas-->
 	</div>
+	@else
+		<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>	
+	@endif
 	</div>
 @endsection

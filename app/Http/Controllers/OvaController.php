@@ -180,6 +180,13 @@ class OvaController extends Controller
     {
         $file = $request->file('archive2');
         $ova = Ova::find($id);
+        $ovaslist = Ova::orderBy('id','ASC')->lists('name', 'id');
+        foreach ($ovaslist as $lista) {
+            if (strtolower($lista) === strtolower($request->name)) {
+                Flash::error("El OVA ya existe");
+                return redirect()->route('admin.ovas.edit',$id);
+            }
+        }
         $ova->fill($request->all());
         if($file != null){
             $nombre = $file->getClientOriginalName();
@@ -188,6 +195,18 @@ class OvaController extends Controller
             \Storage::disk('local')->put($nombre,  \File::get($file));
             $ova->archive = $nombre;
         }
+        $arrayNombre = explode(" ", $request->name);
+        $slug="";
+        if(sizeof($arrayNombre)>1){
+            for ($i=0; $i < sizeof($arrayNombre); $i++) { 
+                if ($i==0) {
+                    $slug= $arrayNombre[$i];
+                }else{
+                    $slug= $slug."-".$arrayNombre[$i];   
+                }
+            }     
+        }
+        $ova->slug =$slug;
         $ova->save();
 
         Flash::warning("Se ha actualizado el ova " .$ova->id. " con exito!");

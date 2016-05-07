@@ -143,7 +143,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::group(['prefix' => 'admin', 'middleware' => ['AdminMw']],function(){
         // --------------> Home <------------ 
           Route::get('/', ['as' => 'admin.index', function () {
-            return view('welcome');
+            return view('home');
           }]);
 
           // --------------> CRUD Perfiles <------------ 
@@ -203,20 +203,20 @@ Route::group(['middleware' => 'web'], function () {
 
         });
         Route::group(['prefix' => 'helps'],function(){
-            Route::get('helps',[
+            Route::get('list',[
             'uses' => 'HelpController@listas',
-            'as'   => 'helps.helps'
+            'as'   => 'helps.list'
             ]);
             Route::get('recentarchive',[
             'uses' => 'HelpRecentArchiveController@index',
-            'as'   => 'helps.helps.recentarchive'
+            'as'   => 'helps.recentarchive'
             ]);
             Route::get('own',[
             'uses' => 'HelpController@own',
             'as'   => 'helps.own.index'
             ]);
-            Route::get('helps/{helps}', [
-            'as' => 'helps.helps.show',
+            Route::get('show/{helps}', [
+            'as' => 'helps.show',
             'uses' => 'HelpController@show'
             ]);
         });

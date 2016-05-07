@@ -7,6 +7,17 @@
 	@include('admin.template.partials.errors')               <!-- Revisar errores ventana-->
 	<div class="table-responsive">                    <!-- Clase para adaptacion movil-->
 		<a href="{{ route('admin.forums.create') }}" class="btn btn-info">Registrar nuevo foro</a>    <!-- Enlace para registrar un nuevo foro-->
+		<?php
+			$i=0;
+		?>
+		@foreach($forums as $forum)            <!-- Ciclo de foros-->
+			@if($forum->user_id == Auth::user()->id)             <!-- Condicion para buscar la identificacion del usuario que inicio sesion-->
+				<?php
+					$i=1;
+				?>	
+			@endif    <!-- Fin de condicional-->
+		@endforeach     <!-- Fin ciclo-->
+		@if($i==1)
 		<table class="table table-striped">              <!-- Tabla con estilo-->
 			<thead>  <!-- Cabeza de la tabla-->
 				<th>Nombre</th>        <!-- Nombre columna-->
@@ -28,8 +39,11 @@
 				@endforeach     <!-- Fin ciclo-->
 			</tbody>	
 		</table>
-	</div>
-	<div class="text-center">
-		{!! $forums->render() !!}      <!-- Paginacion de foros-->
+		<div class="text-center">
+			{!! $forums->render() !!}      <!-- Paginacion de foros-->
+		</div>
+		@else
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+		@endif
 	</div>
 @endsection          <!-- Fin de contenido-->

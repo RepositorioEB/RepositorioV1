@@ -7,6 +7,7 @@
 	@include('admin.template.partials.errors')     <!-- Revisar errores ventana-->
 	<div class="table-responsive">         <!-- Clase para adaptacion a movil-->
 		<a href="{{ route('admin.categories.create') }}" class="btn btn-info">Registrar nueva categoría</a>   <!-- Enlace para ingresar una nueva categoria-->
+		@if(count($categories)>0)
 		<table class="table table-striped">     <!-- Tabla con estilo-->
 			<thead>        <!-- Cabeza de la tabla-->
 				<th>N°</th>      <!-- Titulo columna-->
@@ -31,9 +32,11 @@
 				@endforeach    <!-- Fin ciclo-->
   			</tbody>	
 		</table>
+		<div class="text-center">
+			{!! $categories->render() !!}          <!-- Mostrar paginacion-->
+		</div>
+		@else
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+		@endif
 	</div>
-	<div class="text-center">
-		{!! $categories->render() !!}          <!-- Mostrar paginacion-->
-	</div>
-	
 @endsection           <!-- Fin de contenido-->

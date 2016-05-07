@@ -6,6 +6,7 @@
 
 	@include('admin.template.partials.errors')                   <!-- Revisar errores ventana-->
 	<div class="table-responsive">                  <!-- Clase para adaptacion movil-->
+		@if(count($downloads)>0)
 		<table class="table table-striped">                  <!-- Tabla con estilo-->
 			<thead>                 <!-- Cabeza tabla-->
 				<th>N°</th>               <!-- Nombre columna tabla-->
@@ -31,9 +32,12 @@
 				@endforeach            <!-- Fin ciclo-->
 			</tbody>	
 		</table>
+		<div class="text-center">
+			{!! $downloads->render() !!}             <!-- Paginacion de descargas-->
+ 		</div>
+ 		@else
+ 			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+		@endif
 	</div>
-	<div class="text-center">
-		{!! $downloads->render() !!}             <!-- Paginacion de descargas-->
- 	</div>
 	
 @endsection       <!-- Fin de contenido-->

@@ -122,7 +122,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ayudas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('helps.helps') }}" title="Listar Ayudas">Listar</a></li>
+                            <li><a href="{{ route('helps.list') }}" title="Listar Ayudas">Listar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

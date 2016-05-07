@@ -7,6 +7,7 @@
 	@include('admin.template.partials.errors')
 	<div class="table-responsive">
 	<center>
+		@if(count($forums)>0)
 		<table>
 		<thead>
 			<th><h4><legend>Nombre</legend></h4></th>
@@ -23,6 +24,9 @@
 			@endforeach
 		</tbody>	
 		</table>
+		@else
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+		@endif
 	</center>
 	</div>
 @endsection

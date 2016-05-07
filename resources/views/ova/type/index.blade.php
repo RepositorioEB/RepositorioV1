@@ -11,6 +11,7 @@
 		<h3><legend> Búsqueda por: Tipo</legend></h3>
 		<br />
 		<center>
+		@if(count($types)>0)
 		<table class="table table-striped">
 			<thead>
 					<th><big><b><center>Nombre</center></b></big></th>
@@ -32,8 +33,12 @@
 		@endforeach
 		</table>
 		</center>
-	<div class="text-center">
+		<div class="text-center">
 		{!! $types->render() !!}     <!-- Paginacion de tipos de ova-->
-	</div>
+		</div>
+		@else
+			<br><br><br><br>
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>	
+		@endif
 	</div>
 @endsection

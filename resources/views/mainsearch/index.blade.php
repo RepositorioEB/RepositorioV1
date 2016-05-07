@@ -5,11 +5,13 @@
 @section('content')
 	<?php
 		$var = 0;
+		$varTotal = 0;	
 	?>
 	@foreach($ovasname as $ovaname)  <!-- Ciclo nombreova-->
 		@if($ovaname->state ==1)<!-- Condicion si el ova ya has sido subido-->
 			<?php
 				$var = 1;     //Variable para verificar si hay ova
+				$varTotal = 1;
 			?>
 		@endif
 	@endforeach
@@ -27,7 +29,7 @@
 				<tr>
 					<td>{{$ovaname->name}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.ova.show', $ovaname->id) }}" class="btn btn-warning" title="Ver OVA {{$ovaname->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.ova.show', $ovaname->slug) }}" class="btn btn-warning" title="Ver OVA {{$ovaname->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 				@endif
@@ -45,6 +47,7 @@
 		@if($ovadescription->state ==1)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 		@endif
 	@endforeach
@@ -64,7 +67,7 @@
 					<td>{{$ovadescription->name}}</td>
 					<td>{{$ovadescription->description}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.ova.show', $ovadescription->id) }}" class="btn btn-warning" title="Ver OVA {{$ovadescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.ova.show', $ovadescription->slug) }}" class="btn btn-warning" title="Ver OVA {{$ovadescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 				@endif
@@ -81,6 +84,7 @@
 		@if($ovaarchive->state ==1)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 		@endif
 	@endforeach
@@ -100,7 +104,7 @@
 					<td>{{$ovaarchive->name}}</td>
 					<td>{{$ovaarchive->archive}}</td>
 					<td align="right">
-						<a href="{{ route('ovas.ova.show', $ovaarchive->id) }}" class="btn btn-warning" title="Ver OVA {{$ovaarchive->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('ovas.ova.show', $ovaarchive->slug) }}" class="btn btn-warning" title="Ver OVA {{$ovaarchive->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 				@endif
@@ -116,6 +120,7 @@
 	@foreach($ovascategory as $ovacategory)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -146,6 +151,7 @@
 	@foreach($ovastype as $ovatype)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -176,6 +182,7 @@
 	@foreach($categoriesdescription as $categorydescription)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -208,6 +215,7 @@
 	@foreach($typesdescription as $typedescription)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -240,6 +248,7 @@
 	@foreach($forumsname as $forumname)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -270,6 +279,7 @@
 	@foreach($forumscharacteristic as $forumcharacteristic)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -302,6 +312,7 @@
 	@foreach($helpsname as $helpname)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -317,7 +328,7 @@
 				<tr>
 					<td>{{$helpname->name}}</td>
 					<td align="right">
-						<a href="{{ route('helps.helps.show', $helpname->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpname->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('helps.show', $helpname->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpname->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -332,6 +343,7 @@
 	@foreach($helpsvideo as $helpvideo)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -349,7 +361,7 @@
 					<td>{{$helpvideo->name}}</td>
 					<td>{{$helpvideo->video}}</td>
 					<td align="right">
-						<a href="{{ route('helps.helps.show',$helpvideo->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpvideo->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('helps.show',$helpvideo->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpvideo->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -364,6 +376,7 @@
 	@foreach($helpsdescription as $helpdescription)
 			<?php
 				$var = 1;
+				$varTotal = 1;
 			?>
 	@endforeach
 	@if($var==1)
@@ -381,7 +394,7 @@
 					<td>{{$helpdescription->name}}</td>
 					<td>{!! $replace=str_replace("\r","<br>",$helpdescription->description); !!}</td>
 					<td align="right">
-						<a href="{{ route('helps.helps.show',$helpdescription->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpdescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
+						<a href="{{ route('helps.show',$helpdescription->id) }}" class="btn btn-warning" title="Ver Ayuda {{$helpdescription->name}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Ver</span></a>
 					</td>
 				</tr>
 			@endforeach
@@ -389,8 +402,10 @@
 	</table>
 	</div>
 	@endif
-
 	<div class="text-center">
 	    {!! $ovasdescription->appends(array('search' => $_GET['search']))->links()!!}  <!--Realizar la paginacion -->
     </div>
+    @if($varTotal == 0)
+    	<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+	@endif
 @endsection

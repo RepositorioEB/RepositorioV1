@@ -7,6 +7,17 @@
 	@include('admin.template.partials.errors')                <!-- Revisar errores ventana-->
 	<div class="table-responsive">                           <!-- Clase para adaptacion movil-->
 	<a href="{{ route('admin.helps.create') }}" class="btn btn-info">Registrar nueva ayuda</a>     <!-- Enlace para registrar nueva ayuda-->
+		<?php
+			$i=0;
+		?>
+		@foreach($helps as $help)              <!-- Ciclo de ayudas-->
+			@if($help->user_id == Auth::user()->id)          <!-- Comparacion con la identificacion del usuario-->
+				<?php
+					$i=1;
+				?>	
+			@endif    <!-- Fin de condicional-->
+		@endforeach     <!-- Fin ciclo-->
+		@if($i==1)
 		<table class="table table-striped">           <!-- Table con estilo-->
 			<thead>                  <!-- Cabeza tabla-->
 				<th>Nº</th>               <!-- Nombre columna-->
@@ -38,9 +49,12 @@
 				@endforeach     <!-- Fin ciclo-->
 			</tbody>	
 		</table>
-	</div>
-	<div class="text-center">
-		{!! $helps->render() !!}          <!-- Paginacion de ayudas-->
+		<div class="text-center">
+			{!! $helps->render() !!}          <!-- Paginacion de ayudas-->
+		</div>
+		@else
+			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
+		@endif
 	</div>
 	
 @endsection        <!-- Fin de contenido-->

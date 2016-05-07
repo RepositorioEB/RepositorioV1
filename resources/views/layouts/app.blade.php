@@ -131,7 +131,7 @@
                                         <br>
                                         <ul>
                                         <!-- Formulario para abrir archivos recientes de ayudas-->
-                                        {!! Form::open( ['route' => ['helps.helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
+                                        {!! Form::open( ['route' => ['helps.recentarchive'],'method' => 'GET', 'files' => true]) !!}
                                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-book" aria-hidden="true"></span> {!! Form::submit('Ayudas') !!}</li>
                                         {!! Form::close() !!}   
                                         </ul>
