@@ -23,6 +23,7 @@ Route::group(['middleware' => 'web'], function () {
 
       Route::get('/', function () {
         if(Auth::check()){
+
           return Redirect::to('member');
         }
         return view('welcome');
@@ -53,6 +54,10 @@ Route::group(['middleware' => 'web'], function () {
         Route::group(['prefix' => 'chat'],function(){
         
           //Routes chat
+          Route::get('cargarMensajes', [
+            'as' => 'chat.users_chats.cargarMensajes', 
+            'uses' => 'User_ChatController@cargarMensajes'
+          ]);
           Route::resource('users_chats', 'User_ChatController');
           Route::get('llamando', [
             'as' => 'chat.users_chats.conversation', 
@@ -142,9 +147,9 @@ Route::group(['middleware' => 'web'], function () {
           // --------------> Routes Admin <------------ 
         Route::group(['prefix' => 'admin', 'middleware' => ['AdminMw']],function(){
         // --------------> Home <------------ 
-          Route::get('/', ['as' => 'admin.index', function () {
-            return view('home');
-          }]);
+          Route::get('/', ['as' => 'admin.index',
+            'uses' => 'HomeController@index',
+          ]);
 
           // --------------> CRUD Perfiles <------------ 
           Route::resource('profiles', 'ProfileController');
@@ -224,10 +229,9 @@ Route::group(['middleware' => 'web'], function () {
         
         // --------------> Routes Member <------------ 
         Route::group(['prefix' => 'member', 'middleware' => ['MemberMw']],function(){
-            Route::get('/', ['as' => 'member.index', function () 
-            {
-              return view('home');
-            }]);
+            Route::get('/', ['as' => 'member.index', 
+            'uses' => 'HomeController@index',
+            ]);
             
             Route::resource('profiles', 'ProfileController');
             Route::get('profiles', [

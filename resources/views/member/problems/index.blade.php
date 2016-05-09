@@ -16,7 +16,17 @@
 				</span>
 			</div>
 		{!! Form::close() !!}
-		@if(count($problems)>0)
+		<?php
+			$i=0;
+		?>
+		@foreach($problems as $problem)    <!-- Ciclo de problemas-->
+			@if($problem->user_id == Auth::user()->id)    <!-- Condicion para comparar el id del usuario-->
+				<?php
+					$i=1;
+				?>	
+			@endif
+		@endforeach
+		@if($i==1)
 		<table class="table table-striped">
 			<thead>
 				<th>Nombre</th>

@@ -180,7 +180,7 @@ class OvaController extends Controller
     {
         $file = $request->file('archive2');
         $ova = Ova::find($id);
-        $ovaslist = Ova::orderBy('id','ASC')->lists('name', 'id');
+        $ovaslist = Ova::orderBy('id','ASC')->where('id','!=',$id)->lists('name', 'id');
         foreach ($ovaslist as $lista) {
             if (strtolower($lista) === strtolower($request->name)) {
                 Flash::error("El OVA ya existe");

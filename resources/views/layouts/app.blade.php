@@ -152,8 +152,29 @@
                                     <!-- Enlaces para chat, foros y ovas-->
                                     <a href="{{ route('chat.users_chats.index') }}" title="Chatear" class="btn btn-success">¡Chat!</a>
                                     <a href="{{ route('foro.foros_usuarios.index') }}" title="Foros" class="btn btn-success">¡Foros!</a>
-                                    <a href="../../../../../ovas/menu" title="Ovas" class="btn btn-success" >¡Ovas!</a>
+                                    <a href="{{ route('ovas.menu')}}" title="Ovas" class="btn btn-success" >¡Ovas!</a>
                                 </center>
+                                @if (Auth::guest())   <!-- Condicion inicio de sesion-->
+                                @else
+                                <div>
+                                    <br><br>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                Mensajes
+                                            </div>  
+                                            </div>                                             
+                                            <div class="panel-body">
+                                                    <div id="mensajes">
+                                                    
+                                                    </div>
+                                                    <audio src="/sonidos/Sonido.mp3" preload>
+                                                        Tu explorador no soporta audio en HTML
+                                                    </audio>
+                                            </div>                                                                     
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -174,7 +195,33 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>       <!-- Script para el envio de mensaje-->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            $(document).on("ready", function(){             
+                $.ajaxSetup({"cache":false});   //Uso del ajax para envio de mensaje
+                setInterval("loadMessages()",3000);
+            });
+            var infor1=null;
+            var infor2=null;
+            var loadMessages = function (){
+                $.ajax({
+                    type: "GET",
+                    url: "/chat/cargarMensajes"
+                }).done(function(info){
+                    $("#mensajes").html(info);
+                    if(infor1==null){
+                        infor1 =info;
+                        infor2 =info; 
+                    }
+                    infor2=info;
+                    if(infor1!=infor2){
+                        $('audio')[0].play();
+                        infor1=infor2;
+                    }
+                });
+            }
+    </script>
     <!-- Fin Modificado (ed) -->
     <div class="panel panel-default">
         <div class="panel-heading">

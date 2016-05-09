@@ -38,6 +38,7 @@
 			{!! $forums->render() !!}        <!-- Paginacion de foros-->
 		</div>
 		@else
+			<br><br><br>
 			<h3><legend>&nbsp;&nbsp;&nbsp;No se encontró ningún elemento.</legend></h3>		
 		@endif
 	</div>
